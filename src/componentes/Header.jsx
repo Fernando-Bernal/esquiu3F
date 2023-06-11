@@ -39,12 +39,13 @@ export default Header;
 
 const NavContainer = styled.div`
 	text-align: left;
+  height: 10px;
 
 	h2 {
 		font-weight: bold;
 		color: #fff;
 	}
-	padding: 2.5rem;
+	padding: 2rem;
 	background-color: #333;
 	display: flex;
 	justify-content: space-between;
