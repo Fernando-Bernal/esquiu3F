@@ -103,6 +103,11 @@ const DivCampusCard = styled.div`
 		margin-top: 10px;
 		width: 90%;
 		border-radius: 20px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.5s ease-in-out;
+    }
 	}
 
 	h3 {
