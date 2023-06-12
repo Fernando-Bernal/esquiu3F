@@ -39,7 +39,7 @@ export default Header;
 
 const NavContainer = styled.div`
 	text-align: left;
-  height: 10px;
+	height: 10px;
 
 	h2 {
 		font-weight: bold;
@@ -64,7 +64,7 @@ const NavContainer = styled.div`
 		margin-left: auto;
 		margin-right: auto;
 		text-align: center;
-    transition: all 0.6s ease-in-out;
+		transition: all 0.6s ease-in-out;
 		a {
 			color: white;
 			font-size: 2rem;
@@ -92,8 +92,8 @@ const NavContainer = styled.div`
 		text-align: center;
 
 		a {
-      font-size: 2rem;
-      margin-top: 1rem;
+			font-size: 2rem;
+			margin-top: 1rem;
 			color: white;
 		}
 	}
@@ -113,9 +113,9 @@ const BgDiv = styled.div`
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-  transition: all 0.6s ease-in-out;
+	transition: all 0.6s ease-in-out;
 	&.active {
-    border-radius: 0 0 70% 0;
+		border-radius: 0 0 45% 0;
 		top: 0;
 		left: 0;
 		width: 100%;
