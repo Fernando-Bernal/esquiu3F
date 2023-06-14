@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import logo from "../assets/img/logotipo-sq3-torneo.png";
+import logo from "../assets/img/logo2.webp";
 import BurgerMenu from "./BurgerMenu";
 
 function Header() {
@@ -14,7 +14,7 @@ function Header() {
 	return (
 		<>
 			<NavContainer>
-				<h2>ESQUIU3</h2>
+				<img src={logo} alt="logo" />
 				<div className={`links ${clicked ? "active" : ""}`}>
 					<a href="">Inicio</a>
 					<a href="">Campus 3</a>
@@ -41,15 +41,15 @@ const NavContainer = styled.div`
 	text-align: left;
 	height: 10px;
 	position: static;
-	h2 {
-		font-weight: bold;
-		color: #fff;
-	}
 	padding: 2rem;
 	background-color: #333;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	img {
+		height: 55px;
+	}
 
 	a {
 		color: #fff;

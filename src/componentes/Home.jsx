@@ -4,6 +4,7 @@ import Carrusel from './Carrusel'
 import CampusForHome from './ForHomeCampus'
 import ForHomeTorneo from './ForHomeTorneo'
 import styled from 'styled-components'
+import ForHomeSponsor from './ForHomeSponsor'
 function Home() {
   return (
     <DivGral>
@@ -11,6 +12,8 @@ function Home() {
         <Carrusel />
         <CampusForHome />
         <ForHomeTorneo />
+        <ForHomeSponsor />
+        <FontAwesomeIcon icon="fa-light fa-mobile" style={{color: "#f2d608",}} />
     </DivGral>
   )
 }
