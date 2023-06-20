@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import branca from "../assets/img/branca.webp";video
+import branca from "../assets/img/branca.webp";
 import schneider from "../assets/img/schneider.webp";
 import libra from "../assets/img/libra.webp";
 
@@ -122,6 +122,10 @@ const CarouselContainer = styled.div`
 	margin: 0 auto;
 	overflow: hidden;
 	position: relative;
+
+	@media( min-width: 768px){
+		width: 50%;
+	}
 `;
 
 const carouselAnimation = keyframes`

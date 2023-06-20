@@ -13,7 +13,7 @@ function Home() {
         <CampusForHome />
         <ForHomeTorneo />
         <ForHomeSponsor />
-        <FontAwesomeIcon icon="fa-light fa-mobile" style={{color: "#f2d608",}} />
+        
     </DivGral>
   )
 }
