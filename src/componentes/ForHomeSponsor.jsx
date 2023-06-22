@@ -82,6 +82,7 @@ const Title = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	height: 35vh;
 
 	@media (min-width: 768px) {
 		height: 65vh;
@@ -93,7 +94,7 @@ const Title = styled.div`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: #fff;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
 		margin-bottom: -10px;
@@ -110,6 +111,7 @@ const ComponentContainer = styled.div`
 	height: 50%;
 	background-color: #222;
 	position: relative;
+	top: 30px;
 	overflow: hidden;
 	display: flex;
 	justify-content: center;

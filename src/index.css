@@ -20,21 +20,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* al className aHeader quiero agregarle un hover*/
+
+
+
 .dropdown-toggle {
   font-size: 1.5rem;
-
+  
   @media(min-width: 768px) {
     font-size: 1rem;
   }
 }
 
+
 .dropdown-menu.show{
   width: 80%;
   margin-left: 0%;
   text-align: left;
+  width: fit-content;
+
 }
 
-
+.dropdown-menu.show a{
+  margin: 5px 10px;
+}
 
 .dropdown-item {
   display: block;
@@ -47,7 +56,7 @@ body {
   background-color: #484a3c;
 
   @media(min-width: 768px) {
-    padding: 0.25rem 1.5rem;
+    padding: 0.25rem 0rem;
     background-color: rgb(242, 214, 8) !important;
   }
 }

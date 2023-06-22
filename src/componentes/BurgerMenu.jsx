@@ -22,8 +22,8 @@ export default BurgerMenu;
 
 const Burger = styled.div`
 	.nav-icon-5 {
-		width: 35px;
-		height: 30px;
+		width: 30px;
+		height: 22px;
 		margin: 10px 10px;
 		position: relative;
 		cursor: pointer;
@@ -48,7 +48,7 @@ const Burger = styled.div`
 		opacity: 1;
 	}
 	.nav-icon-5 span:nth-child(3) {
-		bottom: 0px;
+		bottom: -6px;
 		left: 0px;
 	}
 	.nav-icon-5:not(.open):hover span:nth-child(1) {

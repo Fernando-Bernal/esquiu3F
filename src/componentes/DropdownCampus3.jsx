@@ -49,9 +49,3 @@ function DropdownCampus3() {
 export default DropdownCampus3;
 
 
-const linkStyleA = {
-	margin:" 6px auto",
-    textDecoration: "none",
-    fontSize: "18px",
-    color: "rgb(255, 255, 255)"
-};

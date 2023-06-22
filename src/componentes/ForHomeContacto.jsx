@@ -45,6 +45,10 @@ const DivContacto = styled.div`
     border-radius: 10px;
     box-shadow: 2px 2px 4px #f2d708b0;
 
+    @media(min-width: 768px){
+        width: 50%;
+    }
+
 `
 
 const DivItems = styled.div`
@@ -55,6 +59,7 @@ const DivItems = styled.div`
     align-items: center;
     flex-direction: column;
     margin: 0 10px;
+
 
     p{
         color: #fff;
