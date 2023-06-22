@@ -5,6 +5,7 @@ import CampusForHome from './ForHomeCampus'
 import ForHomeTorneo from './ForHomeTorneo'
 import styled from 'styled-components'
 import ForHomeSponsor from './ForHomeSponsor'
+import ForHomeContacto from './ForHomeContacto'
 function Home() {
   return (
     <DivGral>
@@ -13,7 +14,7 @@ function Home() {
         <CampusForHome />
         <ForHomeTorneo />
         <ForHomeSponsor />
-        
+        <ForHomeContacto />
     </DivGral>
   )
 }

@@ -84,7 +84,7 @@ const Title = styled.div`
 	flex-direction: column;
 
 	@media (min-width: 768px) {
-		height: 100vh;
+		height: 65vh;
 	}
 
 	h2 {

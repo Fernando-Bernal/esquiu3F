@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {
+	Dropdown,
+	DropdownItem,
+	DropdownMenu,
+	DropdownToggle,
+} from "reactstrap";
 import logo from "../assets/img/logo2.webp";
 import BurgerMenu from "./BurgerMenu";
 
@@ -119,7 +124,7 @@ const BgDiv = styled.div`
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 110%;
+		height: 76%;
 	}
 `;
 
