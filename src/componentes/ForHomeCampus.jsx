@@ -58,7 +58,8 @@ const SectionCampus = styled.section`
 		font-size: 2rem;
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
-		margin-bottom: -10px;
+		top: 30px;
+    margin-bottom: 10px;
 		@media (min-width: 768px) {
 			position: absolute;
 			top: 10%;

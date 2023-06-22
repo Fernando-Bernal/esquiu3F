@@ -100,7 +100,7 @@ const Title = styled.div`
 		@media (min-width: 768px) {
 			font-size: 4rem;
 			position: relative;
-			top: 5%;
+			top: -5%;
 		}
 	}
 `;

@@ -28,8 +28,10 @@ body {
   }
 }
 
-.DropdownMenu{
-  border-radius: 200px !important;
+.dropdown-menu.show{
+  width: 80%;
+  margin-left: 0%;
+  text-align: left;
 }
 
 
@@ -37,12 +39,12 @@ body {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 0.25rem 0rem;
   clear: both;
   font-weight: 400;
-  text-align: inherit;
+  text-align: left;
   white-space: nowrap;
-  background-color: #f2d708b0;
+  background-color: #484a3c;
 
   @media(min-width: 768px) {
     padding: 0.25rem 1.5rem;

@@ -69,7 +69,7 @@ const NavContainer = styled.div`
 		left: -2000px;
 		margin-left: auto;
 		margin-right: auto;
-		text-align: center;
+		text-align: left;
 		transition: all 0.6s ease-in-out;
 		a {
 			color: white;
@@ -96,12 +96,14 @@ const NavContainer = styled.div`
 		width: 100%;
 		display: block;
 		position: absolute;
-		margin-left: auto;
+		/* margin-left: auto; */
 		margin-right: auto;
 		top: 15%;
 		left: 0;
 		right: 0;
 		text-align: center;
+		text-align: left;
+    margin-left: 25px;
 
 		a {
 			font-size: 1.5rem;

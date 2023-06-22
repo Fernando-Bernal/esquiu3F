@@ -51,7 +51,10 @@ const TorneoContainer = styled.div`
 		font-size: 2rem;
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
-		margin-bottom: -10px;
+		top: 30px;
+    	margin-bottom: 10px;
+
+
 		@media (min-width: 768px) {
 			position: absolute;
 			top: 10%;
@@ -70,7 +73,7 @@ const DivTorneo = styled.div`
 
 	@media (min-width: 768px) {
 		position: relative;
-		top: 250px;
+		top: 165px;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		flex-direction: row;
@@ -81,7 +84,7 @@ const DivTorneo = styled.div`
 `;
 const DivTorneoCard = styled.div`
 	background-color: rgb(66, 55, 55);
-	width: 60%;
+	width: 50%;
 	height: 200px;
 	color: #fff;
 	margin: 20px;
@@ -101,17 +104,17 @@ const DivTorneoCard = styled.div`
 	img {
 		color: #fff;
 		margin-top: 10px;
-		width: 40%;
+		width: 45%;
 	}
 
 	button {
 		background-color: #f2d608;
 		color: #ffffff;
 		height: 40px;
-		width: 130px;
+		width: 100px;
 		border-radius: 20px;
 		border: none;
-		font-size: 1.2rem;
+		font-size: 1rem;
 		font-weight: bold;
 		cursor: pointer;
 		box-shadow: 2px 2px 4px #000000;
