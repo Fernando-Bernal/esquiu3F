@@ -20,4 +20,56 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dropdown-toggle {
+  font-size: 1.5rem;
 
+  @media(min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.DropdownMenu{
+  border-radius: 200px !important;
+}
+
+
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: #f2d708b0;
+
+  @media(min-width: 768px) {
+    padding: 0.25rem 1.5rem;
+    background-color: rgb(242, 214, 8) !important;
+  }
+}
+
+.dropdown-menu{
+  --bs-dropdown-padding-y: 0 !important;
+  --bs-dropdown-gap: 15px !important;
+}
+
+
+.btn-secondary{
+  --bs-btn-color: rgb(255, 255, 255) !important;
+  --bs-btn-bg:var(--bs-btn-bg) !important; 
+  --bs-btn-border-color: #e31c1c00 !important; 
+  --bs-btn-hover-color: #ffffffbd !important; 
+  --bs-btn-hover-bg:#ffffff00 !important; 
+  --bs-btn-hover-border-color:#de383800 !important; 
+  --bs-btn-focus-shadow-rgb: #ffffff00 !important; 
+  --bs-btn-active-color: #ffffff00 !important; 
+  --bs-btn-active-bg: #ffffff00 !important; 
+  --bs-btn-active-border-color: #ffffff00 !important; 
+  --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125); 
+  --bs-btn-disabled-color: #ffffff00 !important;
+  --bs-btn-disabled-bg: #ffffff00 !important; 
+  --bs-btn-disabled-border-color: #ffffff00 !important;
+
+}

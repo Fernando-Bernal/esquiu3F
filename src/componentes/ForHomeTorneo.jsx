@@ -40,7 +40,7 @@ const TorneoContainer = styled.div`
 	position: relative;
 
 	@media (min-width: 768px) {
-		height: 100vh;
+		height: 70vh;
 	}
 
 	h2 {

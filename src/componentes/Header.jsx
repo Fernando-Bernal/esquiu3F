@@ -6,6 +6,7 @@ import {
 	DropdownMenu,
 	DropdownToggle,
 } from "reactstrap";
+import DropdownCampus3 from "./DropdownCampus3";
 import logo from "../assets/img/logo2.webp";
 import BurgerMenu from "./BurgerMenu";
 
@@ -22,11 +23,11 @@ function Header() {
 				<img src={logo} alt="logo" />
 				<div className={`links ${clicked ? "active" : ""}`}>
 					<a href="">Inicio</a>
-					<a href="">Campus 3</a>
 					<a href="">Torneo SQ3</a>
 					<a href="">Novedades</a>
 					<a href="">Quienes somos</a>
 					<a href="">Contacto</a>
+					<DropdownCampus3 />
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />
@@ -43,12 +44,12 @@ export default Header;
 //? Estilos del NavBar
 
 const NavContainer = styled.div`
-	text-align: left;
-	height: 10px;
 	position: static;
+	text-align: left;
+	display: flex;
+	height: 10px;
 	padding: 2rem;
 	background-color: #333;
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
@@ -78,10 +79,16 @@ const NavContainer = styled.div`
 		@media (min-width: 768px) {
 			position: initial;
 			margin: 0;
+			display: inline-flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 50%;
+
 			a {
 				font-size: 1rem;
 				color: #fff;
 				display: inline;
+				transition: all 0.6s ease-in-out;
 			}
 		}
 	}
@@ -99,7 +106,17 @@ const NavContainer = styled.div`
 		a {
 			font-size: 1.5rem;
 			margin-top: 1rem;
-			color: white;
+			color: #ffffff;
+		}
+	}
+
+	//cambiar el color de los links cuando paso el cursor por arriba
+	@media (min-width: 768px) {
+		a:hover {
+			color: #d0a20f;
+			font-size: 1.3rem;
+			transition: all 0.6s ease-in-out;
+			transform: skew(-20deg);
 		}
 	}
 
