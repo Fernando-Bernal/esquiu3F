@@ -48,7 +48,7 @@ const TorneoContainer = styled.div`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: #fff;
-		font-size: 1.6rem;
+		font-size: 1.5rem;
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
 		top: 30px;
@@ -57,7 +57,7 @@ const TorneoContainer = styled.div`
 
 		@media (min-width: 768px) {
 			position: absolute;
-			top: 10%;
+			top: 13%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			font-size: 4rem;

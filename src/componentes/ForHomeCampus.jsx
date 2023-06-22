@@ -55,7 +55,7 @@ const SectionCampus = styled.section`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: #fff;
-		font-size: 1.7rem;
+		font-size: 1.5rem;
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
 		top: 30px;
