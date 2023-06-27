@@ -7,6 +7,7 @@ import {
 	writeBatch,
 	addDoc,
 	getFirestore,
+	getDocs,
 } from "firebase/firestore";
 
 function AdminImport() {
@@ -37,11 +38,11 @@ function AdminImport() {
     const importToFirestore = () => {
         setLoading(true);
         try {
-            const docRef = collection(db, "Goleadores libres")
+            const docRef = collection(db, 'Goleadores', 'libres', 'jugador')
             data.forEach((row) => {
-                const { nombre_completo, equipo, goles } = row;
+                const { nombre, equipo, goles, orden } = row;
                 const newDocRef = doc(docRef);
-				batch.set(newDocRef, { nombre_completo, equipo, goles });
+				batch.set(newDocRef, { nombre, equipo, goles, orden });
             });
             batch.commit().then(() => {
                 console.log("Se importaron los datos correctamente");
@@ -53,6 +54,24 @@ function AdminImport() {
         }
     };
 
+	const deleteCollection = async() => {
+		setLoading(true);
+		try {
+			const docRef = collection(db, 'Goleadores', 'libres', 'jugador');
+			const docDelete = await getDocs(docRef);
+			const batch = writeBatch(db);
+
+			docDelete.forEach((doc) => {
+				batch.delete(doc.ref);
+			});
+			await batch.commit();
+			console.log("Se borraron los datos correctamente");
+			setLoading(false);
+		} catch (error) {
+			console.log(error);
+			setLoading(true);
+		}
+	};
 
 	return (
 		<div>
@@ -62,22 +81,25 @@ function AdminImport() {
 				onFileLoaded={handleForce}
 				parserOptions={papaparseOptions}
 			/>
-			<button onClick={() => importToFirestore()}>{loading? "Cargando tabla" : "Se importo correctamente"}</button>
+			<button onClick={() => importToFirestore()}>{loading? "Cargando tabla" : "Guardar"}</button>
+			<button onClick={() => deleteCollection()}>{loading? "Borrando datos" : "Borrar"}</button>
 			<table className="table table-sm table-bordered">
 				<thead>
 					<tr>
 						<th>Nombre</th>
 						<th>Equipo</th>
 						<th>Goles</th>
+						<th>Orden</th>
 					</tr>
 				</thead>
 				<tbody>
 					{tabla.map((e) => {
 						return (
-							<tr key={e.id}>
-								<td>{e.nombre_completo}</td>
+							<tr key={e.orden}>
+								<td>{e.nombre}</td>
 								<td >{e.equipo}</td>
 								<td>{e.goles}</td>
+								<td>{e.orden}</td>
 							</tr>
 						);
 					})}
