@@ -17,7 +17,7 @@ function Header() {
 				<img src={logo} alt="logo" />
 				<div className={`links ${clicked ? "active" : ""}`}>
 					<a className="ahedear" href="">Inicio</a>
-					<a href="">Torneo SQ3</a>
+					<a href="/torneos">Torneo SQ3</a>
 					<a href="">Novedades</a>
 					<a href="">Quienes somos</a>
 					<a href="">Contacto</a>
