@@ -17,11 +17,11 @@ function Header() {
 				<img src={logo} alt="logo" />
 				<div className={`links ${clicked ? "active" : ""}`}>
 					<a className="ahedear" href="">Inicio</a>
-					<a href="/torneos">Torneo SQ3</a>
-					<a href="">Novedades</a>
-					<a href="">Quienes somos</a>
-					<a href="">Contacto</a>
-					<DropdownCampus3 />
+					<a className="ahedear" href="/torneos">Torneo SQ3</a>
+					<a className="ahedear" href="">Novedades</a>
+					<a className="ahedear" href="">Quienes somos</a>
+					<a className="ahedear" href="">Contacto</a>
+					<DropdownCampus3 className="ahedear" />
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />
@@ -83,7 +83,7 @@ const NavContainer = styled.div`
 				display: inline;
 				transition: all 0.6s ease-in-out;
 			}
-			a:hover {
+			.ahedear:hover {
 				color: #d0a20f;
 				font-size: 1.2rem;
 				transition: all 0.6s ease-in-out;

@@ -5,6 +5,7 @@ import Home from './componentes/Home'
 import Torneo from './componentes/Torneo';
 import AdminImport from './componentes/AdminImport';
 import Goleadores from './componentes/Goleadores';
+import AdminImportTorneo from './componentes/AdminImportTorneo';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/torneos" element={<Torneo />} />
           <Route path="/goles" element={<Goleadores />} />
+          <Route path="/posiciones" element={<AdminImportTorneo />} />
           <Route path="/admin" element={<AdminImport />} />
 
         </Routes>

@@ -9,7 +9,7 @@ function Torneo() {
 
     useEffect(() => {
         const db = getFirestore();
-        const torneosCollection = collection(db, 'Libres');
+        const torneosCollection = collection(db, 'torneo', 'libres', 'eqipo');
         const torneos = getDocs(torneosCollection);
         torneos.then((snapshot) => {
             const torneos = snapshot.docs.map(doc => {
