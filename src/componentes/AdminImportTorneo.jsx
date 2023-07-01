@@ -9,9 +9,11 @@ import {
 	getFirestore,
 	getDocs,
 } from "firebase/firestore";
+import Header from "./Header";
 
 function AdminImportTorneo() {
 	const db = getFirestore();
+	const [categorias, setCategorias] = useState([]);
 	const [data, setData] = useState([]);
 	const [tabla, setTabla] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -36,7 +38,7 @@ function AdminImportTorneo() {
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "TorneoLibres");
+			const docRef = collection(db, "Torneo", `${categorias}`, "equipo");
 			data.forEach((row) => {
 				const {
 					posici_n,
@@ -77,7 +79,7 @@ function AdminImportTorneo() {
 	const deleteCollection = async () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "TorneoLibres");
+			const docRef = collection(db, "Torneo", `${categorias}`, "equipo");;
 			const docDelete = await getDocs(docRef);
 			const batch = writeBatch(db);
 
@@ -93,11 +95,27 @@ function AdminImportTorneo() {
 		}
 	};
 
+	const handleCategory = (e) => {
+		setCategorias(e.target.value);
+	};
+
 	return (
 		<DivBackground>
+			<Header />
 			<DivTitle>
 				<h1>Importar tabla de posiciones</h1>
+				<A href="admin-goles"> Importar goleadores</A>
 			</DivTitle>
+			<Select onChange={handleCategory}>
+					<option disabled selected>
+						Seleccione una categoria
+					</option>
+					<option value="libres">Libres</option>
+					<option value="+30">+30</option>
+					<option value="+36">+36</option>
+					<option value="Maxi">Maxi</option>
+
+				</Select>
 			<Btn onClick={() => deleteCollection()}>
 				{loading ? "Borrando datos" : "Borrar datos viejos"}
 			</Btn>
@@ -107,6 +125,9 @@ function AdminImportTorneo() {
 				onFileLoaded={handleForce}
 				parserOptions={papaparseOptions}
 			/>
+			<Btn onClick={() => importToFirestore()}>
+				{loading ? "Cargando tabla" : "Guardar"}
+			</Btn>
 			<DivTable>
 				<table className="table table-sm table-bordered">
 					<thead>
@@ -143,9 +164,6 @@ function AdminImportTorneo() {
 					</tbody>
 				</table>
 			</DivTable>
-			<Btn onClick={() => importToFirestore()}>
-				{loading ? "Cargando tabla" : "Guardar"}
-			</Btn>
 			<DivInfomation>
 				<h3>Informacion</h3>
 				<p>
@@ -169,6 +187,8 @@ export default AdminImportTorneo;
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
 	height: 100vh;
+    min-height: 100%;
+	overflow-y: auto;
 `;
 
 const DivTitle = styled.div`
@@ -180,6 +200,28 @@ const DivTitle = styled.div`
 	margin-bottom: 50px;
 `;
 
+const A = styled.a`
+	text-decoration: none;
+	color: #fff;
+	height: max-content;
+	background-color: #7633b9;
+	border-radius: 5px;
+	padding: 10px;
+	position: relative;
+	left: 300px;
+`;
+
+const Select = styled.select`
+	display: block;
+	position: relative;
+	left: 48%;
+	width: 200px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	margin: 0 10px;
+`;
+
 const DivTable = styled.div`
 	display: flex;
 	justify-content: center;
@@ -189,7 +231,7 @@ const DivTable = styled.div`
 `;
 
 const DivInfomation = styled.div`
-	margin: 20px auto;
+	margin: 50px auto 10px;
 	width: 70%;
 	padding: 20px;
 	background-color: #fff;
@@ -204,9 +246,9 @@ const Btn = styled.button`
 	border: none;
 	border-radius: 5px;
 	padding: 5px 10px;
-	margin: 0 10px;
+	margin: 15px 10px;
 	position: relative;
-	right: -450px;
+	right: -300px;
 
 	cursor: pointer;
 	&:hover {
@@ -214,3 +256,4 @@ const Btn = styled.button`
 
 	}
 `;
+

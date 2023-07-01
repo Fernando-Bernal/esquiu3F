@@ -17,8 +17,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/torneos" element={<Torneo />} />
           <Route path="/goles" element={<Goleadores />} />
-          <Route path="/posiciones" element={<AdminImportTorneo />} />
-          <Route path="/admin" element={<AdminImport />} />
+          <Route path="/admin-torneo" element={<AdminImportTorneo />} />
+          <Route path="/admin-goles" element={<AdminImport />} />
 
         </Routes>
       </div>

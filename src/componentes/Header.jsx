@@ -16,7 +16,7 @@ function Header() {
 			<NavContainer>
 				<img src={logo} alt="logo" />
 				<div className={`links ${clicked ? "active" : ""}`}>
-					<a className="ahedear" href="">Inicio</a>
+					<a className="ahedear" href="/">Inicio</a>
 					<a className="ahedear" href="/torneos">Torneo SQ3</a>
 					<a className="ahedear" href="">Novedades</a>
 					<a className="ahedear" href="">Quienes somos</a>
