@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 import Home from './componentes/Home'
@@ -8,6 +8,7 @@ import Goleadores from './componentes/Goleadores';
 import AdminImportTorneo from './componentes/AdminImportTorneo';
 
 function App() {
+
 
   return (
     <>

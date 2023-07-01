@@ -36,7 +36,7 @@ function AdminImportTorneo() {
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "torneo", "libres", "equipo");
+			const docRef = collection(db, "TorneoLibres");
 			data.forEach((row) => {
 				const {
 					posici_n,
@@ -77,7 +77,7 @@ function AdminImportTorneo() {
 	const deleteCollection = async () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "torneo", "libres", "eqipo");
+			const docRef = collection(db, "TorneoLibres");
 			const docDelete = await getDocs(docRef);
 			const batch = writeBatch(db);
 
@@ -126,7 +126,7 @@ function AdminImportTorneo() {
 					<tbody>
 						{tabla.map((e) => {
 							return (
-								<tr key={e.id}>
+								<tr key={e.posici_n}>
 									<td>{e.posici_n}</td>
 									<td>{e.equipo}</td>
 									<td>{e.puntos}</td>

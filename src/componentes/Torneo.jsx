@@ -1,30 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import{ getFirestore, collection, doc, getDoc , getDocs } from 'firebase/firestore';
-
+import { getTorneoLibres } from "../redux/actions";
 function Torneo() {
-
+    const dispatch = useDispatch();
+    const data = useSelector((state)=> state.torneolibres)
     const [tabla, setTabla] = useState([]);
-    const [data, setData] = useState([]);
 
     useEffect(() => {
-        const db = getFirestore();
-        const torneosCollection = collection(db, 'torneo', 'libres', 'eqipo');
-        const torneos = getDocs(torneosCollection);
-        torneos.then((snapshot) => {
-            const torneos = snapshot.docs.map(doc => {
-                return {
-                    id: doc.id,
-                    ...doc.data()
-                }
-            })
-
-            setData(torneos);
-        }
-        )
-        
+        dispatch(getTorneoLibres());        
     }, []);
-console.log(data)
+
 
     useEffect(() => {
         setTabla(data);
@@ -52,14 +38,14 @@ console.log(data)
               return (
                 <tr key={e.id}>
                   <td>{e.equipo}</td>
-                  <td>{e.p}</td>
-                  <td>{e.pj}</td>
-                  <td>{e.pg}</td>
-                  <td>{e.pe}</td>
-                  <td>{e.pp}</td>
-                  <td>{e.gf}</td>
-                  <td>{e.gc}</td>
-                  <td>{e.d}</td>
+                  <td>{e.puntos}</td>
+                  <td>{e.partidos_jugados}</td>
+                  <td>{e.partidos_ganados}</td>
+                  <td>{e.partidos_empatados}</td>
+                  <td>{e.partidos_perdidos}</td>
+                  <td>{e.a_favor}</td>
+                  <td>{e.en_contra}</td>
+                  <td>{e.diferencia}</td>
                 </tr>
               );
             })}

@@ -55,6 +55,7 @@ const NavContainer = styled.div`
 		color: #fff;
 		text-decoration: none;
 		margin-left: 1rem;
+		
 	}
 
 	.links {
@@ -65,6 +66,7 @@ const NavContainer = styled.div`
 		margin-right: auto;
 		text-align: left;
 		transition: all 0.6s ease-in-out;
+		
 		a {
 			color: white;
 			display: block;
@@ -95,7 +97,6 @@ const NavContainer = styled.div`
 		width: 100%;
 		display: block;
 		position: absolute;
-		/* margin-left: auto; */
 		margin-right: auto;
 		top: 15%;
 		left: 0;
@@ -104,17 +105,13 @@ const NavContainer = styled.div`
         margin-left: 25px;
 
 		a {
-			font-size: 1rem;
+			font-size: 1.5rem;
 			margin-top: 1rem;
 			color: #ffffff;
 		}
 
 		
 	}
-
-	@media (min-width: 768px) {
-		
-		}
 
 	.burger {
 		@media (min-width: 768px) {

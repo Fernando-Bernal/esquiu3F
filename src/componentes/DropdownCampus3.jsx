@@ -26,7 +26,7 @@ function DropdownCampus3() {
                 <DropdownItem className="dropdown">
                     <Link to="/">Cancha sintética</Link>
                 </DropdownItem>
-                <DropdownItem className="dropdown">
+                {/* <DropdownItem className="dropdown">
                     <Link to="/">Cancha padel</Link>
                 </DropdownItem>
                 <DropdownItem className="dropdown">
@@ -34,7 +34,7 @@ function DropdownCampus3() {
                 </DropdownItem>
                 <DropdownItem className="dropdown">
                     <Link to="/">Clínica deportiva</Link>
-                </DropdownItem>
+                </DropdownItem> */}
                 <DropdownItem className="dropdown">
                     <Link to="/">Escuela de fútbol</Link>
                 </DropdownItem>

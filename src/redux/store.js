@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reducerApp from "./reducerApp"
-import { persistStore, persistReducer } from "redux-persist";
+import { persistStore, persistReducer , purgeStoredState} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -16,6 +16,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
+//const persistor = purgeStoredState(persistConfig);
 const persistor = persistStore(store);
 
 export default store;
