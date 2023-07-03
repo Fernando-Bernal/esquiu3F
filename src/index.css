@@ -38,7 +38,7 @@ body {
   margin-left: 0%;
   text-align: left;
   width: fit-content;
-
+  
 }
 
 .dropdown-menu.show a{
@@ -53,8 +53,8 @@ body {
   font-weight: 400;
   text-align: left;
   white-space: nowrap;
-  background-color: #484a3c;
-
+  background-color: #282825;
+  
   @media(min-width: 768px) {
     padding: 0.25rem 0rem;
     background-color: rgb(242, 214, 8) !important;
@@ -82,5 +82,15 @@ body {
   --bs-btn-disabled-color: #ffffff00 !important;
   --bs-btn-disabled-bg: #ffffff00 !important; 
   --bs-btn-disabled-border-color: #ffffff00 !important;
+  
+}
 
+/**estilos para el dropdown del torneo*/
+#categoria{
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 0.25rem 0rem;
+  @media(min-width: 768px) {
+    font-size: 1rem;
+  }
 }

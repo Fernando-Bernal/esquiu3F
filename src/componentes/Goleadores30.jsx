@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getGoalLibres } from "../redux/actions";
+import { getGoal30 } from "../redux/actions";
 
-function Goleadores() {
+function Goleadores30() {
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.glibres);
+	const data = useSelector((state) => state.goles30);
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {
-		dispatch(getGoalLibres());
+		dispatch(getGoal30());
 	}, []);
 
 	useEffect(() => {
@@ -48,7 +48,7 @@ function Goleadores() {
 	);
 }
 
-export default Goleadores;
+export default Goleadores30;
 
 const DivBackground = styled.div`
 	position: relative;

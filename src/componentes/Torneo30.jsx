@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getTorneoLibres } from "../redux/actions";
+import { getTorneo30 } from "../redux/actions";
 import styled from "styled-components";
 
-function Torneo() {
+function Torneo30() {
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.torneolibres);
+	const data = useSelector((state) => state.torneo30);
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {
-		dispatch(getTorneoLibres());
+		dispatch(getTorneo30());
 	}, []);
-
+console.log(data)
 	useEffect(() => {
 		setTabla(data);
 	}, [data]);
-
 	return (
 		<DivContainer>
 			<DivTitulo>POSICIONES</DivTitulo>
@@ -58,7 +57,7 @@ function Torneo() {
 	);
 }
 
-export default Torneo;
+export default Torneo30;
 
 const DivContainer = styled.div`
 	position: relative;
@@ -85,9 +84,9 @@ const DivTabla = styled.div`
 	margin-bottom: 20px;
 	overflow: auto;
 
-  @media (min-width: 768px) {
-    width: 80%;
-  }
+	@media (min-width: 768px) {
+		width: 80%;
+	}
 `;
 
 const Td = styled.td`

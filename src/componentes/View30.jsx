@@ -1,25 +1,25 @@
 import React from "react";
 import Header from "./Header";
 import NavbarSq3 from "./NavbarSq3";
-import Torneo from "./Torneo";
-import Goleadores from "./Goleadores";
 import styled from "styled-components";
+import Torneo30 from "./Torneo30";
+import Goleadores30 from "./Goleadores30";
 
-
-function ViewLibres() {
-	return (
-		<>
-			<DivContainer>
-				<Header />
-				<NavbarSq3 />
-				<Torneo />
-				<Goleadores />
-			</DivContainer>
-		</>
-	);
+function View30() {
+  return (
+    <>
+    <DivContainer>
+        <Header />
+        <NavbarSq3 />
+        <Torneo30 />
+        <Goleadores30 />
+    </DivContainer>
+</>
+  )
 }
 
-export default ViewLibres;
+export default View30
+
 
 const DivContainer = styled.div`
 	background-color: rgb(43, 38, 38);
