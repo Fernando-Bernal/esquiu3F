@@ -103,31 +103,33 @@ function AdminImportTorneo() {
 		<DivBackground>
 			<Header />
 			<DivTitle>
-				<h1>Importar tabla de posiciones</h1>
-				<A href="admin-goles"> Importar goleadores</A>
+				<h1>IMPORTAR TABLA DE POSICIONES</h1>
+				<A href="admin-goles">Goleadores</A>
+				<A href="admin-goles">Noticias</A>
 			</DivTitle>
-			<Select onChange={handleCategory}>
+			<DivButtons>
+				<Select onChange={handleCategory}>
 					<option disabled selected>
-						Seleccione una categoria
+						Categoria
 					</option>
 					<option value="libres">Libres</option>
 					<option value="+30">+30</option>
 					<option value="+36">+36</option>
 					<option value="Maxi">Maxi</option>
-
 				</Select>
-			<Btn onClick={() => deleteCollection()}>
-				{loading ? "Borrando datos" : "Borrar datos viejos"}
-			</Btn>
-			<CSVReader
-				cssClass="react-csv-input"
-				label="Seleccione el archivo csv que quiera subir...  "
-				onFileLoaded={handleForce}
-				parserOptions={papaparseOptions}
-			/>
-			<Btn onClick={() => importToFirestore()}>
-				{loading ? "Cargando tabla" : "Guardar"}
-			</Btn>
+				<BtnRojo onClick={() => deleteCollection()}>
+					{loading ? "Borrando datos" : "Borrar datos viejos"}
+				</BtnRojo>
+				<CSVReader
+					cssClass="react-csv-input"
+					label="CSV.."
+					onFileLoaded={handleForce}
+					parserOptions={papaparseOptions}
+				/>
+				<Btn onClick={() => importToFirestore()}>
+					{loading ? "Cargando tabla" : "Guardar"}
+				</Btn>
+			</DivButtons>
 			<DivTable>
 				<table className="table table-sm table-bordered">
 					<thead>
@@ -165,7 +167,7 @@ function AdminImportTorneo() {
 				</table>
 			</DivTable>
 			<DivInfomation>
-				<h3>Informacion</h3>
+				<h4>INFORMACIÓN</h4>
 				<p>
 					Para importar la tabla de posiciones, debe tener en cuenta que el
 					archivo csv debe tener los siguientes campos: Posición, Equipo,
@@ -191,35 +193,149 @@ const DivBackground = styled.div`
 	overflow-y: auto;
 `;
 
+// const DivTitle = styled.div`
+// 	/* background-color: #14655f; */
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	height: 10vh;
+// 	margin-bottom: 50px;
+// 	color: #fff;
+// `;
 const DivTitle = styled.div`
-	background-color: #b2b7f0;
+	/* background-color: #14655f; */
+	background-color: #f0b21f;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 10vh;
 	margin-bottom: 50px;
+	color: #fdfdfd;
+	
+	h1{
+		position: relative;
+		left: 100px;
+		font-size: 1.8rem;
+	}
 `;
 
+// const A = styled.a`
+// 	text-decoration: none;
+// 	color: #fff;
+// 	height: max-content;
+// 	background-color: #259f97;
+// 	border-radius: 5px;
+// 	padding: 10px;
+// 	position: relative;
+// 	left: 320px;
+// 	margin-left: 10px;
+// `;
 const A = styled.a`
 	text-decoration: none;
-	color: #fff;
+	color: #ffffff;
+	text-shadow: #3b1a1a 1px 1px 2px;
 	height: max-content;
-	background-color: #7633b9;
+	background-color: #404642;
 	border-radius: 5px;
 	padding: 10px;
 	position: relative;
-	left: 300px;
+	left: 320px;
+	margin-right: 10px;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		transform: scale(1.1);
+		transition: all 0.3s ease-in-out;
+	}
+`;
+
+const DivButtons = styled.div`
+	background-color: #ffffff;
+	width: 70%;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 30px;
+	box-shadow: 0 0 10px #999;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 `;
 
 const Select = styled.select`
 	display: block;
-	position: relative;
-	left: 48%;
-	width: 200px;
+	background-color: #f0b21f;
+	color: #fff;
+	width: 120px;
 	height: 30px;
 	border-radius: 5px;
 	border: none;
-	margin: 0 10px;
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	cursor: pointer;
+
+	>option{
+		color: #ffffff;
+	}
+
+	&:hover {
+		background-color: #d0950c;
+	}
+`;
+// const Select = styled.select`
+// 	display: block;
+// 	background-color: #259f9785;
+// 	color: #fff;
+// 	width: 120px;
+// 	height: 30px;
+// 	border-radius: 5px;
+// 	border: none;
+// 	color: #fff;
+// 	font-weight: 500;
+// 	text-align: center;
+// 	cursor: pointer;
+// 	&:hover {
+// 		background-color: #259f97;
+// 	}
+// `;
+
+const Btn = styled.button`
+	background-color: #f0b21f;
+	width: 100px;
+	color: #fff;
+	font-weight: 500;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+	&:hover {
+		background-color: #d0950c;
+	}
+`;
+// const Btn = styled.button`
+// 	background-color: #259f9785;
+// 	color: #fff;
+// 	font-weight: 500;
+// 	border: none;
+// 	border-radius: 5px;
+// 	padding: 5px;
+// 	cursor: pointer;
+// 	&:hover {
+// 		background-color: #259f97;
+// 	}
+// `;
+const BtnRojo = styled.button`
+	background-color: #d51b1b;
+	color: #fff;
+	font-weight: 500;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	border: 0.2px solid #000000;
+	cursor: pointer;
+	&:hover {
+		background-color: #9b1d1df6;
+	}
 `;
 
 const DivTable = styled.div`
@@ -239,21 +355,4 @@ const DivInfomation = styled.div`
 	box-shadow: 0 0 10px #999;
 `;
 
-const Btn = styled.button`
-	background-color: #b2b7f0;
-	color: #fff;
-	font-weight: 500;
-	border: none;
-	border-radius: 5px;
-	padding: 5px 10px;
-	margin: 15px 10px;
-	position: relative;
-	right: -300px;
-
-	cursor: pointer;
-	&:hover {
-		background-color: #6a72cf;
-
-	}
-`;
 

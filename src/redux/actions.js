@@ -23,7 +23,7 @@ export function getTorneoLibres() {
   const db = getFirestore();
   return async function (dispatch) {
     try {
-      const q = query(collection(db, "TorneoLibres"), orderBy("posici_n"));
+      const q = query(collection(db, "Torneo", "libres", "equipo"), orderBy("posici_n"));
       const querySnapshot = await getDocs(q);
         const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
         dispatch({ type: GET_TORNEO_LIBRES, payload: tabla });      

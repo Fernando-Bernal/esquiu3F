@@ -73,17 +73,18 @@ function Goleadores() {
 export default Goleadores;
 
 const DivBackground = styled.div`
-	position: absolute;
-	background-color: #f8f9fa;
+	position: relative;
 	height: 100vh;
 	width: 100%;
+	top: -80px;
+	z-index: -5;
 `;
 
 const DivTitulo = styled.h2`
 	position: relative;
-	top: 70px;
+	top: 110px;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	color: #212529;
 `;
@@ -96,8 +97,8 @@ const DivTabla = styled.div`
 	padding: 10px;
 	border-radius: 10px;
 	background-color: #f8f9fa;
-	box-shadow: 0 0 10px #f8f9fa;
-	top: 130px;
+	box-shadow: 0 0 10px #ccb367;
+	top: 120px;
 	margin-bottom: 20px;
 	overflow: auto;
 `;

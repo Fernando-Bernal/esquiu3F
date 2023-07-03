@@ -2,7 +2,7 @@ import { GET_GOAL_LIBRES , GET_TORNEO_LIBRES} from "./actions";
 
 const initialState = {
     glibres: [],
-    torneolibres: []
+    torneolibres: [],
 }
 
 const reducerApp = (state = initialState, action) => {
