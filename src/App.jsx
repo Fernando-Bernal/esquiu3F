@@ -15,10 +15,10 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/torneo-libre" element={<ViewLibres/>} />
-          <Route path="/torneo-30" element={<View30/>} />
-          <Route path="/admin-torneo" element={<AdminImportTorneo />} />
-          <Route path="/admin-goles" element={<AdminImport />} />
+          <Route path="/torneolibre" element={<ViewLibres/>} />
+          <Route path="/torneo30" element={<View30/>} />
+          <Route path="/admintorneo" element={<AdminImportTorneo />} />
+          <Route path="/admingoles" element={<AdminImport />} />
 
         </Routes>
       </div>
