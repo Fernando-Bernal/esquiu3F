@@ -1,3 +1,0 @@
-{
-	"routes": [{ "src": "/:path*", "dest": "/index.html" }]
-}
