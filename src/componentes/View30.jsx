@@ -11,6 +11,7 @@ function View30() {
     <DivContainer>
         <Header />
         <NavbarSq3 />
+        <H2>CATEGORIA +30</H2>
         <Torneo30 />
         <Goleadores30 />
     </DivContainer>
@@ -29,4 +30,16 @@ const DivContainer = styled.div`
 	overflow-y: auto;
 	position: absolute;
 	z-index: -5;
+`;
+
+const H2 = styled.h2`
+	color: #fff;
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 1.7rem;
+	z-index: -5;
+	position: relative;
+	font-weight: 700;
+	text-decoration: underline;
 `;

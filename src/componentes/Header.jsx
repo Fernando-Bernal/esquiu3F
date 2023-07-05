@@ -18,10 +18,10 @@ function Header() {
 				<div className={`links ${clicked ? "active" : ""}`}>
 					<a className="ahedear" href="/">Inicio</a>
 					<a className="ahedear" href="/torneo-libre">Torneo SQ3</a>
+					<DropdownCampus3 className="ahedear" />
 					<a className="ahedear" href="">Novedades</a>
 					<a className="ahedear" href="">Quienes somos</a>
 					<a className="ahedear" href="">Contacto</a>
-					<DropdownCampus3 className="ahedear" />
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />
@@ -94,7 +94,6 @@ const NavContainer = styled.div`
 		}
 	}
 	.links.active {
-		width: 100%;
 		display: block;
 		position: absolute;
 		margin-right: auto;

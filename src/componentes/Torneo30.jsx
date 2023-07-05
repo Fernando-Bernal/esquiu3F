@@ -12,10 +12,11 @@ function Torneo30() {
 	useEffect(() => {
 		dispatch(getTorneo30());
 	}, []);
-console.log(data)
+
 	useEffect(() => {
 		setTabla(data);
 	}, [data]);
+
 	return (
 		<DivContainer>
 			<DivTitulo>POSICIONES</DivTitulo>
@@ -23,15 +24,15 @@ console.log(data)
 				<table className="table table-sm table-bordered">
 					<thead>
 						<tr>
-							<th>Equipo</th>
-							<th>P</th>
-							<th>PJ</th>
-							<th>PG</th>
-							<th>PE</th>
-							<th>PP</th>
-							<th>GF</th>
-							<th>GE</th>
-							<th>GD</th>
+							<th id="th">Equipo</th>
+							<th id="th">P</th>
+							<th id="th">PJ</th>
+							<th id="th">PG</th>
+							<th id="th">PE</th>
+							<th id="th">PP</th>
+							<th id="th">GF</th>
+							<th id="th">GE</th>
+							<th id="th">GD</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -74,7 +75,7 @@ const DivTitulo = styled.h2`
 `;
 
 const DivTabla = styled.div`
-	width: 85%;
+	width: 90%;
 	height: auto;
 	position: relative;
 	margin: auto;
@@ -84,13 +85,15 @@ const DivTabla = styled.div`
 	margin-bottom: 20px;
 	overflow: auto;
 
-	@media (min-width: 768px) {
-		width: 80%;
-	}
+  @media (min-width: 768px) {
+    width: 80%;
+  }
 `;
 
+
+
 const Td = styled.td`
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
 `;

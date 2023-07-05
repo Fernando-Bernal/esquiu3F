@@ -4,7 +4,7 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getGoalLibres } from "../redux/actions";
 
-function Goleadores() {
+function  Goleadores() {
 	const dispatch = useDispatch();
 	const data = useSelector((state) => state.glibres);
 	const [tabla, setTabla] = useState([]);
@@ -25,9 +25,9 @@ function Goleadores() {
 					<table className="table table-striped">
 						<thead>
 							<tr>
-								<th>Nombre</th>
-								<th>Equipo</th>
-								<th>Goles</th>
+								<th id="th">Nombre</th>
+								<th id="th">Equipo</th>
+								<th id="th">Goles</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -68,11 +68,10 @@ const DivTitulo = styled.h2`
 `;
 
 const DivTabla = styled.div`
-	width: 80%;
+	width: 85%;
 	height: 70vh;
 	position: relative;
 	margin: auto;
-	padding: 10px;
 	border-radius: 10px;
 	background-color: #f8f9fa;
 	box-shadow: 0 0 10px #ccb367;
@@ -82,7 +81,7 @@ const DivTabla = styled.div`
 `;
 
 const Td = styled.td`
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
 `;

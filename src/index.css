@@ -26,9 +26,11 @@ body {
 
 .dropdown-toggle {
   font-size: 1.5rem;
-  
+  padding: 0;
+  margin: 16px 0px 0 16px ;
   @media(min-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin: 0 0 0 16px;
   }
 }
 
@@ -53,7 +55,7 @@ body {
   font-weight: 400;
   text-align: left;
   white-space: nowrap;
-  background-color: #282825;
+  background-color: #d08c1e;
   
   @media(min-width: 768px) {
     padding: 0.25rem 0rem;
@@ -87,10 +89,16 @@ body {
 
 /**estilos para el dropdown del torneo*/
 #categoria{
-  font-size: .9rem;
+  font-size: .8rem;
   font-weight: 500;
   padding: 0.25rem 0rem;
+  margin: 0;
   @media(min-width: 768px) {
     font-size: 1rem;
   }
+}
+
+
+#th{
+  background-color: orange;
 }
