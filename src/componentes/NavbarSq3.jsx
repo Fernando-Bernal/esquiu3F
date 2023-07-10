@@ -7,7 +7,6 @@ function NavbarSq3() {
 		<DivContainer>
 			<DivButtons>
 				<DropdownCategory />
-				<a href="">FIXTURE</a>
 				<a href="">SANCIONES</a>
 				<a href="">REGLAMENTO</a>
 			</DivButtons>
@@ -24,8 +23,8 @@ const DivContainer = styled.div`
 	width: 100%;
 	height: 45px;
 	margin-bottom: 50px;
-  border-top: 5px solid #ffbc5076;
-  border-bottom: 5px solid #a16709;
+	border-top: 5px solid #ffbc5076;
+	border-bottom: 5px solid #a16709;
 `;
 
 const DivButtons = styled.div`
@@ -40,5 +39,9 @@ const DivButtons = styled.div`
 		color: white;
 		font-size: 0.8rem;
 		font-weight: 500;
+
+		@media (min-width: 768px) {
+			font-size: 1rem;
+		}
 	}
 `;

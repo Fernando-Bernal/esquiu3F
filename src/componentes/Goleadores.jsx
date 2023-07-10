@@ -10,7 +10,9 @@ function  Goleadores() {
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {
-		dispatch(getGoalLibres());
+		if (data.length === 0){
+			dispatch(getGoalLibres());
+		}
 	}, []);
 
 	useEffect(() => {
@@ -78,6 +80,16 @@ const DivTabla = styled.div`
 	top: 120px;
 	margin-bottom: 20px;
 	overflow: auto;
+
+	
+	@media (min-width: 768px) {
+		width: 40%;
+		::-webkit-scrollbar {
+			width: 10px;
+			background-color: #ccb367;
+		}
+	}
+		
 `;
 
 const Td = styled.td`

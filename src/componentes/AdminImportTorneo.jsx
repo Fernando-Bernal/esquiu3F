@@ -14,6 +14,7 @@ import Header from "./Header";
 function AdminImportTorneo() {
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
+	const [zona, setZona] = useState([]);
 	const [data, setData] = useState([]);
 	const [tabla, setTabla] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -38,7 +39,7 @@ function AdminImportTorneo() {
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "Torneo", `${categorias}`, "equipo");
+			const docRef = collection(db, `${categorias}`, `${zona}`, "equipo");
 			data.forEach((row) => {
 				const {
 					posici_n,
@@ -79,7 +80,7 @@ function AdminImportTorneo() {
 	const deleteCollection = async () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "Torneo", `${categorias}`, "equipo");;
+			const docRef = collection(db, `${categorias}`, `${zona}`, "equipo");
 			const docDelete = await getDocs(docRef);
 			const batch = writeBatch(db);
 
@@ -99,13 +100,17 @@ function AdminImportTorneo() {
 		setCategorias(e.target.value);
 	};
 
+	const handleZona = (e) => {
+		setZona(e.target.value);
+	};
+
 	return (
 		<DivBackground>
 			<Header />
 			<DivTitle>
 				<h1>IMPORTAR TABLA DE POSICIONES</h1>
 				<A href="admin-goles">Goleadores</A>
-				<A href="admin-goles">Noticias</A>
+				<A href="admin-noticias">Noticias</A>
 			</DivTitle>
 			<DivButtons>
 				<Select onChange={handleCategory}>
@@ -116,6 +121,17 @@ function AdminImportTorneo() {
 					<option value="+30">+30</option>
 					<option value="+36">+36</option>
 					<option value="Maxi">Maxi</option>
+				</Select>
+				<Select onChange={handleZona}>
+					<option disabled selected>
+						Zona
+					</option>
+					<option value="Zona 1">Zona 1</option>
+					<option value="Zona 2">Zona 2</option>
+					<option value="Oro zona 1">Oro zona 1</option>
+					<option value="Oro zona 2">Oro zona 2</option>
+					<option value="Plata zona 1">Plata zona 1</option>
+					<option value="Plata zona 2">Plata zona 2</option>
 				</Select>
 				<BtnRojo onClick={() => deleteCollection()}>
 					{loading ? "Borrando datos" : "Borrar datos viejos"}

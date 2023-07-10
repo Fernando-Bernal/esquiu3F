@@ -82,7 +82,7 @@ function AdminImport() {
 			<DivTitle>
 				<h1>IMPORTAR TABLA DE GOLEADORES</h1>
 				<A href="admin-torneo"> Torneo</A>
-				<A href="admin-torneo"> Noticias</A>
+				<A href="admin-noticias"> Noticias</A>
 			</DivTitle>
 			<DivButtons>
 				<Select onChange={handleCategory}>
@@ -266,98 +266,4 @@ const DivInfomation = styled.div`
 	box-shadow: 0 0 10px #999;
 `;
 
-//? Violeta
-// const DivTitle = styled.div`
-// 	background-color: #b2b7f0;
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	height: 10vh;
-// 	margin-bottom: 50px;
-// 	color: #fff;
-// 	h1{
-// 		position: relative;
-// 		left: 100px;
-// 	}
-// `;
 
-// const A = styled.a`
-// 	text-decoration: none;
-// 	color: #fff;
-// 	height: max-content;
-// 	background-color: #7633b9;
-// 	border-radius: 5px;
-// 	padding: 10px;
-// 	position: relative;
-// 	left: 320px;
-// 	margin-left: 10px;
-// `;
-
-// const DivButtons = styled.div`
-// 	background-color: #ffffff;
-// 	width: 70%;
-// 	margin: 0 auto;
-// 	padding: 20px;
-// 	border-radius: 30px;
-// 	box-shadow: 0 0 10px #999;
-// 	display: flex;
-// 	justify-content: space-between;
-// 	align-items: center;
-// `;
-
-// const Select = styled.select`
-// 	display: block;
-// 	background-color: #b2b7f0;
-// 	color: #fff;
-// 	width: 120px;
-// 	height: 30px;
-// 	border-radius: 5px;
-// 	border: none;
-// 	color: #fff;
-// 	font-weight: 500;
-// 	text-align: center;
-// 	cursor: pointer;
-// `;
-
-// const Btn = styled.button`
-// 	background-color: #b2b7f0;
-// 	color: #fff;
-// 	font-weight: 500;
-// 	border: none;
-// 	border-radius: 5px;
-// 	padding: 5px;
-// 	cursor: pointer;
-// 	&:hover {
-// 		background-color: #6a72cf;
-// 	}
-// `;
-// const BtnRojo = styled.button`
-// 	background-color: #f72c2cd5;
-// 	color: #fff;
-// 	font-weight: 500;
-// 	border: none;
-// 	border-radius: 5px;
-// 	padding: 5px;
-// 	border: 0.2px solid #000000;
-// 	cursor: pointer;
-// 	&:hover {
-// 		background-color: #f72c2c;
-// 	}
-// `;
-
-// const DivTable = styled.div`
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	margin: 30px auto 10px;
-// 	width: 70%;
-// `;
-
-// const DivInfomation = styled.div`
-// 	margin: 50px auto 10px;
-// 	width: 70%;
-// 	padding: 20px;
-// 	background-color: #fff;
-// 	border-radius: 10px;
-// 	box-shadow: 0 0 10px #999;
-// `;
