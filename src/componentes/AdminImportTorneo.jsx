@@ -5,7 +5,6 @@ import {
 	collection,
 	doc,
 	writeBatch,
-	addDoc,
 	getFirestore,
 	getDocs,
 } from "firebase/firestore";
@@ -108,9 +107,15 @@ function AdminImportTorneo() {
 		<DivBackground>
 			<Header />
 			<DivTitle>
+				<div>
+					<B href="admin-resultados">Resultados</B>
+					<B href="admin-fixture">Fixture</B>
+				</div>
 				<h1>IMPORTAR TABLA DE POSICIONES</h1>
-				<A href="admin-goles">Goleadores</A>
-				<A href="admin-noticias">Noticias</A>
+				<div>
+					<A href="admin-goles">Goleadores</A>
+					<A href="admin-noticias">Noticias</A>
+				</div>
 			</DivTitle>
 			<DivButtons>
 				<Select onChange={handleCategory}>
@@ -205,7 +210,7 @@ export default AdminImportTorneo;
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
 	height: 100vh;
-    min-height: 100%;
+	min-height: 100%;
 	overflow-y: auto;
 `;
 
@@ -222,15 +227,15 @@ const DivTitle = styled.div`
 	/* background-color: #14655f; */
 	background-color: #f0b21f;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: 10vh;
 	margin-bottom: 50px;
 	color: #fdfdfd;
-	
-	h1{
+
+	h1 {
 		position: relative;
-		left: 100px;
+		right: 10px;
 		font-size: 1.8rem;
 	}
 `;
@@ -255,7 +260,25 @@ const A = styled.a`
 	border-radius: 5px;
 	padding: 10px;
 	position: relative;
-	left: 320px;
+	right: 10px;
+	margin-right: 10px;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		transform: scale(1.1);
+		transition: all 0.3s ease-in-out;
+	}
+`;
+const B = styled.a`
+	text-decoration: none;
+	color: #ffffff;
+	text-shadow: #3b1a1a 1px 1px 2px;
+	height: max-content;
+	background-color: #404642;
+	border-radius: 5px;
+	padding: 10px;
+	position: relative;
+	left: 20px;
 	margin-right: 10px;
 	transition: all 0.3s ease-in-out;
 
@@ -290,7 +313,7 @@ const Select = styled.select`
 	text-align: center;
 	cursor: pointer;
 
-	>option{
+	> option {
 		color: #ffffff;
 	}
 
@@ -370,5 +393,3 @@ const DivInfomation = styled.div`
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
 `;
-
-

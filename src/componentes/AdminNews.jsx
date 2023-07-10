@@ -50,16 +50,22 @@ function AdminNews() {
 		<DivBackground>
 			<Header />
 			<DivTitle>
+				<div>
+					<B href="admin-resultados">Resultados</B>
+					<B href="admin-fixture">Fixture</B>
+				</div>
 				<h1>CREAR NOTICIA PARA BLOG</h1>
-				<A href="admin-goles">Goleadores</A>
-				<A href="admin-torneo"> Torneo</A>
+				<div>
+					<A href="admin-goles">Goleadores</A>
+					<A href="admin-torneo"> Torneo</A>
+				</div>
 			</DivTitle>
 			<div>
 				<form>
 					<ContactWrapper>
 						<ContactLabel htmlFor="title">
 							TITULO
-							<ContactInput   
+							<ContactInput
 								type="text"
 								name="title"
 								id="title"
@@ -78,22 +84,24 @@ function AdminNews() {
 								required={true}
 							></ContactTextarea>
 						</ContactLabel>
-                        <ContactLabel>IMAGEN</ContactLabel>
-                        <ContactInput
-                            type="file"
-                            onChange={(evento) =>{
-                                setImageUpload(evento.target.files[0])
-                            }}
-                        />
-                        {errors.title === '' && errors.text === ''?(
-                            <ContactButton
-                                type="submit"
-                                id="button"
-                                onClick={(e) => handleSubmit(e)}
-                            />
-                        ) : (
-                            <ContactFull>Debe completar los campos Titulo y Texto</ContactFull>
-                        )}
+						<ContactLabel>IMAGEN</ContactLabel>
+						<ContactInput
+							type="file"
+							onChange={(evento) => {
+								setImageUpload(evento.target.files[0]);
+							}}
+						/>
+						{errors.title === "" && errors.text === "" ? (
+							<ContactButton
+								type="submit"
+								id="button"
+								onClick={(e) => handleSubmit(e)}
+							/>
+						) : (
+							<ContactFull>
+								Debe completar los campos Titulo y Texto
+							</ContactFull>
+						)}
 					</ContactWrapper>
 				</form>
 			</div>
@@ -113,17 +121,19 @@ const DivBackground = styled.div`
 const DivTitle = styled.div`
 	background-color: #b2b7f0;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: 10vh;
 	margin-bottom: 50px;
 	color: #fff;
+
 	h1 {
 		position: relative;
-		left: 90px;
+		left: 20px;
 		font-size: 1.8rem;
 	}
 `;
+
 const A = styled.a`
 	text-decoration: none;
 	color: #fff;
@@ -132,8 +142,32 @@ const A = styled.a`
 	border-radius: 5px;
 	padding: 10px;
 	position: relative;
-	left: 320px;
+	right: 10px;
 	margin-left: 10px;
+
+	&:hover {
+		transform: scale(1.1);
+		transition: all 0.3s ease-in-out;
+	}
+`;
+
+const B = styled.a`
+	text-decoration: none;
+	color: #ffffff;
+	text-shadow: #3b1a1a 1px 1px 2px;
+	height: max-content;
+	background-color: #7633b9;
+	border-radius: 5px;
+	padding: 10px;
+	position: relative;
+	left: 20px;
+	margin-right: 10px;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		transform: scale(1.1);
+		transition: all 0.3s ease-in-out;
+	}
 `;
 
 const ContactWrapper = styled.div`
@@ -151,15 +185,15 @@ const ContactLabel = styled.label`
 	padding: 13px 0;
 	color: white;
 	text-shadow: 1px 1px 1px #666;
-    font-weight: 600;
+	font-weight: 600;
 `;
 
 const ContactTextarea = styled.textarea`
 	width: 100%;
 	border-radius: 10px;
-    padding: 5px;
+	padding: 5px;
 	border: none;
-    margin-top: 5px;
+	margin-top: 5px;
 `;
 
 const ContactInput = styled.input`
@@ -167,7 +201,7 @@ const ContactInput = styled.input`
 	border-radius: 10px;
 	height: 45px;
 	border: none;
-    margin-top: 5px;
+	margin-top: 5px;
 `;
 
 const ContactFull = styled.strong`
@@ -183,12 +217,9 @@ const ContactButton = styled.input`
 	width: 100%;
 	border-radius: 13px;
 	background-color: #7633b9;
-    color: aliceblue;
+	color: aliceblue;
 
-    &:hover{
-        background-color: #431076;
-    }
+	&:hover {
+		background-color: #431076;
+	}
 `;
-
-
-

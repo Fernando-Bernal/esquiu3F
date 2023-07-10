@@ -80,9 +80,15 @@ function AdminImport() {
 		<DivBackground>
 			<Header />
 			<DivTitle>
+				<div>
+					<B href="admin-resultados">Resultados</B>
+					<B href="admin-fixture">Fixture</B>
+				</div>
 				<h1>IMPORTAR TABLA DE GOLEADORES</h1>
-				<A href="admin-torneo"> Torneo</A>
-				<A href="admin-noticias"> Noticias</A>
+				<div>
+					<A href="admin-torneo"> Torneo</A>
+					<A href="admin-noticias"> Noticias</A>
+				</div>
 			</DivTitle>
 			<DivButtons>
 				<Select onChange={handleCategory}>
@@ -133,9 +139,7 @@ function AdminImport() {
 			</DivTable>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
-				<p>
-					Primero, seleccionar la categoria a modificar!
-				</p>
+				<p>Primero, seleccionar la categoria a modificar!</p>
 				<p>
 					Para importar la tabla de Goleadores, debe tener en cuenta que el
 					archivo csv debe tener los siguientes campos: ................
@@ -162,14 +166,15 @@ const DivBackground = styled.div`
 const DivTitle = styled.div`
 	background-color: #20854f;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: 10vh;
 	margin-bottom: 50px;
 	color: #fff;
+
 	h1 {
 		position: relative;
-		left: 90px;
+		right: 20px;
 		font-size: 1.8rem;
 	}
 `;
@@ -182,8 +187,27 @@ const A = styled.a`
 	border-radius: 5px;
 	padding: 10px;
 	position: relative;
-	left: 320px;
+	right: 10px;
 	margin-left: 10px;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		transform: scale(1.1);
+		transition: all 0.3s ease-in-out;
+	}
+`;
+
+const B = styled.a`
+	text-decoration: none;
+	color: #ffffff;
+	text-shadow: #3b1a1a 1px 1px 2px;
+	height: max-content;
+	background-color: #404642;
+	border-radius: 5px;
+	padding: 10px;
+	position: relative;
+	left: 20px;
+	margin-right: 10px;
 	transition: all 0.3s ease-in-out;
 
 	&:hover {
@@ -265,5 +289,3 @@ const DivInfomation = styled.div`
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
 `;
-
-
