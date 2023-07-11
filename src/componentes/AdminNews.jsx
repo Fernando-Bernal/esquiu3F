@@ -50,15 +50,15 @@ function AdminNews() {
 		<DivBackground>
 			<Header />
 			<DivTitle>
-				<div>
+				<Divbtn>
 					<B href="admin-resultados">Resultados</B>
 					<B href="admin-fixture">Fixture</B>
-				</div>
+				</Divbtn>
 				<h1>CREAR NOTICIA PARA BLOG</h1>
-				<div>
+				<Divbtn>
 					<A href="admin-goles">Goleadores</A>
 					<A href="admin-torneo"> Torneo</A>
-				</div>
+				</Divbtn>
 			</DivTitle>
 			<div>
 				<form>
@@ -134,9 +134,14 @@ const DivTitle = styled.div`
 	}
 `;
 
+const Divbtn = styled.div`
+	display: flex;
+`;
+
 const A = styled.a`
 	text-decoration: none;
 	color: #fff;
+	text-shadow: #3b1a1a 1px 1px 2px;
 	height: max-content;
 	background-color: #7633b9;
 	border-radius: 5px;

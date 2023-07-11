@@ -107,15 +107,15 @@ function AdminImportTorneo() {
 		<DivBackground>
 			<Header />
 			<DivTitle>
-				<div>
+				<Divbtn>
 					<B href="admin-resultados">Resultados</B>
 					<B href="admin-fixture">Fixture</B>
-				</div>
+				</Divbtn>
 				<h1>IMPORTAR TABLA DE POSICIONES</h1>
-				<div>
+				<Divbtn>
 					<A href="admin-goles">Goleadores</A>
 					<A href="admin-noticias">Noticias</A>
-				</div>
+				</Divbtn>
 			</DivTitle>
 			<DivButtons>
 				<Select onChange={handleCategory}>
@@ -214,15 +214,6 @@ const DivBackground = styled.div`
 	overflow-y: auto;
 `;
 
-// const DivTitle = styled.div`
-// 	/* background-color: #14655f; */
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	height: 10vh;
-// 	margin-bottom: 50px;
-// 	color: #fff;
-// `;
 const DivTitle = styled.div`
 	/* background-color: #14655f; */
 	background-color: #f0b21f;
@@ -251,6 +242,11 @@ const DivTitle = styled.div`
 // 	left: 320px;
 // 	margin-left: 10px;
 // `;
+
+const Divbtn = styled.div`
+	display: flex;
+`;
+
 const A = styled.a`
 	text-decoration: none;
 	color: #ffffff;

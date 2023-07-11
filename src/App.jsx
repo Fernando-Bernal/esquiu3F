@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './componentes/Home'
 import AdminImport from './componentes/AdminImport';
 import AdminImportTorneo from './componentes/AdminImportTorneo';
+import AdminResults from './componentes/AdminResults';
 import AdminNews from './componentes/AdminNews';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/admin-torneo" element={<AdminImportTorneo />} />
           <Route path="/admin-goles" element={<AdminImport />} />
           <Route path="/admin-noticias" element={<AdminNews />} />
+          <Route path="/admin-resultados" element={<AdminResults />} />
         </Routes>
       </div>
     </>

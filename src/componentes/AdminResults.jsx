@@ -10,9 +10,10 @@ import {
 } from "firebase/firestore";
 import Header from "./Header";
 
-function AdminImport() {
+function AdminResults() {
 	const db = getFirestore();
-	const [categorias, setCategorias] = useState([]); //aca se guarda el array de categorias
+	const [categorias, setCategorias] = useState([]);
+	const [fecha, setFecha] = useState([]);
 	const [data, setData] = useState([]);
 	const [tabla, setTabla] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -37,38 +38,36 @@ function AdminImport() {
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, "Goleadores", `${categorias}`, "jugador");
+			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
 			data.forEach((row) => {
-				const { nombre, equipo, goles, orden } = row;
+				const {
+					fecha,
+					equipo_local,
+					goles_local,
+					equipo_visitante,
+					goles_visitante,
+					cancha,
+					dia,
+					horario,
+				} = row;
 				const newDocRef = doc(docRef);
-				batch.set(newDocRef, { nombre, equipo, goles, orden });
+				batch.set(newDocRef, {
+					fecha,
+					equipo_local,
+					goles_local,
+					equipo_visitante,
+					goles_visitante,
+					cancha,
+					dia,
+					horario,
+				});
 			});
 			batch.commit().then(() => {
-				console.log("Se importaron los datos correctamente");
+				console.log("Importación exitosa");
 				setLoading(false);
 			});
 		} catch (error) {
 			console.log(error);
-			setLoading(true);
-		}
-	};
-
-	const deleteCollection = async () => {
-		setLoading(true);
-		try {
-			const docRef = collection(db, "Goleadores", `${categorias}`, "jugador");
-			const docDelete = await getDocs(docRef);
-			const batch = writeBatch(db);
-
-			docDelete.forEach((doc) => {
-				batch.delete(doc.ref);
-			});
-			await batch.commit();
-			console.log("Se borraron los datos correctamente");
-			setLoading(false);
-		} catch (error) {
-			console.log(error);
-			setLoading(true);
 		}
 	};
 
@@ -76,15 +75,37 @@ function AdminImport() {
 		setCategorias(e.target.value);
 	};
 
+	const handleFecha = (e) => {
+		setFecha(e.target.value);
+	};
+
+	const deleteCollection = async() =>{
+		setLoading(true);
+		try {
+			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
+			const docDelete = await getDocs(docRef);
+			docDelete.forEach((doc) => {
+				batch.delete(doc.ref);
+			});
+			batch.commit().then(() => {
+				console.log("Se eliminaron los datos correctamente");
+				setLoading(false);
+			});
+		}
+		catch (error) {
+			console.log(error);
+		}
+	}
+
 	return (
 		<DivBackground>
 			<Header />
 			<DivTitle>
 				<Divbtn>
-					<B href="admin-resultados">Resultados</B>
+					<B href="admin-goles">Goleadores</B>
 					<B href="admin-fixture">Fixture</B>
 				</Divbtn>
-				<h1>IMPORTAR TABLA DE GOLEADORES</h1>
+				<h1>IMPORTAR TABLA RESULTADOS</h1>
 				<Divbtn>
 					<A href="admin-torneo"> Torneo</A>
 					<A href="admin-noticias"> Noticias</A>
@@ -99,6 +120,17 @@ function AdminImport() {
 					<option value="+30">+30</option>
 					<option value="+36">+36</option>
 					<option value="Maxi">Maxi</option>
+				</Select>
+				<Select onChange={handleFecha}>
+					<option disabled selected>
+						Fecha
+					</option>
+					<option value="Fecha 1">Fecha 1</option>
+					<option value="Fecha 2">Fecha 2</option>
+					<option value="Fecha 3">Fecha 3</option>
+					<option value="Fecha 4">Fecha 4</option>
+					<option value="Fecha 5">Fecha 5</option>
+					<option value="Fecha 6">Fecha 6</option>
 				</Select>
 				<BtnRojo onClick={() => deleteCollection()}>
 					{loading ? "Borrando datos" : "Borrar datos viejos"}
@@ -117,44 +149,42 @@ function AdminImport() {
 				<table className="table table-sm table-bordered">
 					<thead>
 						<tr>
-							<th>Nombre</th>
-							<th>Equipo</th>
-							<th>Goles</th>
-							<th>Orden</th>
+							<th>Fecha</th>
+							<th>Equipo Local</th>
+							<th>Goles Local</th>
+							<th>Equipo Visitante</th>
+							<th>Goles Visitante</th>
+							<th>Cancha</th>
+							<th>Dia</th>
+							<th>Horario</th>
 						</tr>
 					</thead>
 					<tbody>
-						{tabla.map((e) => {
-							return (
-								<tr key={e.orden}>
-									<td>{e.nombre}</td>
-									<td>{e.equipo}</td>
-									<td>{e.goles}</td>
-									<td>{e.orden}</td>
-								</tr>
-							);
-						})}
+						{tabla.map((e) => (
+							<tr>
+								<td>{e.fecha}</td>
+								<td>{e.equipo_local}</td>
+								<td>{e.goles_local}</td>
+								<td>{e.equipo_visitante}</td>
+								<td>{e.goles_visitante}</td>
+								<td>{e.cancha}</td>
+								<td>{e.dia}</td>
+								<td>{e.horario}</td>
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</DivTable>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
-				<p>Primero, seleccionar la categoria a modificar!</p>
-				<p>
-					Para importar la tabla de Goleadores, debe tener en cuenta que el
-					archivo csv debe tener los siguientes campos: ................
-				</p>
-				<p>
-					Si al cargar el archivo csv, hay algún campo que no se ve en la tabla
-					de pre-visualización, es porque no está escrito correctamente el
-					nombre de la columna desde excel.
-				</p>
+				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
 			</DivInfomation>
 		</DivBackground>
 	);
 }
 
-export default AdminImport;
+export default AdminResults;
 
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
@@ -164,7 +194,7 @@ const DivBackground = styled.div`
 `;
 
 const DivTitle = styled.div`
-	background-color: #20854f;
+	background-color: #14655f;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -188,7 +218,7 @@ const A = styled.a`
 	color: #fff;
 	text-shadow: #3b1a1a 1px 1px 2px;
 	height: max-content;
-	background-color: #404642;
+	background-color: #259f97;
 	border-radius: 5px;
 	padding: 10px;
 	position: relative;
@@ -207,7 +237,7 @@ const B = styled.a`
 	color: #ffffff;
 	text-shadow: #3b1a1a 1px 1px 2px;
 	height: max-content;
-	background-color: #404642;
+	background-color: #259f97;
 	border-radius: 5px;
 	padding: 10px;
 	position: relative;
@@ -235,7 +265,7 @@ const DivButtons = styled.div`
 
 const Select = styled.select`
 	display: block;
-	background-color: #20854f;
+	background-color: #259f97;
 	color: #fff;
 	width: 120px;
 	height: 30px;
@@ -247,12 +277,12 @@ const Select = styled.select`
 	cursor: pointer;
 
 	&:hover {
-		background-color: #054d27;
+		background-color: #14655f;
 	}
 `;
 
 const Btn = styled.button`
-	background-color: #20854f;
+	background-color: #259f97;
 	width: 100px;
 	color: #fff;
 	font-weight: 500;
@@ -261,7 +291,7 @@ const Btn = styled.button`
 	padding: 5px;
 	cursor: pointer;
 	&:hover {
-		background-color: #054d27;
+		background-color: #14655f;
 	}
 `;
 const BtnRojo = styled.button`
