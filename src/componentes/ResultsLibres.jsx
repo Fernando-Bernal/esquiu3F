@@ -140,6 +140,7 @@ const DivTabla = styled.div`
 
 	@media (min-width: 768px) {
 		width: 40%;
+        font-size: 1rem;
 	}
 `;
 
@@ -147,4 +148,8 @@ const Td = styled.td`
 	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
+
+    @media (min-width: 768px) {
+        font-size: 1rem;
+    }
 `;

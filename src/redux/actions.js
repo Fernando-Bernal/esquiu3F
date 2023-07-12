@@ -8,6 +8,7 @@ export const GET_TORNEO_LIBRESORO1 = "GET_TORNEO_LIBRESOro zona 1";
 export const GET_TORNEO_LIBRESORO2 = "GET_TORNEO_LIBRESOro zona 2";
 export const GET_TORNEO_LIBRESPLATA1 = "GET_TORNEO_LIBRESPlata zona 1";
 export const GET_TORNEO_LIBRESPLATA2 = "GET_TORNEO_LIBRESPlata zona 2";
+export const GET_FIXTURE_LIBRE = "GET_FIXTURE_LIBRE";
 
 export const GET_GOAL_30 = "GET_GOAL_30";
 export const GET_TORNEO_30Z1 = "GET_TORNEO_30Z1";
@@ -91,7 +92,6 @@ export function getTorneo30Z2() {
 }
 
 //* FUNCION RESULTADOS
-
 export function getResults(fecha){
   const db = getFirestore();
   const querryCollection = `libres/${fecha}/resultados`
@@ -107,6 +107,20 @@ export function getResults(fecha){
   }
 }
 
+//* FIXTURE LIBRES
+export function getFixtureLibre(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "libres", "fixture", "fecha"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_FIXTURE_LIBRE, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener el fixture", error);
+    }
+  }
+}
 
 //* NOTICIAS
 export const getNoticias = () =>{

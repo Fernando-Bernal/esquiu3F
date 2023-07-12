@@ -128,6 +128,7 @@ const DivTabla = styled.div`
 
 	@media (min-width: 768px) {
 		width: 40%;
+		font-size: 1rem;
 	}
 `;
 
@@ -137,12 +138,20 @@ const H5 = styled.h5`
 	font-weight: bold;
 	padding: 5px;
 	margin: 0;
+
+	@media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
 `;
 
 const Td = styled.td`
 	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
+
+	@media (min-width: 768px) {
+        font-size: 1rem;
+    }
 `;
 
 

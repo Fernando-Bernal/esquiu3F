@@ -5,6 +5,7 @@ import Torneo from "./Torneo";
 import Goleadores from "./Goleadores";
 import styled from "styled-components";
 import ResultsLibres from "./ResultsLibres";
+import FixtureLibre from "./FixtureLibre";
 
 
 function ViewLibres() {
@@ -15,6 +16,7 @@ function ViewLibres() {
 				<Header />
 				<NavbarSq3 />
 				<H2>CATEGORIA LIBRE</H2>
+				<FixtureLibre />
 				<Torneo />
 				<ResultsLibres />
 				<Goleadores />

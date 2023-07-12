@@ -6,6 +6,7 @@ import {
 	GET_TORNEO_LIBRESORO2,
 	GET_TORNEO_LIBRESPLATA1,
 	GET_TORNEO_LIBRESPLATA2,
+	GET_FIXTURE_LIBRE,
 
 	GET_GOAL_30,
 	GET_TORNEO_30Z1,
@@ -22,7 +23,7 @@ const initialState = {
 	torneolibresOro2: [],
 	torneolibresPlata1: [],
 	torneolibresPlata2: [],
-	fixturelibre: [],
+	fixtureLibre: [],
 	results: [],
 	noticias: [],
 
@@ -67,6 +68,11 @@ const reducerApp = (state = initialState, action) => {
 			return {
 				...state,
 				torneolibresPlata2: action.payload,
+			};
+		case GET_FIXTURE_LIBRE:
+			return {
+				...state,
+				fixtureLibre: action.payload,
 			};
 		case GET_GOAL_30:
 			return {
