@@ -4,9 +4,11 @@ import NavbarSq3 from "./NavbarSq3";
 import Torneo from "./Torneo";
 import Goleadores from "./Goleadores";
 import styled from "styled-components";
+import ResultsLibres from "./ResultsLibres";
 
 
 function ViewLibres() {
+	
 	return (
 		<>
 			<DivContainer>
@@ -14,6 +16,7 @@ function ViewLibres() {
 				<NavbarSq3 />
 				<H2>CATEGORIA LIBRE</H2>
 				<Torneo />
+				<ResultsLibres />
 				<Goleadores />
 			</DivContainer>
 		</>

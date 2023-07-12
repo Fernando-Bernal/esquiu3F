@@ -1,10 +1,16 @@
 import {
 	GET_GOAL_LIBRES,
-	GET_TORNEO_LIBRESZ1,
-	GET_TORNEO_LIBRESZ2,
+	GET_TORNEO_LIBRESZona1,
+	GET_TORNEO_LIBRESZona2,
+	GET_TORNEO_LIBRESORO1,
+	GET_TORNEO_LIBRESORO2,
+	GET_TORNEO_LIBRESPLATA1,
+	GET_TORNEO_LIBRESPLATA2,
+
 	GET_GOAL_30,
 	GET_TORNEO_30Z1,
     GET_TORNEO_30Z2,
+	GET_RESULTS,
 	GET_NOTICIAS,
 } from "./actions";
 
@@ -12,10 +18,17 @@ const initialState = {
 	glibres: [],
 	torneolibresZ1: [],
 	torneolibresZ2: [],
+	torneolibresOro1: [],
+	torneolibresOro2: [],
+	torneolibresPlata1: [],
+	torneolibresPlata2: [],
+	fixturelibre: [],
+	results: [],
+	noticias: [],
+
 	goles30: [],
 	torneo30Z1: [],
 	torneo30Z2: [],
-	noticias: [],
 };
 
 const reducerApp = (state = initialState, action) => {
@@ -25,15 +38,35 @@ const reducerApp = (state = initialState, action) => {
 				...state,
 				glibres: action.payload,
 			};
-		case GET_TORNEO_LIBRESZ1:
+		case GET_TORNEO_LIBRESZona1:
 			return {
 				...state,
 				torneolibresZ1: action.payload,
 			};
-		case GET_TORNEO_LIBRESZ2:
+		case GET_TORNEO_LIBRESZona2:
 			return {
 				...state,
 				torneolibresZ2: action.payload,
+			};
+		case GET_TORNEO_LIBRESORO1:
+			return {
+				...state,
+				torneolibresOro1: action.payload,
+			};
+		case GET_TORNEO_LIBRESORO2:
+			return {
+				...state,
+				torneolibresOro2: action.payload,
+			};
+		case GET_TORNEO_LIBRESPLATA1:
+			return {
+				...state,
+				torneolibresPlata1: action.payload,
+			};
+		case GET_TORNEO_LIBRESPLATA2:
+			return {
+				...state,
+				torneolibresPlata2: action.payload,
 			};
 		case GET_GOAL_30:
 			return {
@@ -50,6 +83,11 @@ const reducerApp = (state = initialState, action) => {
                 ...state,
                 torneo30Z2: action.payload,
             };
+		case GET_RESULTS:
+			return {
+				...state,
+				results: action.payload,
+			}
 		case GET_NOTICIAS:
 			return {
 				...state,

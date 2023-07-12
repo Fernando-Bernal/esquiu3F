@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getTorneoLibresZ1, getTorneoLibresZ2 } from "../redux/actions";
+import { getTorneoZona } from "../redux/actions";
 import styled from "styled-components";
 
 function Torneo() {
@@ -11,14 +11,12 @@ function Torneo() {
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 
-	
 	useEffect(() => {
 		if (zona1.length === 0) {
-			dispatch(getTorneoLibresZ1());
+			dispatch(getTorneoZona("Zona 1"));
+			dispatch(getTorneoZona("Zona 2"));
 		}
-		if (zona2.length === 0) {
-			dispatch(getTorneoLibresZ2());
-		}
+		
 	}, []);
 
 	useEffect(() => {
