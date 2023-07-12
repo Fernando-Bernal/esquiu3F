@@ -29,7 +29,7 @@ function Torneo() {
 			<DivTitulo>POSICIONES</DivTitulo>
 			<DivTabla>
 				<H5>Zona 1</H5>
-				<table className="table table-sm table-bordered custom-header">
+				<table className="table table-sm table-striped table-bordered custom-header">
 					<thead>
 						<tr>
 							<th id="th">Equipo</th>
@@ -62,7 +62,7 @@ function Torneo() {
 					</tbody>
 				</table>
 				<H5>Zona 2</H5>
-				<table className="table table-sm table-bordered custom-header">
+				<table className="table table-sm table-striped table-bordered custom-header">
 					<thead>
 						<tr>
 							<th id="th">Equipo</th>

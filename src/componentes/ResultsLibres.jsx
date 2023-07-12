@@ -36,7 +36,7 @@ function ResultsLibres() {
             })}
         </DivFecha>
         <DivTabla>
-            <table className="table table-sm table-bordered custom-header">
+            <table className="table table-sm table-bordered table-striped custom-header">
                 <thead>
                     <tr>
                         <th id="th">Fecha</th>

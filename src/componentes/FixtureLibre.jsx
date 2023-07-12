@@ -20,7 +20,7 @@ function FixtureLibre() {
 		<DivContainer>
 			<DivTitulo>PROXIMA FECHA </DivTitulo>
 			<DivTabla>
-				<table className="table table-sm table-bordered custom-header">
+				<table className="table table-sm table-striped table-bordered custom-header">
 					<thead>
 						<tr>
 							<th id="th">Local</th>
