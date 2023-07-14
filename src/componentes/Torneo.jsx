@@ -145,7 +145,7 @@ const H5 = styled.h5`
 `;
 
 const Td = styled.td`
-	font-size: 0.7rem;
+	font-size: 0.5rem;
 	text-align: center;
 	vertical-align: middle;
 

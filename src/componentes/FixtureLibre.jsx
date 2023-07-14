@@ -86,7 +86,7 @@ const DivTabla = styled.div`
 `;
 
 const Td = styled.td`
-	font-size: 0.4rem;
+	font-size: 0.5rem;
 	text-align: center;
 	vertical-align: middle;
 
