@@ -78,7 +78,7 @@ const DivTabla = styled.div`
 	box-shadow: 0 0 10px #ccb367;
 	margin-bottom: 20px;
 	overflow: auto;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
 	@media (min-width: 768px) {
 		width: 40%;
         font-size: 1rem;
@@ -86,7 +86,7 @@ const DivTabla = styled.div`
 `;
 
 const Td = styled.td`
-	font-size: 0.5rem;
+	font-size: 0.4rem;
 	text-align: center;
 	vertical-align: middle;
 
