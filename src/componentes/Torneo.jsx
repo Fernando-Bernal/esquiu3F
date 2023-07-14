@@ -134,7 +134,7 @@ const DivTabla = styled.div`
 
 const H5 = styled.h5`
 	text-align: center;
-	color: orange;
+	color: #d08c1e;
 	font-weight: bold;
 	padding: 5px;
 	margin: 0;
@@ -145,7 +145,7 @@ const H5 = styled.h5`
 `;
 
 const Td = styled.td`
-	font-size: 0.5rem;
+	font-size: 0.6rem;
 	text-align: center;
 	vertical-align: middle;
 
