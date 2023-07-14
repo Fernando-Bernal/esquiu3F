@@ -69,7 +69,7 @@ const DivTitulo = styled.h2`
 `;
 
 const DivTabla = styled.div`
-	width: 75%;
+	width: 90%;
 	height: auto;
 	position: relative;
 	margin: auto;
