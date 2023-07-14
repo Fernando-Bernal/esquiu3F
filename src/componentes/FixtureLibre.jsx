@@ -14,7 +14,7 @@ function FixtureLibre() {
 
 	useEffect(() => {
 		setTabla(fixtureLibre);
-	}, []);
+	}, [fixtureLibre]);
 
 	return (
 		<DivContainer>
@@ -69,7 +69,7 @@ const DivTitulo = styled.h2`
 `;
 
 const DivTabla = styled.div`
-	width: 90%;
+	width: 75%;
 	height: auto;
 	position: relative;
 	margin: auto;
@@ -78,7 +78,7 @@ const DivTabla = styled.div`
 	box-shadow: 0 0 10px #ccb367;
 	margin-bottom: 20px;
 	overflow: auto;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
 	@media (min-width: 768px) {
 		width: 40%;
         font-size: 1rem;
