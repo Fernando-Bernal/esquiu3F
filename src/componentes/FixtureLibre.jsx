@@ -20,7 +20,7 @@ function FixtureLibre() {
 		<DivContainer>
 			<DivTitulo>PROXIMA FECHA </DivTitulo>
 			<DivTabla>
-				<table className="table table-sm table-striped table-bordered custom-header">
+				<table className="table table-sm table-striped  custom-header">
 					<thead>
 						<tr>
 							<th id="th">Local</th>
@@ -78,7 +78,7 @@ const DivTabla = styled.div`
 	box-shadow: 0 0 10px #ccb367;
 	margin-bottom: 20px;
 	overflow: auto;
-	
+
 	@media (min-width: 768px) {
 		width: 40%;
         font-size: 1rem;

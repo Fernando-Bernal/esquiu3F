@@ -62,7 +62,7 @@ function Torneo() {
 					</tbody>
 				</table>
 				<H5>Zona 2</H5>
-				<table className="table table-sm table-striped table-bordered custom-header">
+				<table className="table table-sm table-striped ">
 					<thead>
 						<tr>
 							<th id="th">Equipo</th>
