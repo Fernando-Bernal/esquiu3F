@@ -4,11 +4,10 @@ import styled from "styled-components";
 import banner1 from "../assets/img/sq3banner1.jpg";
 import banner2 from "../assets/img/sq3banner2.JPG";
 
-import banner5 from "../assets/img/sq3banner5.JPG";
 
 
 function Carrusel() {
-	const images = [banner1,banner2 , banner5];
+	const images = [banner1,banner2 ];
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [selectedImage, setSelectedImage] = useState(images[0]);
 
