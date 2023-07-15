@@ -74,6 +74,8 @@ const DivCampus = styled.div`
 	font-size: 1.2rem;
 	line-height: 1.5;
 	font-family: "Roboto", sans-serif;
+     position: relative;
+    z-index: -6;
 
 	@media (min-width: 768px) {
 		width: 80%;
@@ -85,6 +87,8 @@ const H1 = styled.h1`
     text-align: center;
     margin: 20px 0;
     font-weight: 700;
+     position: relative;
+    z-index: -6;
 
     @media (min-width: 768px) {
         font-size: 3rem;

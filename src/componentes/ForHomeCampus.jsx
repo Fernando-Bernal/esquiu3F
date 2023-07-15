@@ -26,7 +26,7 @@ function CampusForHome() {
 					<h3>Y más...</h3>
 					<p>Conocé todos nuestros servicios.</p>
 					<Link to="/campus">
-					<button>Ver más</button>
+						<button>Ver más</button>
 					</Link>
 				</DivCampusCard>
 			</DivCampus>

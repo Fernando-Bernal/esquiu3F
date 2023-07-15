@@ -24,7 +24,7 @@ function DropdownCampus3() {
                     <Link to="/campus">Conocé el campus</Link>
                 </DropdownItem>
                 <DropdownItem className="dropdown">
-                    <Link to="/">Cancha sintética</Link>
+                    <Link to="/sinteticas">Cancha sintética</Link>
                 </DropdownItem>
                 {/* <DropdownItem className="dropdown">
                     <Link to="/">Cancha padel</Link>

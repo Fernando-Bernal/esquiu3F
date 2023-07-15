@@ -10,6 +10,7 @@ import AdminNews from './componentes/AdminNews';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
 import Campus from './componentes/Campus';
+import Sinteticas from './componentes/Sinteticas';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/admin-noticias" element={<AdminNews />} />
           <Route path="/admin-resultados" element={<AdminResults />} />
           <Route path="/campus" element={<Campus />} />
+          <Route path="/sinteticas" element={<Sinteticas />} />
         </Routes>
       </div>
     </>
