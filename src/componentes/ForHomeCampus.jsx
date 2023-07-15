@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import backgroundNegro from "../assets/img/fondoNegro.webp";
-import padel from "../assets/img/padel2.jpg";
+import arquero from "../assets/img/arquero.jpg";
+import cancha from "../assets/img/cancha.jpg";
+import carpa from "../assets/img/powerade.jpg";
 
 function CampusForHome() {
 	return (
@@ -10,19 +12,21 @@ function CampusForHome() {
 			<h2>CAMPUS 3</h2>
 			<DivCampus>
 				<DivCampusCard>
-					<img src={padel} alt="" />
+					<img src={cancha} alt="" />
 					<h3>Canchas sintetica</h3>
 					<p>jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.</p>
 					<button>Reservar</button>
 				</DivCampusCard>
 				<DivCampusCard>
-					<img src={padel} alt="" />
+					<img src={arquero} alt="" />
 					<h3>Esquiu Day</h3>
 					<p>Pasá un día inolvidable en todas nuestras instalaciones.</p>
+					<Link to='/esquiuday'>
 					<button>Ver más</button>
+					</Link>
 				</DivCampusCard>
 				<DivCampusCard>
-					<img src={padel} alt="" />
+					<img src={carpa} alt="" />
 					<h3>Y más...</h3>
 					<p>Conocé todos nuestros servicios.</p>
 					<Link to="/campus">
@@ -48,7 +52,7 @@ const SectionCampus = styled.section`
 	justify-content: center;
 	position: relative;
 	z-index: -6;
-	
+
 	@media (min-width: 768px) {
 		height: 100vh;
 	}
@@ -62,7 +66,7 @@ const SectionCampus = styled.section`
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
 		top: 30px;
-    	margin-bottom: 10px;
+		margin-bottom: 10px;
 		@media (min-width: 768px) {
 			position: absolute;
 			top: 15%;
@@ -98,6 +102,7 @@ const DivCampusCard = styled.div`
 	box-shadow: 2px 2px 4px #000000;
 	text-align: center;
 	padding: 15px;
+	height: 410px;
 
 	@media (min-width: 768px) {
 		width: 20%;
@@ -107,11 +112,12 @@ const DivCampusCard = styled.div`
 		margin-top: 10px;
 		width: 90%;
 		border-radius: 20px;
-    transition: all 0.5s ease-in-out;
-    &:hover {
-      transform: scale(1.1);
-      transition: all 0.5s ease-in-out;
-    }
+		transition: all 0.5s ease-in-out;
+		height: 150px;
+		&:hover {
+			transform: scale(1.1);
+			transition: all 0.5s ease-in-out;
+		}
 	}
 
 	h3 {
