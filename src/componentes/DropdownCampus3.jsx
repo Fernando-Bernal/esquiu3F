@@ -36,7 +36,7 @@ function DropdownCampus3() {
                     <Link to="/">Clínica deportiva</Link>
                 </DropdownItem> */}
                 <DropdownItem className="dropdown">
-                    <Link to="/">Esquiú Day</Link>
+                    <Link to="/esquiuday">Esquiú Day</Link>
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>

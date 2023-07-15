@@ -4,6 +4,7 @@ import Header from "./Header";
 import cancha from "../assets/img/cancha.jpg";
 
 function Sinteticas() {
+	
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -15,6 +16,7 @@ function Sinteticas() {
 			<DivCampus>
 				<p>
                     <Img src={cancha} alt="Cancha sintetica" />
+					<br />
 					¡La emoción del fútbol nunca termina en nuestras canchas sintéticas de
 					última generación!
 					<br />

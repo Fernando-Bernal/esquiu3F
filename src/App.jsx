@@ -11,6 +11,7 @@ import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
 import Campus from './componentes/Campus';
 import Sinteticas from './componentes/Sinteticas';
+import EsquiuDay from './componentes/EsquiuDay';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/admin-resultados" element={<AdminResults />} />
           <Route path="/campus" element={<Campus />} />
           <Route path="/sinteticas" element={<Sinteticas />} />
+          <Route path="/esquiuday" element={<EsquiuDay />} />
         </Routes>
       </div>
     </>
