@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import backgroundNegro from "../assets/img/fondoNegro.webp";
-import arquero from "../assets/img/arquero.jpg";
+import arquero from "../assets/img/arquero.JPG";
 import cancha from "../assets/img/cancha.jpg";
-import carpa from "../assets/img/powerade.jpg";
+import carpa from "../assets/img/powerade.JPG";
 
 function CampusForHome() {
 	return (
