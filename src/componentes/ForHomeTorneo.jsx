@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import copa from "../assets/img/copa.png";
 import fotos from "../assets/img/fotos.png";
@@ -11,7 +12,9 @@ function ForHomeTorneo() {
 			<DivTorneo>
 				<DivTorneoCard>
 					<img src={copa} alt="copa" />
+					<Link to='/torneo-libre'>
 					<button>Estadísticas</button>
+					</Link>
 				</DivTorneoCard>
 				<DivTorneoCard>
 					<img src={fotos} alt="fotos" />
@@ -31,7 +34,7 @@ export default ForHomeTorneo;
 //todo estilos seccion torneo
 
 const TorneoContainer = styled.div`
-	background-color: #222;
+	background-color: #201e1e;
 	color: #fff;
 	width: 100%;
 	display: flex;
