@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import backgroundNegro from "../assets/img/fondoNegro.webp";
-import arquero from "../assets/img/arquero.JPG";
+import arquero from "../assets/img/arquero.JPG:2:2321";
 import cancha from "../assets/img/cancha.jpg";
 import carpa from "../assets/img/powerade.JPG";
 
