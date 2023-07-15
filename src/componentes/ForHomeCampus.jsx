@@ -113,10 +113,14 @@ const DivCampusCard = styled.div`
 		width: 90%;
 		border-radius: 20px;
 		transition: all 0.5s ease-in-out;
-		height: 150px;
+		height: 120px;
 		&:hover {
 			transform: scale(1.1);
 			transition: all 0.5s ease-in-out;
+		}
+
+		@media (min-width: 768px) {
+			height: 150px;
 		}
 	}
 
