@@ -17,11 +17,11 @@ function DropdownCampus3() {
 
 	return <div>
         <Dropdown isOpen={dropdown} toggle={openCloseDropdown}>
-            <DropdownToggle caret className="ahedear">Campus3</DropdownToggle>
+            <DropdownToggle caret className="ahedear">Campus 3</DropdownToggle>
 
             <DropdownMenu>
                 <DropdownItem className="dropdown">
-                    <Link to="/">Nuestras instalaciones</Link>
+                    <Link to="/campus">Conocé el campus</Link>
                 </DropdownItem>
                 <DropdownItem className="dropdown">
                     <Link to="/">Cancha sintética</Link>
@@ -36,10 +36,7 @@ function DropdownCampus3() {
                     <Link to="/">Clínica deportiva</Link>
                 </DropdownItem> */}
                 <DropdownItem className="dropdown">
-                    <Link to="/">Escuela de fútbol</Link>
-                </DropdownItem>
-                <DropdownItem className="dropdown">
-                    <Link to="/">Torneos nacionales</Link>
+                    <Link to="/">Esquiú Day</Link>
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>

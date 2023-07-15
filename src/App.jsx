@@ -9,6 +9,7 @@ import AdminFixture from './componentes/AdminFixture';
 import AdminNews from './componentes/AdminNews';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
+import Campus from './componentes/Campus';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/admin-goles" element={<AdminImport />} />
           <Route path="/admin-noticias" element={<AdminNews />} />
           <Route path="/admin-resultados" element={<AdminResults />} />
+          <Route path="/campus" element={<Campus />} />
         </Routes>
       </div>
     </>

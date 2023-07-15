@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
-import estadio from "../assets/img/estadio.jpg";
+import banner1 from "../assets/img/sq3banner1.jpg";
+import banner2 from "../assets/img/sq3banner2.jpg";
+import banner3 from "../assets/img/sq3banner3.jpg";
+import banner4 from "../assets/img/sq3banner4.jpg";
+import banner5 from "../assets/img/sq3banner5.jpg";
 import pelota from "../assets/img/carrusel.jpg";
 import padel from "../assets/img/padel2.jpg";
 
 function Carrusel() {
-	const images = [estadio, padel, pelota];
+	const images = [banner1, banner2, banner3, banner4, banner5];
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [selectedImage, setSelectedImage] = useState(images[0]);
 
@@ -33,6 +37,7 @@ function Carrusel() {
 				<p>SQ3</p>
 				<span>MÁS QUE FÚTBOL</span>
 			</Text>
+			<Opacity />
 			<CarruselImg src={selectedImage} alt="carrusel" />
 		</CarruselContainer>
 	);
@@ -45,9 +50,21 @@ const CarruselContainer = styled.div`
 	height: 200px;
 	position: relative;
 	overflow: hidden;
-	z-index: -5;
+	z-index: -4;
 	@media (min-width: 768px) {
-		height: 500px;
+		height: 650px;
+	}
+`;
+const Opacity = styled.div`
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 0;
+	@media (min-width: 768px) {
+		height: 650px;
 	}
 `;
 
@@ -55,8 +72,10 @@ const CarruselImg = styled.img`
 	width: 100%;
 	height: 200px;
 	transition: all 0.6s ease-in-out;
+	object-fit: cover;
+		
 	@media (min-width: 768px) {
-		height: 500px;
+		height: 650px;	
 	}
 `;
 

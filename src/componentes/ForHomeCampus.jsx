@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import backgroundNegro from "../assets/img/fondoNegro.webp";
 import padel from "../assets/img/padel2.jpg";
 
@@ -11,20 +12,22 @@ function CampusForHome() {
 				<DivCampusCard>
 					<img src={padel} alt="" />
 					<h3>Canchas sintetica</h3>
-					<p>jugá en nuestras nuevas canchas de fútbol 8 sintético.</p>
+					<p>jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.</p>
 					<button>Reservar</button>
 				</DivCampusCard>
 				<DivCampusCard>
 					<img src={padel} alt="" />
 					<h3>Esquiu Day</h3>
-					<p>Pasa un día inolvidable en nuestro predio.</p>
+					<p>Pasá un día inolvidable en todas nuestras instalaciones.</p>
 					<button>Ver más</button>
 				</DivCampusCard>
 				<DivCampusCard>
 					<img src={padel} alt="" />
 					<h3>Y más...</h3>
 					<p>Conocé todos nuestros servicios.</p>
+					<Link to="/campus">
 					<button>Ver más</button>
+					</Link>
 				</DivCampusCard>
 			</DivCampus>
 		</SectionCampus>
@@ -45,7 +48,7 @@ const SectionCampus = styled.section`
 	justify-content: center;
 	position: relative;
 	z-index: -6;
-
+	
 	@media (min-width: 768px) {
 		height: 100vh;
 	}
