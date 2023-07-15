@@ -31,7 +31,7 @@ export default ForHomeTorneo;
 //todo estilos seccion torneo
 
 const TorneoContainer = styled.div`
-	background-color: #000;
+	background-color: #222;
 	color: #fff;
 	width: 100%;
 	display: flex;

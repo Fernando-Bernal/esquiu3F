@@ -27,7 +27,7 @@ function ForHomeContacto() {
 export default ForHomeContacto
 
 const DivContainer = styled.div`
-    background-color: #333;
+    background-color: #222;
     height: 30vh;
     width: 100%;
     display: flex;

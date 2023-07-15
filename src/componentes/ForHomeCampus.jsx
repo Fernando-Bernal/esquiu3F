@@ -42,10 +42,7 @@ export default CampusForHome;
 
 //todo estilos seccion campus
 const SectionCampus = styled.section`
-	background-image: url(${backgroundNegro});
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+	background-color: #222;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
