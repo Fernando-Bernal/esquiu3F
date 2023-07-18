@@ -9,6 +9,8 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
+import { purgeStoredState, persistStore } from "redux-persist";
+import { persistConfig} from "../redux/store";
 
 function AdminImportTorneo() {
 	const db = getFirestore();
@@ -103,6 +105,15 @@ function AdminImportTorneo() {
 		setZona(e.target.value);
 	};
 
+
+	const handlePurge =() => {
+		purgeStoredState(persistConfig)
+			.then(() => {
+				console.log("Se borraron los datos correctamente");
+			})
+			.catch(() => console.log("No se borraron los datos"));
+	};
+
 	return (
 		<DivBackground>
 			<Header />
@@ -187,6 +198,7 @@ function AdminImportTorneo() {
 					</tbody>
 				</table>
 			</DivTable>
+			<button onClick={() => handlePurge()}>Borrar cache</button>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
 				<p>

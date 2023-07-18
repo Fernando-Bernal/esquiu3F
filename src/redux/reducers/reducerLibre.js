@@ -13,7 +13,7 @@ import {
     GET_TORNEO_30Z2,
 	GET_RESULTS,
 	GET_NOTICIAS,
-} from "./actions";
+} from "../actions";
 
 const initialState = {
 	glibres: [],
@@ -74,6 +74,8 @@ const reducerApp = (state = initialState, action) => {
 				...state,
 				fixtureLibre: action.payload,
 			};
+
+			
 		case GET_GOAL_30:
 			return {
 				...state,

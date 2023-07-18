@@ -40,10 +40,40 @@ export function getTorneoZona(zona) {
     try {
       const q = query(collection(db, queryCollection), orderBy("posici_n"));
       const querySnapshot = await getDocs(q);
-        const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
-        dispatch({ type: `GET_TORNEO_LIBRES${zona}`, payload: tabla });      
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({ type: `GET_TORNEO_LIBRES${zona}`, payload: tabla });      
     } catch (error) {
       console.error("Error al obtener los equipos del torneo libres", error);
+    }
+  }
+}
+//* FUNCION RESULTADOS
+export function getResults(fecha){
+  const db = getFirestore();
+  const querryCollection = `libres/${fecha}/resultados`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+
+//* FIXTURE LIBRES
+export function getFixtureLibre(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "libres", "fixture", "fecha"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_FIXTURE_LIBRE, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener el fixture", error);
     }
   }
 }
@@ -91,36 +121,6 @@ export function getTorneo30Z2() {
   }
 }
 
-//* FUNCION RESULTADOS
-export function getResults(fecha){
-  const db = getFirestore();
-  const querryCollection = `libres/${fecha}/resultados`
-  return async function (dispatch){
-    try{
-      const q = query(collection(db, querryCollection));
-      const querySnapshot = await getDocs(q);
-      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
-      dispatch({type: GET_RESULTS, payload: tabla});
-    }catch(error){
-      console.error("Error al obtener los resultados", error);
-    }
-  }
-}
-
-//* FIXTURE LIBRES
-export function getFixtureLibre(){
-  const db = getFirestore();
-  return async function (dispatch){
-    try{
-      const q = query(collection(db, "libres", "fixture", "fecha"));
-      const querySnapshot = await getDocs(q);
-      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
-      dispatch({type: GET_FIXTURE_LIBRE, payload: tabla});
-    }catch(error){
-      console.error("Error al obtener el fixture", error);
-    }
-  }
-}
 
 //* NOTICIAS
 export const getNoticias = () =>{
