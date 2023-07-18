@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getTorneo30Z1, getTorneo30Z2 } from "../redux/actions";
+import { getTorneo30 } from "../redux/actions";
 import styled from "styled-components";
 
 function Torneo30() {
@@ -13,10 +13,8 @@ function Torneo30() {
 
 	useEffect(() =>  {
 		if ( zona1.length === 0){
-			  dispatch(getTorneo30Z1());
-		}
-		if(zona2.length === 0){
-			dispatch(getTorneo30Z2())
+			  dispatch(getTorneo30("Zona 1"))
+			  dispatch(getTorneo30("Zona 2"))
 		}
 	}, []);
 
@@ -145,61 +143,3 @@ const Td = styled.td`
 	text-align: center;
 	vertical-align: middle;
 `;
-
-
-
-
-
-//* Modelo de datos de la tabla estaticos
-// {
-// 	a_favor: 5,
-// 	diferencia: 3,
-// 	en_contra: 2,
-// 	equipo: "TYC FC",
-// 	id: "kIDgYj10lN5kGyboUK35",
-// 	partidos_empatados: 1,
-// 	partidos_ganados: 2,
-// 	partidos_jugados: 3,
-// 	partidos_perdidos: 0,
-// 	posici_n: 0,
-// 	puntos: 7,
-// },
-// {
-// 	a_favor: 4,
-// 	diferencia: 0,
-// 	en_contra: 4,
-// 	equipo: "LA ONCE",
-// 	id: "AnLTxC5egJ9t4Y1D89e0",
-// 	partidos_empatados: 3,
-// 	partidos_ganados: 0,
-// 	partidos_jugados: 3,
-// 	partidos_perdidos: 0,
-// 	posici_n: 1,
-// 	puntos: 3,
-// },
-// {
-// 	a_favor: 2,
-// 	diferencia: -1,
-// 	en_contra: 3,
-// 	equipo: "EMPALME FC",
-// 	id: "PBKnB3ClFM76HBWXdopd",
-// 	partidos_empatados: 2,
-// 	partidos_ganados: 0,
-// 	partidos_jugados: 3,
-// 	partidos_perdidos: 1,
-// 	posici_n: 2,
-// 	puntos: 2,
-// },
-// {
-// 	a_favor: 2,
-// 	diferencia: -2,
-// 	en_contra: 4,
-// 	equipo: "LAS PALMAS FC",
-// 	id: "fyvjPa7ltkOkcSxDA4m6",
-// 	partidos_empatados: 2,
-// 	partidos_ganados: 0,
-// 	partidos_jugados: 3,
-// 	partidos_perdidos: 1,
-// 	posici_n: 3,
-// 	puntos: 2,
-// }

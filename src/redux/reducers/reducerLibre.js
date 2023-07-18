@@ -8,9 +8,6 @@ import {
 	GET_TORNEO_LIBRESPLATA2,
 	GET_FIXTURE_LIBRE,
 
-	GET_GOAL_30,
-	GET_TORNEO_30Z1,
-    GET_TORNEO_30Z2,
 	GET_RESULTS,
 	GET_NOTICIAS,
 } from "../actions";
@@ -26,10 +23,6 @@ const initialState = {
 	fixtureLibre: [],
 	results: [],
 	noticias: [],
-
-	goles30: [],
-	torneo30Z1: [],
-	torneo30Z2: [],
 };
 
 const reducerApp = (state = initialState, action) => {
@@ -74,23 +67,6 @@ const reducerApp = (state = initialState, action) => {
 				...state,
 				fixtureLibre: action.payload,
 			};
-
-			
-		case GET_GOAL_30:
-			return {
-				...state,
-				goles30: action.payload,
-			};
-		case GET_TORNEO_30Z1:
-			return {
-				...state,
-				torneo30Z1: action.payload,
-			};
-        case GET_TORNEO_30Z2:
-            return {
-                ...state,
-                torneo30Z2: action.payload,
-            };
 		case GET_RESULTS:
 			return {
 				...state,

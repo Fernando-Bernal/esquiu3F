@@ -9,12 +9,18 @@ export const GET_TORNEO_LIBRESORO2 = "GET_TORNEO_LIBRESOro zona 2";
 export const GET_TORNEO_LIBRESPLATA1 = "GET_TORNEO_LIBRESPlata zona 1";
 export const GET_TORNEO_LIBRESPLATA2 = "GET_TORNEO_LIBRESPlata zona 2";
 export const GET_FIXTURE_LIBRE = "GET_FIXTURE_LIBRE";
+export const GET_RESULTS = "GET_RESULTS";
 
 export const GET_GOAL_30 = "GET_GOAL_30";
-export const GET_TORNEO_30Z1 = "GET_TORNEO_30Z1";
-export const GET_TORNEO_30Z2 = "GET_TORNEO_30Z2";
-
-export const GET_RESULTS = "GET_RESULTS";
+export const GET_TORNEO_30Zona1 = "GET_TORNEO_30Zona 1";
+export const GET_TORNEO_30Zona2 = "GET_TORNEO_30Zona 2";
+export const GET_TORNEO_30ORO1 = "GET_TORNEO_30Oro zona 1";
+export const GET_TORNEO_30ORO2 = "GET_TORNEO_30Oro zona 2";
+export const GET_TORNEO_30PLATA1 = "GET_TORNEO_30Plata zona 1";
+export const GET_TORNEO_30PLATA2 = "GET_TORNEO_30Plata zona 2";
+export const GET_FIXTURE_30 = "GET_FIXTURE_30";
+export const GET_RESULTS30 = "GET_RESULTS30"
+ 
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
 
@@ -94,32 +100,54 @@ export function getGoal30() {
   };
 }
 
-export function getTorneo30Z1() {
+export function getTorneo30(zona) {
   const db = getFirestore();
+  const queryCollection = `+30/${zona}/equipo`
   return async function (dispatch) {
     try {
-      const q = query(collection(db, "+30", "Zona 1" , "equipo"), orderBy("posici_n"));
+      const q = query(collection(db, queryCollection), orderBy("posici_n"));
       const querySnapshot = await getDocs(q);
         const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
-        dispatch({ type: GET_TORNEO_30Z1, payload: tabla });      
+        dispatch({ type: `GET_TORNEO_30${zona}`, payload: tabla });      
     } catch (error) {
       console.error("Error al obtener los equipos del torneo +30 Zona 1", error);
     }
   }
 }
-export function getTorneo30Z2() {
+
+export function results30(fecha){
   const db = getFirestore();
-  return async function (dispatch) {
-    try {
-      const q = query(collection(db, "+30", "Zona 2" , "equipo"), orderBy("posici_n"));
+  const querryCollection = `+30/${fecha}/resultados`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
       const querySnapshot = await getDocs(q);
-        const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
-        dispatch({ type: GET_TORNEO_30Z2, payload: tabla });      
-    } catch (error) {
-      console.error("Error al obtener los equipos del torneo +30 Zona 2", error);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS30, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
     }
   }
 }
+
+export function getFixture30(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "+30", "fixture", "fecha"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_FIXTURE_30, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener el fixture", error);
+    }
+  }
+}
+
+
+
+
+
 
 
 //* NOTICIAS
