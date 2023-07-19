@@ -2,29 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
-import { getTorneo30 } from "../redux/actions";
+import { getTorneo36 } from "../redux/actions";
 
-function Torneo30() {
+function Torneo36() {
 	const dispatch = useDispatch();
-	const zona1 = useSelector((state) => state.reducer30.torneo30Z1);
-	const zona2 = useSelector((state) => state.reducer30.torneo30Z2);
+	const zona1 = useSelector((state) => state.reducer36.torneo36Z1);
+	const zona2 = useSelector((state) => state.reducer36.torneo36Z2);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 
 	useEffect(() => {
 		if (zona1.length === 0) {
-			dispatch(getTorneo30("Zona 1"));
-			dispatch(getTorneo30("Zona 2"));
+			dispatch(getTorneo36("Zona 1"));
+			dispatch(getTorneo36("Zona 2"));
 		}
 	}, []);
 
-	useEffect(() => {
-		setTabla(zona1);
-		setTabla2(zona2);
-	}, [zona1, zona2]);
+    useEffect(() => {
+        setTabla(zona1);
+        setTabla2(zona2);
+    }, [zona1, zona2]);
 
 	return (
-		<DivContainer>
+        <DivContainer>
 			<DivTitulo>POSICIONES</DivTitulo>
 			<DivTabla>
 				<H5>Zona 1</H5>
@@ -95,10 +95,10 @@ function Torneo30() {
 				</table>
 			</DivTabla>
 		</DivContainer>
-	);
+    )
 }
 
-export default Torneo30;
+export default Torneo36;
 
 const DivContainer = styled.div`
 	position: relative;
@@ -152,3 +152,4 @@ const Td = styled.td`
 		font-size: 1rem;
 	}
 `;
+

@@ -20,6 +20,26 @@ export const GET_TORNEO_30PLATA1 = "GET_TORNEO_30Plata zona 1";
 export const GET_TORNEO_30PLATA2 = "GET_TORNEO_30Plata zona 2";
 export const GET_FIXTURE_30 = "GET_FIXTURE_30";
 export const GET_RESULTS_30 = "GET_RESULTS_30"
+
+export const GET_GOAL_36 = "GET_GOAL_36";
+export const GET_TORNEO_36Zona1 = "GET_TORNEO_36Zona 1";
+export const GET_TORNEO_36Zona2 = "GET_TORNEO_36Zona 2";
+export const GET_TORNEO_36ORO1 = "GET_TORNEO_36Oro zona 1";
+export const GET_TORNEO_36ORO2 = "GET_TORNEO_36Oro zona 2";
+export const GET_TORNEO_36PLATA1 = "GET_TORNEO_36Plata zona 1";
+export const GET_TORNEO_36PLATA2 = "GET_TORNEO_36Plata zona 2";
+export const GET_FIXTURE_36 = "GET_FIXTURE_36";
+export const GET_RESULTS_36 = "GET_RESULTS_36"
+
+export const GET_GOAL_40 = "GET_GOAL_40";
+export const GET_TORNEO_40Zona1 = "GET_TORNEO_40Zona 1";
+export const GET_TORNEO_40Zona2 = "GET_TORNEO_40Zona 2";
+export const GET_TORNEO_40ORO1 = "GET_TORNEO_40Oro zona 1";
+export const GET_TORNEO_40ORO2 = "GET_TORNEO_40Oro zona 2";
+export const GET_TORNEO_40PLATA1 = "GET_TORNEO_40Plata zona 1";
+export const GET_TORNEO_40PLATA2 = "GET_TORNEO_40Plata zona 2";
+export const GET_FIXTURE_40 = "GET_FIXTURE_40";
+export const GET_RESULTS_40 = "GET_RESULTS_40"
  
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
@@ -144,6 +164,66 @@ export function getFixture30(){
   }
 }
 
+
+//* TORNEO +36
+
+export function getGoal36() {
+  const db = getFirestore();
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, "Goleadores", "+36", "jugador"), orderBy("orden"), limit(20));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => doc.data());
+      dispatch({ type: GET_GOAL_36, payload: tabla });
+    } catch (error) {
+      console.error("Error al obtener los goleadores +36", error);
+    }
+  };
+}
+
+export function getTorneo36(zona) {
+  const db = getFirestore();
+  const queryCollection = `+36/${zona}/equipo`
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, queryCollection), orderBy("posici_n"));
+      const querySnapshot = await getDocs(q);
+        const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+        dispatch({ type: `GET_TORNEO_36${zona}`, payload: tabla });
+    } catch (error) {
+      console.error("Error al obtener los equipos del torneo +36", error);
+    }
+  }
+}
+
+export function getResults36(fecha){
+  const db = getFirestore();
+  const querryCollection = `+36/${fecha}/resultados`
+  return async function (dispatch){ 
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS_36, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+
+export function getFixture36(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "+36", "fixture", "fecha"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_FIXTURE_36, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener el fixture", error);
+    }
+  }
+}
 
 
 

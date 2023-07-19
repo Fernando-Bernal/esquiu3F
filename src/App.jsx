@@ -9,6 +9,7 @@ import AdminFixture from './componentes/AdminFixture';
 import AdminNews from './componentes/AdminNews';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
+import View36 from './componentes/View36';
 import Campus from './componentes/Campus';
 import Sinteticas from './componentes/Sinteticas';
 import EsquiuDay from './componentes/EsquiuDay';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/torneo-libre" element={<ViewLibres/>} />
           <Route path="/torneo-30" element={<View30/>} />
+          <Route path="/torneo-36" element={<View36/>} />
           <Route path="/admin-fixture" element={<AdminFixture />} />
           <Route path="/admin-torneo" element={<AdminImportTorneo />} />
           <Route path="/admin-goles" element={<AdminImport />} />
