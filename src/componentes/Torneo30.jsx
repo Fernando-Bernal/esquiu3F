@@ -6,13 +6,13 @@ import styled from "styled-components";
 
 function Torneo30() {
 	const dispatch = useDispatch();
-	const zona1 = useSelector((state) => state.torneo30Z1);
-	const zona2 = useSelector((state) => state.torneo30Z2);
+	const zona1 = useSelector((state) => state.reducer30.torneo30Z1);
+	const zona2 = useSelector((state) => state.reducer30.torneo30Z2);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 
 	useEffect(() =>  {
-		if ( zona1.length === 0){
+		if (zona1.length === 0){
 			  dispatch(getTorneo30("Zona 1"))
 			  dispatch(getTorneo30("Zona 2"))
 		}
@@ -127,6 +127,7 @@ const DivTabla = styled.div`
 
 	@media (min-width: 768px) {
 		width: 40%;
+		font-size: 1rem;
 	}
 `;
 
@@ -136,10 +137,18 @@ const H5 = styled.h5`
 	font-weight: bold;
 	padding: 5px;
 	margin: 0;
+
+	@media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
 `;
 
 const Td = styled.td`
 	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
+	
+	@media (min-width: 768px) {
+        font-size: 1rem;
+    }
 `;

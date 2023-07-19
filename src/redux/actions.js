@@ -19,7 +19,7 @@ export const GET_TORNEO_30ORO2 = "GET_TORNEO_30Oro zona 2";
 export const GET_TORNEO_30PLATA1 = "GET_TORNEO_30Plata zona 1";
 export const GET_TORNEO_30PLATA2 = "GET_TORNEO_30Plata zona 2";
 export const GET_FIXTURE_30 = "GET_FIXTURE_30";
-export const GET_RESULTS30 = "GET_RESULTS30"
+export const GET_RESULTS_30 = "GET_RESULTS_30"
  
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
@@ -110,12 +110,12 @@ export function getTorneo30(zona) {
         const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
         dispatch({ type: `GET_TORNEO_30${zona}`, payload: tabla });      
     } catch (error) {
-      console.error("Error al obtener los equipos del torneo +30 Zona 1", error);
+      console.error("Error al obtener los equipos del torneo +30 ", error);
     }
   }
 }
 
-export function results30(fecha){
+export function getResults30(fecha){
   const db = getFirestore();
   const querryCollection = `+30/${fecha}/resultados`
   return async function (dispatch){
@@ -123,7 +123,7 @@ export function results30(fecha){
       const q = query(collection(db, querryCollection));
       const querySnapshot = await getDocs(q);
       const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
-      dispatch({type: GET_RESULTS30, payload: tabla});
+      dispatch({type: GET_RESULTS_30, payload: tabla});
     }catch(error){
       console.error("Error al obtener los resultados", error);
     }

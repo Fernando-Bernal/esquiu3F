@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getResults } from "../redux/actions";
+import { getResults30 } from "../redux/actions";
 
-function ResultsLibres() {
-	const dispatch = useDispatch();
-	const results = useSelector((state) => state.reducerLibre.results);
-	const [fecha, setFecha] = useState(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]);
+function Results30() {
+    const dispatch = useDispatch();
+    const results = useSelector((state) => state.reducer30.results30);
+    const [fecha, setFecha] = useState(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
-	useEffect(() => {
-		dispatch(getResults(`Fecha ${[fecha.length - 1]}`));
-	}, []);
+    useEffect(() => {
+        dispatch(getResults30(`Fecha ${[fecha.length - 1]}`));
+    }, []);
 
-	useEffect(() => {
-		setTabla(results);
-	}, [results]);
+    useEffect(() => {
+        setTabla(results);
+    }, [results]);
 
-	const selectedDates = fecha.slice(
+    const selectedDates = fecha.slice(
 		currentPage * resultsPerPage,
 		(currentPage + 1) * resultsPerPage
 	);
@@ -44,8 +44,8 @@ function ResultsLibres() {
 	};
 const anterior = "<"
 const posterior = ">"
-	return (
-		<DivContainer>
+  return (
+    <DivContainer>
 			<DivTitulo>RESULTADOS POR FECHAS</DivTitulo>
 			<DivFecha>
 				<BtnFecha disabled={currentPage === 0} onClick={handlePrevPage}>
@@ -56,7 +56,7 @@ const posterior = ">"
 						key={date}
 						active={date === fecha[currentPage]}
 						onClick={() => {
-							dispatch(getResults(`Fecha ${date}`));
+							dispatch(getResults30(`Fecha ${date}`));
 						}}
 					>
 						{date}
@@ -101,7 +101,7 @@ const posterior = ">"
 	);
 }
 
-export default ResultsLibres;
+export default Results30
 
 const DivContainer = styled.div`
 	position: relative;

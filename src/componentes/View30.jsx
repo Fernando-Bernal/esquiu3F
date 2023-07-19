@@ -4,6 +4,8 @@ import NavbarSq3 from "./NavbarSq3";
 import styled from "styled-components";
 import Torneo30 from "./Torneo30";
 import Goleadores30 from "./Goleadores30";
+import Fixture30 from "./Fixture30";
+import Results30 from "./Results30";
 
 function View30() {
   return (
@@ -12,7 +14,9 @@ function View30() {
         <Header />
         <NavbarSq3 />
         <H2>CATEGORIA +30</H2>
+		<Fixture30 />
         <Torneo30 />
+		<Results30 />
         <Goleadores30 />
     </DivContainer>
 </>

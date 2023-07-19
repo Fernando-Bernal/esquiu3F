@@ -9,10 +9,11 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
-import { purgeStoredState, persistStore } from "redux-persist";
-import { persistConfig} from "../redux/store";
+import { persistor} from "../redux/store";
+import { useDispatch } from "react-redux";
 
 function AdminImportTorneo() {
+	const dispatch = useDispatch();
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
 	const [zona, setZona] = useState([]);
@@ -107,11 +108,10 @@ function AdminImportTorneo() {
 
 
 	const handlePurge =() => {
-		purgeStoredState(persistConfig)
-			.then(() => {
-				console.log("Se borraron los datos correctamente");
-			})
-			.catch(() => console.log("No se borraron los datos"));
+		persistor.purge().then(() => {
+			window.location.reload();
+		})
+		.catch(() => console.log("No se borraron los datos"));
 	};
 
 	return (

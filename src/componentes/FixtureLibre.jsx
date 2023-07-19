@@ -5,7 +5,7 @@ import { getFixtureLibre } from "../redux/actions";
 
 function FixtureLibre() {
 	const dispatch = useDispatch();
-	const fixtureLibre = useSelector((state) => state.fixtureLibre);
+	const fixtureLibre = useSelector((state) => state.reducerLibre.fixtureLibre);
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {

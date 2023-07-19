@@ -6,7 +6,7 @@ import { getGoalLibres } from "../redux/actions";
 
 function  Goleadores() {
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.glibres);
+	const data = useSelector((state) => state.reducerLibre.glibres);
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {
@@ -80,7 +80,6 @@ const DivTabla = styled.div`
 	top: 120px;
 	margin-bottom: 20px;
 	overflow: auto;
-
 	
 	@media (min-width: 768px) {
 		width: 40%;
@@ -88,8 +87,7 @@ const DivTabla = styled.div`
 			width: 10px;
 			background-color: #ccb367;
 		}
-	}
-		
+	}	
 `;
 
 const Td = styled.td`

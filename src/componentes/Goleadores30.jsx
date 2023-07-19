@@ -6,19 +6,18 @@ import { getGoal30 } from "../redux/actions";
 
 function Goleadores30() {
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.goles30);
+	const goles30 = useSelector((state) => state.reducer30.goles30);
 	const [tabla, setTabla] = useState([]);
-
+	
 	useEffect(() => {
-		if (data.length === 0){
-
+		if (goles30 && goles30.length === 0){
 			dispatch(getGoal30());
 		}
 	}, []);
 
 	useEffect(() => {
-		setTabla(data);
-	}, [data]);
+		setTabla(goles30);
+	}, [goles30]);
 
 	return (
 		<>
@@ -95,4 +94,8 @@ const Td = styled.td`
 	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
+
+	@media (min-width: 768px) {
+        font-size: 1rem;
+    }
 `;

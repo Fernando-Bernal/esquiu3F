@@ -32,7 +32,7 @@ function reducer(state = initialState, action) {
 		case GET_TORNEO_30Zona1:
 			return {
 				...state,
-				torneo30Z1: action.payloas,
+				torneo30Z1: action.payload,
 			};
         case GET_TORNEO_30Zona2:
             return {

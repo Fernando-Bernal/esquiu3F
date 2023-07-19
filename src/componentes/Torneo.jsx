@@ -6,8 +6,8 @@ import styled from "styled-components";
 
 function Torneo() {
 	const dispatch = useDispatch();
-	const zona1 = useSelector((state) => state.torneolibresZ1);
-	const zona2 = useSelector((state) => state.torneolibresZ2);
+	const zona1 = useSelector((state) => state.reducerLibre.torneolibresZ1);
+	const zona2 = useSelector((state) => state.reducerLibre.torneolibresZ2);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 
@@ -15,8 +15,7 @@ function Torneo() {
 		if (zona1.length === 0) {
 			dispatch(getTorneoZona("Zona 1"));
 			dispatch(getTorneoZona("Zona 2"));
-		}
-		
+		}		
 	}, []);
 
 	useEffect(() => {

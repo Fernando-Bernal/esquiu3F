@@ -18,7 +18,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-
+//const persistor = purgeStoredState(persistConfig)
 const persistor = persistStore(store);
 
 export default store;
