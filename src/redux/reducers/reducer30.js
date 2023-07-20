@@ -8,7 +8,7 @@ import {
 	GET_TORNEO_30PLATA2,
     GET_FIXTURE_30,
     GET_RESULTS_30
-} from "../actions/";
+} from "../actions";
 
 const initialState = {
 	goles30: [],

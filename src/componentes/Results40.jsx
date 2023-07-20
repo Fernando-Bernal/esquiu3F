@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getResults36 } from "../redux/actions";
+import { getResults40, getTorneo40 } from "../redux/actions";
 
-function Results36() {
-    const dispatch = useDispatch();
-    const results36 = useSelector((state) => state.reducer36.results36);
+function Results40() {
+	const dispatch = useDispatch();
+	const results40 = useSelector((state) => state.reducer40.results40);
     const [fecha, setFecha] = useState(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
-    useEffect(() => {
-        dispatch(getResults36(`Fecha ${[fecha.length - 1]}`));
-    }, []);
+	useEffect(() => {
+		dispatch(getResults40(`Fecha ${[fecha.length - 1]}`));
+	}, []);
 
-    useEffect(() => {
-        setTabla(results36);
-    }, [results36]);
+	useEffect(() => {
+		setTabla(results40);
+	}, [results40]);
 
-    const selectedDates = fecha.slice(
+	const selectedDates = fecha.slice(
 		currentPage * resultsPerPage,
 		(currentPage + 1) * resultsPerPage
 	);
@@ -31,7 +31,7 @@ function Results36() {
 	const getResultsForDates = (selectedDates) => {
 		return selectedDates.map((date) => {
 			// Lógica para obtener los resultados según la fecha
-			return results36.find((result) => result.fecha === date);
+			return results40.find((result) => result.fecha === date);
 		});
 	};
 
@@ -42,10 +42,10 @@ function Results36() {
 	const handlePrevPage = () => {
 		setCurrentPage((prevPage) => prevPage - 1);
 	};
-const anterior = "<"
-const posterior = ">"
-  return (
-    <DivContainer>
+	const anterior = "<";
+	const posterior = ">";
+	return (
+		<DivContainer>
 			<DivTitulo>RESULTADOS POR FECHAS</DivTitulo>
 			<DivFecha>
 				<BtnFecha disabled={currentPage === 0} onClick={handlePrevPage}>
@@ -56,7 +56,7 @@ const posterior = ">"
 						key={date}
 						active={date === fecha[currentPage]}
 						onClick={() => {
-							dispatch(getResults36(`Fecha ${date}`));
+							dispatch(getResults40(`Fecha ${date}`));
 						}}
 					>
 						{date}
@@ -101,7 +101,7 @@ const posterior = ">"
 	);
 }
 
-export default Results36
+export default Results40;
 
 const DivContainer = styled.div`
 	position: relative;

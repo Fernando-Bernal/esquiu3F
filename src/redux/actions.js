@@ -225,7 +225,65 @@ export function getFixture36(){
   }
 }
 
+// * TORNEO +40
 
+export function getGoal40() {
+  const db = getFirestore();
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, "Goleadores", "+40", "jugador"), orderBy("orden"), limit(20));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => doc.data());
+      dispatch({ type: GET_GOAL_40, payload: tabla });
+    } catch (error) {
+      console.error("Error al obtener los goleadores +40", error);
+    }
+  };
+}
+
+export function getTorneo40(zona){
+  const db = getFirestore();
+  const queryCollection = `+40/${zona}/equipo`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, queryCollection), orderBy("posici_n"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_TORNEO_40${zona}`, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los equipos del torneo +40", error);
+    }
+  }
+}
+
+export function getResults40(fecha){
+  const db = getFirestore();
+  const querryCollection = `+40/${fecha}/resultados`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS_40, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+
+export function getFixture40(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "+40", "fixture", "fecha"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_FIXTURE_40, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener el fixture", error);
+    }
+  }
+}
 
 
 
