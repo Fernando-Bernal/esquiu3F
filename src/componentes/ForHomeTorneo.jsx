@@ -75,6 +75,11 @@ const DivTorneo = styled.div`
 	justify-content: center;
 	align-items: center;
 
+	button{
+		position: relative;
+		z-index: 1;
+	}
+
 	@media (min-width: 768px) {
 		position: relative;
 		top: 165px;
