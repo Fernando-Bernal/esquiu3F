@@ -9,6 +9,8 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
+import Footer from "./Footer";
+
 
 function AdminResults() {
 	const db = getFirestore();
@@ -180,6 +182,7 @@ function AdminResults() {
 				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
 				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
 			</DivInfomation>
+			<Footer />
 		</DivBackground>
 	);
 }

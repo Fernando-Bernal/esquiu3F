@@ -6,15 +6,17 @@ import ForHomeTorneo from './ForHomeTorneo'
 import styled from 'styled-components'
 import ForHomeSponsor from './ForHomeSponsor'
 import ForHomeContacto from './ForHomeContacto'
+import Footer from './Footer'
 function Home() {
   return (
     <DivGral>
         <Header />
         <Carrusel />
-        <CampusForHome />
         <ForHomeTorneo />
+        <CampusForHome />
         <ForHomeSponsor />
         <ForHomeContacto />
+        <Footer />
     </DivGral>
   )
 }

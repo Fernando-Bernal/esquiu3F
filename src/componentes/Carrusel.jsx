@@ -32,11 +32,11 @@ function Carrusel() {
 
 	return (
 		<CarruselContainer>
-			<Text>
+			{/* <Text>
 				<span>BIENVENIDOS A</span>
 				<p>SQ3</p>
 				<span>MÁS QUE FÚTBOL</span>
-			</Text>
+			</Text> */}
 			<Opacity />
 			<CarruselImg src={selectedImage} alt="carrusel" />
 		</CarruselContainer>

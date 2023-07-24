@@ -6,6 +6,8 @@ import Torneo30 from "./Torneo30";
 import Goleadores30 from "./Goleadores30";
 import Fixture30 from "./Fixture30";
 import Results30 from "./Results30";
+import Footer from "./Footer";
+
 
 function View30() {
   return (
@@ -18,6 +20,7 @@ function View30() {
         <Torneo30 />
 		<Results30 />
         <Goleadores30 />
+		<Footer />
     </DivContainer>
 </>
   )

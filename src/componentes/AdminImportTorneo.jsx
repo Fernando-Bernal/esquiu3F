@@ -11,6 +11,8 @@ import {
 import Header from "./Header";
 import { persistor} from "../redux/store";
 import { useDispatch } from "react-redux";
+import Footer from "./Footer";
+
 
 function AdminImportTorneo() {
 	const dispatch = useDispatch();
@@ -213,6 +215,7 @@ function AdminImportTorneo() {
 					nombre de la columna desde excel.
 				</p>
 			</DivInfomation>
+			<Footer />
 		</DivBackground>
 	);
 }

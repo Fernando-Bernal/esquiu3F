@@ -9,6 +9,8 @@ import {
 } from "firebase/firestore";
 import { v4 } from "uuid";
 import Header from "./Header";
+import Footer from "./Footer";
+
 
 function validate(post) {
 	let errors = {};
@@ -105,6 +107,7 @@ function AdminNews() {
 					</ContactWrapper>
 				</form>
 			</div>
+			<Footer />
 		</DivBackground>
 	);
 }

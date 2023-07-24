@@ -6,6 +6,7 @@ import Torneo36 from './Torneo36'
 import Fixture36 from './Fixture36'
 import Goleadores36 from './Goleadores36'
 import Results36 from './Results36'
+import Footer from "./Footer";
 
 
 function View36() {
@@ -19,6 +20,7 @@ function View36() {
             <Torneo36 />
             <Results36 />
             <Goleadores36 />
+			<Footer />
         </DivContainer>
     </>
   )

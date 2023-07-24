@@ -6,6 +6,8 @@ import Torneo40 from "./Torneo40";
 import Fixture40 from "./Fixture40";
 import Goleadores40 from "./Goleadores40";
 import Results40 from "./Results40";
+import Footer from "./Footer";
+
 
 function View40() {
   return (
@@ -18,6 +20,7 @@ function View40() {
             <Torneo40 />
             <Results40 />
             <Goleadores40 />
+			<Footer />
         </DivContainer>
     </>
   )

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import copa from "../assets/img/copa.png";
-import fotos from "../assets/img/fotos.png";
+import copa from "../assets/img/trofeo.png";
+import fotos from "../assets/img/foto.png";
 import video from "../assets/img/video.png";
 
 function ForHomeTorneo() {
@@ -41,7 +41,8 @@ const TorneoContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	position: relative;
-
+	z-index: -6;
+	
 	@media (min-width: 768px) {
 		height: 70vh;
 	}

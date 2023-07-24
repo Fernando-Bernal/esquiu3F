@@ -9,6 +9,8 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
+import Footer from "./Footer";
+
 
 function AdminImport() {
 	const db = getFirestore();
@@ -150,6 +152,7 @@ function AdminImport() {
 					nombre de la columna desde excel.
 				</p>
 			</DivInfomation>
+			<Footer />
 		</DivBackground>
 	);
 }

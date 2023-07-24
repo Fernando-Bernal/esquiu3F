@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import equipo from "../assets/img/equipo.jpg";
+import Footer from "./Footer";
 
 function Campus() {
 
@@ -60,6 +61,7 @@ function Campus() {
 					experiencia apasionante.
 				</p>
 			</DivCampus>
+			<Footer />
 		</div>
 	);
 }

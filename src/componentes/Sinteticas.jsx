@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import cancha from "../assets/img/cancha.jpg";
+import Footer from "./Footer";
 
 function Sinteticas() {
 	
@@ -43,6 +44,7 @@ function Sinteticas() {
 					No esperes más, reserva tu cancha sintética ahora al 3517665551.
 				</p>
 			</DivCampus>
+			<Footer />
 		</div>
 	);
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import predio from "../assets/img/predio2.jpg";
+import Footer from "./Footer";
 
 function EsquiuDay() {
 	useEffect(() => {
@@ -55,6 +56,7 @@ function EsquiuDay() {
 					Más info por whatsapp escribiendo al 3517665551.
 				</p>
 			</DivCampus>
+			<Footer />
 		</div>
 	);
 }

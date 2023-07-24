@@ -9,6 +9,8 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
+import Footer from "./Footer";
+
 
 function AdminFixture() {
 	const db = getFirestore();
@@ -165,6 +167,7 @@ function AdminFixture() {
 				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
 				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
 			</DivInfomation>
+			<Footer />
 		</DivBackground>
   )
 }

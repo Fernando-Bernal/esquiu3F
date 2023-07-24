@@ -6,6 +6,7 @@ import Goleadores from "./Goleadores";
 import styled from "styled-components";
 import ResultsLibres from "./ResultsLibres";
 import FixtureLibre from "./FixtureLibre";
+import Footer from "./Footer";
 
 
 function ViewLibres() {
@@ -20,6 +21,7 @@ function ViewLibres() {
 				<Torneo />
 				<ResultsLibres />
 				<Goleadores />
+				<Footer />
 			</DivContainer>
 		</>
 	);
