@@ -13,7 +13,11 @@ function Sinteticas() {
 	return (
 		<div>
 			<Header />
-			<H1>Canchas sintéticas</H1>
+			<DivTitle>
+				<DivLine />
+				<H1>CANCHAS SINTÉTICAS</H1>
+				<DivLine />
+			</DivTitle>
 			<DivCampus>
 				<p>
                     <Img src={cancha} alt="Cancha sintetica" />
@@ -67,23 +71,40 @@ const DivCampus = styled.div`
 	}
 `;
 
+const DivTitle = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: -6;
+`;
+
+const DivLine = styled.div`
+	width: 30px;
+	height: 2px;
+	background-color: orange;
+`;
+
 const H1 = styled.h1`
-	font-size: 2.5rem;
+	font-size: 2rem;
 	text-align: center;
 	margin: 20px 0;
 	font-weight: 700;
-    position: relative;
-    z-index: -6;
+	position: relative;
+	z-index: -6;
 
 	@media (min-width: 768px) {
 		font-size: 3rem;
+		margin: 20px;
 	}
-`;
+`;;
 
 const Img = styled.img`
 	width: 100%;
 	border-radius: 10px;
     z-index: -10;
+	margin-bottom: 20px;
 
 	@media (min-width: 768px) {
 		width: 40%;

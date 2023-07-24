@@ -13,7 +13,11 @@ function Campus() {
 	return (
 		<div>
 			<Header />
-			<H1>Campus</H1>
+			<DivTitle>
+				<DivLine />
+				<H1>CAMPUS</H1>
+				<DivLine />
+			</DivTitle>
 			<DivCampus>
 				<p>
 					Se viene una propuesta diferente en Córdoba. Campus 3 será un paraíso
@@ -84,17 +88,32 @@ const DivCampus = styled.div`
 	}
 `;
 
-const H1 = styled.h1`
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 20px 0;
-    font-weight: 700;
-     position: relative;
-    z-index: -6;
+const DivTitle = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: -6;
+`;
 
-    @media (min-width: 768px) {
-        font-size: 3rem;
-    }
+const DivLine = styled.div`
+	width: 30px;
+	height: 2px;
+	background-color: orange;
+`;
+
+const H1 = styled.h1`
+	font-size: 2rem;
+	text-align: center;
+	margin: 20px;
+	font-weight: 700;
+	position: relative;
+	z-index: -6;
+
+	@media (min-width: 768px) {
+		font-size: 3rem;
+	}
 `;
 
 const Img = styled.img`
