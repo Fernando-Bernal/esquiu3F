@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from "styled-components";
-import telefono from "../assets/img/telefono.svg";
+import telefono from "../assets/img/whatsapp.png";
+import buzon from "../assets/img/buzon.png";
+import novedades from "../assets/img/novedades.png";
 
 
 function ForHomeContacto() {
@@ -9,7 +11,7 @@ function ForHomeContacto() {
         <DivContacto>
             <DivItems>
                 <p>Noticias</p>
-                <img src={telefono} alt="" />
+                <img src={novedades} alt="" />
             </DivItems>
             <DivItems>
                 <p>Telefono</p>
@@ -17,7 +19,7 @@ function ForHomeContacto() {
             </DivItems>
             <DivItems>
                 <p>Buzon de sugerencias</p>
-                <img src={telefono} alt="" />
+                <img src={buzon} alt="" />
             </DivItems>
         </DivContacto>
     </DivContainer>

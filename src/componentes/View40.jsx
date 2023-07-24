@@ -39,7 +39,7 @@ const DivContainer = styled.div`
 `;
 
 const H2 = styled.h2`
-	color: #fff;
+	color: #ffbc50;
 	font-size: 1.5rem;
 	text-align: center;
 	margin-top: 1rem;
@@ -47,5 +47,4 @@ const H2 = styled.h2`
 	z-index: -5;
 	position: relative;
 	font-weight: 700;
-	text-decoration: underline;
 `;
