@@ -54,7 +54,7 @@ export default GoleadoresMaxi;
 
 const DivBackground = styled.div`
 	position: relative;
-	height: 100vh;
+	height: 90vh;
 	width: 100%;
 	top: -80px;
 	z-index: -5;
