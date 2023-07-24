@@ -2,22 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getGoalLibres } from "../redux/actions";
+import { getGoalMaxi } from "../redux/actions";
 
-function  Goleadores() {
+function GoleadoresMaxi() {
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.reducerLibre.glibres);
+	const golesMaxi = useSelector((state) => state.reducerMaxi.golesMaxi);
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {
-		if (data?.length === 0){
-			dispatch(getGoalLibres());
+		if (golesMaxi?.length === 0) {
+			dispatch(getGoalMaxi());
 		}
 	}, []);
 
 	useEffect(() => {
-		setTabla(data);
-	}, [data]);
+		setTabla(golesMaxi);
+	}, [golesMaxi]);
 
 	return (
 		<>
@@ -50,7 +50,7 @@ function  Goleadores() {
 	);
 }
 
-export default Goleadores;
+export default GoleadoresMaxi;
 
 const DivBackground = styled.div`
 	position: relative;
@@ -80,22 +80,22 @@ const DivTabla = styled.div`
 	top: 120px;
 	margin-bottom: 20px;
 	overflow: auto;
-	
+
 	@media (min-width: 768px) {
 		width: 40%;
 		::-webkit-scrollbar {
 			width: 10px;
 			background-color: #ccb367;
 		}
-	}	
+	}
 `;
 
 const Td = styled.td`
-	font-size: 0.6rem;
+	font-size: 0.7rem;
 	text-align: center;
 	vertical-align: middle;
 
 	@media (min-width: 768px) {
-        font-size: 1rem;
-    }
+		font-size: 1rem;
+	}
 `;

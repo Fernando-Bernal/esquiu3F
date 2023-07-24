@@ -9,7 +9,9 @@ function FixtureLibre() {
 	const [tabla, setTabla] = useState([]);
 
 	useEffect(() => {
-		dispatch(getFixtureLibre());
+		if(fixtureLibre?.length === 0){
+			dispatch(getFixtureLibre());
+		}
 	}, []);
 
 	useEffect(() => {

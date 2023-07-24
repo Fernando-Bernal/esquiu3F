@@ -12,7 +12,7 @@ function Torneo30() {
 	const [tabla2, setTabla2] = useState([]);
 
 	useEffect(() => {
-		if (zona1.length === 0) {
+		if (zona1?.length === 0) {
 			dispatch(getTorneo30("Zona 1"));
 			dispatch(getTorneo30("Zona 2"));
 		}

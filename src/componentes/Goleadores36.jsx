@@ -10,7 +10,7 @@ function Goleadores36() {
     const [tabla, setTabla] = useState([]);
 
     useEffect(() => {
-        if (goles36 && goles36.length === 0){
+        if (goles36?.length === 0){
             dispatch(getGoal36());
         }
     }, []);

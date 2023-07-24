@@ -11,6 +11,7 @@ import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
 import View36 from './componentes/View36';
 import View40 from './componentes/View40';
+import ViewMaxi from './componentes/ViewMaxi';
 import Campus from './componentes/Campus';
 import Sinteticas from './componentes/Sinteticas';
 import EsquiuDay from './componentes/EsquiuDay';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/torneo-30" element={<View30/>} />
           <Route path="/torneo-36" element={<View36/>} />
           <Route path="/torneo-40" element={<View40/>} />
+          <Route path="/torneo-maxi" element={<ViewMaxi/>} />
           <Route path="/admin-fixture" element={<AdminFixture />} />
           <Route path="/admin-torneo" element={<AdminImportTorneo />} />
           <Route path="/admin-goles" element={<AdminImport />} />

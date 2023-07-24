@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getFixture30 } from "../redux/actions";
+import { getFixtureMaxi } from "../redux/actions";
 
-function Fixture30() {
-    const dispatch = useDispatch();
-    const fixture30 = useSelector((state) => state.reducer30.fixture30);
-    const [tabla, setTabla] = useState([]);
+function FixtureMaxi() {
+	const dispatch = useDispatch();
+	const fixtureMaxi = useSelector((state) => state.reducerMaxi.fixtureMaxi);
+	const [tabla, setTabla] = useState([]);
 
-    useEffect(() => {
-        if(fixture30?.length === 0) dispatch(getFixture30())
-    }, []);
+	useEffect(() => {
+		if (fixtureMaxi?.length === 0) {
+			dispatch(getFixtureMaxi());
+		}
+	}, []);
 
-    useEffect(() => {
-        setTabla(fixture30);
-    }, [fixture30]);
+	useEffect(() => {
+		setTabla(fixtureMaxi);
+	}, [fixtureMaxi]);
 
 	return (
 		<DivContainer>
@@ -51,7 +53,7 @@ function Fixture30() {
 	);
 }
 
-export default Fixture30
+export default FixtureMaxi;
 
 const DivContainer = styled.div`
 	position: relative;
@@ -81,7 +83,7 @@ const DivTabla = styled.div`
 
 	@media (min-width: 768px) {
 		width: 40%;
-        font-size: 1rem;
+		font-size: 1rem;
 	}
 `;
 
@@ -90,7 +92,7 @@ const Td = styled.td`
 	text-align: center;
 	vertical-align: middle;
 
-    @media (min-width: 768px) {
-        font-size: 1rem;
-    }
+	@media (min-width: 768px) {
+		font-size: 1rem;
+	}
 `;

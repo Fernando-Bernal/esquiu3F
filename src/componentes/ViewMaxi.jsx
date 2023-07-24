@@ -2,29 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from './Header'
 import NavbarSq3 from './NavbarSq3'
-import Torneo36 from './Torneo36'
-import Fixture36 from './Fixture36'
-import Goleadores36 from './Goleadores36'
-import Results36 from './Results36'
+import TorneoMaxi from './TorneoMaxi'
+import FixtureMaxi from './FixtureMaxi'
+import ResultsMaxi from './ResultsMaxi'
+import GoleadoresMaxi from './GoleadoresMaxi'
 
-
-function View36() {
+function ViewMaxi() {
   return (
     <>
         <DivContainer>
             <Header />
             <NavbarSq3 />
-            <H2>CATEGORIA +36</H2>
-            <Fixture36 />
-            <Torneo36 />
-            <Results36 />
-            <Goleadores36 />
+            <H2>CATEGORIA MAXI</H2>
+            <FixtureMaxi />
+            <TorneoMaxi />
+            <ResultsMaxi />
+            <GoleadoresMaxi />
         </DivContainer>
     </>
   )
 }
 
-export default View36
+export default ViewMaxi
 
 const DivContainer = styled.div`
 	background-color: rgb(43, 38, 38);

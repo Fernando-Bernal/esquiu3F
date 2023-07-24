@@ -9,7 +9,7 @@ function Fixture40() {
     const [tabla, setTabla] = useState([]);
 
     useEffect(() => {
-        dispatch(getFixture40());
+        if(fixture40?.length === 0) dispatch(getFixture40());
     }, []);
 
     useEffect(() => {

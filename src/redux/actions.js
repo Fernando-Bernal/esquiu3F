@@ -40,7 +40,16 @@ export const GET_TORNEO_40PLATA1 = "GET_TORNEO_40Plata zona 1";
 export const GET_TORNEO_40PLATA2 = "GET_TORNEO_40Plata zona 2";
 export const GET_FIXTURE_40 = "GET_FIXTURE_40";
 export const GET_RESULTS_40 = "GET_RESULTS_40"
- 
+
+export const GET_GOAL_MAXI = "GET_GOAL_MAXI";
+export const GET_TORNEO_MAXIZona1 = "GET_TORNEO_MAXIZona 1";
+export const GET_TORNEO_MAXIZona2 = "GET_TORNEO_MAXIZona 2";
+export const GET_TORNEO_MAXIORO1 = "GET_TORNEO_MAXIOro zona 1";
+export const GET_TORNEO_MAXIORO2 = "GET_TORNEO_MAXIOro zona 2";
+export const GET_TORNEO_MAXIPLATA1 = "GET_TORNEO_MAXIPlata zona 1";
+export const GET_TORNEO_MAXIPLATA2 = "GET_TORNEO_MAXIPlata zona 2";
+export const GET_FIXTURE_MAXI = "GET_FIXTURE_MAXI";
+export const GET_RESULTS_MAXI = "GET_RESULTS_MAXI" 
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
 
@@ -285,7 +294,65 @@ export function getFixture40(){
   }
 }
 
+//* TORNEO MAXI
 
+export function getGoalMaxi(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "Goleadores", "Maxi", "jugador"), orderBy("orden"), limit(20));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => doc.data());
+      dispatch({type: GET_GOAL_MAXI, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los goleadores Maxi", error);
+    }
+  }
+}
+
+export function getTorneoMaxi(zona){
+  const db = getFirestore();
+  const queryCollection = `Maxi/${zona}/equipo`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, queryCollection), orderBy("posici_n"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_TORNEO_MAXI${zona}`, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los equipos del torneo Maxi", error);
+    }
+  }
+}
+
+export function getResultsMaxi(fecha){
+  const db = getFirestore();
+  const querryCollection = `Maxi/${fecha}/resultados`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS_MAXI, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+
+export function getFixtureMaxi(){
+  const db = getFirestore();
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, "Maxi", "fixture", "fecha"));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_FIXTURE_MAXI, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener el fixture", error);
+    }
+  }
+}
 
 
 //* NOTICIAS
