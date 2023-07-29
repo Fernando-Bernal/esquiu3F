@@ -12,10 +12,13 @@ import Header from "./Header";
 import { persistor} from "../redux/store";
 import { useDispatch } from "react-redux";
 import Footer from "./Footer";
-
+import { logout } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 function AdminImportTorneo() {
+
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
 	const [zona, setZona] = useState([]);
@@ -111,10 +114,16 @@ function AdminImportTorneo() {
 
 	const handlePurge =() => {
 		persistor.purge().then(() => {
+			navigate("/");
 			window.location.reload();
 		})
 		.catch(() => console.log("No se borraron los datos"));
 	};
+
+	const handleLogOut = () => {
+		dispatch(logout());
+	};
+
 
 	return (
 		<DivBackground>
@@ -201,6 +210,7 @@ function AdminImportTorneo() {
 				</table>
 			</DivTable>
 			<button onClick={() => handlePurge()}>Borrar cache</button>
+			<button onClick={() => handleLogOut()}>Cerrar sesión</button>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
 				<p>

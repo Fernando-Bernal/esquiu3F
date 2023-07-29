@@ -9,7 +9,7 @@ import {
 	GET_FIXTURE_LIBRE,
 
 	GET_RESULTS,
-	GET_NOTICIAS,
+	
 } from "../actions";
 
 const initialState = {
@@ -22,7 +22,7 @@ const initialState = {
 	torneolibresPlata2: [],
 	fixtureLibre: [],
 	results: [],
-	noticias: [],
+	
 };
 
 const reducerApp = (state = initialState, action) => {
@@ -72,11 +72,6 @@ const reducerApp = (state = initialState, action) => {
 				...state,
 				results: action.payload,
 			}
-		case GET_NOTICIAS:
-			return {
-				...state,
-				noticias: action.payload,
-			};
 		default:
 			return state;
 	}

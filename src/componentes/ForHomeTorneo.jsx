@@ -113,7 +113,11 @@ const DivTorneoCard = styled.div`
 	img {
 		color: #fff;
 		margin-top: 10px;
-		width: 45%;
+		width: 40%;
+
+		@media (min-width: 768px) {
+			width: 30%;
+		}
 	}
 
 	button {

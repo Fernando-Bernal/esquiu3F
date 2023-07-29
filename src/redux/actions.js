@@ -52,6 +52,8 @@ export const GET_FIXTURE_MAXI = "GET_FIXTURE_MAXI";
 export const GET_RESULTS_MAXI = "GET_RESULTS_MAXI" 
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
+export const LOGIN = "LOGIN"
+export const LOGOUT = "LOGOUT"
 
 //* TORNEO LIBRES
 export function getGoalLibres() {
@@ -368,4 +370,26 @@ export const getNoticias = () =>{
       console.error("Error al obtener las noticias", error);
     }
   }
+}
+
+//* USUARIO
+
+export function login(email){
+  return async function (dispatch) {
+    try {
+      dispatch({ type: LOGIN, payload: email });
+    } catch (error) {
+      console.error("Error al loguearse", error);
+    }
+  };
+}
+
+export const logout = () => {
+  return async function (dispatch) {
+    try {
+      dispatch({ type: LOGOUT });
+    } catch (error) {
+      console.error("Error al desloguearse", error);
+    }
+  };
 }

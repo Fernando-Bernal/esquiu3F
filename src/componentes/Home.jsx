@@ -7,10 +7,13 @@ import styled from 'styled-components'
 import ForHomeSponsor from './ForHomeSponsor'
 import ForHomeContacto from './ForHomeContacto'
 import Footer from './Footer'
+
+
 function Home() {
+
   return (
     <DivGral>
-        <Header />
+        <Header user />
         <Carrusel />
         <ForHomeTorneo />
         <CampusForHome />

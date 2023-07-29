@@ -4,10 +4,11 @@ import DropdownCampus3 from "./DropdownCampus3";
 import logo from "../assets/img/logo2.webp";
 import BurgerMenu from "./BurgerMenu";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
 	const [clicked, setClicked] = useState(false);
-
+	const user = useSelector((state) => state.reducerU.user);
 	const handleClick = () => {
 		setClicked(!clicked);
 	};
@@ -19,6 +20,7 @@ function Header() {
 				<img src={logo} alt="logo" />
 				</Link>					
 				<div className={`links ${clicked ? "active" : ""}`}>
+					{user ? <a className="ahedear" href="/admin-torneo">Administrar</a> : ""}
 					<a className="ahedear" href="/">Inicio</a>
 					<a className="ahedear" href="/torneo-libre">Torneo SQ3</a>
 					<DropdownCampus3 className="ahedear" />

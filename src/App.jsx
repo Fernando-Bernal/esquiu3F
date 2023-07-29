@@ -15,30 +15,33 @@ import ViewMaxi from './componentes/ViewMaxi';
 import Campus from './componentes/Campus';
 import Sinteticas from './componentes/Sinteticas';
 import EsquiuDay from './componentes/EsquiuDay';
+import AuthContextProvider from './context/authContext'
+import Login from './componentes/Login';
+import Protected from './componentes/Protected';
 
 function App() {
 
-
   return (
     <>
-      <div>
+      <AuthContextProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/torneo-libre" element={<ViewLibres/>} />
           <Route path="/torneo-30" element={<View30/>} />
           <Route path="/torneo-36" element={<View36/>} />
           <Route path="/torneo-40" element={<View40/>} />
-          <Route path="/torneo-maxi" element={<ViewMaxi/>} />
-          <Route path="/admin-fixture" element={<AdminFixture />} />
-          <Route path="/admin-torneo" element={<AdminImportTorneo />} />
-          <Route path="/admin-goles" element={<AdminImport />} />
-          <Route path="/admin-noticias" element={<AdminNews />} />
-          <Route path="/admin-resultados" element={<AdminResults />} />
+          <Route exact path="/torneo-maxi" element={<ViewMaxi/>} />
+          <Route exact path="/admin-fixture" element={<Protected>  <AdminFixture/>  </Protected>} />
+          <Route exact path="/admin-torneo" element={<Protected>  <AdminImportTorneo/>  </Protected>} />
+          <Route exact path="/admin-goles" element={<Protected>  <AdminImport/>  </Protected>} />
+          <Route exact path="/admin-noticias" element={<Protected>  <AdminNews/>  </Protected>} />
+          <Route exact path="/admin-resultados" element={<Protected>  <AdminResults/>  </Protected>} />
           <Route path="/campus" element={<Campus />} />
           <Route path="/sinteticas" element={<Sinteticas />} />
           <Route path="/esquiuday" element={<EsquiuDay />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
-      </div>
+      </AuthContextProvider> 
     </>
   )
 }
