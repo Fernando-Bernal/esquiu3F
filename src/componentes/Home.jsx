@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <DivGral>
-        <Header user />
+        <Header />
         <Carrusel />
         <ForHomeTorneo />
         <CampusForHome />
