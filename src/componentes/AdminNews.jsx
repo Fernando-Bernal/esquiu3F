@@ -117,9 +117,10 @@ export default AdminNews;
 //? Violeta
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
-	height: 100vh;
-	min-height: 100%;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 `;
 const DivTitle = styled.div`
 	background-color: #b2b7f0;
@@ -179,7 +180,7 @@ const B = styled.a`
 `;
 
 const ContactWrapper = styled.div`
-	margin: 0 auto;
+	margin: 0 auto 10px;
 	padding: 10px 30px;
 	background-color: #b2b7f0b7;
 	max-width: 500px;

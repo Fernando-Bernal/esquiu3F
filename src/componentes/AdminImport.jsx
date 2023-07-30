@@ -161,9 +161,10 @@ export default AdminImport;
 
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
-	height: 100vh;
-	min-height: 100%;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 `;
 
 const DivTitle = styled.div`

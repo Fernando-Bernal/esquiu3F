@@ -24,7 +24,8 @@ const DivFooter = styled.div`
   background-color: #201e1e;
   width: 100%;
   height: 6rem;
-  position: absolute;
+  margin-top: auto;
+  position: relative;
   @media(min-width: 768px){
     height: 8rem;
   }
@@ -56,6 +57,7 @@ const DivBoton = styled.div`
   height: 20px;
   background-color: #201e1e;
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
+  
 `

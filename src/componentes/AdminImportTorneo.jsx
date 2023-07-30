@@ -9,14 +9,13 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
-import { persistor} from "../redux/store";
+import { persistor } from "../redux/store";
 import { useDispatch } from "react-redux";
 import Footer from "./Footer";
 import { logout } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 function AdminImportTorneo() {
-
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const db = getFirestore();
@@ -111,19 +110,19 @@ function AdminImportTorneo() {
 		setZona(e.target.value);
 	};
 
-
-	const handlePurge =() => {
-		persistor.purge().then(() => {
-			navigate("/");
-			window.location.reload();
-		})
-		.catch(() => console.log("No se borraron los datos"));
+	const handlePurge = () => {
+		persistor
+			.purge()
+			.then(() => {
+				navigate("/");
+				window.location.reload();
+			})
+			.catch(() => console.log("No se borraron los datos"));
 	};
 
 	const handleLogOut = () => {
 		dispatch(logout());
 	};
-
 
 	return (
 		<DivBackground>
@@ -209,8 +208,10 @@ function AdminImportTorneo() {
 					</tbody>
 				</table>
 			</DivTable>
-			<button onClick={() => handlePurge()}>Borrar cache</button>
-			<button onClick={() => handleLogOut()}>Cerrar sesión</button>
+			<DivBtnSession>
+				<BtnRojo onClick={() => handlePurge()}>Borrar cache</BtnRojo>
+				<BtnRojo onClick={() => handleLogOut()}>Cerrar sesión</BtnRojo>
+			</DivBtnSession>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
 				<p>
@@ -234,9 +235,10 @@ export default AdminImportTorneo;
 
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
-	height: 100vh;
-	min-height: 100%;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 `;
 
 const DivTitle = styled.div`
@@ -342,22 +344,7 @@ const Select = styled.select`
 		background-color: #d0950c;
 	}
 `;
-// const Select = styled.select`
-// 	display: block;
-// 	background-color: #259f9785;
-// 	color: #fff;
-// 	width: 120px;
-// 	height: 30px;
-// 	border-radius: 5px;
-// 	border: none;
-// 	color: #fff;
-// 	font-weight: 500;
-// 	text-align: center;
-// 	cursor: pointer;
-// 	&:hover {
-// 		background-color: #259f97;
-// 	}
-// `;
+
 
 const Btn = styled.button`
 	background-color: #f0b21f;
@@ -372,18 +359,7 @@ const Btn = styled.button`
 		background-color: #d0950c;
 	}
 `;
-// const Btn = styled.button`
-// 	background-color: #259f9785;
-// 	color: #fff;
-// 	font-weight: 500;
-// 	border: none;
-// 	border-radius: 5px;
-// 	padding: 5px;
-// 	cursor: pointer;
-// 	&:hover {
-// 		background-color: #259f97;
-// 	}
-// `;
+
 const BtnRojo = styled.button`
 	background-color: #d51b1b;
 	color: #fff;
@@ -414,3 +390,13 @@ const DivInfomation = styled.div`
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
 `;
+
+const DivBtnSession = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 30px auto 10px;
+	gap: 50px;
+	width: 70%;
+`;
+

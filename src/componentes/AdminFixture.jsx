@@ -11,7 +11,6 @@ import {
 import Header from "./Header";
 import Footer from "./Footer";
 
-
 function AdminFixture() {
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
@@ -80,7 +79,7 @@ function AdminFixture() {
 		setFecha(e.target.value);
 	};
 
-	const deleteCollection = async() =>{
+	const deleteCollection = async () => {
 		setLoading(true);
 		try {
 			const docRef = collection(db, `${categorias}`, "fixture", "fecha");
@@ -92,15 +91,13 @@ function AdminFixture() {
 				console.log("Se eliminaron los datos correctamente");
 				setLoading(false);
 			});
-		}
-		catch (error) {
+		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
-
-  return (
-    <DivBackground>
+	return (
+		<DivBackground>
 			<Header />
 			<DivTitle>
 				<Divbtn>
@@ -141,8 +138,8 @@ function AdminFixture() {
 					<thead>
 						<tr>
 							<th>Fecha</th>
-							<th>Equipo Local</th>							
-							<th>Equipo Visitante</th>		
+							<th>Equipo Local</th>
+							<th>Equipo Visitante</th>
 							<th>Cancha</th>
 							<th>Dia</th>
 							<th>Horario</th>
@@ -169,16 +166,17 @@ function AdminFixture() {
 			</DivInfomation>
 			<Footer />
 		</DivBackground>
-  )
+	);
 }
 
-export default AdminFixture
+export default AdminFixture;
 
 const DivBackground = styled.div`
 	background-color: #f2f2f2;
-	height: 100vh;
-	min-height: 100%;
 	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 `;
 
 const DivTitle = styled.div`
@@ -189,7 +187,7 @@ const DivTitle = styled.div`
 	height: 10vh;
 	margin-bottom: 50px;
 	color: #fff;
-	
+
 	h1 {
 		position: relative;
 		right: 20px;
