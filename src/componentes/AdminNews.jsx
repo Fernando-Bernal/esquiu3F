@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import {
-	collection,
-	doc,
-	writeBatch,
-	getFirestore,
-	getDocs,
-} from "firebase/firestore";
+import {getFirestore, collection, addDoc, serverTimestamp} from "firebase/firestore";
 import { v4 } from "uuid";
+import { useSelector } from "react-redux";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -26,11 +22,13 @@ function validate(post) {
 
 function AdminNews() {
 	const db = getFirestore();
+	const user = useSelector((state) => state.reducerU.user);
+    console.log(user)
 	const idPost = v4();
 	const [errors, setErrors] = useState({});
 	const [imageUpload, setImageUpload] = useState(null);
 	const [post, setPost] = useState({
-		//userId: user?.idUser,
+		userId: user? user : "",
 		title: "",
 		text: "",
 	});
@@ -47,6 +45,56 @@ function AdminNews() {
 			})
 		);
 	}
+
+	// Lógica para cargar la imagen al Storage de Firebase
+	const handleImageUpload = async () => {
+		if (imageUpload) {
+		  try {
+			const storage = getStorage();
+			const storageRef = ref(storage, `images/${idPost}`);
+			await uploadBytes(storageRef, imageUpload);
+			const downloadURL = await getDownloadURL(storageRef);
+			return downloadURL;
+		  } catch (error) {
+			console.error("Error al cargar la imagen:", error);
+			return null;
+		  }
+		}
+		return null;
+	  };
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (!post.title || !post.text) {
+			setErrors({ title: "Debe ingresar un titulo", text: "Debe ingresar un texto" });
+			return;
+		  }
+	  
+		  // Cargar la imagen al Storage de Firebase
+		  const imageUrl = await handleImageUpload();
+	  
+		  // Crear un nuevo post con la URL de la imagen si está presente
+		  const newPost = {
+			userId: user ? user : "",
+			title: post.title,
+			text: post.text,
+			fecha: serverTimestamp(),
+			imageUrl: imageUrl ? imageUrl : "",
+		  };
+	  
+		  // Guardar el nuevo post en Firestore
+		  const postsCollection = collection(db, "blog/");
+		  try {
+			await addDoc(postsCollection, newPost);
+			console.log("Post guardado con éxito");
+			// Restablecer el formulario después de guardar el post
+			setPost({ userId: user ? user : "", title: "", text: "", fecha: new Date() });
+			setImageUpload(null);
+			setErrors({});
+		  } catch (error) {
+			console.error("Error al guardar el post:", error);
+		  }
+		};
 
 	return (
 		<DivBackground>

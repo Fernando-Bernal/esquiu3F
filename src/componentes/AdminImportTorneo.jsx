@@ -258,17 +258,7 @@ const DivTitle = styled.div`
 	}
 `;
 
-// const A = styled.a`
-// 	text-decoration: none;
-// 	color: #fff;
-// 	height: max-content;
-// 	background-color: #259f97;
-// 	border-radius: 5px;
-// 	padding: 10px;
-// 	position: relative;
-// 	left: 320px;
-// 	margin-left: 10px;
-// `;
+
 
 const Divbtn = styled.div`
 	display: flex;
