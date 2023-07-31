@@ -3,14 +3,27 @@ import styled from "styled-components";
 import DropdownCampus3 from "./DropdownCampus3";
 import logo from "../assets/img/logo2.webp";
 import BurgerMenu from "./BurgerMenu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { persistor } from "../redux/store";
 
 function Header() {
+	const navigate = useNavigate();
 	const [clicked, setClicked] = useState(false);
 	const user = useSelector((state) => state.reducerU.user);
 	const handleClick = () => {
 		setClicked(!clicked);
+	};
+
+	const handleRfresh = (e) => {
+		e.preventDefault();
+		persistor
+			.purge()
+			.then(() => {
+				navigate("/");
+				window.location.reload();
+			})
+			.catch(() => console.log("No se borraron los datos"));
 	};
 
 	return (
@@ -21,12 +34,12 @@ function Header() {
 				</Link>					
 				<div className={`links ${clicked ? "active" : ""}`}>
 					{user ? <a className="ahedear" href="/admin-torneo">Administrar</a> : ""}
-					<a className="ahedear" href="/">Inicio</a>
 					<a className="ahedear" href="/torneo-libre">Torneo SQ3</a>
 					<DropdownCampus3 className="ahedear" />
 					<a className="ahedear" href="/novedades">Novedades</a>
 					<a className="ahedear" href="">Quienes somos</a>
 					<a className="ahedear" href="">Contacto</a>
+					<a className="ahedear" href="" onClick={handleRfresh}>Actualizar datos</a>
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />

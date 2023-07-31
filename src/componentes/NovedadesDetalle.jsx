@@ -44,6 +44,7 @@ export default NovedadesDetalle;
 const Container = styled.div`
 	background-color: #ebebeb;
 	width: 100%;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
@@ -60,6 +61,7 @@ const Container = styled.div`
 
 	@media (min-width: 768px) {
 		width: 100%;
+		
 	}
 `;
 
