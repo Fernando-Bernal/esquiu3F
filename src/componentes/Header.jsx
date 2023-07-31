@@ -139,7 +139,7 @@ const BgDiv = styled.div`
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 500px;
+		height: 470px;
 	}
 `;
 

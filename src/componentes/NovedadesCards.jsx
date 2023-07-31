@@ -34,6 +34,9 @@ const Container = styled.div`
 	position: relative;
 	z-index: -10;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	background-color: #f1f1f1;
+	border-radius: 10px;
+
 	@media (min-width: 768px) {
 		flex-direction: row;
 		justify-content: center;
@@ -52,9 +55,11 @@ const DivImg = styled.div`
 	align-items: center;
 	margin: 0 auto;
 	object-fit: contain;
+	border-radius: 10px;
 
 	@media (min-width: 768px) {
-		width: 35%;
+		width: 45%;
+		height: fit-content;
 		padding: 0 1rem;
 	}
 
@@ -63,6 +68,17 @@ const DivImg = styled.div`
 		height: 100%;
 		object-fit: contain;
 		object-position: center;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+		padding: 0.1rem;
+
+		@media (min-width: 768px) {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+			border-radius: 10px;
+	}
 	}
 `;
 
