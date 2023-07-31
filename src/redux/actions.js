@@ -362,7 +362,7 @@ export const getNoticias = () =>{
   const db = getFirestore();
   return async function (dispatch) {
     try {
-      const q = query(collection(db, "Noticias"), orderBy("fecha", "desc"));
+      const q = query(collection(db, "blog"), orderBy("fecha", "desc"));
       const querySnapshot = await getDocs(q);
         const notas = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
         dispatch({ type: GET_NOTICIAS, payload: notas });      

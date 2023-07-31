@@ -22,8 +22,6 @@ function reducer(state = initialState, action) {
 				...state,
 				noticias: action.payload,
 			};
-		case "RESTORE_REDUCER_U":
-			return action.payload;
 		default:
 			return state;
 	}

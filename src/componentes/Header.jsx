@@ -24,7 +24,7 @@ function Header() {
 					<a className="ahedear" href="/">Inicio</a>
 					<a className="ahedear" href="/torneo-libre">Torneo SQ3</a>
 					<DropdownCampus3 className="ahedear" />
-					<a className="ahedear" href="">Novedades</a>
+					<a className="ahedear" href="/novedades">Novedades</a>
 					<a className="ahedear" href="">Quienes somos</a>
 					<a className="ahedear" href="">Contacto</a>
 				</div>
@@ -128,8 +128,8 @@ const NavContainer = styled.div`
 const BgDiv = styled.div`
 	position: absolute;
 	background-color: #222;
-	top: -1000px;
-	left: -1000px;
+	top: -3000px;
+	left: -3000px;
 	width: 100%;
 	height: 100%;
 	z-index: -1;

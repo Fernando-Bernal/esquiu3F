@@ -18,6 +18,7 @@ import EsquiuDay from './componentes/EsquiuDay';
 import AuthContextProvider from './context/authContext'
 import Login from './componentes/Login';
 import Protected from './componentes/Protected';
+import Novedades from './componentes/Novedades';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/sinteticas" element={<Sinteticas />} />
           <Route path="/esquiuday" element={<EsquiuDay />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/novedades" element={<Novedades />} />
         </Routes>
       </AuthContextProvider> 
     </>
