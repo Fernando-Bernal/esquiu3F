@@ -19,7 +19,7 @@ function Novedades() {
 	return (
 		<Container>
 			<Header />
-			<h1>Novedades</h1>
+				<h1>NOVEDADES</h1>
 			<Section>
 				{noticias?.length > 0 &&
 					noticias.map((noticia) => {
@@ -34,36 +34,37 @@ function Novedades() {
 export default Novedades;
 
 const Container = styled.div`
+	background-color: #ebebeb;
+	width: 100%;	
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
-	background-color: #f5f5f5;
-	width: 100%;
-    position: absolute;
-    z-index: -2;
+	position: absolute;
+	z-index: -2;
+	
+	h1{
+		text-align: center;
+		margin-top: 20px;
+		position: relative;
+		z-index: -4;
+	}
 
-    h1 {
-        text-align: center;
-        margin: 1rem 0;
-        position: relative;
-        z-index: -3;
-    }
 	@media (min-width: 768px) {
 		width: 100%;
 	}
 `;
 
 const Section = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    position: relative;
-    z-index: -10;
-    background-color: #ebebeb;
-    min-height: 100vh;
-    padding: 50px;
-    @media(min-width: 768px){
-        
-    }
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	position: relative;
+	z-index: -10;
+	background-color: #ebebeb;
+	min-height: 100vh;
+	margin: 20px auto;
+
+	@media (min-width: 768px) {
+	}
 `;

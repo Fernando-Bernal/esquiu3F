@@ -30,7 +30,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 2rem;
+	gap: 1rem;
 	position: relative;
 	z-index: -10;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -42,7 +42,7 @@ const Container = styled.div`
 		margin-top: 15px;
 		height: 200px;
 	}
-	`;
+`;
 
 const DivImg = styled.div`
 	width: 100%;
@@ -52,7 +52,7 @@ const DivImg = styled.div`
 	align-items: center;
 	margin: 0 auto;
 	object-fit: contain;
-	
+
 	@media (min-width: 768px) {
 		width: 35%;
 		padding: 0 1rem;
@@ -67,19 +67,35 @@ const DivImg = styled.div`
 `;
 
 const DivText = styled.div`
-	width: 50%;
+	width: 90%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	margin: 0 auto;
-	padding: 0 1rem;
+	padding: 0 0.5rem;
 	@media (min-width: 768px) {
 		width: 70%;
 		height: 200px;
-		
 	}
 
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: 600;
+		@media (min-width: 768px) {
+			font-size: 1.5rem;
+		}
+	}
 
+	p {
+		padding: 0;
+		margin: 10px 0 ;
+		font-size: 0.8rem;
+		font-weight: 600;
+		@media (min-width: 768px) {
+			font-size: 1rem;
+		}
+	}
 `;

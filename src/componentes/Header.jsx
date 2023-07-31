@@ -103,7 +103,7 @@ const NavContainer = styled.div`
 		display: block;
 		position: absolute;
 		margin-right: auto;
-		top: 15%;
+		top: 90px;
 		left: 0;
 		right: 0;
 		text-align: left;
@@ -139,7 +139,7 @@ const BgDiv = styled.div`
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 76%;
+		height: 500px;
 	}
 `;
 
