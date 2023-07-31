@@ -6,13 +6,13 @@ import { getResults40, getTorneo40 } from "../redux/actions";
 function Results40() {
 	const dispatch = useDispatch();
 	const results40 = useSelector((state) => state.reducer40.results40);
-    const [fecha, setFecha] = useState(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]);
+    const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
 	useEffect(() => {
-		dispatch(getResults40(`Fecha ${[fecha.length - 1]}`));
+		dispatch(getResults40(`Fecha ${[fecha.length]}`));
 	}, []);
 
 	useEffect(() => {

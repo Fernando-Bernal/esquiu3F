@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function NovedadesCards({ noticia }) {
-	console.log(noticia);
+	const navigate = useNavigate();
+	
+	const handleClick = (title) => {
+		navigate(`/novedades/${title}`);
+	};
+//console.log(noticia)
 	return (
 		<Container>
 			<DivImg>
@@ -13,9 +18,9 @@ function NovedadesCards({ noticia }) {
 				<div>
 					<h3>{noticia.title}</h3>
 				</div>
-				<div>
-					<p>Leer mas.</p>
-				</div>
+				<DivButton onClick={()=> handleClick(noticia.title)}>
+					<p>Leer más.</p>
+				</DivButton>
 			</DivText>
 		</Container>
 	);
@@ -115,3 +120,7 @@ const DivText = styled.div`
 		}
 	}
 `;
+
+const DivButton = styled.div`
+	cursor: pointer;
+`

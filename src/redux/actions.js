@@ -1,4 +1,4 @@
-import { collection, getDocs, orderBy, getFirestore, limit , query} from 'firebase/firestore';
+import { collection, getDocs, orderBy, getFirestore, limit , query, where} from 'firebase/firestore';
 
 
 export const GET_GOAL_LIBRES = "GET_GOAL_LIBRES";
@@ -52,6 +52,8 @@ export const GET_FIXTURE_MAXI = "GET_FIXTURE_MAXI";
 export const GET_RESULTS_MAXI = "GET_RESULTS_MAXI" 
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
+export const GET_NOTICIA_DETAIL = "GET_NOTICIA_DETAIL"
+export const CLEAR_NOTICIA_DETAIL = "CLEAR_NOTICIA_DETAIL"
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
 
@@ -392,4 +394,28 @@ export const logout = () => {
       console.error("Error al desloguearse", error);
     }
   };
+}
+
+export const getNoticiaDetail = (title) =>{
+  const db = getFirestore();
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, "blog") , where("title", "==", title ));
+      const querySnapshot = await getDocs(q);
+      const nota = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({ type: GET_NOTICIA_DETAIL, payload: nota });
+    } catch (error) {
+      console.error("Error al obtener la noticia", error);
+    }
+  }
+}
+
+export const clearNoticiaDetil = () =>{
+  return async function (dispatch) {
+    try {
+      dispatch({ type: CLEAR_NOTICIA_DETAIL });
+    } catch (error) {
+      console.error("Error al limpiar la noticia", error);
+    }
+  }
 }

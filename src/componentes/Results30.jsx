@@ -6,13 +6,13 @@ import { getResults30 } from "../redux/actions";
 function Results30() {
     const dispatch = useDispatch();
     const results = useSelector((state) => state.reducer30.results30);
-    const [fecha, setFecha] = useState(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]);
+    const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
     useEffect(() => {
-        dispatch(getResults30(`Fecha ${[fecha.length - 1]}`));
+        dispatch(getResults30(`Fecha ${[fecha.length]}`));
     }, []);
 
     useEffect(() => {

@@ -12,8 +12,11 @@ function Novedades() {
 	const noticias = useSelector((state) => state.reducerU.noticias);
 
 	useEffect(() => {
-		dispatch(getNoticias());
+		if(noticias?.length === 0){
+			dispatch(getNoticias())
+		}
 	}, []);
+
 
 	console.log(noticias);
 	return (
@@ -23,7 +26,7 @@ function Novedades() {
 			<Section>
 				{noticias?.length > 0 &&
 					noticias.map((noticia) => {
-						return <NovedadesCards noticia={noticia} />;
+						return  <NovedadesCards noticia={noticia} />;
 					})}
 			</Section>
 			<Footer />

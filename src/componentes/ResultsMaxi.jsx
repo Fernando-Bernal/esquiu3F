@@ -6,13 +6,13 @@ import { getResultsMaxi } from "../redux/actions";
 function ResultsMaxi() {
 	const dispatch = useDispatch();
 	const resultsMaxi = useSelector((state) => state.reducerMaxi.resultsMaxi);
-    const [fecha, setFecha] = useState(["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"]);
+    const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
 	useEffect(() => {
-		dispatch(getResultsMaxi(`Fecha ${[fecha.length - 1]}`));
+		dispatch(getResultsMaxi(`Fecha ${[fecha.length ]}`));
 	}, []);
 
 	useEffect(() => {

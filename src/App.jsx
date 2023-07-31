@@ -19,6 +19,7 @@ import AuthContextProvider from './context/authContext'
 import Login from './componentes/Login';
 import Protected from './componentes/Protected';
 import Novedades from './componentes/Novedades';
+import NovedadesDetalle from './componentes/NovedadesDetalle';
 
 function App() {
 
@@ -26,22 +27,23 @@ function App() {
     <>
       <AuthContextProvider>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/torneo-libre" element={<ViewLibres/>} />
-          <Route path="/torneo-30" element={<View30/>} />
-          <Route path="/torneo-36" element={<View36/>} />
-          <Route path="/torneo-40" element={<View40/>} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/torneo-libre" element={<ViewLibres/>} />
+          <Route exact path="/torneo-30" element={<View30/>} />
+          <Route exact path="/torneo-36" element={<View36/>} />
+          <Route exact path="/torneo-40" element={<View40/>} />
           <Route exact path="/torneo-maxi" element={<ViewMaxi/>} />
           <Route exact path="/admin-fixture" element={<Protected>  <AdminFixture/>  </Protected>} />
           <Route exact path="/admin-torneo" element={<Protected>  <AdminImportTorneo/>  </Protected>} />
           <Route exact path="/admin-goles" element={<Protected>  <AdminImport/>  </Protected>} />
           <Route exact path="/admin-noticias" element={<Protected>  <AdminNews/>  </Protected>} />
           <Route exact path="/admin-resultados" element={<Protected>  <AdminResults/>  </Protected>} />
-          <Route path="/campus" element={<Campus />} />
-          <Route path="/sinteticas" element={<Sinteticas />} />
-          <Route path="/esquiuday" element={<EsquiuDay />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/novedades" element={<Novedades />} />
+          <Route exact path="/campus" element={<Campus />} />
+          <Route exact path="/sinteticas" element={<Sinteticas />} />
+          <Route exact path="/esquiuday" element={<EsquiuDay />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/novedades" element={<Novedades />} />
+          <Route exact path="/novedades/:id" element={<NovedadesDetalle />} />
         </Routes>
       </AuthContextProvider> 
     </>
