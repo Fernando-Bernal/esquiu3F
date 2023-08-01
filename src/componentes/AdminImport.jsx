@@ -8,6 +8,7 @@ import {
 	getFirestore,
 	getDocs,
 } from "firebase/firestore";
+import Swal from "sweetalert2";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -48,6 +49,13 @@ function AdminImport() {
 			batch.commit().then(() => {
 				console.log("Se importaron los datos correctamente");
 				setLoading(false);
+			});
+			Swal.fire({
+				position: "center",
+				icon: "success",
+				title: "Tu publicacion se cargo con exito",
+				showConfirmButton: false,
+				timer: 1500,
 			});
 		} catch (error) {
 			console.log(error);

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Header from "./Header";
 import Footer from "./Footer";
+import Swal from "sweetalert2";
 
 
 function validate(post) {
@@ -91,6 +92,13 @@ function AdminNews() {
 			setPost({ userId: user ? user : "", title: "", text: "", fecha: new Date() });
 			setImageUpload(null);
 			setErrors({});
+			Swal.fire({
+				position: "center",
+				icon: "success",
+				title: "Tu publicacion se cargo con exito",
+				showConfirmButton: false,
+				timer: 1500,
+			});
 		  } catch (error) {
 			console.error("Error al guardar el post:", error);
 		  }

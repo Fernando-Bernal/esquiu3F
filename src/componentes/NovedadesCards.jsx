@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 function NovedadesCards({ noticia }) {
 	const navigate = useNavigate();
-	
+
 	const handleClick = (title) => {
 		navigate(`/novedades/${title}`);
 	};
@@ -18,7 +18,7 @@ function NovedadesCards({ noticia }) {
 				<div>
 					<h3>{noticia.title}</h3>
 				</div>
-				<DivButton onClick={()=> handleClick(noticia.title)}>
+				<DivButton onClick={() => handleClick(noticia.title)}>
 					<p>Leer más.</p>
 				</DivButton>
 			</DivText>
@@ -79,11 +79,11 @@ const DivImg = styled.div`
 
 		@media (min-width: 768px) {
 			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			object-position: center;
+			height: 170px;
+			object-fit: cover;
+			object-position: center center;
 			border-radius: 10px;
-	}
+		}
 	}
 `;
 
@@ -112,7 +112,7 @@ const DivText = styled.div`
 
 	p {
 		padding: 0;
-		margin: 10px 0 ;
+		margin: 10px 0;
 		font-size: 0.8rem;
 		font-weight: 600;
 		@media (min-width: 768px) {
@@ -122,24 +122,24 @@ const DivText = styled.div`
 `;
 
 const DivButton = styled.div`
-		background-color: #f2d608;
-		color: #ffffff;
+	background-color: #f2d608;
+	color: #ffffff;
+	height: 40px;
+	width: 85px;
+	border-radius: 20px;
+	border: none;
+	font-size: 1.2rem;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 2px 2px 4px #000000;
+
+	&:hover {
+		background-color: #666666;
+	}
+
+	@media (min-width: 768px) {
 		height: 40px;
-		width: 85px;
-		border-radius: 20px;
-		border: none;
-		font-size: 1.2rem;
-		font-weight: bold;
-		cursor: pointer;
-		box-shadow: 2px 2px 4px #000000;
-
-		&:hover {
-			background-color: #666666;
-		}
-
-		@media (min-width: 768px) {
-			height: 40px;
-			width: 100px;
-			font-size: 1.5rem;
-		}
-`
+		width: 100px;
+		font-size: 1.5rem;
+	}
+`;

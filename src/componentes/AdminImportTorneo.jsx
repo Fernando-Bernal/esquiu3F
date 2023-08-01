@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import Footer from "./Footer";
 import { logout } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function AdminImportTorneo() {
 	const dispatch = useDispatch();
@@ -76,6 +77,13 @@ function AdminImportTorneo() {
 			batch.commit().then(() => {
 				console.log("Se importaron los datos correctamente");
 				setLoading(false);
+			});
+			Swal.fire({
+				position: "center",
+				icon: "success",
+				title: "Tu publicacion se cargo con exito",
+				showConfirmButton: false,
+				timer: 1500,
 			});
 		} catch (error) {
 			console.log(error);
