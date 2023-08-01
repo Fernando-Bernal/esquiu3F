@@ -87,10 +87,10 @@ function Results36() {
 							return (
 								<tr key={e.id}>
 									<Td>{e.jornada}</Td>
-									<Td>{e.equipo_local}</Td>
-									<Td>{e.goles_local}</Td>
-									<Td>{e.goles_visitante}</Td>
-									<Td>{e.equipo_visitante}</Td>
+									<Td>{e.equipo_1}</Td>
+									<Td>{e.resultado_1}</Td>
+									<Td>{e.resultado_2}</Td>
+									<Td>{e.equipo_2}</Td>
 								</tr>
 							);
 						})}
