@@ -15,7 +15,7 @@ function View30() {
     <DivContainer>
         <Header />
         <NavbarSq3 />
-        <H2>CATEGORIA +30</H2>
+        <H2>CATEGORÍA +30</H2>
 		<Fixture30 />
         <Torneo30 />
 		<Results30 />

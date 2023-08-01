@@ -15,7 +15,7 @@ function View40() {
         <DivContainer>
             <Header />
             <NavbarSq3 />
-            <H2>CATEGORIA +40</H2>
+            <H2>CATEGORÍA +40</H2>
             <Fixture40 />
             <Torneo40 />
             <Results40 />

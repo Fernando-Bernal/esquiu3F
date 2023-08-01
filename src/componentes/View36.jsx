@@ -15,7 +15,7 @@ function View36() {
         <DivContainer>
             <Header />
             <NavbarSq3 />
-            <H2>CATEGORIA +36</H2>
+            <H2>CATEGORÍA +36</H2>
             <Fixture36 />
             <Torneo36 />
             <Results36 />

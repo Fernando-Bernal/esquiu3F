@@ -8,7 +8,7 @@ function NovedadesCards({ noticia }) {
 	const handleClick = (title) => {
 		navigate(`/novedades/${title}`);
 	};
-//console.log(noticia)
+
 	return (
 		<Container>
 			<DivImg>
@@ -89,7 +89,7 @@ const DivImg = styled.div`
 
 const DivText = styled.div`
 	width: 90%;
-	height: 100%;
+	height: 130px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -122,5 +122,24 @@ const DivText = styled.div`
 `;
 
 const DivButton = styled.div`
-	cursor: pointer;
+		background-color: #f2d608;
+		color: #ffffff;
+		height: 40px;
+		width: 85px;
+		border-radius: 20px;
+		border: none;
+		font-size: 1.2rem;
+		font-weight: bold;
+		cursor: pointer;
+		box-shadow: 2px 2px 4px #000000;
+
+		&:hover {
+			background-color: #666666;
+		}
+
+		@media (min-width: 768px) {
+			height: 40px;
+			width: 100px;
+			font-size: 1.5rem;
+		}
 `

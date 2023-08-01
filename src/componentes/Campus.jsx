@@ -121,8 +121,7 @@ const Img = styled.img`
     border-radius: 10px;
 
     @media (min-width: 768px) {
-        width: 40%;
-        height: 500px;
+        width: 25%;
         float: right;
         margin-left: 20px;
        

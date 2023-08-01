@@ -14,7 +14,7 @@ function ViewMaxi() {
         <DivContainer>
             <Header />
             <NavbarSq3 />
-            <H2>CATEGORIA MAXI</H2>
+            <H2>CATEGORÍA MAXI</H2>
             <FixtureMaxi />
             <TorneoMaxi />
             <ResultsMaxi />

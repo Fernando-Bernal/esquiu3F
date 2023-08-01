@@ -18,7 +18,7 @@ function Fixture40() {
 
   return (
     <DivContainer>
-			<DivTitulo>PROXIMA FECHA </DivTitulo>
+			<DivTitulo>PRÓXIMA FECHA </DivTitulo>
 			<DivTabla>
 				<table className="table table-sm table-striped  custom-header">
 					<thead>

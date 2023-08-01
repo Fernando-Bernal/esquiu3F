@@ -20,7 +20,7 @@ import Login from './componentes/Login';
 import Protected from './componentes/Protected';
 import Novedades from './componentes/Novedades';
 import NovedadesDetalle from './componentes/NovedadesDetalle';
-
+import QuienesSomos from './componentes/QuienesSomos';
 function App() {
 
   return (
@@ -44,6 +44,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/novedades" element={<Novedades />} />
           <Route exact path="/novedades/:id" element={<NovedadesDetalle />} />
+          <Route exact path="/quienes-somos" element={<QuienesSomos />} />
         </Routes>
       </AuthContextProvider> 
     </>

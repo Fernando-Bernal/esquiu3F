@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import branca from "../assets/img/branca.webp";
+import powerade from "../assets/img/powerade2.webp";
 import schneider from "../assets/img/schneider.webp";
-import libra from "../assets/img/libra.webp";
 
-const logos = [branca, schneider, libra, branca, schneider, libra, branca, schneider, libra];
+const logos = [powerade, schneider, powerade, schneider, powerade, schneider, powerade, schneider, powerade, schneider];
 
 function ForHomeSponsor() {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -82,7 +81,7 @@ const Title = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	height: 35vh;
+	height: 25vh;
 
 	@media (min-width: 768px) {
 		height: 65vh;
@@ -152,7 +151,7 @@ const LogoImage = styled.img`
 	height: auto;
 	margin: 0 auto;
 	border-radius: 50%;
-	padding: 0.5rem;
+	padding: 0.7rem;
 
     @media (min-width: 768px) {
         max-width: 200px;

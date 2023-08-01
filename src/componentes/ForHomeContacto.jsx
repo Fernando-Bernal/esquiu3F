@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import telefono from "../assets/img/whatsapp.png";
 import buzon from "../assets/img/buzon.png";
@@ -10,16 +11,22 @@ function ForHomeContacto() {
     <DivContainer>
         <DivContacto>
             <DivItems>
+                <Link to='/novedades'>
                 <p>Noticias</p>
                 <img src={novedades} alt="" />
+                </Link>
             </DivItems>
             <DivItems>
+                <Link target="_blank" to="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...">
                 <p>Telefono</p>
                 <img src={telefono} alt="" />
+                </Link>
             </DivItems>
             <DivItems>
+                <Link target='_blank' to="https://docs.google.com/forms/d/e/1FAIpQLSd6mYLB91CHYVOLuK_cpYNydBwnpRFfdP9zuzjtZkLbsG-akw/viewform">
                 <p>Buzon de sugerencias</p>
                 <img src={buzon} alt="" />
+                </Link>
             </DivItems>
         </DivContacto>
     </DivContainer>
@@ -62,13 +69,16 @@ const DivItems = styled.div`
     flex-direction: column;
     margin: 0 10px;
 
-
+    a{
+        text-decoration: none;
+    }
     p{
         color: #fff;
         font-size: 0.8rem;
         font-weight: bold;
         margin-bottom: 10px;
         margin-top: 0px;
+        text-decoration: none;
         @media (min-width: 768px) {
             font-size: 1rem;
         }    

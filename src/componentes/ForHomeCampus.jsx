@@ -51,7 +51,7 @@ const SectionCampus = styled.section`
 	z-index: -6;
 
 	@media (min-width: 768px) {
-		height: 100vh;
+		height: 75vh;
 	}
 
 	h2 {
@@ -66,7 +66,7 @@ const SectionCampus = styled.section`
 		margin-bottom: 10px;
 		@media (min-width: 768px) {
 			position: absolute;
-			top: 15%;
+			top: 10%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			font-size: 4rem;

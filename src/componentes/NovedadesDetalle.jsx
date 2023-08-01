@@ -92,4 +92,5 @@ const Btn = styled.button`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+	color: #fff;
 `

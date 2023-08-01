@@ -14,7 +14,7 @@ function EsquiuDay() {
 			<Header />
 			<DivTitle>
 				<DivLine />
-				<H1>ESQUIU DAY</H1>
+				<H1>ESQUIÚ DAY</H1>
 				<DivLine />
 			</DivTitle>
 			<DivCampus>
@@ -117,8 +117,7 @@ const Img = styled.img`
 	margin-bottom: 20px;
 	
 	@media (min-width: 768px) {
-		width: 40%;
-		height: 400px;
+		width: 25%;
 		float: right;
 		margin-left: 20px;
 	}

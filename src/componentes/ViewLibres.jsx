@@ -16,7 +16,7 @@ function ViewLibres() {
 			<DivContainer>
 				<Header />
 				<NavbarSq3 />
-				<H2>CATEGORIA LIBRE</H2>
+				<H2>CATEGORÍA LIBRE</H2>
 				<FixtureLibre />
 				<Torneo />
 				<ResultsLibres />

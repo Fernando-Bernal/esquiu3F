@@ -37,8 +37,8 @@ function Header() {
 					<a className="ahedear" href="/torneo-libre">Torneo SQ3</a>
 					<DropdownCampus3 className="ahedear" />
 					<a className="ahedear" href="/novedades">Novedades</a>
-					<a className="ahedear" href="">Quienes somos</a>
-					<a className="ahedear" href="">Contacto</a>
+					<a className="ahedear" href="/quienes-somos">Quiénes somos</a>
+					<a className="ahedear" target="_blank" href="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...">Contacto</a>
 					<a className="ahedear" href="" onClick={handleRfresh}>Actualizar datos</a>
 				</div>
 				<div className="burger">

@@ -57,6 +57,7 @@ export default Sinteticas;
 
 const DivCampus = styled.div`
 	width: 75%;
+	min-height: 65vh;
 	margin: 0 auto;
 	padding: 20px;
 	text-align: left;
@@ -107,8 +108,7 @@ const Img = styled.img`
 	margin-bottom: 20px;
 
 	@media (min-width: 768px) {
-		width: 40%;
-		height: 400px;
+		width: 20%;
 		float: right;
 		margin-left: 20px;
 	}

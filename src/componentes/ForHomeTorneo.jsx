@@ -5,7 +5,7 @@ import copa from "../assets/img/trofeo.png";
 import fotos from "../assets/img/foto.png";
 import video from "../assets/img/video.png";
 
-function ForHomeTorneo() {
+function  ForHomeTorneo() {
 	return (
 		<TorneoContainer>
 			<h2>TORNEO SQ3</h2>
@@ -18,11 +18,15 @@ function ForHomeTorneo() {
 				</DivTorneoCard>
 				<DivTorneoCard>
 					<img src={fotos} alt="fotos" />
+					<Link target="_blank" to="https://www.instagram.com/esquiu3/">
 					<button>Fotos</button>
+					</Link>
 				</DivTorneoCard>
 				<DivTorneoCard>
 					<img src={video} alt="videos" />
+					<Link target="_blank" to="https://www.facebook.com/esquiu3/?locale=es_LA">
 					<button>Videos</button>
+					</Link>
 				</DivTorneoCard>
 			</DivTorneo>
 		</TorneoContainer>
@@ -44,7 +48,7 @@ const TorneoContainer = styled.div`
 	z-index: -6;
 	
 	@media (min-width: 768px) {
-		height: 70vh;
+		height: 55vh;
 	}
 
 	h2 {
@@ -94,7 +98,7 @@ const DivTorneo = styled.div`
 const DivTorneoCard = styled.div`
 	background-color: rgb(66, 55, 55);
 	width: 50%;
-	height: 200px;
+	height: 150px;
 	color: #fff;
 	margin: 20px;
 	border-radius: 20px;
@@ -108,6 +112,7 @@ const DivTorneoCard = styled.div`
 
 	@media (min-width: 768px) {
 		width: 20%;
+		height: 200px;
 	}
 
 	img {
