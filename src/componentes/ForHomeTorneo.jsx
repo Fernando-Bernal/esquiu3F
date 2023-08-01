@@ -18,13 +18,13 @@ function  ForHomeTorneo() {
 				</DivTorneoCard>
 				<DivTorneoCard>
 					<img src={fotos} alt="fotos" />
-					<Link target="_blank" to="https://www.instagram.com/esquiu3/">
+					<Link target="_blank" to="https://www.facebook.com/esquiu3/?locale=es_LA">
 					<button>Fotos</button>
 					</Link>
 				</DivTorneoCard>
 				<DivTorneoCard>
 					<img src={video} alt="videos" />
-					<Link target="_blank" to="https://www.facebook.com/esquiu3/?locale=es_LA">
+					<Link target="_blank" to="https://www.instagram.com/esquiu3/">
 					<button>Videos</button>
 					</Link>
 				</DivTorneoCard>

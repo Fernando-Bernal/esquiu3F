@@ -6,7 +6,7 @@ import { getResults40, getTorneo40 } from "../redux/actions";
 function Results40() {
 	const dispatch = useDispatch();
 	const results40 = useSelector((state) => state.reducer40.results40);
-    const [fecha, setFecha] = useState(["1"]);
+	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
@@ -75,7 +75,7 @@ function Results40() {
 				<table className="table table-sm table-bordered table-striped custom-header">
 					<thead>
 						<tr>
-							<th id="th">Fecha</th>
+							<th id="th">Jornada</th>
 							<th id="th">Local</th>
 							<th id="th">G</th>
 							<th id="th">G</th>
@@ -86,7 +86,7 @@ function Results40() {
 						{tabla.map((e) => {
 							return (
 								<tr key={e.id}>
-									<Td>{e.dia}</Td>
+									<Td>{e.jornada}</Td>
 									<Td>{e.equipo_local}</Td>
 									<Td>{e.goles_local}</Td>
 									<Td>{e.goles_visitante}</Td>

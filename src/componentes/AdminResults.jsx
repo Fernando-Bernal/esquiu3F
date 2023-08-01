@@ -36,32 +36,26 @@ function AdminResults() {
 	useEffect(() => {
 		setTabla(data);
 	}, [data]);
-
+console.log(data)
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
 			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
 			data.forEach((row) => {
 				const {
-					fecha,
-					equipo_local,
-					goles_local,
-					equipo_visitante,
-					goles_visitante,
-					cancha,
-					dia,
-					horario,
+					jornada,
+					equipo_1,
+					resultado_1,
+					equipo_2,
+					resultado_2,
 				} = row;
 				const newDocRef = doc(docRef);
 				batch.set(newDocRef, {
-					fecha,
-					equipo_local,
-					goles_local,
-					equipo_visitante,
-					goles_visitante,
-					cancha,
-					dia,
-					horario,
+					jornada,
+					equipo_1,
+					resultado_1,
+					equipo_2,
+					resultado_2,
 				});
 			});
 			batch.commit().then(() => {
@@ -151,27 +145,21 @@ function AdminResults() {
 				<table className="table table-sm table-bordered">
 					<thead>
 						<tr>
-							<th>Fecha</th>
+							<th>Jornada</th>
 							<th>Equipo Local</th>
 							<th>Goles Local</th>
 							<th>Equipo Visitante</th>
 							<th>Goles Visitante</th>
-							<th>Cancha</th>
-							<th>Dia</th>
-							<th>Horario</th>
 						</tr>
 					</thead>
 					<tbody>
 						{tabla.map((e) => (
 							<tr>
-								<td>{e.fecha}</td>
-								<td>{e.equipo_local}</td>
-								<td>{e.goles_local}</td>
-								<td>{e.equipo_visitante}</td>
-								<td>{e.goles_visitante}</td>
-								<td>{e.cancha}</td>
-								<td>{e.dia}</td>
-								<td>{e.horario}</td>
+								<td>{e.jornada}</td>
+								<td>{e.equipo_1}</td>
+								<td>{e.resultado_1}</td>
+								<td>{e.equipo_2}</td>
+								<td>{e.resultado_2}</td>
 							</tr>
 						))}
 					</tbody>

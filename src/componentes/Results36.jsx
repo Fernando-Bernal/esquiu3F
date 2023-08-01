@@ -4,22 +4,22 @@ import styled from "styled-components";
 import { getResults36 } from "../redux/actions";
 
 function Results36() {
-    const dispatch = useDispatch();
-    const results36 = useSelector((state) => state.reducer36.results36);
-    const [fecha, setFecha] = useState(["1"]);
+	const dispatch = useDispatch();
+	const results36 = useSelector((state) => state.reducer36.results36);
+	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
-    useEffect(() => {
-        dispatch(getResults36(`Fecha ${[fecha.length]}`));
-    }, []);
+	useEffect(() => {
+		dispatch(getResults36(`Fecha ${[fecha.length]}`));
+	}, []);
 
-    useEffect(() => {
-        setTabla(results36);
-    }, [results36]);
+	useEffect(() => {
+		setTabla(results36);
+	}, [results36]);
 
-    const selectedDates = fecha.slice(
+	const selectedDates = fecha.slice(
 		currentPage * resultsPerPage,
 		(currentPage + 1) * resultsPerPage
 	);
@@ -42,10 +42,10 @@ function Results36() {
 	const handlePrevPage = () => {
 		setCurrentPage((prevPage) => prevPage - 1);
 	};
-const anterior = "<"
-const posterior = ">"
-  return (
-    <DivContainer>
+	const anterior = "<";
+	const posterior = ">";
+	return (
+		<DivContainer>
 			<DivTitulo>RESULTADOS POR FECHAS</DivTitulo>
 			<DivFecha>
 				<BtnFecha disabled={currentPage === 0} onClick={handlePrevPage}>
@@ -75,7 +75,7 @@ const posterior = ">"
 				<table className="table table-sm table-bordered table-striped custom-header">
 					<thead>
 						<tr>
-							<th id="th">Fecha</th>
+							<th id="th">Jornada</th>
 							<th id="th">Local</th>
 							<th id="th">G</th>
 							<th id="th">G</th>
@@ -86,7 +86,7 @@ const posterior = ">"
 						{tabla.map((e) => {
 							return (
 								<tr key={e.id}>
-									<Td>{e.dia}</Td>
+									<Td>{e.jornada}</Td>
 									<Td>{e.equipo_local}</Td>
 									<Td>{e.goles_local}</Td>
 									<Td>{e.goles_visitante}</Td>
@@ -101,7 +101,7 @@ const posterior = ">"
 	);
 }
 
-export default Results36
+export default Results36;
 
 const DivContainer = styled.div`
 	position: relative;

@@ -6,13 +6,13 @@ import { getResultsMaxi } from "../redux/actions";
 function ResultsMaxi() {
 	const dispatch = useDispatch();
 	const resultsMaxi = useSelector((state) => state.reducerMaxi.resultsMaxi);
-    const [fecha, setFecha] = useState(["1"]);
+	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
 	useEffect(() => {
-		dispatch(getResultsMaxi(`Fecha ${[fecha.length ]}`));
+		dispatch(getResultsMaxi(`Fecha ${[fecha.length]}`));
 	}, []);
 
 	useEffect(() => {
@@ -77,7 +77,7 @@ function ResultsMaxi() {
 				<table className="table table-sm table-bordered table-striped custom-header">
 					<thead>
 						<tr>
-							<th id="th">Fecha</th>
+							<th id="th">Jornada</th>
 							<th id="th">Local</th>
 							<th id="th">G</th>
 							<th id="th">G</th>
@@ -88,7 +88,7 @@ function ResultsMaxi() {
 						{tabla.map((e) => {
 							return (
 								<tr key={e.id}>
-									<Td>{e.dia}</Td>
+									<Td>{e.jornada}</Td>
 									<Td>{e.equipo_local}</Td>
 									<Td>{e.goles_local}</Td>
 									<Td>{e.goles_visitante}</Td>

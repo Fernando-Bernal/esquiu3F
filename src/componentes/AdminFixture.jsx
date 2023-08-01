@@ -102,9 +102,9 @@ function AdminFixture() {
 			<DivTitle>
 				<Divbtn>
 					<B href="admin-goles">Goleadores</B>
-					<B href="admin-fixture">Fixture</B>
+					<B href="admin-resultados">Resultados</B>
 				</Divbtn>
-				<h1>IMPORTAR TABLA RESULTADOS</h1>
+				<h1>IMPORTAR TABLA FIXTURE</h1>
 				<Divbtn>
 					<A href="admin-torneo"> Torneo</A>
 					<A href="admin-noticias"> Noticias</A>

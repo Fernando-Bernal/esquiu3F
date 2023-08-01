@@ -75,7 +75,7 @@ const posterior = ">"
 				<table className="table table-sm table-bordered table-striped custom-header">
 					<thead>
 						<tr>
-							<th id="th">Fecha</th>
+							<th id="th">Jornada</th>
 							<th id="th">Local</th>
 							<th id="th">G</th>
 							<th id="th">G</th>
@@ -86,11 +86,11 @@ const posterior = ">"
 						{tabla.map((e) => {
 							return (
 								<tr key={e.id}>
-									<Td>{e.dia}</Td>
-									<Td>{e.equipo_local}</Td>
-									<Td>{e.goles_local}</Td>
-									<Td>{e.goles_visitante}</Td>
-									<Td>{e.equipo_visitante}</Td>
+									<Td>{e.jornada}</Td>
+									<Td>{e.equipo_1}</Td>
+									<Td>{e.resultado_1}</Td>
+									<Td>{e.resultado_2}</Td>
+									<Td>{e.equipo_2}</Td>
 								</tr>
 							);
 						})}
