@@ -51,7 +51,7 @@ const SectionCampus = styled.section`
 	z-index: -6;
 
 	@media (min-width: 768px) {
-		height: 75vh;
+		height: 85vh;
 	}
 
 	h2 {
