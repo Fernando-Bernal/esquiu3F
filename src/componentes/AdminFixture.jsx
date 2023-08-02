@@ -44,9 +44,7 @@ function AdminFixture() {
 				const {
 					fecha,
 					equipo_local,
-					goles_local,
 					equipo_visitante,
-					goles_visitante,
 					cancha,
 					dia,
 					horario,
@@ -55,9 +53,7 @@ function AdminFixture() {
 				batch.set(newDocRef, {
 					fecha,
 					equipo_local,
-					goles_local,
 					equipo_visitante,
-					goles_visitante,
 					cancha,
 					dia,
 					horario,

@@ -5,26 +5,16 @@ import logo from "../assets/img/logo2.webp";
 import BurgerMenu from "./BurgerMenu";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { persistor } from "../redux/store";
+
 
 function Header() {
-	const navigate = useNavigate();
+	
 	const [clicked, setClicked] = useState(false);
-	const user = useSelector((state) => state.reducerU.user);
+	const user = useSelector((state) => state.reducerUsuario.user);
 	const handleClick = () => {
 		setClicked(!clicked);
 	};
 
-	const handleRfresh = (e) => {
-		e.preventDefault();
-		persistor
-			.purge()
-			.then(() => {
-				navigate("/");
-				window.location.reload();
-			})
-			.catch(() => console.log("No se borraron los datos"));
-	};
 
 	return (
 		<>
@@ -39,7 +29,6 @@ function Header() {
 					<a className="ahedear" href="/novedades">Novedades</a>
 					<a className="ahedear" href="/quienes-somos">Quiénes somos</a>
 					<a className="ahedear" target="_blank" href="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...">Contacto</a>
-					<a className="ahedear" href="" onClick={handleRfresh}>Actualizar datos</a>
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />

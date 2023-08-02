@@ -9,7 +9,7 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import Header from "./Header";
-import { persistor } from "../redux/store";
+//import { persistor } from "../redux/store";
 import { useDispatch } from "react-redux";
 import Footer from "./Footer";
 import { logout } from "../redux/actions";
@@ -118,15 +118,15 @@ function AdminImportTorneo() {
 		setZona(e.target.value);
 	};
 
-	const handlePurge = () => {
-		persistor
-			.purge()
-			.then(() => {
-				navigate("/");
-				window.location.reload();
-			})
-			.catch(() => console.log("No se borraron los datos"));
-	};
+	// const handlePurge = () => {
+	// 	persistor
+	// 		.purge()
+	// 		.then(() => {
+	// 			navigate("/");
+	// 			window.location.reload();
+	// 		})
+	// 		.catch(() => console.log("No se borraron los datos"));
+	// };
 
 	const handleLogOut = () => {
 		dispatch(logout());
@@ -217,7 +217,7 @@ function AdminImportTorneo() {
 				</table>
 			</DivTable>
 			<DivBtnSession>
-				<BtnRojo onClick={() => handlePurge()}>Borrar cache</BtnRojo>
+				{/* <BtnRojo onClick={() => handlePurge()}>Borrar cache</BtnRojo> */}
 				<BtnRojo onClick={() => handleLogOut()}>Cerrar sesión</BtnRojo>
 			</DivBtnSession>
 			<DivInfomation>

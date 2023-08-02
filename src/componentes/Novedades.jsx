@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 function Novedades() {
 	const dispatch = useDispatch();
-	const user = useSelector((state) => state.reducerU.user);
+	const user = useSelector((state) => state.reducerUsuario.user);
 	const noticias = useSelector((state) => state.reducerU.noticias);
 
 	useEffect(() => {
