@@ -92,17 +92,18 @@ const DivCampus = styled.div`
 `;
 const DivCampusCard = styled.div`
 	background-color: rgb(66, 55, 55);
-	width: 60%;
+	width: 50%;
 	color: #fff;
 	margin: 20px;
 	border-radius: 20px;
 	box-shadow: 2px 2px 4px #000000;
 	text-align: center;
 	padding: 15px;
-	height: 410px;
+	height: 370px;
 
 	@media (min-width: 768px) {
 		width: 20%;
+		height: 390px;
 	}
 
 	img {

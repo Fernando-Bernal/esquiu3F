@@ -97,7 +97,7 @@ const DivTorneo = styled.div`
 `;
 const DivTorneoCard = styled.div`
 	background-color: rgb(66, 55, 55);
-	width: 50%;
+	width: 35%;
 	height: 150px;
 	color: #fff;
 	margin: 20px;
@@ -128,7 +128,7 @@ const DivTorneoCard = styled.div`
 	button {
 		background-color: #f2d608;
 		color: #ffffff;
-		height: 40px;
+		height: 30px;
 		width: 100px;
 		border-radius: 20px;
 		border: none;
