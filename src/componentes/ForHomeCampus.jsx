@@ -21,8 +21,8 @@ function CampusForHome() {
 					<img src={arquero} alt="" />
 					<h3>Esquiu Day</h3>
 					<p>Pasá un día inolvidable en todas nuestras instalaciones.</p>
-					<Link to='/esquiuday'>
-					<button>Ver más</button>
+					<Link to="/esquiuday">
+						<button>Ver más</button>
 					</Link>
 				</DivCampusCard>
 				<DivCampusCard>
@@ -99,7 +99,7 @@ const DivCampusCard = styled.div`
 	box-shadow: 2px 2px 4px #000000;
 	text-align: center;
 	padding: 15px;
-	height: 370px;
+	
 
 	@media (min-width: 768px) {
 		width: 20%;
@@ -135,8 +135,8 @@ const DivCampusCard = styled.div`
 	button {
 		background-color: #f2d608;
 		color: #ffffff;
-		height: 40px;
-		width: 130px;
+		height: 35px;
+		width: 100px;
 		border-radius: 20px;
 		border: none;
 		font-size: 1.2rem;
@@ -146,6 +146,11 @@ const DivCampusCard = styled.div`
 
 		&:hover {
 			background-color: #666666;
+		}
+
+		@media (min-width: 768px) {
+			height: 40px;
+			width: 130px;
 		}
 	}
 `;
