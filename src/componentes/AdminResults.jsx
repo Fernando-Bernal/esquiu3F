@@ -16,6 +16,7 @@ function AdminResults() {
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
 	const [fecha, setFecha] = useState([]);
+	const [zona, setZona] = useState([]);
 	const [data, setData] = useState([]);
 	const [tabla, setTabla] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -36,11 +37,11 @@ function AdminResults() {
 	useEffect(() => {
 		setTabla(data);
 	}, [data]);
-	console.log(data);
+	
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
+			const docRef = collection(db, `${categorias}`, `${fecha}`, `${zona}`);
 			data.forEach((row) => {
 				const { jornada, equipo_1, resultado_1, equipo_2, resultado_2 } = row;
 				const newDocRef = doc(docRef);
@@ -74,6 +75,10 @@ function AdminResults() {
 
 	const handleFecha = (e) => {
 		setFecha(e.target.value);
+	};
+
+	const handleZona = (e) => {
+		setZona(e.target.value);
 	};
 
 	const deleteCollection = async () => {
@@ -127,6 +132,14 @@ function AdminResults() {
 					<option value="Fecha 4">Fecha 4</option>
 					<option value="Fecha 5">Fecha 5</option>
 					<option value="Fecha 6">Fecha 6</option>
+				</Select>
+				<Select onChange={handleZona}>
+					<option disabled selected>
+						Zona
+					</option>
+					<option value="Zona1">Zona1</option>
+					<option value="Zona2">Zona2</option>
+		
 				</Select>
 				<CSVReader
 					cssClass="react-csv-input"

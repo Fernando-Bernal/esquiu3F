@@ -7,8 +7,8 @@ import {
 	GET_TORNEO_LIBRESPLATA1,
 	GET_TORNEO_LIBRESPLATA2,
 	GET_FIXTURE_LIBRE,
-
 	GET_RESULTS,
+	GET_RESULTS2,
 	
 } from "../actions";
 
@@ -22,6 +22,7 @@ const initialState = {
 	torneolibresPlata2: [],
 	fixtureLibre: [],
 	results: [],
+	results2: [],
 	
 };
 
@@ -71,6 +72,11 @@ const reducerApp = (state = initialState, action) => {
 			return {
 				...state,
 				results: action.payload,
+			}
+		case GET_RESULTS2:
+			return {
+				...state,
+				results2: action.payload,
 			}
 		default:
 			return state;

@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getResults30 } from "../redux/actions";
+import { getResults30 , getResults302 } from "../redux/actions";
 
 function Results30() {
 	const dispatch = useDispatch();
 	const results = useSelector((state) => state.reducer30.results30);
-	const [fecha, setFecha] = useState(["1", "2"]);
+	const results2 = useSelector((state) => state.reducer30.results302);
+	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
+	const [tabla2, setTabla2] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
 	useEffect(() => {
 		dispatch(getResults30(`Fecha ${[fecha.length]}`));
+		dispatch(getResults302(`Fecha ${[fecha.length]}`));
 	}, []);
 
 	useEffect(() => {
 		setTabla(results);
-	}, [results]);
+		setTabla2(results2);
+	}, [results, results2]);
 
 	const selectedDates = fecha.slice(
 		currentPage * resultsPerPage,
@@ -72,6 +76,32 @@ function Results30() {
 				</BtnFecha>
 			</DivFecha>
 			<DivTabla>
+			<H5>Zona 1</H5>
+				<table className="table table-sm table-bordered table-striped custom-header">
+					<thead>
+						<tr>
+							<th id="th">Jornada</th>
+							<th id="th">Local</th>
+							<th id="th">G</th>
+							<th id="th">G</th>
+							<th id="th">Visitante</th>
+						</tr>
+					</thead>
+					<tbody>
+						{tabla.map((e) => {
+							return (
+								<tr key={e.id}>
+									<Td>{e.jornada}</Td>
+									<Td>{e.equipo_1}</Td>
+									<Td>{e.resultado_1}</Td>
+									<Td>{e.resultado_2}</Td>
+									<Td>{e.equipo_2}</Td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+				<H5>Zona 2</H5>
 				<table className="table table-sm table-bordered table-striped custom-header">
 					<thead>
 						<tr>
@@ -183,4 +213,15 @@ const Td = styled.td`
 	@media (min-width: 768px) {
 		font-size: 1rem;
 	}
+`;
+const H5 = styled.h5`
+	text-align: center;
+	color: orange;
+	font-weight: bold;
+	padding: 5px;
+	margin: 0;
+
+	@media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
 `;

@@ -44,6 +44,7 @@ function Results36() {
 	};
 	const anterior = "<";
 	const posterior = ">";
+
 	return (
 		<DivContainer>
 			<DivTitulo>RESULTADOS POR FECHAS</DivTitulo>

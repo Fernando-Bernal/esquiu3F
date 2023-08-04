@@ -10,6 +10,7 @@ export const GET_TORNEO_LIBRESPLATA1 = "GET_TORNEO_LIBRESPlata zona 1";
 export const GET_TORNEO_LIBRESPLATA2 = "GET_TORNEO_LIBRESPlata zona 2";
 export const GET_FIXTURE_LIBRE = "GET_FIXTURE_LIBRE";
 export const GET_RESULTS = "GET_RESULTS";
+export const GET_RESULTS2 = "GET_RESULTS2";
 
 export const GET_GOAL_30 = "GET_GOAL_30";
 export const GET_TORNEO_30Zona1 = "GET_TORNEO_30Zona 1";
@@ -20,6 +21,7 @@ export const GET_TORNEO_30PLATA1 = "GET_TORNEO_30Plata zona 1";
 export const GET_TORNEO_30PLATA2 = "GET_TORNEO_30Plata zona 2";
 export const GET_FIXTURE_30 = "GET_FIXTURE_30";
 export const GET_RESULTS_30 = "GET_RESULTS_30"
+export const GET_RESULTS_302 = "GET_RESULTS_302";
 
 export const GET_GOAL_36 = "GET_GOAL_36";
 export const GET_TORNEO_36Zona1 = "GET_TORNEO_36Zona 1";
@@ -89,13 +91,27 @@ export function getTorneoZona(zona) {
 //* FUNCION RESULTADOS
 export function getResults(fecha){
   const db = getFirestore();
-  const querryCollection = `libres/${fecha}/resultados`
+  const querryCollection = `libres/${fecha}/Zona1`
   return async function (dispatch){
     try{
       const q = query(collection(db, querryCollection));
       const querySnapshot = await getDocs(q);
       const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
       dispatch({type: GET_RESULTS, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+export function getResults2(fecha){
+  const db = getFirestore();
+  const querryCollection = `libres/${fecha}/Zona2`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS2, payload: tabla});
     }catch(error){
       console.error("Error al obtener los resultados", error);
     }
@@ -150,13 +166,27 @@ export function getTorneo30(zona) {
 
 export function getResults30(fecha){
   const db = getFirestore();
-  const querryCollection = `+30/${fecha}/resultados`
+  const querryCollection = `+30/${fecha}/Zona1`
   return async function (dispatch){
     try{
       const q = query(collection(db, querryCollection));
       const querySnapshot = await getDocs(q);
       const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
       dispatch({type: GET_RESULTS_30, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+export function getResults302(fecha){
+  const db = getFirestore();
+  const querryCollection = `+30/${fecha}/Zona2`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: GET_RESULTS_302, payload: tabla});
     }catch(error){
       console.error("Error al obtener los resultados", error);
     }
@@ -211,7 +241,7 @@ export function getTorneo36(zona) {
 
 export function getResults36(fecha){
   const db = getFirestore();
-  const querryCollection = `+36/${fecha}/resultados`
+  const querryCollection = `+36/${fecha}/Zona1`
   return async function (dispatch){ 
     try{
       const q = query(collection(db, querryCollection));
@@ -271,7 +301,7 @@ export function getTorneo40(zona){
 
 export function getResults40(fecha){
   const db = getFirestore();
-  const querryCollection = `+40/${fecha}/resultados`
+  const querryCollection = `+40/${fecha}/Zona1`
   return async function (dispatch){
     try{
       const q = query(collection(db, querryCollection));
@@ -331,7 +361,7 @@ export function getTorneoMaxi(zona){
 
 export function getResultsMaxi(fecha){
   const db = getFirestore();
-  const querryCollection = `Maxi/${fecha}/resultados`
+  const querryCollection = `Maxi/${fecha}/Zona1`
   return async function (dispatch){
     try{
       const q = query(collection(db, querryCollection));

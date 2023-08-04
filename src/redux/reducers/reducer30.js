@@ -7,7 +7,8 @@ import {
 	GET_TORNEO_30PLATA1,
 	GET_TORNEO_30PLATA2,
     GET_FIXTURE_30,
-    GET_RESULTS_30
+    GET_RESULTS_30,
+    GET_RESULTS_302
 } from "../actions";
 
 const initialState = {
@@ -19,7 +20,8 @@ const initialState = {
     torneo30Plata1: [],
     torneo30Plata2: [],
     fixture30: [],
-    results30: []
+    results30: [],
+    results302: []
 };
 
 function reducer(state = initialState, action) {
@@ -68,6 +70,11 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 results30: action.payload,
+            }
+        case GET_RESULTS_302:
+            return {
+                ...state,
+                results302: action.payload,
             }
 		default:
 			return state;
