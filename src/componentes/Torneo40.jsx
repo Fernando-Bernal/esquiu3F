@@ -7,21 +7,20 @@ import { getTorneo40 } from "../redux/actions";
 function Torneo40() {
 	const dispatch = useDispatch();
 	const zona1 = useSelector((state) => state.reducer40.torneo40Z1);
-	const zona2 = useSelector((state) => state.reducer40.torneo40Z2);
+
 	const [tabla, setTabla] = useState([]);
-	const [tabla2, setTabla2] = useState([]);
+
 
 	useEffect(() => {
 		if (zona1?.length === 0) {
 			dispatch(getTorneo40("Zona 1"));
-			dispatch(getTorneo40("Zona 2"));
+			
 		}
 	}, []);
 
 	useEffect(() => {
 		setTabla(zona1);
-		setTabla2(zona2);
-	}, [zona1, zona2]);
+	}, [zona1]);
 
 	return (
 		<DivContainer>
@@ -60,7 +59,7 @@ function Torneo40() {
 						})}
 					</tbody>
 				</table>
-				<H5>Zona 2</H5>
+				{/* <H5>Zona 2</H5>
 				<table className="table table-sm table-bordered custom-header">
 					<thead>
 						<tr>
@@ -92,7 +91,7 @@ function Torneo40() {
 							);
 						})}
 					</tbody>
-				</table>
+				</table> */}
 			</DivTabla>
 		</DivContainer>
 	);

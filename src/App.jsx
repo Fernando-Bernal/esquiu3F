@@ -21,6 +21,7 @@ import Protected from './componentes/Protected';
 import Novedades from './componentes/Novedades';
 import NovedadesDetalle from './componentes/NovedadesDetalle';
 import QuienesSomos from './componentes/QuienesSomos';
+import Reglamento from './componentes/Reglamento';
 function App() {
 
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/novedades" element={<Novedades />} />
           <Route exact path="/novedades/:id" element={<NovedadesDetalle />} />
           <Route exact path="/quienes-somos" element={<QuienesSomos />} />
+          <Route exact path="/reglamento" element={<Reglamento />} />
         </Routes>
       </AuthContextProvider> 
     </>

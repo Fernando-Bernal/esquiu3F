@@ -7,22 +7,22 @@ import { getTorneoMaxi } from "../redux/actions";
 function TorneoMaxi() {
     const dispatch = useDispatch();
     const zona1 = useSelector((state) => state.reducerMaxi.torneoMaxiZ1);
-    const zona2 = useSelector((state) => state.reducerMaxi.torneoMaxiZ2);
+
 
     const [tabla, setTabla] = useState([]);
-	const [tabla2, setTabla2] = useState([]);
+
 
 	useEffect(() => {
 		if (zona1?.length === 0) {
 			dispatch(getTorneoMaxi("Zona 1"));
-			dispatch(getTorneoMaxi("Zona 2"));
+
 		}
 	}, []);
 
     useEffect(() => {
         setTabla(zona1);
-        setTabla2(zona2);
-    }, [zona1, zona2]);
+     ;
+    }, [zona1]);
 
   return (
      <DivContainer>
@@ -61,7 +61,7 @@ function TorneoMaxi() {
 						})}
 					</tbody>
 				</table>
-				<H5>Zona 2</H5>
+				{/* <H5>Zona 2</H5>
 				<table className="table table-sm table-bordered custom-header">
 					<thead>
 						<tr>
@@ -93,7 +93,7 @@ function TorneoMaxi() {
 							);
 						})}
 					</tbody>
-				</table>
+				</table> */}
 			</DivTabla>
 		</DivContainer>
   )
