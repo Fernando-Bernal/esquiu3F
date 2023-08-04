@@ -165,8 +165,21 @@ function AdminFixture() {
 			</DivTable>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
-				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+				<p>
+					Procedimiento para la carga de datos. Ir por orden de botones <br />
+					1) Seleccionar categoría<br />
+					2)Borrar datos viejos<br />
+					3)Cargar archivo CSV<br /> 
+					4)Guardar la información en la base de datos. <br />
+					Esta sección está adaptada para usar el modelo de excel "Formato Fixture (proxima fecha)"
+					<br />
+					
+				</p>
+				<p>
+					Si al cargar el archivo csv, hay algún campo que no se ve en la tabla
+					de pre-visualización, es porque no está escrito correctamente el
+					nombre de la columna desde excel.
+				</p>
 			</DivInfomation>
 			<Footer />
 		</DivBackground>
@@ -313,4 +326,8 @@ const DivInfomation = styled.div`
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
+
+	p {
+		text-align: justify;
+	}
 `;

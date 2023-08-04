@@ -223,10 +223,10 @@ function AdminImportTorneo() {
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
 				<p>
-					Para importar la tabla de posiciones, debe tener en cuenta que el
-					archivo csv debe tener los siguientes campos: Posición, Equipo,
-					Puntos, Partidos jugados, Partidos ganados, Partidos empatados,
-					Partidos perdidos, A favor, En contra, Diferencia.
+					Procedimiento para la carga de datos. Ir por orden de botones <br/>1)
+					Seleccionar categoría<br/> 2)Seleccionar zona<br/> 3)Borrar datos anteriores<br/>
+					4)Cargar archivo CSV<br/> 5)Guardar la información en la base de
+					datos. <br/>Esta sección está adaptada para importar tabla de laverade.
 				</p>
 				<p>
 					Si al cargar el archivo csv, hay algún campo que no se ve en la tabla
@@ -265,8 +265,6 @@ const DivTitle = styled.div`
 		font-size: 1.8rem;
 	}
 `;
-
-
 
 const Divbtn = styled.div`
 	display: flex;
@@ -343,7 +341,6 @@ const Select = styled.select`
 	}
 `;
 
-
 const Btn = styled.button`
 	background-color: #f0b21f;
 	width: 100px;
@@ -387,6 +384,10 @@ const DivInfomation = styled.div`
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
+
+	p{
+		text-align: justify;
+	}
 `;
 
 const DivBtnSession = styled.div`
@@ -397,4 +398,3 @@ const DivBtnSession = styled.div`
 	gap: 50px;
 	width: 70%;
 `;
-

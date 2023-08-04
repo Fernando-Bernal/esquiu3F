@@ -149,10 +149,15 @@ function AdminImport() {
 			</DivTable>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
-				<p>Primero, seleccionar la categoria a modificar!</p>
 				<p>
-					Para importar la tabla de Goleadores, debe tener en cuenta que el
-					archivo csv debe tener los siguientes campos: ................
+					Procedimiento para la carga de datos. Ir por orden de botones <br />
+					1) Seleccionar categoría<br />
+					2)Borrar datos viejos<br />
+					3)Cargar archivo CSV<br /> 
+					4)Guardar la información en la base de datos. <br />
+					Esta sección está adaptada para usar el modelo de excel "Goleadores"
+					<br />
+					
 				</p>
 				<p>
 					Si al cargar el archivo csv, hay algún campo que no se ve en la tabla
@@ -305,4 +310,8 @@ const DivInfomation = styled.div`
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
+
+	p {
+		text-align: justify;
+	}
 `;

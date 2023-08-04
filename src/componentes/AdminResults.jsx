@@ -12,7 +12,6 @@ import Swal from "sweetalert2";
 import Header from "./Header";
 import Footer from "./Footer";
 
-
 function AdminResults() {
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
@@ -37,19 +36,13 @@ function AdminResults() {
 	useEffect(() => {
 		setTabla(data);
 	}, [data]);
-console.log(data)
+	console.log(data);
 	const importToFirestore = () => {
 		setLoading(true);
 		try {
 			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
 			data.forEach((row) => {
-				const {
-					jornada,
-					equipo_1,
-					resultado_1,
-					equipo_2,
-					resultado_2,
-				} = row;
+				const { jornada, equipo_1, resultado_1, equipo_2, resultado_2 } = row;
 				const newDocRef = doc(docRef);
 				batch.set(newDocRef, {
 					jornada,
@@ -83,7 +76,7 @@ console.log(data)
 		setFecha(e.target.value);
 	};
 
-	const deleteCollection = async() =>{
+	const deleteCollection = async () => {
 		setLoading(true);
 		try {
 			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
@@ -95,11 +88,10 @@ console.log(data)
 				console.log("Se eliminaron los datos correctamente");
 				setLoading(false);
 			});
-		}
-		catch (error) {
+		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
 	return (
 		<DivBackground>
@@ -136,9 +128,6 @@ console.log(data)
 					<option value="Fecha 5">Fecha 5</option>
 					<option value="Fecha 6">Fecha 6</option>
 				</Select>
-				<BtnRojo onClick={() => deleteCollection()}>
-					{loading ? "Borrando datos" : "Borrar datos viejos"}
-				</BtnRojo>
 				<CSVReader
 					cssClass="react-csv-input"
 					label="CSV.."
@@ -148,6 +137,9 @@ console.log(data)
 				<Btn onClick={() => importToFirestore()}>
 					{loading ? "Cargando tabla" : "Guardar"}
 				</Btn>
+				<BtnRojo onClick={() => deleteCollection()}>
+					{loading ? "Borrando datos" : "Borrar datos viejos"}
+				</BtnRojo>
 			</DivButtons>
 			<DivTable>
 				<table className="table table-sm table-bordered">
@@ -175,8 +167,25 @@ console.log(data)
 			</DivTable>
 			<DivInfomation>
 				<h4>INFORMACIÓN</h4>
-				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+				<p>
+					Procedimiento para la carga de datos. Ir por orden de botones <br />
+					1) Seleccionar categoría
+					<br /> 2)Seleccionar fecha a cargar
+					<br />
+					3)Cargar archivo CSV
+					<br /> 4)Guardar la información en la base de datos. <br />
+					Esta sección está adaptada para importar tabla de laverade.
+					<br />
+					*) ATENCIÓN, usar el botón de borrar datos SOLO si se cargó un
+					resultado mal, en ese caso seleccionar la categoría y la fecha que se
+					desea borrar y clickear el botón, luego del borrado, realizar la carga
+					correcta.
+				</p>
+				<p>
+					Si al cargar el archivo csv, hay algún campo que no se ve en la tabla
+					de pre-visualización, es porque no está escrito correctamente el
+					nombre de la columna desde excel.
+				</p>
 			</DivInfomation>
 			<Footer />
 		</DivBackground>
@@ -186,12 +195,11 @@ console.log(data)
 export default AdminResults;
 
 const DivBackground = styled.div`
-		background-color: #f2f2f2;
+	background-color: #f2f2f2;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	
 `;
 
 const DivTitle = styled.div`
@@ -324,4 +332,8 @@ const DivInfomation = styled.div`
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 0 10px #999;
+
+	p {
+		text-align: left;
+	}
 `;
