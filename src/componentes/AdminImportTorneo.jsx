@@ -154,6 +154,7 @@ function AdminImportTorneo() {
 					<option value="libres">Libres</option>
 					<option value="+30">+30</option>
 					<option value="+36">+36</option>
+					<option value="+40">+40</option>
 					<option value="Maxi">Maxi</option>
 				</Select>
 				<Select onChange={handleZona}>
