@@ -84,7 +84,7 @@ function AdminResults() {
 	const deleteCollection = async () => {
 		setLoading(true);
 		try {
-			const docRef = collection(db, `${categorias}`, `${fecha}`, "resultados");
+			const docRef = collection(db, `${categorias}`, `${fecha}`, `${zona}`);
 			const docDelete = await getDocs(docRef);
 			docDelete.forEach((doc) => {
 				batch.delete(doc.ref);
