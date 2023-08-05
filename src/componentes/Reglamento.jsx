@@ -3,12 +3,13 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import reglamento from '../assets/texto/reglamento.pdf'
 
 
 function Reglamento() {
 
     const docs = [
-        { uri: 'https://drive.google.com/file/d/1t0ac_Kgo6x6azRUOqsIaYGXqiLRuVFGu/view?usp=sharing',
+        { uri: reglamento,
             fileType: "pdf",
             fileName: "reglamento2023.pdf"
         }, // Local File
