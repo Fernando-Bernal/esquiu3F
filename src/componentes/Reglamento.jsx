@@ -8,11 +8,13 @@ import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 function Reglamento() {
 
     const docs = [
-        { uri: 'https://docs.google.com/document/d/1EK5JQ-IHdFBD1Agggk8Nv3tZ_Q28Qmjm/edit?usp=drive_link&ouid=114607443117518061732&rtpof=true&sd=true',
-            fileType: "docx",
-            fileName: "reglamento2023.docx"
+        { uri: 'https://drive.google.com/file/d/1t0ac_Kgo6x6azRUOqsIaYGXqiLRuVFGu/view?usp=sharing',
+            fileType: "pdf",
+            fileName: "reglamento2023.pdf"
         }, // Local File
       ]
+
+      
 	return (
 		<div>
 			<Header />
