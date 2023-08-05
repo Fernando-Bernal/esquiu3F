@@ -7,7 +7,7 @@ function NavbarSq3() {
 		<DivContainer>
 			<DivButtons>
 				<DropdownCategory />
-				<a href="">SANCIONES</a>
+				<a href="/sansiones">SANCIONES</a>
 				<a href="/reglamento">REGLAMENTO</a>
 			</DivButtons>
 		</DivContainer>
