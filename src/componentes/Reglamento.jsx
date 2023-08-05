@@ -2,13 +2,24 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import reglamentoDocx from "../assets/texto/reglamento.docx";
 
 function Reglamento() {
+
+    const docs = [
+        { uri: 'https://docs.google.com/document/d/1EK5JQ-IHdFBD1Agggk8Nv3tZ_Q28Qmjm/edit?usp=drive_link&ouid=114607443117518061732&rtpof=true&sd=true',
+            fileType: "docx",
+            fileName: "reglamento2023.docx"
+        }, // Local File
+      ]
 	return (
 		<div>
 			<Header />
 			<DivText>
-				<H2>REGLAMENTO</H2>
+            <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} 
+            style={{height:1000}}
+            />
 			
 			</DivText>
 			<Footer />
