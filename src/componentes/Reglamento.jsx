@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-import reglamentoDocx from "../assets/texto/reglamento.docx";
+
 
 function Reglamento() {
 
