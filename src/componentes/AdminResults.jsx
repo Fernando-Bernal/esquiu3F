@@ -186,8 +186,9 @@ function AdminResults() {
 					1) Seleccionar categoría
 					<br /> 2)Seleccionar fecha a cargar
 					<br />
-					3)Cargar archivo CSV
-					<br /> 4)Guardar la información en la base de datos. <br />
+					3)Seleccionar zona, si la categoria tiene 1 sola, seleccionar zona 1. <br />
+					4)Cargar archivo CSV
+					<br /> 5)Guardar la información en la base de datos. <br />
 					Esta sección está adaptada para importar tabla de laverade.
 					<br />
 					*) ATENCIÓN, usar el botón de borrar datos SOLO si se cargó un
