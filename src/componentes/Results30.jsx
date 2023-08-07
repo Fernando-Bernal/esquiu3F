@@ -113,7 +113,7 @@ function Results30() {
 						</tr>
 					</thead>
 					<tbody>
-						{tabla.map((e) => {
+						{tabla2.map((e) => {
 							return (
 								<tr key={e.id}>
 									<Td>{e.jornada}</Td>
