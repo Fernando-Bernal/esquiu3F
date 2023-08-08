@@ -21,7 +21,7 @@ function Reglamento() {
 			<Header />
 			<DivText>
             <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} 
-            style={{height:1000}}
+            
             />
 			
 			</DivText>
