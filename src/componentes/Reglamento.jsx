@@ -40,6 +40,8 @@ const DivText = styled.div`
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
     padding: 2rem;
+    position: relative;
+    z-index: -5;
     @media (max-width: 768px) {
         width: 100%;
         padding: 1rem;
