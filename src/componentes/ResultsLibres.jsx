@@ -7,7 +7,7 @@ function ResultsLibres() {
 	const dispatch = useDispatch();
 	const results = useSelector((state) => state.reducerLibre.results);
 	const results2 = useSelector((state) => state.reducerLibre.results2);
-	const [fecha, setFecha] = useState(["1"]);
+	const [fecha, setFecha] = useState(["1", "2"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
@@ -62,6 +62,7 @@ const posterior = ">"
 						active={date === fecha[currentPage]}
 						onClick={() => {
 							dispatch(getResults(`Fecha ${date}`));
+							dispatch(getResults2(`Fecha ${date}`)); 
 						}}
 					>
 						{date}
