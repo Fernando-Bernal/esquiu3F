@@ -17,7 +17,7 @@ function Reglamento() {
 
       
 	return (
-		<div>
+		<DivContainer>
 			<Header />
 			<DivText>
             <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} 
@@ -26,11 +26,18 @@ function Reglamento() {
 			
 			</DivText>
 			<Footer />
-		</div>
+		</DivContainer>
 	);
 }
 
 export default Reglamento;
+
+const DivContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;;
+    z-index: 0;
+`
 
 
 const DivText = styled.div`
