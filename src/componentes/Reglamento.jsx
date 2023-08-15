@@ -35,8 +35,8 @@ export default Reglamento;
 const DivContainer = styled.div`
     width: 100%;
     height: 100%;
-    position: absolute;;
-    z-index: 0;
+   	position: absolute;
+	z-index: -2;
 `
 
 
@@ -48,7 +48,7 @@ const DivText = styled.div`
     font-family: 'Roboto', sans-serif;
     padding: 2rem;
     position: relative;
-    z-index: 0;
+    z-index: -5;
     @media (max-width: 768px) {
         width: 100%;
         padding: 1rem;
