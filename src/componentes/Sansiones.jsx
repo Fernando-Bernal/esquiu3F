@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-import sanciones from '../assets/texto/BOLETIN N°1 CLAUSURA.pdf'
+import sanciones from '../assets/texto/BOLETIN N°2 CLAUSURA.pdf'
 
 function Sansiones() {
 
