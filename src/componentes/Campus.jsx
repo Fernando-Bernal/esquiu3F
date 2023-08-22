@@ -64,8 +64,11 @@ function Campus() {
 export default Campus;
 
 const AppContainer = styled.div`
-	position: absolute;
-	z-index: -25;
+	 position: absolute;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: -25;
 `;
 
 const DivCampus = styled.div`
@@ -117,7 +120,7 @@ const Img = styled.img`
 	border-radius: 10px;
 
 	@media (min-width: 768px) {
-		width: 25%;
+		width: 20%;
 		float: right;
 		margin-left: 20px;
 	}

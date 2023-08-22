@@ -58,6 +58,9 @@ const A = styled.a`
 
 const AppContainer = styled.div`
   position: absolute;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   z-index: -25;
 `
 
@@ -111,7 +114,7 @@ const Img = styled.img`
 	margin-bottom: 20px;
 
 	@media (min-width: 768px) {
-		width: 25%;
+		width: 20%;
 		float: right;
 		margin-left: 20px;
 	}
