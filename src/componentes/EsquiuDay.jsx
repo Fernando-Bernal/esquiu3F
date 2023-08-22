@@ -10,7 +10,7 @@ function EsquiuDay() {
 	}, []);
 
 	return (
-		<div>
+		<AppContainer>
 			<Header />
 			<DivTitle>
 				<DivLine />
@@ -22,50 +22,44 @@ function EsquiuDay() {
 					<Img src={predio} alt="Cancha sintetica" />
 					Sabemos que la motivación y el bienestar de los empleados son
 					fundamentales para el éxito de cualquier empresa. Es por eso que
-					ofrecemos un programa especial para empresas que desean fidelizar a
+					ofreceremos un programa especial para empresas que desean fidelizar a
 					sus empleados y promover un ambiente laboral saludable y divertido.
 					<br />
-					Imagínate el impacto positivo que tendría en tu equipo de trabajo
-					organizar partidos de fútbol en nuestras canchas de última generación.
-					Los empleados podrán disfrutar de un merecido descanso después de una
-					semana de arduo trabajo, fortaleciendo los lazos de equipo y liberando
-					el estrés acumulado.
+					Imagínate el impacto positivo que tendría en tu equipo de trabajo organizar partidos de fútbol en nuestras canchas de última generación.
 					<br />
-					Nuestras instalaciones están diseñadas para que todos se sientan como
-					en casa. Después del partido, podrán disfrutar de un merecido descanso
-					en nuestros vestuarios, equipados con duchas modernas y cómodas. Y
-					para culminar la experiencia, ¿qué mejor manera de celebrar que con un
-					asado?
+					Nuestras instalaciones están diseñadas para que todos se sientan como en casa. Después del partido, podrán disfrutar de un merecido descanso en nuestros vestuarios, equipados con duchas modernas y cómodas. Y para culminar la experiencia, ¿qué mejor manera de celebrar que con un asado?
 					<br />
-					En nuestro campo deportivo, entendemos la importancia de crear
-					momentos inolvidables. Nos aseguraremos de que cada detalle esté
-					cubierto para que tus empleados puedan concentrarse en lo más
-					importante: disfrutar del juego y fortalecer los lazos entre colegas.
+					Además, contamos con paquetes personalizados que incluyen descuentos exclusivos para empresas, brindando una excelente relación calidad-precio para que puedas ofrecer a tus empleados una experiencia única y gratificante.
 					<br />
-					Además, contamos con paquetes personalizados que incluyen descuentos
-					exclusivos para empresas, brindando una excelente relación
-					calidad-precio para que puedas ofrecer a tus empleados una experiencia
-					única y gratificante.
+					¡Contactate con nosotros y juntos crearemos una experiencia inolvidable para tu empresa!
 					<br />
-					En resumen, en nuestro campo deportivo no solo nos preocupamos por
-					ofrecer instalaciones de primer nivel, sino que también nos enfocamos
-					en crear oportunidades para fidelizar a tus empleados y fortalecer la
-					cultura laboral. Te invitamos a descubrir cómo el fútbol, las
-					instalaciones de calidad y un buen asado pueden convertirse en una
-					poderosa herramienta para el crecimiento y el éxito de tu empresa.
-					<br />
-					¡Contacta con nosotros y juntos crearemos una experiencia inolvidable
-					para tus empleados en nuestro campo deportivo!
-					<br />
-					Más info por whatsapp escribiendo al 3517665551.
+					Más info por whatsapp escribiendo al 
+					
+					<A
+						className="ahedear"
+						target="_blank"
+						href="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..."
+					>
+						3517665551.
+					</A>
 				</p>
 			</DivCampus>
 			<Footer />
-		</div>
+		</AppContainer>
 	);
 }
 
 export default EsquiuDay;
+
+const A = styled.a`
+	text-decoration: none; 
+	margin-left: 7px;
+`
+
+const AppContainer = styled.div`
+  position: absolute;
+  z-index: -25;
+`
 
 const DivCampus = styled.div`
 	width: 75%;
@@ -115,7 +109,7 @@ const Img = styled.img`
 	border-radius: 10px;
 	z-index: -10;
 	margin-bottom: 20px;
-	
+
 	@media (min-width: 768px) {
 		width: 25%;
 		float: right;

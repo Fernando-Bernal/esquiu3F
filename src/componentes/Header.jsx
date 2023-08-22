@@ -6,29 +6,44 @@ import BurgerMenu from "./BurgerMenu";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
 function Header() {
-	
 	const [clicked, setClicked] = useState(false);
 	const user = useSelector((state) => state.reducerUsuario.user);
 	const handleClick = () => {
 		setClicked(!clicked);
 	};
 
-
 	return (
 		<>
 			<NavContainer>
 				<Link to="/">
-				<img src={logo} alt="logo" />
-				</Link>					
+					<img src={logo} alt="logo" />
+				</Link>
 				<div className={`links ${clicked ? "active" : ""}`}>
-					{user ? <a className="ahedear" href="/admin-torneo">Administrar</a> : ""}
-					<a className="ahedear" href="/torneo-libre">Torneo SQ3</a>
+					{user ? (
+						<a className="ahedear" href="/admin-torneo">
+							Administrar
+						</a>
+					) : (
+						""
+					)}
+					<a className="ahedear" href="/torneo-libre">
+						Torneo SQ3
+					</a>
 					<DropdownCampus3 className="ahedear" />
-					<a className="ahedear" href="/novedades">Novedades</a>
-					<a className="ahedear" href="/quienes-somos">Quiénes somos</a>
-					<a className="ahedear" target="_blank" href="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...">Contacto</a>
+					<a className="ahedear" href="/novedades">
+						Novedades
+					</a>
+					<a className="ahedear" href="/quienes-somos">
+						Quiénes somos
+					</a>
+					<a
+						className="ahedear"
+						target="_blank"
+						href="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..."
+					>
+						Contacto
+					</a>
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />
@@ -56,14 +71,12 @@ const NavContainer = styled.div`
 
 	img {
 		height: 55px;
-		
 	}
 
 	a {
 		color: #fff;
 		text-decoration: none;
 		margin-left: 1rem;
-		
 	}
 
 	.links {
@@ -74,7 +87,7 @@ const NavContainer = styled.div`
 		margin-right: auto;
 		text-align: left;
 		transition: all 0.6s ease-in-out;
-		
+
 		a {
 			color: white;
 			display: block;
@@ -109,15 +122,13 @@ const NavContainer = styled.div`
 		left: 0;
 		right: 0;
 		text-align: left;
-        margin-left: 25px;
+		margin-left: 25px;
 
 		a {
 			font-size: 1.5rem;
 			margin-top: 1rem;
 			color: #ffffff;
 		}
-
-		
 	}
 
 	.burger {
@@ -144,4 +155,3 @@ const BgDiv = styled.div`
 		height: 470px;
 	}
 `;
-
