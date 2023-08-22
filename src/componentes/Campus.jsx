@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./Header";
 import equipo from "../assets/img/equipo.jpg";
@@ -52,7 +51,7 @@ function Campus() {
 					<br />
 					Conocé más detalles ingresando acá 
 					<br />
-					<Link to="https://www.instagram.com/reel/CtC7-EKuhO1/">https://www.instagram.com/reel/CtC7-EKuhO1/</Link>
+					<A  to="https://www.instagram.com/reel/CtC7-EKuhO1/">https://www.instagram.com/reel/CtC7-EKuhO1/</A>
 				</p>
 			</DivCampus>
 			<Footer />
@@ -121,3 +120,10 @@ const Img = styled.img`
 		margin-left: 20px;
 	}
 `;
+
+const A = styled.a`
+	color: #191988; 
+  text-decoration: underline;
+  word-break: break-all;
+  font-size: smaller;
+`

@@ -36,10 +36,10 @@ function Sinteticas() {
 					técnica al máximo.
 					<br />
 					¿Querés ver más sobre el proyecto? Mirá:
-					<Link to="https://www.instagram.com/reel/CtLCcC4NcbG/">
+					<A to="https://www.instagram.com/reel/CtLCcC4NcbG/">
 						{" "}
 						https://www.instagram.com/reel/CtLCcC4NcbG/
-					</Link>
+					</A>
 					<br />
 				</p>
 			</DivCampus>
@@ -113,3 +113,10 @@ const Img = styled.img`
 		margin-left: 20px;
 	}
 `;
+
+const A = styled.a`
+	color: #191988; 
+  text-decoration: underline;
+  word-break: break-all;
+  font-size: smaller;
+`
