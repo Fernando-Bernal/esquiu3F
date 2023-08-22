@@ -35,8 +35,8 @@ function Sinteticas() {
 					pelota y una superficie uniforme para que puedas desarrollar tu
 					técnica al máximo.
 					<br />
-					¿Querés ver más sobre el proyecto? Mirá:
-					<A to="https://www.instagram.com/reel/CtLCcC4NcbG/">
+					¿Querés ver más sobre el proyecto? Mirá: 
+					<A target="_blank" href="https://www.instagram.com/reel/CtLCcC4NcbG/">
 						{" "}
 						https://www.instagram.com/reel/CtLCcC4NcbG/
 					</A>
@@ -115,8 +115,8 @@ const Img = styled.img`
 `;
 
 const A = styled.a`
-	color: #191988; 
-  text-decoration: underline;
-  word-break: break-all;
-  font-size: smaller;
-`
+	color: #191988;
+	text-decoration: underline;
+	word-break: break-all;
+	font-size: smaller;
+`;

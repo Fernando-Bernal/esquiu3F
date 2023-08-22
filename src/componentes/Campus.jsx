@@ -49,9 +49,11 @@ function Campus() {
 					Llega Campus 3 a Córdoba y te esperamos para disfrutar juntos una
 					experiencia apasionante.
 					<br />
-					Conocé más detalles ingresando acá 
+					Conocé más detalles ingresando acá
 					<br />
-					<A  to="https://www.instagram.com/reel/CtC7-EKuhO1/">https://www.instagram.com/reel/CtC7-EKuhO1/</A>
+					<A target="_blank" href="https://www.instagram.com/reel/CtC7-EKuhO1/">
+						https://www.instagram.com/reel/CtC7-EKuhO1/
+					</A>
 				</p>
 			</DivCampus>
 			<Footer />
@@ -62,9 +64,9 @@ function Campus() {
 export default Campus;
 
 const AppContainer = styled.div`
-  position: absolute;
-  z-index: -25;
-`
+	position: absolute;
+	z-index: -25;
+`;
 
 const DivCampus = styled.div`
 	width: 75%;
@@ -122,8 +124,8 @@ const Img = styled.img`
 `;
 
 const A = styled.a`
-	color: #191988; 
-  text-decoration: underline;
-  word-break: break-all;
-  font-size: smaller;
-`
+	color: #191988;
+	text-decoration: underline;
+	word-break: break-all;
+	font-size: smaller;
+`;
