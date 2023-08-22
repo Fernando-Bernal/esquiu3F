@@ -41,6 +41,7 @@ const Container = styled.div`
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 	background-color: #f1f1f1;
 	border-radius: 10px;
+	padding-bottom: 10px;
 
 	@media (min-width: 768px) {
 		flex-direction: row;
@@ -70,8 +71,8 @@ const DivImg = styled.div`
 
 	img {
 		width: 100%;
-		height: 100%;
-		object-fit: contain;
+		height: 200px;
+		object-fit: cover;
 		object-position: center;
 		border-top-right-radius: 10px;
 		border-top-left-radius: 10px;
