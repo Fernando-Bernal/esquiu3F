@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./Header";
 import cancha from "../assets/img/cancha.jpg";
 import Footer from "./Footer";
 
 function Sinteticas() {
-	
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
 	return (
-		<div>
+		<AppContainer>
 			<Header />
 			<DivTitle>
 				<DivLine />
@@ -20,40 +20,40 @@ function Sinteticas() {
 			</DivTitle>
 			<DivCampus>
 				<p>
-                    <Img src={cancha} alt="Cancha sintetica" />
+					<Img src={cancha} alt="Cancha sintetica" />
 					<br />
-					¡La emoción del fútbol nunca termina en nuestras canchas sintéticas de
-					última generación!
+					¡La emoción del fútbol nunca termina!
 					<br />
-					Si estás buscando un lugar para jugar al fútbol 11 o 7, tanto de día
-					como de noche, nuestras canchas sintéticas son el escenario perfecto
-					para tu próxima aventura futbolística. Con una iluminación excepcional
+					Muy pronto inauguraremos nuestra cancha sintética, adaptada para
+					fútbol 11 y también para fútbol 7, para que puedas disfrutar de Esquiú
+					todos los días de la semana. Además, con una iluminación excepcional
 					que garantiza una visibilidad óptima en cualquier momento, podrás
 					disfrutar de partidos apasionantes y llenos de energía sin importar la
 					hora del día.
 					<br />
-					Nuestro campo deportivo te ofrece mucho más que solo césped
-					artificial. Acá tendrás instalaciones impecables, donde cada detalle
-					ha sido cuidadosamente diseñado para brindarte la mejor experiencia de
-					juego posible. El césped sintético de alta calidad garantiza un pique
-					perfecto de la pelota y una superficie uniforme para que puedas
-					desarrollar tu técnica al máximo.
+					El césped sintético de alta calidad garantiza un pique perfecto de la
+					pelota y una superficie uniforme para que puedas desarrollar tu
+					técnica al máximo.
 					<br />
-					Reservar una cancha es rápido y sencillo. Escribiéndonos un mensaje
-					por whatsapp, nosotros te brindaremos los horarios que se adapten a
-					tus necesidades y te proporcionará un servicio de calidad en cada
-					visita. Además, contamos con tarifas competitivas y opciones flexibles
-					para que puedas ajustar tu reserva según tus preferencias.
+					¿Querés ver más sobre el proyecto? Mirá:
+					<Link to="https://www.instagram.com/reel/CtLCcC4NcbG/">
+						{" "}
+						https://www.instagram.com/reel/CtLCcC4NcbG/
+					</Link>
 					<br />
-					No esperes más, reserva tu cancha sintética ahora al 3517665551.
 				</p>
 			</DivCampus>
 			<Footer />
-		</div>
+		</AppContainer>
 	);
 }
 
 export default Sinteticas;
+
+const AppContainer = styled.div`
+	position: absolute;
+	z-index: -25;
+`;
 
 const DivCampus = styled.div`
 	width: 75%;
@@ -64,8 +64,8 @@ const DivCampus = styled.div`
 	font-size: 1.2rem;
 	line-height: 1.5;
 	font-family: "Roboto", sans-serif;
-    position: relative;
-    z-index: -6;
+	position: relative;
+	z-index: -6;
 
 	@media (min-width: 768px) {
 		width: 80%;
@@ -99,12 +99,12 @@ const H1 = styled.h1`
 		font-size: 3rem;
 		margin: 20px;
 	}
-`;;
+`;
 
 const Img = styled.img`
 	width: 100%;
 	border-radius: 10px;
-    z-index: -10;
+	z-index: -10;
 	margin-bottom: 20px;
 
 	@media (min-width: 768px) {
