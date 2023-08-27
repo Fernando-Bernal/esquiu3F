@@ -6,7 +6,7 @@ import { getResults36 } from "../redux/actions";
 function Results36() {
 	const dispatch = useDispatch();
 	const results36 = useSelector((state) => state.reducer36.results36);
-	const [fecha, setFecha] = useState(["1", "2", "3"]);
+	const [fecha, setFecha] = useState(["1", "2", "3", "4"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
