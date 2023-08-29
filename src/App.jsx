@@ -23,7 +23,6 @@ import NovedadesDetalle from './componentes/NovedadesDetalle';
 import QuienesSomos from './componentes/QuienesSomos';
 import Reglamento from './componentes/Reglamento';
 import Sansiones from './componentes/Sansiones';
-import styled from 'styled-components';
 function App() {
 
   return (
