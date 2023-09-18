@@ -133,6 +133,14 @@ function AdminResults() {
 					<option value="Fecha 4">Fecha 4</option>
 					<option value="Fecha 5">Fecha 5</option>
 					<option value="Fecha 6">Fecha 6</option>
+					<option value="Fecha 7">Fecha 7</option>
+					<option value="Fecha 8">Fecha 8</option>
+					<option value="Fecha 9">Fecha 9</option>
+					<option value="Fecha 10">Fecha 10</option>
+					<option value="Fecha 11">Fecha 11</option>
+					<option value="Fecha 12">Fecha 12</option>
+					<option value="Fecha 13">Fecha 13</option>
+					<option value="Fecha 14">Fecha 14</option>
 				</Select>
 				<Select onChange={handleZona}>
 					<option disabled selected>
