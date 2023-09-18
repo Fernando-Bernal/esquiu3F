@@ -6,7 +6,7 @@ import { getResultsMaxi } from "../redux/actions";
 function ResultsMaxi() {
 	const dispatch = useDispatch();
 	const resultsMaxi = useSelector((state) => state.reducerMaxi.resultsMaxi);
-	const [fecha, setFecha] = useState(["1", "2", "3", "4", "5", "6"]);
+	const [fecha, setFecha] = useState(["1", "2", "3", "4", "5", "6", "7"]);
 	const [tabla, setTabla] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
