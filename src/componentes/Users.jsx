@@ -8,7 +8,10 @@ import logoDef from "../assets/img/ph_team5.png";
 import x from "../assets/img/padel2.jpg";
 
 function Users() {
-	let usuario = {};
+	let usuario = [
+		{ nombre: "Fer", apellido: "Bernal", dni: "34769264", foto: x },
+		{ nombre: "Lean", apellido: "Chiaria", dni: "12345678", foto: x },
+	];
 
 	return (
 		<Container>
@@ -29,32 +32,39 @@ function Users() {
 			<DivBtn>
 				<BtnNewPlayer>Añade jugador</BtnNewPlayer>
 			</DivBtn>
-			<div>
+			<DivTable>
 				<table className="table table-striped">
 					<thead>
 						<tr>
 							<th id="th">Foto</th>
 							<th id="th">Nombre</th>
+							<th id="th">Apellido</th>
 							<th id="th">DNI</th>
 							<th id="th">Opciones</th>
 						</tr>
 					</thead>
 					<tbody>
-						
-								<tr >
-									<td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <div>
-                                            <button>Editar</button>
-                                        </div>
-                                    </td>
+						{usuario.map((e) => {
+							return (
+								<tr>
+									<Td>
+										<Imagen src={e.foto} alt="" />
+									</Td>
+									<Td>{e.nombre}</Td>
+									<Td>{e.apellido}</Td>
+									<Td>{e.dni}</Td>
+									<Td>
+										<ColumnBtn>
+											<button>E</button>
+											<button>B</button>
+										</ColumnBtn>
+									</Td>
 								</tr>
-						
+							);
+						})}
 					</tbody>
 				</table>
-			</div>
+			</DivTable>
 			<Footer />
 		</Container>
 	);
@@ -64,6 +74,7 @@ export default Users;
 
 const Container = styled.div`
 	width: 100%;
+	height: -webkit-fill-available;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
@@ -71,6 +82,7 @@ const Container = styled.div`
 `;
 
 const DivContainer = styled.div`
+	top: 20px;
 	position: relative;
 	z-index: -3;
 	background-color: #0d390b;
@@ -81,6 +93,12 @@ const DivContainer = styled.div`
 	border-bottom: 5px solid #a16709; */
 	width: 100%;
 	height: 45px;
+
+	@media (min-width: 768px) {
+		width: 60%;
+		margin: 0 auto;
+		font-size: 1rem;
+	}
 `;
 
 const H4 = styled.h4`
@@ -94,7 +112,7 @@ const H4 = styled.h4`
 const EscudoFoto = styled.div`
 	display: flex;
 	justify-content: space-around;
-	margin: 20px 0;
+	margin: 40px 0;
 `;
 
 const Contenedor = styled.div`
@@ -130,4 +148,39 @@ const BtnNewPlayer = styled.button`
 	background-color: #d08c1e;
 	color: whitesmoke;
 	margin: 20px;
+`;
+
+const DivTable = styled.div`
+	width: 95%;
+	height: auto;
+	position: relative;
+	margin: 0 auto;
+	border-radius: 10px;
+	background-color: rgb(248, 249, 250);
+	box-shadow: rgb(204, 179, 103) 0px 0px 10px;
+	overflow: auto;
+
+	@media (min-width: 768px) {
+		width: 60%;
+		font-size: 2rem;
+	}
+`;
+
+const Imagen = styled.img`
+	height: 40px;
+	width: 40px;
+`;
+
+const Td = styled.td`
+	text-align: center;
+	vertical-align: middle;
+
+	@media (min-width: 768px) {
+		font-size: 1.2rem;
+	}
+`;
+
+const ColumnBtn = styled.div`
+	display: flex;
+	justify-content: space-around;
 `;
