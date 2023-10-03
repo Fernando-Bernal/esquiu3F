@@ -8,6 +8,7 @@ import logoDef from "../assets/img/ph_team5.png";
 import x from "../assets/img/padel2.jpg";
 
 function Users() {
+	let equipo = {foto: x}
 	let usuario = [
 		{ nombre: "Fer", apellido: "Bernal", dni: "34769264", foto: x },
 		{ nombre: "Lean", apellido: "Chiaria", dni: "12345678", foto: x },
@@ -21,11 +22,11 @@ function Users() {
 			</DivContainer>
 			<EscudoFoto>
 				<Contenedor>
-					<Img src={usuario.escudo ? usuario.escudo : logoDef} alt="" />
+					<Img src={equipo.escudo ? equipo.escudo : logoDef} alt="" />
 					<Span>EDITA ESCUDO</Span>
 				</Contenedor>
 				<Contenedor>
-					<Img src={usuario.foto ? usuario.foto : teamDef} alt="" />
+					<Img src={equipo.foto ? equipo.foto : teamDef} alt="" />
 					<Span>EDITA FOTO</Span>
 				</Contenedor>
 			</EscudoFoto>
