@@ -17,6 +17,7 @@ import Sinteticas from './componentes/Sinteticas';
 import EsquiuDay from './componentes/EsquiuDay';
 import AuthContextProvider from './context/authContext'
 import Login from './componentes/Login';
+import LoginTeam from './componentes/LoginTeam';
 import Protected from './componentes/Protected';
 import Novedades from './componentes/Novedades';
 import NovedadesDetalle from './componentes/NovedadesDetalle';
@@ -24,6 +25,7 @@ import QuienesSomos from './componentes/QuienesSomos';
 import Reglamento from './componentes/Reglamento';
 import Sansiones from './componentes/Sansiones';
 import Users from './componentes/Users';
+
 function App() {
 
   return (
@@ -45,7 +47,8 @@ function App() {
           <Route exact path="/sinteticas" element={<Sinteticas />} />
           <Route exact path="/esquiuday" element={<EsquiuDay />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path='user' element={<Users />} />
+          <Route exact path='/loginTeam' element={<LoginTeam />} />
+          <Route exact path='/user' element={<Users />} />
           <Route exact path="/novedades" element={<Novedades />} />
           <Route exact path="/novedades/:id" element={<NovedadesDetalle />} />
           <Route exact path="/quienes-somos" element={<QuienesSomos />} />

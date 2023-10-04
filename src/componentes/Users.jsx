@@ -1,24 +1,21 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import teamDef from "../assets/img/team_photo.png";
 import logoDef from "../assets/img/ph_team5.png";
-import x from "../assets/img/padel2.jpg";
 
 function Users() {
-	let equipo = {foto: x}
-	let usuario = [
-		{ nombre: "Fer", apellido: "Bernal", dni: "34769264", foto: x },
-		{ nombre: "Lean", apellido: "Chiaria", dni: "12345678", foto: x },
-	];
+	const equipo = useSelector((state) => state.reducerUsuario.user);
+	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
 
 	return (
 		<Container>
 			<Header />
 			<DivContainer>
-				<H4>EDITA INFORMACIÓN DEL EQUIPO</H4>
+				<H4>EDITA INFORMACIÓN DE {equipo.nombre.toUpperCase()}</H4>
 			</DivContainer>
 			<EscudoFoto>
 				<Contenedor>
@@ -45,7 +42,7 @@ function Users() {
 						</tr>
 					</thead>
 					<tbody>
-						{usuario.map((e) => {
+						{jugadores.map((e) => {
 							return (
 								<tr>
 									<Td>
@@ -184,4 +181,13 @@ const Td = styled.td`
 const ColumnBtn = styled.div`
 	display: flex;
 	justify-content: space-around;
+`;
+
+const ContactInput = styled.input`
+	width: 100%;
+	border-radius: 10px;
+	height: 45px;
+	border: none;
+	margin-top: 5px;
+	background-color: blue;
 `;

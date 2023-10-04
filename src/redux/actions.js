@@ -56,8 +56,12 @@ export const GET_RESULTS_MAXI = "GET_RESULTS_MAXI"
 export const GET_NOTICIAS = "GET_NOTICIAS"
 export const GET_NOTICIA_DETAIL = "GET_NOTICIA_DETAIL"
 export const CLEAR_NOTICIA_DETAIL = "CLEAR_NOTICIA_DETAIL"
+
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
+export const LOGINTEAM = "LOGINTEAM"
+export const JUGADORES = "JUGADORES"
+
 
 //* TORNEO LIBRES
 export function getGoalLibres() {
@@ -426,6 +430,25 @@ export const logout = () => {
   };
 }
 
+export function loginTeam(email){
+	const db = getFirestore();
+	return async function (dispatch) {
+	  try {
+		const q = query(collection(db, "Equipos", "libres", email))
+		const querySnapshot = await getDocs(q);
+    const team = querySnapshot.docs[0] ? { ...querySnapshot.docs[0].data(), id: querySnapshot.docs[0].id } : null;
+		dispatch({ type: LOGINTEAM, payload: team });
+    const j = query(collection(db, "Equipos", "libres", email, email, "jugadores"));
+    const jSnapshot = await getDocs(j)
+    const player = jSnapshot.docs.map((doc) => ({ ...doc.data()}))
+    dispatch({type: JUGADORES, payload: player})
+	  } catch (error) {
+		console.error("Error al loguearse", error);
+	  }
+	};
+}
+
+//* NOTICIAS
 export const getNoticiaDetail = (title) =>{
   const db = getFirestore();
   return async function (dispatch) {

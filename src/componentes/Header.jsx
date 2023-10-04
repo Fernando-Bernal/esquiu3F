@@ -20,13 +20,16 @@ function Header() {
 					<img src={logo} alt="logo" />
 				</Link>
 				<div className={`links ${clicked ? "active" : ""}`}>
-					{user ? (
+					{user === "esquiu3sm@gmail.com" ? (
 						<a className="ahedear" href="/admin-torneo">
 							Administrar
 						</a>
 					) : (
 						""
 					)}
+					<a className="ahedear" href="/loginTeam">
+						Inscripción
+					</a>
 					<a className="ahedear" href="/torneo-libre">
 						Torneo SQ3
 					</a>
