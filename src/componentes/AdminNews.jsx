@@ -24,7 +24,7 @@ function validate(post) {
 function AdminNews() {
 	const db = getFirestore();
 	const user = useSelector((state) => state.reducerUsuario.user);
-    console.log(user)
+    
 	const idPost = v4();
 	const [errors, setErrors] = useState({});
 	const [imageUpload, setImageUpload] = useState(null);

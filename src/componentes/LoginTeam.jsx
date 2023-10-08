@@ -29,7 +29,7 @@ function LoginTeam() {
 			e.preventDefault();
 			dispatch(loginTeam(userAccount.email));
 			await signIn(userAccount.email, userAccount.password);
-			navigate("/user");
+			navigate("/");
 		} catch (error) {
 			alert("Datos incorrectos");
 		}

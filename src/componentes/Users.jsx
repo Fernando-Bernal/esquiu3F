@@ -1,15 +1,84 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getFirestore, collection, updateDoc, doc } from "firebase/firestore";
 import Header from "./Header";
 import Footer from "./Footer";
 import teamDef from "../assets/img/team_photo.png";
 import logoDef from "../assets/img/ph_team5.png";
+import { logout } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 function Users() {
+	
+	const db = getFirestore();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const escudoFileInputRef = useRef(null);
+	const fotoFileInputRef = useRef(null);
 	const equipo = useSelector((state) => state.reducerUsuario.user);
 	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
+
+	const handleEscudoFileChange = async (e) => {
+		// Aquí puedes manejar el cambio de archivo
+		const selectedFile = e.target.files[0];
+
+		if (selectedFile) {
+			const storage = getStorage();
+			const storageRef = ref(storage, `equipos/${equipo.email}/escudo`);
+			try {
+				await uploadBytes(storageRef, selectedFile);
+				const downloadURL = await getDownloadURL(storageRef);
+				const equipoRef = doc(
+					db,
+					"Equipos",
+					"libres",
+					equipo.email,
+					equipo.email
+				);
+				await updateDoc(equipoRef, { escudo: downloadURL });
+
+				console.log("Foto subida y documento actualizado con éxito.");
+			} catch (error) {
+				console.error(
+					"Error al subir la foto y actualizar el documento:",
+					error
+				);
+			}
+		}
+	};
+
+	const handleFotoFileChange = async (e) => {
+		const selectedFile = e.target.files[0];
+
+		if (selectedFile) {
+			const storage = getStorage();
+			const storageRef = ref(storage, `equipos/${equipo.email}/foto`);
+			try {
+				await uploadBytes(storageRef, selectedFile);
+				const downloadURL = await getDownloadURL(storageRef);
+
+				// Actualiza la propiedad "foto" del equipo en Firestore
+				const equipoRef = doc(db, "Equipos", "libres", equipo.email, equipo.email);
+				await updateDoc(equipoRef, { foto: downloadURL }); // Actualiza la propiedad "foto"
+
+				console.log("Foto subida y documento actualizado con éxito.");
+			} catch (error) {
+				console.error(
+					"Error al subir la foto y actualizar el documento:",
+					error
+				);
+			}
+		}
+	};
+
+	const handleLogOut = () => {
+		navigate("/");
+		dispatch(logout());
+	};
 
 	return (
 		<Container>
@@ -20,15 +89,36 @@ function Users() {
 			<EscudoFoto>
 				<Contenedor>
 					<Img src={equipo.escudo ? equipo.escudo : logoDef} alt="" />
-					<Span>EDITA ESCUDO</Span>
+					<Btn onClick={() => escudoFileInputRef.current.click()}>
+						EDITA FOTO
+					</Btn>
+					<input
+						type="file"
+						name="escudoFileInputRef"
+						accept="image/*"
+						style={{ display: "none" }}
+						onChange={handleEscudoFileChange}
+						ref={escudoFileInputRef} // Ref para acceder al input desde la función
+					/>
 				</Contenedor>
 				<Contenedor>
 					<Img src={equipo.foto ? equipo.foto : teamDef} alt="" />
-					<Span>EDITA FOTO</Span>
+					<Btn onClick={() => fotoFileInputRef.current.click()}>EDITA FOTO</Btn>
+					<input
+						type="file"
+						name="fotoFileInput"
+						accept="image/*"
+						style={{ display: "none" }}
+						onChange={handleFotoFileChange}
+						ref={fotoFileInputRef}
+					/>
 				</Contenedor>
 			</EscudoFoto>
 			<DivBtn>
-				<BtnNewPlayer>Añade jugador</BtnNewPlayer>
+				<BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer>
+				<BtnNewPlayer onClick={() => handleLogOut()}>
+					Cerrar sesión
+				</BtnNewPlayer>
 			</DivBtn>
 			<DivTable>
 				<table className="table table-striped">
@@ -127,7 +217,7 @@ const Img = styled.img`
 	border-radius: 5px;
 `;
 
-const Span = styled.span`
+const Btn = styled.button`
 	margin-top: 5px;
 	border: 1px solid green;
 	background-color: #0d390b;

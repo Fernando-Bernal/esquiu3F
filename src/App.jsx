@@ -2,29 +2,30 @@ import { useState , useEffect} from 'react'
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 import Home from './componentes/Home'
+import AuthContextProvider from './context/authContext'
 import AdminImport from './componentes/AdminImport';
 import AdminImportTorneo from './componentes/AdminImportTorneo';
 import AdminResults from './componentes/AdminResults';
 import AdminFixture from './componentes/AdminFixture';
 import AdminNews from './componentes/AdminNews';
+import Campus from './componentes/Campus';
+import EsquiuDay from './componentes/EsquiuDay';
+import FormAddPlayer from './componentes/FormAddPlayer';
+import Login from './componentes/Login';
+import LoginTeam from './componentes/LoginTeam';
+import Novedades from './componentes/Novedades';
+import NovedadesDetalle from './componentes/NovedadesDetalle';
+import Protected from './componentes/Protected';
+import QuienesSomos from './componentes/QuienesSomos';
+import Reglamento from './componentes/Reglamento';
+import Sinteticas from './componentes/Sinteticas';
+import Sansiones from './componentes/Sansiones';
+import Users from './componentes/Users';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
 import View36 from './componentes/View36';
 import View40 from './componentes/View40';
 import ViewMaxi from './componentes/ViewMaxi';
-import Campus from './componentes/Campus';
-import Sinteticas from './componentes/Sinteticas';
-import EsquiuDay from './componentes/EsquiuDay';
-import AuthContextProvider from './context/authContext'
-import Login from './componentes/Login';
-import LoginTeam from './componentes/LoginTeam';
-import Protected from './componentes/Protected';
-import Novedades from './componentes/Novedades';
-import NovedadesDetalle from './componentes/NovedadesDetalle';
-import QuienesSomos from './componentes/QuienesSomos';
-import Reglamento from './componentes/Reglamento';
-import Sansiones from './componentes/Sansiones';
-import Users from './componentes/Users';
 
 function App() {
 
@@ -48,7 +49,8 @@ function App() {
           <Route exact path="/esquiuday" element={<EsquiuDay />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path='/loginTeam' element={<LoginTeam />} />
-          <Route exact path='/user' element={<Users />} />
+          <Route exact path='/usuario' element={<Users />} />
+          <Route exact path='/usuario/equipo' element={<FormAddPlayer />} />
           <Route exact path="/novedades" element={<Novedades />} />
           <Route exact path="/novedades/:id" element={<NovedadesDetalle />} />
           <Route exact path="/quienes-somos" element={<QuienesSomos />} />
