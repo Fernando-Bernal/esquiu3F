@@ -108,10 +108,11 @@ const DivImg = styled.div`
 	width: 80%;
 	margin: 0 auto;
 	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
 	img {
 		width: -webkit-fill-available;
-		object-fit: cover;
+		object-fit: none;
 		border-radius: 10px;
 	}
 `;
