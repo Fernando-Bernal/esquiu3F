@@ -19,18 +19,26 @@ function NovedadesDetalle() {
 	}, [dispatch]);
 
 	const handleClick = () => {
-        window.history.back();
-    }
-
+		window.history.back();
+	};
 	return (
 		<Container>
 			<Header />
 			{novedades && (
 				<>
 					<h1>{novedades[0].title}</h1>
+					<DivImg>
+						<img src={novedades[0].imageUrl} alt="imagen" />
+					</DivImg>
 					<Section>
 						<p>{novedades[0].text}</p>
-                        <Btn onClick={() =>{handleClick()}}>Volver</Btn>
+						<Btn
+							onClick={() => {
+								handleClick();
+							}}
+						>
+							Volver
+						</Btn>
 					</Section>
 				</>
 			)}
@@ -61,7 +69,6 @@ const Container = styled.div`
 
 	@media (min-width: 768px) {
 		width: 100%;
-		
 	}
 `;
 
@@ -73,24 +80,38 @@ const Section = styled.section`
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-    position: relative;
-    z-index: -4;
+	position: relative;
+	z-index: -4;
 
 	p {
 		font-size: 1rem;
 	}
 `;
 
-
 const Btn = styled.button`
-        width: 75px;
-    height: 40px;
-    border-radius: 9%;
-    border: none;
-    background-color: rgb(242 155 20);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+	width: 75px;
+	height: 40px;
+	border-radius: 9%;
+	border: none;
+	background-color: rgb(242 155 20);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
 	color: #fff;
-`
+`;
+
+const DivImg = styled.div`
+	display: flex;
+	justify-content: center;
+	height: 250px;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 10px;
+
+	img {
+		width: -webkit-fill-available;
+		object-fit: cover;
+		border-radius: 10px;
+	}
+`;
