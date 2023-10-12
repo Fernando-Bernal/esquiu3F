@@ -97,8 +97,8 @@ const DivTorneo = styled.div`
 `;
 const DivTorneoCard = styled.div`
 	background-color: rgb(66, 55, 55);
-	width: 35%;
-	height: 150px;
+	width: 55%;
+	height: 70px;
 	color: #fff;
 	margin: 20px;
 	border-radius: 20px;
@@ -106,19 +106,20 @@ const DivTorneoCard = styled.div`
 	text-align: center;
 	padding: 15px;
 	display: flex;
-	flex-direction: column;
+	
 	justify-content: space-around;
 	align-items: center;
 
 	@media (min-width: 768px) {
+		flex-direction: column;
 		width: 20%;
 		height: 200px;
 	}
 
 	img {
 		color: #fff;
-		margin-top: 10px;
-		width: 40%;
+		
+		width: 20%;
 
 		@media (min-width: 768px) {
 			width: 30%;
@@ -128,11 +129,11 @@ const DivTorneoCard = styled.div`
 	button {
 		background-color: #f2d608;
 		color: #ffffff;
-		height: 30px;
-		width: 100px;
+		height: 25px;
+		width: 90px;
 		border-radius: 20px;
 		border: none;
-		font-size: 1rem;
+		font-size: 0.8rem;
 		font-weight: bold;
 		cursor: pointer;
 		box-shadow: 2px 2px 4px #000000;
