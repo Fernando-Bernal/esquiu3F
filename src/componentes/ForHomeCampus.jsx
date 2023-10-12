@@ -150,6 +150,7 @@ const DivCampusCard = styled.div`
 		border-radius: 20px;
 		transition: all 0.5s ease-in-out;
 		height: 90px;
+		object-fit: unset;
 		&:hover {
 			transform: scale(1.1);
 			transition: all 0.5s ease-in-out;
