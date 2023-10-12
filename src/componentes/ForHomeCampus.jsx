@@ -9,18 +9,18 @@ import carpa from "../assets/img/powerade.JPG";
 function CampusForHome() {
 	const cards = [
 		{
-			image: cancha,
-			h3: "Canchas sintetica",
-			parafo: "jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.",
-			boton: "Reservar",
-			link: "https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...",
-		},
-		{
 			image: arquero,
 			h3: "Esquiu Day",
 			parafo: "Pasá un día inolvidable en todas nuestras instalaciones.",
 			boton: "Ver más",
 			link: "/esquiuday",
+		},
+		{
+			image: cancha,
+			h3: "Canchas sintetica",
+			parafo: "jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.",
+			boton: "Reservar",
+			link: "https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...",
 		},
 		{
 			image: carpa,
@@ -30,7 +30,7 @@ function CampusForHome() {
 			link: "/campus",
 		},
 	];
-	const [currentCard, setCurrentCard] = useState(1);
+	const [currentCard, setCurrentCard] = useState(0);
 
 	const nextCard = () => {
 		setCurrentCard((currentCard + 1) % cards.length);
