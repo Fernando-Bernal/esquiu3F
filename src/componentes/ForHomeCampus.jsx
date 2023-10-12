@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import backgroundNegro from "../assets/img/fondoNegro.webp";
@@ -7,17 +7,56 @@ import cancha from "../assets/img/cancha.jpg";
 import carpa from "../assets/img/powerade.JPG";
 
 function CampusForHome() {
+	const cards = [
+		{
+			image: cancha,
+			h3: "Canchas sintetica",
+			parafo: "jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.",
+			boton: "Reservar",
+			link: "https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...",
+		},
+		{
+			image: arquero,
+			h3: "Esquiu Day",
+			parafo: "Pasá un día inolvidable en todas nuestras instalaciones.",
+			boton: "Ver más",
+			link: "/esquiuday",
+		},
+		{
+			image: carpa,
+			h3: "Y más...",
+			parafo: "Conocé todos nuestros servicios.",
+			boton: "Ver más",
+			link: "/campus",
+		},
+	];
+	const [currentCard, setCurrentCard] = useState(1);
+
+	const nextCard = () => {
+		setCurrentCard((currentCard + 1) % cards.length);
+	};
+
+	const prevCard = () => {
+		setCurrentCard((currentCard - 1 + cards.length) % cards.length);
+	};
+
 	return (
 		<SectionCampus>
 			<h2>CAMPUS 3</h2>
 			<DivCampus>
-				<DivCampusCard>
-					<img src={cancha} alt="" />
-					<h3>Canchas sintetica</h3>
-					<p>jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.</p>
-					<button>Reservar</button>
-				</DivCampusCard>
-				<DivCampusCard>
+				<Arrows>
+					<Arrow onClick={prevCard}>&lt;</Arrow>
+					<DivCampusCard>
+						<img src={cards[currentCard].image} alt="" />
+						<h3>{cards[currentCard].h3}</h3>
+						<p>{cards[currentCard].parafo}</p>
+						<Link to={cards[currentCard].link}>
+							<button>{cards[currentCard].boton}</button>
+						</Link>
+					</DivCampusCard>
+					<Arrow onClick={nextCard}>&gt;</Arrow>
+				</Arrows>
+				{/* <DivCampusCard>
 					<img src={arquero} alt="" />
 					<h3>Esquiu Day</h3>
 					<p>Pasá un día inolvidable en todas nuestras instalaciones.</p>
@@ -32,7 +71,7 @@ function CampusForHome() {
 					<Link to="/campus">
 						<button>Ver más</button>
 					</Link>
-				</DivCampusCard>
+				</DivCampusCard> */}
 			</DivCampus>
 		</SectionCampus>
 	);
@@ -99,7 +138,6 @@ const DivCampusCard = styled.div`
 	box-shadow: 2px 2px 4px #000000;
 	text-align: center;
 	padding: 15px;
-	
 
 	@media (min-width: 768px) {
 		width: 20%;
@@ -111,7 +149,7 @@ const DivCampusCard = styled.div`
 		width: 90%;
 		border-radius: 20px;
 		transition: all 0.5s ease-in-out;
-		height: 120px;
+		height: 90px;
 		&:hover {
 			transform: scale(1.1);
 			transition: all 0.5s ease-in-out;
@@ -152,5 +190,30 @@ const DivCampusCard = styled.div`
 			height: 40px;
 			width: 130px;
 		}
+	}
+`;
+
+const Arrows = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+`;
+
+const Arrow = styled.button`
+	background-color: #f2d608;
+	color: #ffffff;
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	border: none;
+	font-size: 1.2rem;
+	font-weight: bold;
+	cursor: pointer;
+	margin: 0 10px;
+	box-shadow: 2px 2px 4px #000000;
+
+	&:hover {
+		background-color: #666666;
 	}
 `;
