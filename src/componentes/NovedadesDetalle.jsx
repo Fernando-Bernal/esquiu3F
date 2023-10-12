@@ -112,7 +112,7 @@ const DivImg = styled.div`
 
 	img {
 		width: -webkit-fill-available;
-		object-fit: none;
+		object-fit: fill;
 		border-radius: 10px;
 	}
 `;
