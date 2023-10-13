@@ -91,7 +91,7 @@ export default CampusForHome;
 
 //todo estilos seccion campus
 const SectionCampus = styled.section`
-	height: 50vh;
+	height: 65vh;
 	background-color: #222;
 	width: 100%;
 	display: flex;

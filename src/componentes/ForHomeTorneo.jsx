@@ -38,7 +38,7 @@ export default ForHomeTorneo;
 //todo estilos seccion torneo
 
 const TorneoContainer = styled.div`
-height: 50vh;
+height: 65vh;
 	background-color: #201e1e;
 	color: #fff;
 	width: 100%;
