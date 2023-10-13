@@ -56,22 +56,32 @@ function CampusForHome() {
 					</DivCampusCard>
 					<Arrow onClick={nextCard}>&gt;</Arrow>
 				</Arrows>
-				{/* <DivCampusCard>
-					<img src={arquero} alt="" />
-					<h3>Esquiu Day</h3>
-					<p>Pasá un día inolvidable en todas nuestras instalaciones.</p>
-					<Link to="/esquiuday">
-						<button>Ver más</button>
-					</Link>
-				</DivCampusCard>
-				<DivCampusCard>
-					<img src={carpa} alt="" />
-					<h3>Y más...</h3>
-					<p>Conocé todos nuestros servicios.</p>
-					<Link to="/campus">
-						<button>Ver más</button>
-					</Link>
-				</DivCampusCard> */}
+				<DivDesktop>
+					<DivCampusCard>
+						<img src={cancha} alt="" />
+						<h3>Canchas sintética</h3>
+						<p>jugá en nuestras nuevas canchas de fútbol 11 y 7 sintéticas.</p>
+						<Link to="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre...">
+							<button>Reservar</button>
+						</Link>
+					</DivCampusCard>
+					<DivCampusCard>
+						<img src={arquero} alt="" />
+						<h3>Esquiu Day</h3>
+						<p>Pasá un día inolvidable en todas nuestras instalaciones.</p>
+						<Link to="/esquiuday">
+							<button>Ver más</button>
+						</Link>
+					</DivCampusCard>
+					<DivCampusCard>
+						<img src={carpa} alt="" />
+						<h3>Y más...</h3>
+						<p>Conocé todos nuestros servicios.</p>
+						<Link to="/campus">
+							<button>Ver más</button>
+						</Link>
+					</DivCampusCard>
+				</DivDesktop>
 			</DivCampus>
 		</SectionCampus>
 	);
@@ -81,6 +91,7 @@ export default CampusForHome;
 
 //todo estilos seccion campus
 const SectionCampus = styled.section`
+	height: 50vh;
 	background-color: #222;
 	width: 100%;
 	display: flex;
@@ -90,7 +101,7 @@ const SectionCampus = styled.section`
 	z-index: -6;
 
 	@media (min-width: 768px) {
-		height: 85vh;
+		height: 100vh;
 	}
 
 	h2 {
@@ -105,7 +116,7 @@ const SectionCampus = styled.section`
 		margin-bottom: 10px;
 		@media (min-width: 768px) {
 			position: absolute;
-			top: 10%;
+			top: 17%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			font-size: 4rem;
@@ -138,6 +149,7 @@ const DivCampusCard = styled.div`
 	box-shadow: 2px 2px 4px #000000;
 	text-align: center;
 	padding: 15px;
+
 
 	@media (min-width: 768px) {
 		width: 20%;
@@ -199,6 +211,10 @@ const Arrows = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-top: 10px;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
 `;
 
 const Arrow = styled.button`
@@ -216,5 +232,14 @@ const Arrow = styled.button`
 
 	&:hover {
 		background-color: #666666;
+	}
+`;
+
+const DivDesktop = styled.div`
+	display: none;
+	@media (min-width: 768px) {
+		display: flex;
+		justify-content: space-around;
+		
 	}
 `;

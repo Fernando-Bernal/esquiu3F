@@ -38,6 +38,7 @@ export default ForHomeTorneo;
 //todo estilos seccion torneo
 
 const TorneoContainer = styled.div`
+height: 50vh;
 	background-color: #201e1e;
 	color: #fff;
 	width: 100%;
@@ -48,7 +49,7 @@ const TorneoContainer = styled.div`
 	z-index: -6;
 	
 	@media (min-width: 768px) {
-		height: 55vh;
+		height: 60vh;
 	}
 
 	h2 {
@@ -59,7 +60,7 @@ const TorneoContainer = styled.div`
 		font-size: 1.5rem;
 		text-align: center;
 		text-shadow: 2px 2px 4px #000000;
-		top: 30px;
+		top: 15px;
     	margin-bottom: 10px;
 
 
@@ -97,7 +98,7 @@ const DivTorneo = styled.div`
 `;
 const DivTorneoCard = styled.div`
 	background-color: rgb(66, 55, 55);
-	width: 55%;
+	width: 70%;
 	height: 70px;
 	color: #fff;
 	margin: 20px;
@@ -119,7 +120,7 @@ const DivTorneoCard = styled.div`
 	img {
 		color: #fff;
 		
-		width: 20%;
+		width: 15%;
 
 		@media (min-width: 768px) {
 			width: 30%;
@@ -130,7 +131,7 @@ const DivTorneoCard = styled.div`
 		background-color: #f2d608;
 		color: #ffffff;
 		height: 25px;
-		width: 90px;
+		width: 80px;
 		border-radius: 20px;
 		border: none;
 		font-size: 0.8rem;
@@ -140,6 +141,12 @@ const DivTorneoCard = styled.div`
 
 		&:hover {
 			background-color: #666;
+		}
+
+		@media (min-width: 768px) {
+			width: 100px;
+			height: 30px;
+			font-size: 1rem;
 		}
 	}
 `;
