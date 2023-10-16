@@ -11,6 +11,10 @@ export const GET_TORNEO_LIBRESPLATA2 = "GET_TORNEO_LIBRESPlata zona 2";
 export const GET_FIXTURE_LIBRE = "GET_FIXTURE_LIBRE";
 export const GET_RESULTS = "GET_RESULTS";
 export const GET_RESULTS2 = "GET_RESULTS2";
+export const GET_RESULTSCOPAORO1 = "GET_RESULTSCOPAOro zona 1";
+export const GET_RESULTSCOPAORO2 = "GET_RESULTSCOPAOro zona 2";
+export const GET_RESULTSCOPAPLATA1 = "GET_RESULTSCOPAPlata zona 1";
+export const GET_RESULTSCOPAPLATA2 = "GET_RESULTSCOPAPlata zona 2";
 
 export const GET_GOAL_30 = "GET_GOAL_30";
 export const GET_TORNEO_30Zona1 = "GET_TORNEO_30Zona 1";
@@ -112,6 +116,21 @@ export function getResults2(fecha){
       const querySnapshot = await getDocs(q);
       const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
       dispatch({type: GET_RESULTS2, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+//* results copas 
+export function getResultsCopa(fecha, zona){
+  const db = getFirestore();
+  const querryCollection = `libres/${fecha}/${zona}`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_RESULTSCOPA${zona}`, payload: tabla});
     }catch(error){
       console.error("Error al obtener los resultados", error);
     }

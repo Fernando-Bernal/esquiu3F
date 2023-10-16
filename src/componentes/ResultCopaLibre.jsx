@@ -1,33 +1,50 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getResults30 , getResults302 } from "../redux/actions";
+import { getResultsCopa } from "../redux/actions";
+import dorada from "../assets/img/copaDorada.png";
+import plateada from "../assets/img/copaPlateada.png";
 
-function Results30() {
+function ResultCopaLibre() {
 	const dispatch = useDispatch();
-	const results = useSelector((state) => state.reducer30.results30);
-	const results2 = useSelector((state) => state.reducer30.results302);
-	const [fecha, setFecha] = useState(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]);
+	const [copa, setCopa] = useState("Oro");
+	const zona1oro = useSelector((state) => state.reducerLibre.resultscopaOro1);
+	const zona2oro = useSelector((state) => state.reducerLibre.resultscopaOro2);
+	const zona1plata = useSelector((state) => state.reducerLibre.resultscopaPlata1);
+	const zona2plata = useSelector((state) => state.reducerLibre.resultscopaPlata2);
+	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const resultsPerPage = 3;
 
 	useEffect(() => {
-		dispatch(getResults30(`Fecha ${[fecha.length ]}`));
-		dispatch(getResults302(`Fecha ${[fecha.length]}`));
-	}, []);
+		if (copa == "Oro") {
+			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
+			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
+		}
+		if (copa == "Plata") {
+			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
+			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
+		}
+	}, [copa]);
 
 	useEffect(() => {
-		setTabla(results);
-		setTabla2(results2);
-	}, [results, results2]);
+        if (copa == "Oro") {
+            setTabla(zona1oro);
+            setTabla2(zona2oro);
+        }
+        if (copa == "Plata") {
+            setTabla(zona1plata);
+            setTabla2(zona2plata);
+        }
+	}, [zona1oro, zona2oro, zona1plata, zona2plata, copa]);
 
 	const selectedDates = fecha.slice(
 		currentPage * resultsPerPage,
 		(currentPage + 1) * resultsPerPage
 	);
-
+console.log(zona1oro)
 	useEffect(() => {
 		getResultsForDates(selectedDates);
 	}, [currentPage]);
@@ -35,7 +52,7 @@ function Results30() {
 	const getResultsForDates = (selectedDates) => {
 		return selectedDates.map((date) => {
 			// Lógica para obtener los resultados según la fecha
-			return results.find((result) => result.fecha === date);
+			return zona1oro.find((result) => result.fecha === date);
 		});
 	};
 
@@ -50,7 +67,11 @@ function Results30() {
 	const posterior = ">";
 	return (
 		<DivContainer>
-			<DivTitulo>RESULTADOS POR FECHAS</DivTitulo>
+             <DivEncabezado>
+                <img src={dorada} alt="" onClick={() => setCopa("Oro")} />   
+		    	<DivTitulo>RESULTADOS POR FECHAS</DivTitulo>
+                <img src={plateada} alt="" onClick={() => setCopa("Plata")} />
+            </DivEncabezado>
 			<DivFecha>
 				<BtnFecha disabled={currentPage === 0} onClick={handlePrevPage}>
 					{anterior}
@@ -60,8 +81,9 @@ function Results30() {
 						key={date}
 						active={date === fecha[currentPage]}
 						onClick={() => {
-							dispatch(getResults30(`Fecha ${date}`));
-							dispatch(getResults302(`Fecha ${date}`));
+							dispatch(getResultsCopa(`Fecha ${date}`, `${copa} zona 1`));
+							dispatch(getResultsCopa(`Fecha ${date}`, `${copa} zona 2`));
+							//dispatch(getResults2(`Fecha ${date}`));
 						}}
 					>
 						{date}
@@ -77,7 +99,7 @@ function Results30() {
 				</BtnFecha>
 			</DivFecha>
 			<DivTabla>
-			<H5>Zona 1</H5>
+				<H5>Zona 1</H5>
 				<table className="table table-sm table-bordered table-striped custom-header">
 					<thead>
 						<tr>
@@ -132,12 +154,36 @@ function Results30() {
 	);
 }
 
-export default Results30;
+export default ResultCopaLibre;
 
 const DivContainer = styled.div`
 	position: relative;
 	z-index: -5;
 	background-color: rgb(43, 38, 38);
+`;
+
+const DivEncabezado = styled.div`
+    display: flex;
+    justify-content: space-around;          
+    align-items: center;
+    margin: 10px auto;
+    width: 80%;
+
+    @media (min-width: 768px) {
+		width: 35%;
+		font-size: 1rem;
+	}
+
+    img{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        @media (min-width: 768px) {
+            width: 50px;
+            height: 50px;
+        }
+    }
 `;
 
 const DivFecha = styled.div`
@@ -187,6 +233,12 @@ const DivTitulo = styled.h2`
 	font-size: 1.5rem;
 	font-weight: bold;
 	color: #dbdee1;
+    width: 70%;
+
+    @media (min-width: 768px) {
+        width: 100%;
+    }
+
 `;
 
 const DivTabla = styled.div`
@@ -215,6 +267,7 @@ const Td = styled.td`
 		font-size: 1rem;
 	}
 `;
+
 const H5 = styled.h5`
 	text-align: center;
 	color: orange;
@@ -223,6 +276,6 @@ const H5 = styled.h5`
 	margin: 0;
 
 	@media (min-width: 768px) {
-        font-size: 1.5rem;
-    }
+		font-size: 1.5rem;
+	}
 `;

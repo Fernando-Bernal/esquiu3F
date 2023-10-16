@@ -9,6 +9,10 @@ import {
 	GET_FIXTURE_LIBRE,
 	GET_RESULTS,
 	GET_RESULTS2,
+	GET_RESULTSCOPAORO1,
+	GET_RESULTSCOPAORO2,
+	GET_RESULTSCOPAPLATA1,
+	GET_RESULTSCOPAPLATA2,
 	
 } from "../actions";
 
@@ -23,7 +27,10 @@ const initialState = {
 	fixtureLibre: [],
 	results: [],
 	results2: [],
-	
+	resultscopaOro1: [],
+	resultscopaOro2: [],
+	resultscopaPlata1: [],
+	resultscopaPlata2: [],
 };
 
 const reducerApp = (state = initialState, action) => {
@@ -77,6 +84,26 @@ const reducerApp = (state = initialState, action) => {
 			return {
 				...state,
 				results2: action.payload,
+			}
+		case GET_RESULTSCOPAORO1:
+			return {
+				...state,
+				resultscopaOro1: action.payload,
+			}
+		case GET_RESULTSCOPAORO2:
+			return {
+				...state,
+				resultscopaOro2: action.payload,
+			}
+		case GET_RESULTSCOPAPLATA1:
+			return {
+				...state,
+				resultscopaPlata1: action.payload,
+			}
+		case GET_RESULTSCOPAPLATA2:
+			return {
+				...state,
+				resultscopaPlata2: action.payload,
 			}
 		default:
 			return state;

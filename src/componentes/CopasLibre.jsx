@@ -134,7 +134,7 @@ const DivEncabezado = styled.div`
     width: 80%;
 
     @media (min-width: 768px) {
-		width: 20%;
+		width: 30%;
 		font-size: 1rem;
 	}
 
@@ -142,6 +142,11 @@ const DivEncabezado = styled.div`
         width: 30px;
         height: 30px;
         cursor: pointer;
+
+		@media (min-width: 768px) {
+            width: 50px;
+            height: 50px;
+        }
     }
 `;
 

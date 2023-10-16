@@ -8,7 +8,7 @@ import ResultsLibres from "./ResultsLibres";
 import FixtureLibre from "./FixtureLibre";
 import Footer from "./Footer";
 import CopasLibre from "./CopasLibre";
-
+import ResultCopaLibre from "./ResultCopaLibre";
 
 function ViewLibres() {
 	
@@ -22,6 +22,7 @@ function ViewLibres() {
 				<Torneo />
 				<CopasLibre />
 				<ResultsLibres />
+				<ResultCopaLibre />
 				<Goleadores />
 				<Footer />
 			</DivContainer>
