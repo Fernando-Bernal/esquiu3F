@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getResultsCopa } from "../redux/actions";
+import { getResultsCopa40 } from "../redux/actions";
 import dorada from "../assets/img/copaDorada.png";
 import plateada from "../assets/img/copaPlateada.png";
 
-function ResultCopaLibre() {
-	const dispatch = useDispatch();
+
+function ResultCopa40() {
+    const dispatch = useDispatch();
 	const [copa, setCopa] = useState("Oro");
-	const zona1oro = useSelector((state) => state.reducerLibre.resultscopaOro1);
-	const zona2oro = useSelector((state) => state.reducerLibre.resultscopaOro2);
-	const zona1plata = useSelector((state) => state.reducerLibre.resultscopaPlata1);
-	const zona2plata = useSelector((state) => state.reducerLibre.resultscopaPlata2);
+	const zona1oro = useSelector((state) => state.reducer40.results40CopaOro1);
+	const zona2oro = useSelector((state) => state.reducer40.results40CopaOro2);
+	const zona1plata = useSelector((state) => state.reducer40.results40CopaPlata1);
+	const zona2plata = useSelector((state) => state.reducer40.results40CopaPlata2);
 	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
@@ -20,12 +21,12 @@ function ResultCopaLibre() {
 
 	useEffect(() => {
 		if (copa == "Oro") {
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
+			dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
+			dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
 		}
 		if (copa == "Plata") {
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
+			dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
+			dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
 		}
 	}, [copa]);
 
@@ -44,7 +45,7 @@ function ResultCopaLibre() {
 		currentPage * resultsPerPage,
 		(currentPage + 1) * resultsPerPage
 	);
-console.log(zona1oro)
+
 	useEffect(() => {
 		getResultsForDates(selectedDates);
 	}, [currentPage]);
@@ -81,8 +82,8 @@ console.log(zona1oro)
 						key={date}
 						active={date === fecha[currentPage]}
 						onClick={() => {
-							dispatch(getResultsCopa(`Fecha ${date}`, `${copa} zona 1`));
-							dispatch(getResultsCopa(`Fecha ${date}`, `${copa} zona 2`));
+							dispatch(getResultsCopa40(`Fecha ${date}`, `${copa} zona 1`));
+							dispatch(getResultsCopa40(`Fecha ${date}`, `${copa} zona 2`));
 							//dispatch(getResults2(`Fecha ${date}`));
 						}}
 					>
@@ -154,7 +155,7 @@ console.log(zona1oro)
 	);
 }
 
-export default ResultCopaLibre;
+export default ResultCopa40
 
 const DivContainer = styled.div`
 	position: relative;
@@ -236,7 +237,7 @@ const DivTitulo = styled.h2`
     width: 70%;
 
     @media (min-width: 768px) {
-        width: 80%
+        width: 80%;
     }
 
 `;

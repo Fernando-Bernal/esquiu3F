@@ -26,6 +26,10 @@ export const GET_TORNEO_30PLATA2 = "GET_TORNEO_30Plata zona 2";
 export const GET_FIXTURE_30 = "GET_FIXTURE_30";
 export const GET_RESULTS_30 = "GET_RESULTS_30"
 export const GET_RESULTS_302 = "GET_RESULTS_302";
+export const GET_RESULTS_30COPAORO1 = "GET_RESULTS_30COPAOro zona 1";
+export const GET_RESULTS_30COPAORO2 = "GET_RESULTS_30COPAOro zona 2";
+export const GET_RESULTS_30COPAPLATA1 = "GET_RESULTS_30COPAPlata zona 1";
+export const GET_RESULTS_30COPAPLATA2 = "GET_RESULTS_30COPAPlata zona 2";
 
 export const GET_GOAL_36 = "GET_GOAL_36";
 export const GET_TORNEO_36Zona1 = "GET_TORNEO_36Zona 1";
@@ -35,7 +39,9 @@ export const GET_TORNEO_36ORO2 = "GET_TORNEO_36Oro zona 2";
 export const GET_TORNEO_36PLATA1 = "GET_TORNEO_36Plata zona 1";
 export const GET_TORNEO_36PLATA2 = "GET_TORNEO_36Plata zona 2";
 export const GET_FIXTURE_36 = "GET_FIXTURE_36";
-export const GET_RESULTS_36 = "GET_RESULTS_36"
+export const GET_RESULTS_36 = "GET_RESULTS_36";
+export const GET_RESULTS_36COPAORO1 = "GET_RESULTS_36COPAOro zona 1";
+export const GET_RESULTS_36COPAORO2 = "GET_RESULTS_36COPAOro zona 2";
 
 export const GET_GOAL_40 = "GET_GOAL_40";
 export const GET_TORNEO_40Zona1 = "GET_TORNEO_40Zona 1";
@@ -45,7 +51,11 @@ export const GET_TORNEO_40ORO2 = "GET_TORNEO_40Oro zona 2";
 export const GET_TORNEO_40PLATA1 = "GET_TORNEO_40Plata zona 1";
 export const GET_TORNEO_40PLATA2 = "GET_TORNEO_40Plata zona 2";
 export const GET_FIXTURE_40 = "GET_FIXTURE_40";
-export const GET_RESULTS_40 = "GET_RESULTS_40"
+export const GET_RESULTS_40 = "GET_RESULTS_40" 
+export const GET_RESULTS_40COPAORO1 = "GET_RESULTS_40COPAOro zona 1";
+export const GET_RESULTS_40COPAORO2 = "GET_RESULTS_40COPAOro zona 2";
+export const GET_RESULTS_40COPAPLATA1 = "GET_RESULTS_40COPAPlata zona 1";
+export const GET_RESULTS_40COPAPLATA2 = "GET_RESULTS_40COPAPlata zona 2";
 
 export const GET_GOAL_MAXI = "GET_GOAL_MAXI";
 export const GET_TORNEO_MAXIZona1 = "GET_TORNEO_MAXIZona 1";
@@ -56,6 +66,8 @@ export const GET_TORNEO_MAXIPLATA1 = "GET_TORNEO_MAXIPlata zona 1";
 export const GET_TORNEO_MAXIPLATA2 = "GET_TORNEO_MAXIPlata zona 2";
 export const GET_FIXTURE_MAXI = "GET_FIXTURE_MAXI";
 export const GET_RESULTS_MAXI = "GET_RESULTS_MAXI" 
+export const GET_RESULTS_MAXICOPAORO1 = "GET_RESULTS_MAXICOPAOro zona 1";
+export const GET_RESULTS_MAXICOPAORO2 = "GET_RESULTS_MAXICOPAOro zona 2";
 
 export const GET_NOTICIAS = "GET_NOTICIAS"
 export const GET_NOTICIA_DETAIL = "GET_NOTICIA_DETAIL"
@@ -226,6 +238,20 @@ export function getFixture30(){
   }
 }
 
+export function getResultsCopa30(fecha, zona){
+  const db = getFirestore();
+  const querryCollection = `+30/${fecha}/${zona}`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_RESULTS_30COPA${zona}`, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
 
 //* TORNEO +36
 
@@ -283,6 +309,21 @@ export function getFixture36(){
       dispatch({type: GET_FIXTURE_36, payload: tabla});
     }catch(error){
       console.error("Error al obtener el fixture", error);
+    }
+  }
+}
+
+export function getResultsCopa36(fecha, zona){
+  const db = getFirestore();
+  const querryCollection = `+36/${fecha}/${zona}`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_RESULTS_36COPA${zona}`, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
     }
   }
 }
@@ -347,6 +388,21 @@ export function getFixture40(){
   }
 }
 
+export function getResultsCopa40(fecha, zona){
+  const db = getFirestore();
+  const querryCollection = `+40/${fecha}/${zona}`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_RESULTS_40COPA${zona}`, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
+
 //* TORNEO MAXI
 
 export function getGoalMaxi(){
@@ -407,6 +463,20 @@ export function getFixtureMaxi(){
   }
 }
 
+export function getResultsCopaMaxi(fecha, zona){
+  const db = getFirestore();
+  const querryCollection = `Maxi/${fecha}/${zona}`
+  return async function (dispatch){
+    try{
+      const q = query(collection(db, querryCollection));
+      const querySnapshot = await getDocs(q);
+      const tabla = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({type: `GET_RESULTS_MAXICOPA${zona}`, payload: tabla});
+    }catch(error){
+      console.error("Error al obtener los resultados", error);
+    }
+  }
+}
 
 //* NOTICIAS
 export const getNoticias = () =>{

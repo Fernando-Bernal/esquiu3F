@@ -8,7 +8,11 @@ import {
 	GET_TORNEO_30PLATA2,
     GET_FIXTURE_30,
     GET_RESULTS_30,
-    GET_RESULTS_302
+    GET_RESULTS_302,
+    GET_RESULTS_30COPAORO1, 
+    GET_RESULTS_30COPAORO2,
+    GET_RESULTS_30COPAPLATA1,
+    GET_RESULTS_30COPAPLATA2,
 } from "../actions";
 
 const initialState = {
@@ -21,7 +25,11 @@ const initialState = {
     torneo30Plata2: [],
     fixture30: [],
     results30: [],
-    results302: []
+    results302: [],
+    results30CopaOro1: [],
+    results30CopaOro2: [],
+    results30CopaPlata1: [],
+    results30CopaPlata2: []
 };
 
 function reducer(state = initialState, action) {
@@ -75,6 +83,26 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 results302: action.payload,
+            }
+        case GET_RESULTS_30COPAORO1:
+            return {
+                ...state,
+                results30CopaOro1: action.payload,
+            }
+        case GET_RESULTS_30COPAORO2:
+            return {
+                ...state,
+                results30CopaOro2: action.payload,
+            }
+        case GET_RESULTS_30COPAPLATA1:
+            return {
+                ...state,
+                results30CopaPlata1: action.payload,
+            }
+        case GET_RESULTS_30COPAPLATA2:
+            return {
+                ...state,
+                results30CopaPlata2: action.payload,
             }
 		default:
 			return state;

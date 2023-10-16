@@ -8,6 +8,8 @@ import {
 	GET_TORNEO_MAXIPLATA2,
 	GET_FIXTURE_MAXI,
 	GET_RESULTS_MAXI,
+	GET_RESULTS_MAXICOPAORO1,
+	GET_RESULTS_MAXICOPAORO2,
 } from "../actions";
 
 const initialState = {
@@ -20,6 +22,8 @@ const initialState = {
 	torneoMaxiPlata2: [],
 	fixtureMaxi: [],
 	resultsMaxi: [],
+	resultsMaxiCopaOro1: [],
+	resultsMaxiCopaOro2: [],
 };
 
 function reducer(state = initialState, action) {
@@ -68,6 +72,16 @@ function reducer(state = initialState, action) {
 			return {
 				...state,
 				resultsMaxi: action.payload,
+			};
+		case GET_RESULTS_MAXICOPAORO1:
+			return {
+				...state,
+				resultsMaxiCopaOro1: action.payload,
+			};
+		case GET_RESULTS_MAXICOPAORO2:
+			return {
+				...state,
+				resultsMaxiCopaOro2: action.payload,
 			};
 		default:
 			return state;

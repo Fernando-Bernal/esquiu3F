@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { getResultsCopa } from "../redux/actions";
+import { getResultsCopaMaxi } from "../redux/actions";
 import dorada from "../assets/img/copaDorada.png";
-import plateada from "../assets/img/copaPlateada.png";
 
-function ResultCopaLibre() {
-	const dispatch = useDispatch();
+function ResultCopaMaxi() {
+    const dispatch = useDispatch();
 	const [copa, setCopa] = useState("Oro");
-	const zona1oro = useSelector((state) => state.reducerLibre.resultscopaOro1);
-	const zona2oro = useSelector((state) => state.reducerLibre.resultscopaOro2);
-	const zona1plata = useSelector((state) => state.reducerLibre.resultscopaPlata1);
-	const zona2plata = useSelector((state) => state.reducerLibre.resultscopaPlata2);
+	const zona1oro = useSelector((state) => state.reducerMaxi.resultsMaxiCopaOro1);
+	const zona2oro = useSelector((state) => state.reducerMaxi.resultsMaxiCopaOro2);
+	//const zona1plata = useSelector((state) => state.reducer40.results40CopaPlata1);
+	//const zona2plata = useSelector((state) => state.reducer40.results40CopaPlata2);
 	const [fecha, setFecha] = useState(["1"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
@@ -20,13 +19,13 @@ function ResultCopaLibre() {
 
 	useEffect(() => {
 		if (copa == "Oro") {
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
+			dispatch(getResultsCopaMaxi(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
+			dispatch(getResultsCopaMaxi(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
 		}
-		if (copa == "Plata") {
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
-			dispatch(getResultsCopa(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
-		}
+		// if (copa == "Plata") {
+		// 	dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 1`));
+		// 	dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
+		// }
 	}, [copa]);
 
 	useEffect(() => {
@@ -34,17 +33,17 @@ function ResultCopaLibre() {
             setTabla(zona1oro);
             setTabla2(zona2oro);
         }
-        if (copa == "Plata") {
-            setTabla(zona1plata);
-            setTabla2(zona2plata);
-        }
-	}, [zona1oro, zona2oro, zona1plata, zona2plata, copa]);
+        // if (copa == "Plata") {
+        //     setTabla(zona1plata);
+        //     setTabla2(zona2plata);
+        // }
+	}, [zona1oro, zona2oro, copa]);
 
 	const selectedDates = fecha.slice(
 		currentPage * resultsPerPage,
 		(currentPage + 1) * resultsPerPage
 	);
-console.log(zona1oro)
+
 	useEffect(() => {
 		getResultsForDates(selectedDates);
 	}, [currentPage]);
@@ -68,9 +67,8 @@ console.log(zona1oro)
 	return (
 		<DivContainer>
              <DivEncabezado>
-                <img src={dorada} alt="" onClick={() => setCopa("Oro")} />   
+                <img src={dorada} alt=""  />   
 		    	<DivTitulo>RESULTADOS POR FECHAS {copa.toLocaleUpperCase()}</DivTitulo>
-                <img src={plateada} alt="" onClick={() => setCopa("Plata")} />
             </DivEncabezado>
 			<DivFecha>
 				<BtnFecha disabled={currentPage === 0} onClick={handlePrevPage}>
@@ -81,8 +79,8 @@ console.log(zona1oro)
 						key={date}
 						active={date === fecha[currentPage]}
 						onClick={() => {
-							dispatch(getResultsCopa(`Fecha ${date}`, `${copa} zona 1`));
-							dispatch(getResultsCopa(`Fecha ${date}`, `${copa} zona 2`));
+							dispatch(getResultsCopaMaxi(`Fecha ${date}`, `${copa} zona 1`));
+							dispatch(getResultsCopaMaxi(`Fecha ${date}`, `${copa} zona 2`));
 							//dispatch(getResults2(`Fecha ${date}`));
 						}}
 					>
@@ -154,7 +152,8 @@ console.log(zona1oro)
 	);
 }
 
-export default ResultCopaLibre;
+export default ResultCopaMaxi
+
 
 const DivContainer = styled.div`
 	position: relative;
@@ -167,7 +166,7 @@ const DivEncabezado = styled.div`
     justify-content: space-around;          
     align-items: center;
     margin: 10px auto;
-    width: 80%;
+    width: 91%;
 
     @media (min-width: 768px) {
 		width: 35%;
@@ -236,7 +235,7 @@ const DivTitulo = styled.h2`
     width: 70%;
 
     @media (min-width: 768px) {
-        width: 80%
+        width: 80%;
     }
 
 `;

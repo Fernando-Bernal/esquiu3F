@@ -8,7 +8,7 @@ import Goleadores36 from './Goleadores36'
 import Results36 from './Results36'
 import Footer from "./Footer";
 import Copas36 from './Copas36'
-
+import ResultCopa36 from './ResultCopa36'
 
 function View36() {
   return (
@@ -21,6 +21,7 @@ function View36() {
             <Torneo36 />
 			<Copas36 />
             <Results36 />
+			<ResultCopa36 />
             <Goleadores36 />
 			<Footer />
         </DivContainer>

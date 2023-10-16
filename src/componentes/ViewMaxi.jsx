@@ -7,7 +7,8 @@ import FixtureMaxi from './FixtureMaxi'
 import ResultsMaxi from './ResultsMaxi'
 import GoleadoresMaxi from './GoleadoresMaxi'
 import Footer from "./Footer";
-import CopasMaxi from './CopasMaxi'
+import CopasMaxi from './CopasMaxi';
+import ResultCopaMaxi from './ResultCopaMaxi'
 
 function ViewMaxi() {
   return (
@@ -20,6 +21,7 @@ function ViewMaxi() {
             <TorneoMaxi />
 			<CopasMaxi />
             <ResultsMaxi />
+			<ResultCopaMaxi />
             <GoleadoresMaxi />
 			<Footer />
         </DivContainer>

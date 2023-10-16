@@ -8,6 +8,8 @@ import {
   GET_TORNEO_36PLATA2,
   GET_FIXTURE_36,
   GET_RESULTS_36,
+  GET_RESULTSCOPAORO1,
+  GET_RESULTSCOPAORO2,
 } from "../actions";
 
 
@@ -20,7 +22,9 @@ const initialState = {
     torneo36Plata1: [],
     torneo36Plata2: [],
     fixture36: [],
-    results36: []
+    results36: [],
+    results36CopaOro1: [],
+    results36CopaOro2: [],
 }
 function reducer(state = initialState, action) {
     switch (action.type) {
@@ -68,6 +72,16 @@ function reducer(state = initialState, action) {
         return {
           ...state,
           results36: action.payload,
+        }
+      case GET_RESULTSCOPAORO1:
+        return {
+          ...state,
+          results36CopaOro1: action.payload,
+        }
+      case GET_RESULTSCOPAORO2:
+        return {
+          ...state,
+          results36CopaOro2: action.payload,
         }
       default:
         return state
