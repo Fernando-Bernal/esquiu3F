@@ -7,6 +7,7 @@ import styled from "styled-components";
 import ResultsLibres from "./ResultsLibres";
 import FixtureLibre from "./FixtureLibre";
 import Footer from "./Footer";
+import CopasLibre from "./CopasLibre";
 
 
 function ViewLibres() {
@@ -19,6 +20,7 @@ function ViewLibres() {
 				<H2>CATEGORÍA LIBRE</H2>
 				<FixtureLibre />
 				<Torneo />
+				<CopasLibre />
 				<ResultsLibres />
 				<Goleadores />
 				<Footer />

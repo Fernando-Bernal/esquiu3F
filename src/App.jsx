@@ -7,12 +7,12 @@ import AdminImportTorneo from './componentes/AdminImportTorneo';
 import AdminResults from './componentes/AdminResults';
 import AdminFixture from './componentes/AdminFixture';
 import AdminNews from './componentes/AdminNews';
+import Campus from './componentes/Campus';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
 import View36 from './componentes/View36';
 import View40 from './componentes/View40';
 import ViewMaxi from './componentes/ViewMaxi';
-import Campus from './componentes/Campus';
 import Sinteticas from './componentes/Sinteticas';
 import EsquiuDay from './componentes/EsquiuDay';
 import AuthContextProvider from './context/authContext'

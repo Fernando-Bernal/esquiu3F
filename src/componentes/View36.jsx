@@ -7,6 +7,7 @@ import Fixture36 from './Fixture36'
 import Goleadores36 from './Goleadores36'
 import Results36 from './Results36'
 import Footer from "./Footer";
+import Copas36 from './Copas36'
 
 
 function View36() {
@@ -18,6 +19,7 @@ function View36() {
             <H2>CATEGORÍA +36</H2>
             <Fixture36 />
             <Torneo36 />
+			<Copas36 />
             <Results36 />
             <Goleadores36 />
 			<Footer />

@@ -7,6 +7,7 @@ import Fixture40 from "./Fixture40";
 import Goleadores40 from "./Goleadores40";
 import Results40 from "./Results40";
 import Footer from "./Footer";
+import Copas40 from "./Copas40";
 
 
 function View40() {
@@ -18,6 +19,7 @@ function View40() {
             <H2>CATEGORÍA +40</H2>
             <Fixture40 />
             <Torneo40 />
+			<Copas40 />
             <Results40 />
             <Goleadores40 />
 			<Footer />

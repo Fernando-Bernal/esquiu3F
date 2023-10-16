@@ -7,6 +7,7 @@ import Goleadores30 from "./Goleadores30";
 import Fixture30 from "./Fixture30";
 import Results30 from "./Results30";
 import Footer from "./Footer";
+import Copas30 from "./Copas30";
 
 
 function View30() {
@@ -18,6 +19,7 @@ function View30() {
         <H2>CATEGORÍA +30</H2>
 		<Fixture30 />
         <Torneo30 />
+		<Copas30 />
 		<Results30 />
         <Goleadores30 />
 		<Footer />

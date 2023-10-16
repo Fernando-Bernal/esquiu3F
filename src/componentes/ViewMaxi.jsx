@@ -7,6 +7,7 @@ import FixtureMaxi from './FixtureMaxi'
 import ResultsMaxi from './ResultsMaxi'
 import GoleadoresMaxi from './GoleadoresMaxi'
 import Footer from "./Footer";
+import CopasMaxi from './CopasMaxi'
 
 function ViewMaxi() {
   return (
@@ -17,6 +18,7 @@ function ViewMaxi() {
             <H2>CATEGORÍA MAXI</H2>
             <FixtureMaxi />
             <TorneoMaxi />
+			<CopasMaxi />
             <ResultsMaxi />
             <GoleadoresMaxi />
 			<Footer />
