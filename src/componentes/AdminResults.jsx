@@ -148,6 +148,10 @@ function AdminResults() {
 					</option>
 					<option value="Zona1">Zona1</option>
 					<option value="Zona2">Zona2</option>
+					<option value="Oro zona 1">Oro zona 1</option>
+					<option value="Oro zona 2">Oro zona 2</option>
+					<option value="Plata zona 1">Plata zona 1</option>
+					<option value="Plata zona 2">Plata zona 2</option>
 		
 				</Select>
 				<CSVReader
