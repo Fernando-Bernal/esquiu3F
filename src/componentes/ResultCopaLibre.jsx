@@ -12,7 +12,7 @@ function ResultCopaLibre() {
 	const zona2oro = useSelector((state) => state.reducerLibre.resultscopaOro2);
 	const zona1plata = useSelector((state) => state.reducerLibre.resultscopaPlata1);
 	const zona2plata = useSelector((state) => state.reducerLibre.resultscopaPlata2);
-	const [fecha, setFecha] = useState(["1"]);
+	const [fecha, setFecha] = useState(["1", "2", "3"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);

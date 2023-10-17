@@ -11,7 +11,7 @@ function ResultCopa36() {
 	const zona2oro = useSelector((state) => state.reducer36.results36CopaOro2);
 	//const zona1plata = useSelector((state) => state.reducer40.results40CopaPlata1);
 	//const zona2plata = useSelector((state) => state.reducer40.results40CopaPlata2);
-	const [fecha, setFecha] = useState(["1"]);
+	const [fecha, setFecha] = useState(["1", "2", "3", "4"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
