@@ -7,7 +7,7 @@ function Results30() {
 	const dispatch = useDispatch();
 	const results = useSelector((state) => state.reducer30.results30);
 	const results2 = useSelector((state) => state.reducer30.results302);
-	const [fecha, setFecha] = useState(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]);
+	const [fecha, setFecha] = useState(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
