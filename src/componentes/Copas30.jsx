@@ -141,12 +141,12 @@ const DivEncabezado = styled.div`
         width: 30px;
         height: 30px;
         cursor: pointer;
-    }
 
-	@media (min-width: 768px) {
+		@media (min-width: 768px) {
             width: 50px;
             height: 50px;
         }
+    }
 `;
 
 const DivTitulo = styled.h2`
@@ -157,6 +157,7 @@ const DivTitulo = styled.h2`
 	font-weight: bold;
 	color: #dbdee1;
 `;
+
 
 const DivTabla = styled.div`
 	width: 90%;
