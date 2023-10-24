@@ -8,8 +8,8 @@ import {
   GET_TORNEO_36PLATA2,
   GET_FIXTURE_36,
   GET_RESULTS_36,
-  GET_RESULTSCOPAORO1,
-  GET_RESULTSCOPAORO2,
+  GET_RESULTS_36COPAORO1,
+  GET_RESULTS_36COPAORO2,
 } from "../actions";
 
 
@@ -73,12 +73,12 @@ function reducer(state = initialState, action) {
           ...state,
           results36: action.payload,
         }
-      case GET_RESULTSCOPAORO1:
+      case GET_RESULTS_36COPAORO1:
         return {
           ...state,
           results36CopaOro1: action.payload,
         }
-      case GET_RESULTSCOPAORO2:
+      case GET_RESULTS_36COPAORO2:
         return {
           ...state,
           results36CopaOro2: action.payload,

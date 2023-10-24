@@ -106,13 +106,17 @@ const DivImg = styled.div`
 	justify-content: center;
 	height: 250px;
 	width: 80%;
-	margin: 0 auto;
+	margin: 10px auto;
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
+	@media (min-width: 768px) {
+		width: auto;
+	}
+
 	img {
 		width: -webkit-fill-available;
-		object-fit: fill;
+		object-fit: cover;
 		border-radius: 10px;
 	}
 `;

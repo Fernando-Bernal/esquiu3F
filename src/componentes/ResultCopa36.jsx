@@ -27,7 +27,7 @@ function ResultCopa36() {
 		// 	dispatch(getResultsCopa40(`Fecha ${[fecha.length ]}`, `${copa} zona 2`));
 		// }
 	}, [copa]);
-
+console.log(zona1oro)
 	useEffect(() => {
         if (copa == "Oro") {
             setTabla(zona1oro);
