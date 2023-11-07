@@ -6,6 +6,8 @@ import {
 	GET_TORNEO_MAXIORO2,
 	GET_TORNEO_MAXIPLATA1,
 	GET_TORNEO_MAXIPLATA2,
+	GET_TORNEO_MAXIDESAFIO1,
+	GET_TORNEO_MAXIDESAFIO2,
 	GET_FIXTURE_MAXI,
 	GET_RESULTS_MAXI,
 	GET_RESULTS_MAXICOPAORO1,
@@ -24,6 +26,8 @@ const initialState = {
 	resultsMaxi: [],
 	resultsMaxiCopaOro1: [],
 	resultsMaxiCopaOro2: [],
+	torneoMaxiDesafio1: [],
+	torneoMaxiDesafio2: [],
 };
 
 function reducer(state = initialState, action) {
@@ -82,6 +86,16 @@ function reducer(state = initialState, action) {
 			return {
 				...state,
 				resultsMaxiCopaOro2: action.payload,
+			};
+		case GET_TORNEO_MAXIDESAFIO1:
+			return {
+				...state,
+				torneoMaxiDesafio1: action.payload,
+			};
+		case GET_TORNEO_MAXIDESAFIO2:
+			return {
+				...state,
+				torneoMaxiDesafio2: action.payload,
 			};
 		default:
 			return state;

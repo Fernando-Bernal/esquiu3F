@@ -167,6 +167,8 @@ function AdminImportTorneo() {
 					<option value="Oro zona 2">Oro zona 2</option>
 					<option value="Plata zona 1">Plata zona 1</option>
 					<option value="Plata zona 2">Plata zona 2</option>
+					<option value="Desafio zona 1">Desafío zona 1</option>
+					<option value="Desafio zona 2">Desafío zona 2</option>
 				</Select>
 				<BtnRojo onClick={() => deleteCollection()}>
 					{loading ? "Borrando datos" : "Borrar datos viejos"}

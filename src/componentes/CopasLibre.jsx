@@ -5,47 +5,78 @@ import styled from "styled-components";
 import { getTorneoZona } from "../redux/actions";
 import dorada from "../assets/img/copaDorada.png";
 import plateada from "../assets/img/copaPlateada.png";
+import desafio from "../assets/img/copaTrofeo.png";
 
 function CopasLibre() {
-    const dispatch = useDispatch();
-    const [copa, setCopa] = useState("ORO")
+	const dispatch = useDispatch();
+	const [copa, setCopa] = useState("ORO");
 	const zona1oro = useSelector((state) => state.reducerLibre.torneolibresOro1);
 	const zona2oro = useSelector((state) => state.reducerLibre.torneolibresOro2);
-	const zona1plata = useSelector((state) => state.reducerLibre.torneolibresPlata1);
-	const zona2plata = useSelector((state) => state.reducerLibre.torneolibresPlata2);
+	const zona1plata = useSelector(
+		(state) => state.reducerLibre.torneolibresPlata1
+	);
+	const zona2plata = useSelector(
+		(state) => state.reducerLibre.torneolibresPlata2
+	);
+	const zona1desafio = useSelector(
+		(state) => state.reducerLibre.torneolibresDesafio1
+	);
+	const zona2desafio = useSelector(
+		(state) => state.reducerLibre.torneolibresDesafio2
+	);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
-
 
 	useEffect(() => {
 		if (copa == "ORO") {
 			dispatch(getTorneoZona("Oro zona 1"));
 			dispatch(getTorneoZona("Oro zona 2"));
 		}
-        if (copa == "PLATA") {
-            dispatch(getTorneoZona("Plata zona 1"));
-            dispatch(getTorneoZona("Plata zona 2"));
-        }
+		if (copa == "PLATA") {
+			dispatch(getTorneoZona("Plata zona 1"));
+			dispatch(getTorneoZona("Plata zona 2"));
+		}
+		if (copa == "DESAFIO") {
+			dispatch(getTorneoZona("Desafio zona 1"));
+			dispatch(getTorneoZona("Desafio zona 2"));
+		}
 	}, [copa]);
 
 	useEffect(() => {
-        if (copa == "ORO") {
-            setTabla(zona1oro);
-            setTabla2(zona2oro);
-        }
-        if (copa == "PLATA") {
-            setTabla(zona1plata);
-            setTabla2(zona2plata);
-        }
-	}, [zona1oro, zona2oro, zona1plata, zona2plata, copa]);
+		if (copa == "ORO") {
+			setTabla(zona1oro);
+			setTabla2(zona2oro);
+		}
+		if (copa == "PLATA") {
+			setTabla(zona1plata);
+			setTabla2(zona2plata);
+		}
+		if (copa == "DESAFIO") {
+			setTabla(zona1desafio);
+			setTabla2(zona2desafio);
+		}
+	}, [
+		zona1oro,
+		zona2oro,
+		zona1plata,
+		zona2plata,
+		zona1desafio,
+		zona2desafio,
+		copa,
+	]);
 
-  return (
-    <DivContainer>
-            <DivEncabezado>
-                <img src={dorada} alt="" onClick={() => setCopa("ORO")} />
-			    <DivTitulo>COPA {copa}</DivTitulo>
-                <img src={plateada} alt="" onClick={() => setCopa("PLATA")} />
-            </DivEncabezado>
+	return (
+		<DivContainer>
+			<DivEncabezado>
+				<div>
+					<DivTitulo>COPA {copa}</DivTitulo>
+				</div>
+				<div>
+					<img src={dorada} alt="" onClick={() => setCopa("ORO")} />
+					<img src={plateada} alt="" onClick={() => setCopa("PLATA")} />
+					<img src={desafio} alt="" onClick={() => setCopa("DESAFIO")} />
+				</div>
+			</DivEncabezado>
 			<DivTabla>
 				<H5>Zona 1</H5>
 				<table className="table table-sm table-bordered">
@@ -115,11 +146,10 @@ function CopasLibre() {
 				</table>
 			</DivTabla>
 		</DivContainer>
-  )
+	);
 }
 
-export default CopasLibre
-
+export default CopasLibre;
 
 const DivContainer = styled.div`
 	position: relative;
@@ -127,27 +157,33 @@ const DivContainer = styled.div`
 `;
 
 const DivEncabezado = styled.div`
-    display: flex;
-    justify-content: space-around;          
-    align-items: center;
-    margin: 10px auto;
-    width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px auto;
+	width: 90%;
 
-    @media (min-width: 768px) {
+	@media (min-width: 768px) {
 		width: 30%;
 		font-size: 1rem;
 	}
 
-    img{
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
+	img {
+		width: 30px;
+		height: 30px;
+		margin-right: 3px;
+		cursor: pointer;
 
 		@media (min-width: 768px) {
-            width: 50px;
-            height: 50px;
-        }
-    }
+			width: 50px;
+			height: 50px;
+			margin-right: 40px;
+		}
+
+		:nth-child(4) {
+			width: 40px;
+		}
+	}
 `;
 
 const DivTitulo = styled.h2`

@@ -13,6 +13,8 @@ import {
 	GET_RESULTSCOPAORO2,
 	GET_RESULTSCOPAPLATA1,
 	GET_RESULTSCOPAPLATA2,
+	GET_TORNEO_LIBRESDESAFIO1,
+	GET_TORNEO_LIBRESDESAFIO2,
 	
 } from "../actions";
 
@@ -31,6 +33,8 @@ const initialState = {
 	resultscopaOro2: [],
 	resultscopaPlata1: [],
 	resultscopaPlata2: [],
+	torneolibresDesafio1: [],
+	torneolibresDesafio2: [],
 };
 
 const reducerApp = (state = initialState, action) => {
@@ -79,32 +83,42 @@ const reducerApp = (state = initialState, action) => {
 			return {
 				...state,
 				results: action.payload,
-			}
+			};
 		case GET_RESULTS2:
 			return {
 				...state,
 				results2: action.payload,
-			}
+			};
 		case GET_RESULTSCOPAORO1:
 			return {
 				...state,
 				resultscopaOro1: action.payload,
-			}
+			};
 		case GET_RESULTSCOPAORO2:
 			return {
 				...state,
 				resultscopaOro2: action.payload,
-			}
+			};
 		case GET_RESULTSCOPAPLATA1:
 			return {
 				...state,
 				resultscopaPlata1: action.payload,
-			}
+			};
 		case GET_RESULTSCOPAPLATA2:
 			return {
 				...state,
 				resultscopaPlata2: action.payload,
-			}
+			};
+		case GET_TORNEO_LIBRESDESAFIO1:
+			return {
+				...state,
+				torneolibresDesafio1: action.payload,
+			};
+		case GET_TORNEO_LIBRESDESAFIO2:
+			return {
+				...state,
+				torneolibresDesafio2: action.payload,
+			};
 		default:
 			return state;
 	}

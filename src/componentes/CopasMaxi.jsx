@@ -4,30 +4,46 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import { getTorneoMaxi } from "../redux/actions";
 import dorada from "../assets/img/copaDorada.png";
+import desafio from "../assets/img/copaTrofeo.png";
+
 function CopasMaxi() {
     const dispatch = useDispatch();
+	const [copa, setCopa] = useState("ORO")
     const zona1 = useSelector((state) => state.reducerMaxi.torneoMaxiOro1);
 	const zona2 = useSelector((state) => state.reducerMaxi.torneoMaxiOro2);
+	const zona1desafio = useSelector((state) => state.reducerMaxi.torneoMaxiDesafio1);
+	const zona2desafio = useSelector((state) => state.reducerMaxi.torneoMaxiDesafio2);
 	const [tabla, setTabla] = useState([]);
 	const [tabla2, setTabla2] = useState([]);
 
 	useEffect(() => {
-		if (zona1?.length === 0) {
+		if (copa == "ORO") {
 			dispatch(getTorneoMaxi("Oro zona 1"));
 			dispatch(getTorneoMaxi("Oro zona 2"));
 		}
-	}, []);
+		if (copa == "DESAFIO") {
+			dispatch(getTorneoMaxi("Desafio zona 1"));
+			dispatch(getTorneoMaxi("Desafio zona 2"));
+		}
+	}, [copa]);
 
 	useEffect(() => {
-		setTabla(zona1);
-		setTabla2(zona2);
-	}, [zona1, zona2]);
+		if (copa == "ORO") {
+			setTabla(zona1);
+			setTabla2(zona2);
+		}
+		if (copa == "DESAFIO") {
+			setTabla(zona1desafio);
+			setTabla2(zona2desafio);
+		}
+	}, [zona1, zona2, zona1desafio, zona2desafio, copa]);
   
     return (
     <DivContainer>
             <DivEncabezado>
-                <img src={dorada} alt=""/>
-			    <DivTitulo>COPA ORO</DivTitulo>
+                <img src={dorada} alt="" onClick={() => setCopa("ORO")}/>
+			    <DivTitulo>COPA {copa}</DivTitulo>
+				<img src={desafio} alt="" onClick={() => setCopa("DESAFIO")}/>
             </DivEncabezado>
 			<DivTabla>
 				<H5>Zona 1</H5>
