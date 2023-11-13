@@ -113,6 +113,12 @@ function CopasMaxi() {
 					</tbody>
 				</table>
 			</DivTabla>
+			<DivDetail>
+				<p>
+					<span style={{ color: "red", marginRight: "2px"}}>*</span> 
+					En caso de igualdad de puntos, clasifica el mejor posicionado en la tabla general
+				</p>
+			</DivDetail>
 		</DivContainer>
   )
 }
@@ -194,5 +200,32 @@ const Td = styled.td`
 
 	@media (min-width: 768px) {
 		font-size: 1rem;
+	}
+`;
+
+const DivDetail = styled.div`
+	width: 90%;
+	height: auto;
+	position: relative;
+	margin: auto;
+	border-radius: 10px;
+	background-color: #f8f9fa;
+	box-shadow: 0 0 10px #ccb367;
+	margin-bottom: 20px;
+	overflow: auto;
+	font-size: 0.7rem;
+	font-weight: 600;
+	padding: 10px;
+
+	@media (min-width: 768px) {
+		width: 40%;
+		font-size: 1rem;
+	}
+
+	p{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
 	}
 `;
