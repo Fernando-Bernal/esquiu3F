@@ -7,8 +7,8 @@ import dorada from "../assets/img/copaDorada.png";
 import plateada from "../assets/img/copaPlateada.png";
 
 function Copas40() {
-    const dispatch = useDispatch();
-    const [copa, setCopa] = useState("ORO")
+	const dispatch = useDispatch();
+	const [copa, setCopa] = useState("ORO");
 	const zona1oro = useSelector((state) => state.reducer40.torneo40Oro1);
 	const zona2oro = useSelector((state) => state.reducer40.torneo40Oro2);
 	const zona1plata = useSelector((state) => state.reducer40.torneo40Plata1);
@@ -21,30 +21,30 @@ function Copas40() {
 			dispatch(getTorneo40("Oro zona 1"));
 			dispatch(getTorneo40("Oro zona 2"));
 		}
-        if (copa == "PLATA") {
-            dispatch(getTorneo40("Plata zona 1"));
-            dispatch(getTorneo40("Plata zona 2"));
-        }
+		if (copa == "PLATA") {
+			dispatch(getTorneo40("Plata zona 1"));
+			dispatch(getTorneo40("Plata zona 2"));
+		}
 	}, [copa]);
 
 	useEffect(() => {
-        if (copa == "ORO") {
-            setTabla(zona1oro);
-            setTabla2(zona2oro);
-        }
-        if (copa == "PLATA") {
-            setTabla(zona1plata);
-            setTabla2(zona2plata);
-        }
+		if (copa == "ORO") {
+			setTabla(zona1oro);
+			setTabla2(zona2oro);
+		}
+		if (copa == "PLATA") {
+			setTabla(zona1plata);
+			setTabla2(zona2plata);
+		}
 	}, [zona1oro, zona2oro, zona1plata, zona2plata, copa]);
 
-  return (
-    <DivContainer>
-            <DivEncabezado>
-                <img src={dorada} alt="" onClick={() => setCopa("ORO")} />
-			    <DivTitulo>COPA {copa}</DivTitulo>
-                <img src={plateada} alt="" onClick={() => setCopa("PLATA")} />
-            </DivEncabezado>
+	return (
+		<DivContainer>
+			<DivEncabezado>
+				<img src={dorada} alt="" onClick={() => setCopa("ORO")} />
+				<DivTitulo>COPA {copa}</DivTitulo>
+				<img src={plateada} alt="" onClick={() => setCopa("PLATA")} />
+			</DivEncabezado>
 			<DivTabla>
 				<H5>Zona 1</H5>
 				<table className="table table-sm table-bordered">
@@ -115,15 +115,20 @@ function Copas40() {
 			</DivTabla>
 			<DivDetail>
 				<p>
-					<span style={{ color: "red", marginRight: "5px"}}>*</span> 
-					En caso de igualdad de puntos, clasifica el mejor posicionado en la tabla general				</p>
+					<span style={{ color: "red", marginRight: "5px" }}>*</span>
+					En caso de igualdad de puntos, clasifica el mejor posicionado en la
+					tabla general{" "}
+				</p>
+				<p>
+					<span style={{ color: "red", marginRight: "5px" }}>*</span>
+					Quita de 4 puntos a las palmas por artículo 4.2.1.b
+				</p>
 			</DivDetail>
 		</DivContainer>
-  )
+	);
 }
 
-export default Copas40
-
+export default Copas40;
 
 const DivContainer = styled.div`
 	position: relative;
@@ -131,27 +136,27 @@ const DivContainer = styled.div`
 `;
 
 const DivEncabezado = styled.div`
-    display: flex;
-    justify-content: space-around;          
-    align-items: center;
-    margin: 10px auto;
-    width: 80%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 10px auto;
+	width: 80%;
 
-    @media (min-width: 768px) {
+	@media (min-width: 768px) {
 		width: 30%;
 		font-size: 1rem;
 	}
 
-    img{
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
+	img {
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
 
 		@media (min-width: 768px) {
-            width: 50px;
-            height: 50px;
-        }
-    }
+			width: 50px;
+			height: 50px;
+		}
+	}
 `;
 
 const DivTitulo = styled.h2`
@@ -221,7 +226,7 @@ const DivDetail = styled.div`
 		font-size: 1rem;
 	}
 
-	p{
+	p {
 		display: flex;
 		align-items: center;
 		justify-content: center;
