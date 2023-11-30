@@ -9,8 +9,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import teamDef from "../assets/img/team_photo.png";
 import logoDef from "../assets/img/ph_team5.png";
-import { logout } from "../redux/actions";
+import { getJugadores, logout } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+
 
 function Users() {
 	
@@ -21,6 +22,8 @@ function Users() {
 	const fotoFileInputRef = useRef(null);
 	const equipo = useSelector((state) => state.reducerUsuario.user);
 	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
+
+
 
 	const handleEscudoFileChange = async (e) => {
 		// Aquí puedes manejar el cambio de archivo
@@ -246,7 +249,8 @@ const DivTable = styled.div`
 	border-radius: 10px;
 	background-color: rgb(248, 249, 250);
 	box-shadow: rgb(204, 179, 103) 0px 0px 10px;
-	overflow: auto;
+	
+	margin-bottom: 20px;
 
 	@media (min-width: 768px) {
 		width: 60%;

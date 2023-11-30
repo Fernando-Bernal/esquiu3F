@@ -430,22 +430,32 @@ export const logout = () => {
   };
 }
 
-export function loginTeam(email){
+export function loginTeam(email, league){
 	const db = getFirestore();
 	return async function (dispatch) {
 	  try {
-		const q = query(collection(db, "Equipos", "libres", email))
+		const q = query(collection(db, "Equipos", league, email))
 		const querySnapshot = await getDocs(q);
     const team = querySnapshot.docs[0] ? { ...querySnapshot.docs[0].data(), id: querySnapshot.docs[0].id } : null;
 		dispatch({ type: LOGINTEAM, payload: team });
-    const j = query(collection(db, "Equipos", "libres", email, email, "jugadores"));
-    const jSnapshot = await getDocs(j)
-    const player = jSnapshot.docs.map((doc) => ({ ...doc.data()}))
-    dispatch({type: JUGADORES, payload: player})
 	  } catch (error) {
 		console.error("Error al loguearse", error);
 	  }
 	};
+}
+
+export function getJugadores(email, league){
+  const db = getFirestore();
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, "Equipos", league, email, email, "jugadores"));
+      const querySnapshot = await getDocs(q);
+      const jugadores = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({ type: JUGADORES, payload: jugadores });      
+    } catch (error) {
+      console.error("Error al obtener los jugadores", error);
+    }
+  }
 }
 
 //* NOTICIAS

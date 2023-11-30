@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
 	getFirestore,
 	collection,
@@ -12,8 +12,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { getJugadores } from "../redux/actions";
 
-function validate(post) {
+function validate(post, imageUpload, pdfUpload) {
 	let errors = {};
 
 	if (post.apellido === "") {
@@ -34,17 +35,18 @@ function validate(post) {
 	if (post.tel_contacto === "") {
 		errors.tel_contacto = "Debe ingresar un tel de contacto";
 	} else errors.tel_contacto = "";
-	if (post.foto === "") {
-		errors.foto = "Debe ingresar un foto";
+	if (post.foto === null) {
+		errors.foto = "Debe ingresar una foto";
 	} else errors.foto = "";
-	if (post.ficha_medica === "") {
-		errors.ficha_medica = "Debe ingresar un ficha medica";
+	if (post.ficha_medica === null) {
+		errors.ficha_medica = "Debe ingresar una ficha medica";
 	} else errors.ficha_medica = "";
 	return errors;
 }
 
 function FormAddPlayer() {
 	const db = getFirestore();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
 	const user = useSelector((state) => state.reducerUsuario.user);
@@ -60,14 +62,14 @@ function FormAddPlayer() {
 		tel: "",
 		tel_contacto: "",
 		foto: "",
-		ficha_medica: "",
+		ficha_medica: null,
 	});
 
 	function handleChange(e) {
-		setPost({
-			...post,
-			[e.target.name]: e.target.value,
-		});
+			setPost({
+			  ...post,
+			  [e.target.name]: e.target.value,
+			});
 		setErrors(
 			validate({
 				...post,
@@ -75,14 +77,14 @@ function FormAddPlayer() {
 			})
 		);
 	}
-
+console.log(post)
 	const handleImageUpload = async () => {
 		if (imageUpload) {
 			try {
 				const storage = getStorage();
 				const storageRef = ref(
 					storage,
-					`equipos/${equipo.email}/${post.dni}/foto`
+					`equipos/${user.email}/${post.dni}/foto`
 				);
 				await uploadBytes(storageRef, imageUpload);
 				const downloadURL = await getDownloadURL(storageRef);
@@ -101,7 +103,7 @@ function FormAddPlayer() {
 				const storage = getStorage();
 				const storageRef = ref(
 					storage,
-					`equipos/${equipo.email}/${post.dni}/pdf`
+					`equipos/${user.email}/${post.dni}/pdf`
 				);
 				await uploadBytes(storageRef, pdfUpload);
 				const downloadURL = await getDownloadURL(storageRef);
@@ -140,7 +142,7 @@ function FormAddPlayer() {
 		// Guardar el nuevo post en Firestore
 		const postsCollection = collection(
 			db,
-			`Equipos/libres/${user.email}/${user.email}/jugadores/`
+			`Equipos/${user.league}/${user.email}/${user.email}/jugadores/`
 		);
     const documentRef = doc(postsCollection, post.dni);
 		try {
@@ -167,12 +169,13 @@ function FormAddPlayer() {
 				showConfirmButton: false,
 				timer: 1500,
 			});
+			dispatch(getJugadores(user.email, user.league));
 			navigate("/usuario");
 		} catch (error) {
 			console.error("Error al guardar el post:", error);
 		}
 	};
-	console.log(errors);
+	
 	return (
 		<DivBackground>
 			<Header />
@@ -221,20 +224,27 @@ function FormAddPlayer() {
 						name="foto"
 						onChange={(evento) => {
 							setImageUpload(evento.target.files[0]);
+							setPost(foto = imageUpload);
 						}}
 					/>
 					<ContactLabel htmlFor="">Ficha médica</ContactLabel>
 					<ContactInput
 						type="file"
 						name="ficha_medica"
-						onChange={(e) => handleChange(e)}
+						onChange={(e) =>{
+							setPdfUpload(e.target.files[0]);
+							post.ficha_medica = pdfUpload;
+						}}
 					/>
 					{errors.apellido === "" &&
 					errors.nombre === "" &&
 					errors.dni === "" &&
 					errors.fecha_nacimiento === "" &&
 					errors.tel === "" &&
-					errors.tel_contacto === "" ? (
+					errors.tel_contacto === "" 
+					// errors.foto != "Debe ingresar una foto" &&
+					// errors.ficha_medica != "Debe ingresar una ficha medica" 
+						? (
 						<ContactButton
 							type="submit"
 							id="button"
@@ -262,6 +272,9 @@ function FormAddPlayer() {
 					)}
 				</form>
 			</ContactWrapper>
+			<DivMsg>
+				Luego de apretar el boton enviar, ten pasiencia, puede tardar unos segundos en cargar y automaticamente seras redirigido a la pagina de usuario
+			</DivMsg>
 			<Footer />
 		</DivBackground>
 	);
@@ -329,5 +342,19 @@ const ContactButton = styled.input`
 
 	&:hover {
 		background-color: #431076;
+	}
+`;
+
+const DivMsg = styled.div`
+	margin: 20px auto;
+	padding: 30px;
+	background-color: rgba(41, 50, 47, 0.311);
+	max-width: 80%;
+	box-sizing: border-box;
+	border-radius: 10px;
+	color: white;
+	@media (min-width: 768px) {
+		width: 30%;
+		font-size: 1.1rem;
 	}
 `;

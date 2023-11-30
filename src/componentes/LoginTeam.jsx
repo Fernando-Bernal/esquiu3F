@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userAuth } from "../context/authContext";
 import { useDispatch } from "react-redux";
-import { loginTeam } from "../redux/actions";
+import { getJugadores, loginTeam } from "../redux/actions";
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -12,6 +12,7 @@ function LoginTeam() {
 	const dispatch = useDispatch();
 	const [userAccount, setUserAccount] = useState({
 		email: "",
+		league: "",
 		password: "",
 	});
 
@@ -27,14 +28,15 @@ function LoginTeam() {
 	const handleSubmit = async (e) => {
 		try {
 			e.preventDefault();
-			dispatch(loginTeam(userAccount.email));
+			dispatch(loginTeam(userAccount.email, userAccount.league));
+			dispatch(getJugadores(userAccount.email, userAccount.league));
 			await signIn(userAccount.email, userAccount.password);
 			navigate("/");
 		} catch (error) {
 			alert("Datos incorrectos");
 		}
 	};
-
+console.log(userAccount)
 	return (
 		<Container>
 			<Header />
@@ -43,6 +45,17 @@ function LoginTeam() {
 				<DivCampos>
 					<label htmlFor="email">Email:</label>
 					<input type="email" id="email" name="email" onChange={handleChange} />
+				</DivCampos>
+				<DivCampos>
+					<label htmlFor="league">Liga:</label>
+					<DivSelect name="league" id="league" onChange={handleChange}>
+						<option value="">Categorias</option>
+						<option value="libres">Libres</option>
+						<option value="30">30</option>
+						<option value="36">36</option>
+						<option value="40">40</option>
+						<option value="maxi">Maxi</option>
+					</DivSelect>
 				</DivCampos>
 				<DivCampos>
 					<label htmlFor="password">Contraseña:</label>
@@ -94,7 +107,7 @@ const Form = styled.form`
 	justify-content: center;
 	margin: 20px auto;
 	width: 80%;
-	height: 40%;
+	height: 45%;
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
@@ -156,3 +169,24 @@ const DivCampos = styled.div`
 		margin-right: 10px;
 	}
 `;
+
+const DivSelect = styled.select`
+	width: 100%;
+	height: 30px;
+	border-radius: 10px;
+	border: none;
+	margin-top: 5px;
+	background-color: #f2d608;
+	color: #ffffff;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 2px 2px 4px #000000;
+	text-align: center;
+	&:hover {
+		background-color: #666666;
+	}
+
+	@media (min-width: 768px) {
+		width: 150px;
+	}
+`
