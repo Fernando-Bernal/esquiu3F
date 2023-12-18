@@ -1,7 +1,9 @@
-import { LOGIN, LOGOUT } from "../actions";
+import { LOGIN, LOGOUT, LOGINTEAM, JUGADORES, UPDATE_JUGADOR } from "../actions";
 
 const initialState = {
-	user: null
+	user: null,
+	jugadores: [],
+	updateJugador: {}
 };
 
 function reducer(state = initialState, action) {
@@ -16,6 +18,21 @@ function reducer(state = initialState, action) {
 				...state,
 				user: null,
 			};
+		case LOGINTEAM:
+			return {
+				...state,
+				user: action.payload,
+			}
+		case JUGADORES:
+			return {
+				...state,
+				jugadores: action.payload
+			}
+		case UPDATE_JUGADOR:
+			return {
+				...state,
+				updateJugador: action.payload
+			}
         default:
             return state;
     }

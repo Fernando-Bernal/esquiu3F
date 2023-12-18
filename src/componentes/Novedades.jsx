@@ -39,11 +39,11 @@ export default Novedades;
 const Container = styled.div`
 	background-color: #ebebeb;
 	width: 100%;	
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	z-index: -2;
-	
 	h1{
 		text-align: center;
 		margin-top: 20px;
@@ -65,7 +65,6 @@ const Section = styled.section`
 	position: relative;
 	z-index: -10;
 	background-color: #ebebeb;
-	min-height: 100vh;
 	margin: 20px auto;
 
 	@media (min-width: 768px) {

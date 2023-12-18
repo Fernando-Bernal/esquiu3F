@@ -20,30 +20,39 @@ function Header() {
 					<img src={logo} alt="logo" />
 				</Link>
 				<div className={`links ${clicked ? "active" : ""}`}>
-					{user ? (
-						<a className="ahedear" href="/admin-torneo">
+					{user === "esquiu3sm@gmail.com" ? (
+						<Link className="ahedear" to="/admin-torneo">
 							Administrar
-						</a>
+						</Link>
 					) : (
 						""
 					)}
-					<a className="ahedear" href="/torneo-libre">
+					{user === null ? (
+						<Link className="ahedear" to="/loginTeam">
+							Inscripción
+						</Link>
+					) : (
+						<Link className="ahedear" to="/usuario">
+							Usuario
+						</Link>
+					)}
+					<Link className="ahedear" to="/torneo-libre">
 						Torneo SQ3
-					</a>
+					</Link>
 					<DropdownCampus3 className="ahedear" />
-					<a className="ahedear" href="/novedades">
+					<Link className="ahedear" to="/novedades">
 						Novedades
-					</a>
-					<a className="ahedear" href="/quienes-somos">
+					</Link>
+					<Link className="ahedear" to="/quienes-somos">
 						Quiénes somos
-					</a>
-					<a
+					</Link>
+					<Link
 						className="ahedear"
 						target="_blank"
-						href="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..."
+						to="https://api.whatsapp.com/send?phone=+5493517665551&text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..."
 					>
 						Contacto
-					</a>
+					</Link>
 				</div>
 				<div className="burger">
 					<BurgerMenu clicked={clicked} handleClick={handleClick} />

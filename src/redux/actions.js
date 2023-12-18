@@ -77,8 +77,13 @@ export const GET_RESULTS_MAXICOPAORO2 = "GET_RESULTS_MAXICOPAOro zona 2";
 export const GET_NOTICIAS = "GET_NOTICIAS"
 export const GET_NOTICIA_DETAIL = "GET_NOTICIA_DETAIL"
 export const CLEAR_NOTICIA_DETAIL = "CLEAR_NOTICIA_DETAIL"
+
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
+export const LOGINTEAM = "LOGINTEAM"
+export const JUGADORES = "JUGADORES"
+export const UPDATE_JUGADOR = "UPDATE_JUGADOR"
+
 
 //* TORNEO LIBRES
 export function getGoalLibres() {
@@ -520,6 +525,50 @@ export const logout = () => {
   };
 }
 
+export function loginTeam(email, league){
+	const db = getFirestore();
+	return async function (dispatch) {
+	  try {
+		const q = query(collection(db, "Equipos", league, league, email, email))
+		const querySnapshot = await getDocs(q);
+    const team = querySnapshot.docs[0] ? { ...querySnapshot.docs[0].data(), id: querySnapshot.docs[0].id } : null;
+		dispatch({ type: LOGINTEAM, payload: team });
+	  } catch (error) {
+		console.error("Error al loguearse", error);
+	  }
+	};
+}
+
+export function getJugadores(email, league){
+  const db = getFirestore();
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, "Equipos", league, league, email, email, email, "jugadores"));
+      const querySnapshot = await getDocs(q);
+      const jugadores = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      dispatch({ type: JUGADORES, payload: jugadores });      
+    } catch (error) {
+      console.error("Error al obtener los jugadores", error);
+    }
+  }
+}
+
+export function updateJugador(email, league, id){
+  const db = getFirestore();
+  return async function (dispatch) {
+    try {
+      const q = query(collection(db, "Equipos", league, league, email, email, email, "jugadores"));
+      const querySnapshot = await getDocs(q);
+      const jugadores = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
+      const jugador = jugadores.find(jugador => jugador.id === id);
+      dispatch({ type: UPDATE_JUGADOR, payload: jugador });      
+    } catch (error) {
+      console.error("Error al obtener los jugadores", error);
+    }
+  }
+}
+
+//* NOTICIAS
 export const getNoticiaDetail = (title) =>{
   const db = getFirestore();
   return async function (dispatch) {
