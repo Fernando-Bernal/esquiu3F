@@ -4,12 +4,12 @@ import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "firebase/storage";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, updateDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, updateDoc, doc, deleteDoc} from "firebase/firestore";
 import Header from "./Header";
 import Footer from "./Footer";
 import teamDef from "../assets/img/team_photo.png";
 import logoDef from "../assets/img/ph_team5.png";
-import { getJugadores, logout } from "../redux/actions";
+import { getJugadores, logout, updateJugador } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 
@@ -22,7 +22,6 @@ function Users() {
 	const fotoFileInputRef = useRef(null);
 	const equipo = useSelector((state) => state.reducerUsuario.user);
 	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
-
 
 
 	const handleEscudoFileChange = async (e) => {
@@ -38,7 +37,9 @@ function Users() {
 				const equipoRef = doc(
 					db,
 					"Equipos",
-					"libres",
+					equipo.league,
+					equipo.league,
+					equipo.email,
 					equipo.email,
 					equipo.email
 				);
@@ -65,7 +66,7 @@ function Users() {
 				const downloadURL = await getDownloadURL(storageRef);
 
 				// Actualiza la propiedad "foto" del equipo en Firestore
-				const equipoRef = doc(db, "Equipos", "libres", equipo.email, equipo.email);
+				const equipoRef = doc(db, "Equipos", equipo.league, equipo.email, equipo.email);
 				await updateDoc(equipoRef, { foto: downloadURL }); // Actualiza la propiedad "foto"
 
 				console.log("Foto subida y documento actualizado con éxito.");
@@ -78,12 +79,26 @@ function Users() {
 		}
 	};
 
+	const handleUpdatePlayer = async (email, league, id) => {
+		dispatch(updateJugador(email, league, id)).then(() => {
+			navigate("/usuario/equipo/editar-jugador");
+		});
+	}
+
+	const handleDeletePlayer = async (email, league, id) => {
+		const jugadorRef = doc(db, "Equipos", league, email, email, "jugadores", id);
+		await deleteDoc(jugadorRef);
+		dispatch(getJugadores(email, league));
+	}
+
+
 	const handleLogOut = () => {
 		navigate("/");
 		dispatch(logout());
 	};
 
 	return (
+		
 		<Container>
 			<Header />
 			<DivContainer>
@@ -93,7 +108,7 @@ function Users() {
 				<Contenedor>
 					<Img src={equipo.escudo ? equipo.escudo : logoDef} alt="" />
 					<Btn onClick={() => escudoFileInputRef.current.click()}>
-						EDITA FOTO
+						EDITA ESCUDO
 					</Btn>
 					<input
 						type="file"
@@ -135,19 +150,19 @@ function Users() {
 						</tr>
 					</thead>
 					<tbody>
-						{jugadores.map((e) => {
+						{jugadores.map((jugador) => {
 							return (
 								<tr>
 									<Td>
-										<Imagen src={e.foto} alt="" />
+										<Imagen src={jugador.foto} alt="" />
 									</Td>
-									<Td>{e.nombre}</Td>
-									<Td>{e.apellido}</Td>
-									<Td>{e.dni}</Td>
+									<Td>{jugador.nombre}</Td>
+									<Td>{jugador.apellido}</Td>
+									<Td>{jugador.dni}</Td>
 									<Td>
 										<ColumnBtn>
-											<button>E</button>
-											<button>B</button>
+											<button onClick={() => handleUpdatePlayer(equipo.email, equipo.league, jugador.dni)}>E</button>
+											<button onClick={() => handleDeletePlayer(equipo.email, equipo.league, jugador.dni)}>B</button>
 										</ColumnBtn>
 									</Td>
 								</tr>
@@ -165,11 +180,15 @@ export default Users;
 
 const Container = styled.div`
 	width: 100%;
-	height: -webkit-fill-available;
-	display: flex;
-	flex-direction: column;
+	height: 100vh;
+	overflow-y: auto;
 	position: absolute;
-	z-index: -2;
+	z-index: -5;
+
+	@media (min-width: 768px) {
+		display: flex;
+		flex-direction: column;
+	}
 `;
 
 const DivContainer = styled.div`
@@ -204,6 +223,8 @@ const EscudoFoto = styled.div`
 	display: flex;
 	justify-content: space-around;
 	margin: 40px 0;
+	position: relative;
+	z-index: -3;
 `;
 
 const Contenedor = styled.div`
@@ -212,12 +233,26 @@ const Contenedor = styled.div`
 	width: 120px;
 	display: flex;
 	flex-direction: column;
+	scale: 0.9;
+
+	@media (min-width: 768px) {
+		height: 150px;
+		width: 150px;
+		scale: 1;
+	}
 `;
 
 const Img = styled.img`
 	min-height: 100px;
 	width: inherit;
 	border-radius: 5px;
+	scale: 1;
+
+	@media (min-width: 768px) {
+		height: 120px;
+		width: inherit;
+		scale: 1;
+	}
 `;
 
 const Btn = styled.button`
@@ -225,12 +260,14 @@ const Btn = styled.button`
 	border: 1px solid green;
 	background-color: #0d390b;
 	color: beige;
-	font-weight: 4 00;
+	font-weight: 400;
 `;
 
 const DivBtn = styled.div`
 	display: flex;
 	justify-content: center;
+	position: relative;
+	z-index: -3;
 `;
 
 const BtnNewPlayer = styled.button`
@@ -239,19 +276,25 @@ const BtnNewPlayer = styled.button`
 	background-color: #d08c1e;
 	color: whitesmoke;
 	margin: 20px;
+	scale: 0.8;
+
+	@media (min-width: 768px) {
+		width: auto;
+		scale: 1;
+	}
 `;
 
 const DivTable = styled.div`
 	width: 95%;
 	height: auto;
 	position: relative;
+	z-index: -3;
 	margin: 0 auto;
 	border-radius: 10px;
 	background-color: rgb(248, 249, 250);
 	box-shadow: rgb(204, 179, 103) 0px 0px 10px;
-	
 	margin-bottom: 20px;
-
+	font-size: 0.8rem;
 	@media (min-width: 768px) {
 		width: 60%;
 		font-size: 2rem;
@@ -259,14 +302,13 @@ const DivTable = styled.div`
 `;
 
 const Imagen = styled.img`
-	height: 40px;
-	width: 40px;
+	height: 30px;
+	width: 30px;
 `;
 
 const Td = styled.td`
 	text-align: center;
 	vertical-align: middle;
-
 	@media (min-width: 768px) {
 		font-size: 1.2rem;
 	}

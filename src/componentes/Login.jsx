@@ -29,7 +29,7 @@ function Login() {
           e.preventDefault();
           dispatch(login(userAccount.email));
           await signIn(userAccount.email, userAccount.password);
-          navigate("/admin-torneo");
+          navigate("/admin-jugadores");
         } catch (error) {
           alert('Datos incorrectos');
         }
@@ -91,14 +91,14 @@ const Form = styled.form`
     justify-content: center;
     margin: 20px auto;
     width: 80%;
-    height: 40%;
+    height: 50%;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
     position: relative;
     z-index: -4;
     padding-bottom: 20px;
-    top: 15%;
+    top: 5%;
 
     @media (min-width: 768px) {
         width: 20%;
@@ -121,7 +121,7 @@ const Form = styled.form`
   width: 130px;
   border-radius: 20px;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 2px 2px 4px #000000;
@@ -141,7 +141,7 @@ const DivCampos = styled.div`
     flex-direction: column;
     gap:10px;
     width: 100%;
-    margin: 20px auto;
+    margin: 10px auto;
     align-items: center;
     position: relative;
     z-index: -4;

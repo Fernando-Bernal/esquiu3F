@@ -7,6 +7,7 @@ import AdminImport from './componentes/AdminImport';
 import AdminImportTorneo from './componentes/AdminImportTorneo';
 import AdminResults from './componentes/AdminResults';
 import AdminFixture from './componentes/AdminFixture';
+import AdminPlayers from './componentes/AdminPlayers';
 import AdminNews from './componentes/AdminNews';
 import Campus from './componentes/Campus';
 import EsquiuDay from './componentes/EsquiuDay';
@@ -21,6 +22,7 @@ import Reglamento from './componentes/Reglamento';
 import Sinteticas from './componentes/Sinteticas';
 import Sansiones from './componentes/Sansiones';
 import Users from './componentes/Users';
+import FormUpdatePlayer from './componentes/FormUpdatePlayer';
 import ViewLibres from './componentes/ViewLibres';
 import View30 from './componentes/View30';
 import View36 from './componentes/View36';
@@ -44,6 +46,7 @@ function App() {
           <Route exact path="/admin-goles" element={<Protected>  <AdminImport/>  </Protected>} />
           <Route exact path="/admin-noticias" element={<Protected>  <AdminNews/>  </Protected>} />
           <Route exact path="/admin-resultados" element={<Protected>  <AdminResults/>  </Protected>} />
+          <Route exact path="/admin-jugadores" element={<Protected>  <AdminPlayers/>  </Protected>} />
           <Route exact path="/campus" element={<Campus />} />
           <Route exact path="/sinteticas" element={<Sinteticas />} />
           <Route exact path="/esquiuday" element={<EsquiuDay />} />
@@ -51,6 +54,7 @@ function App() {
           <Route exact path='/loginTeam' element={<LoginTeam />} />
           <Route exact path='/usuario' element={<Users />} />
           <Route exact path='/usuario/equipo' element={<FormAddPlayer />} />
+          <Route exact path='/usuario/equipo/editar-jugador' element={<FormUpdatePlayer />} />
           <Route exact path="/novedades" element={<Novedades />} />
           <Route exact path="/novedades/:id" element={<NovedadesDetalle />} />
           <Route exact path="/quienes-somos" element={<QuienesSomos />} />

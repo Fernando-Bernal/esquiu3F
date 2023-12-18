@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { getFirestore, collection, setDoc, doc } from "firebase/firestore";
+import {
+	getFirestore,
+	collection,
+	setDoc,
+	doc,
+} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -44,28 +49,28 @@ function FormAddPlayer() {
 	const db = getFirestore();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
+	const jugador = useSelector((state) => state.reducerUsuario.updateJugador);
 	const user = useSelector((state) => state.reducerUsuario.user);
 
 	const [errors, setErrors] = useState({});
-	const [imageUpload, setImageUpload] = useState(null);
-	const [pdfUpload, setPdfUpload] = useState(null);
+	const [imageUpload, setImageUpload] = useState(jugador.foto);
+	const [pdfUpload, setPdfUpload] = useState(jugador.ficha_medica);
 	const [post, setPost] = useState({
-		apellido: "",
-		nombre: "",
-		dni: "",
-		fecha_nacimiento: "",
-		tel: "",
-		tel_contacto: "",
-		foto: "",
-		ficha_medica: null,
+		apellido: jugador.apellido,
+		nombre: jugador.nombre,
+		dni: jugador.dni,
+		fecha_nacimiento: jugador.fecha_nacimiento,
+		tel: jugador.tel,
+		tel_contacto: jugador.tel_contacto,
+		foto: jugador.foto,
+		ficha_medica: jugador.ficha_medica,
 	});
 
 	function handleChange(e) {
-		setPost({
-			...post,
-			[e.target.name]: e.target.value,
-		});
+			setPost({
+			  ...post,
+			  [e.target.name]: e.target.value,
+			});
 		setErrors(
 			validate({
 				...post,
@@ -75,7 +80,7 @@ function FormAddPlayer() {
 	}
 
 	const handleImageUpload = async () => {
-		if (imageUpload) {
+		if (imageUpload != jugador.foto) {
 			try {
 				const storage = getStorage();
 				const storageRef = ref(
@@ -90,11 +95,11 @@ function FormAddPlayer() {
 				return null;
 			}
 		}
-		return null;
+		return imageUpload;
 	};
 
 	const handlePdfUpload = async () => {
-		if (pdfUpload) {
+		if (pdfUpload != jugador.ficha_medica) {
 			try {
 				const storage = getStorage();
 				const storageRef = ref(
@@ -109,7 +114,7 @@ function FormAddPlayer() {
 				return null;
 			}
 		}
-		return null;
+		return pdfUpload;
 	};
 
 	const handleSubmit = async (e) => {
@@ -138,25 +143,15 @@ function FormAddPlayer() {
 		// Guardar el nuevo post en Firestore
 		const postsCollection = collection(
 			db,
-			`Equipos/${user.league}/${user.league}/${user.email}/${user.email}/${user.email}/jugadores/`
+			`Equipos/${user.league}/${user.email}/${user.email}/jugadores/`
 		);
-		const documentRef = doc(postsCollection, post.dni);
+    const documentRef = doc(postsCollection, post.dni);
 		try {
 			await setDoc(documentRef, newPost);
 			console.log("Post guardado con éxito");
 			// Restablecer el formulario después de guardar el post
-			setPost({
-				apellido: "",
-				nombre: "",
-				dni: "",
-				fecha_nacimiento: "",
-				tel: "",
-				tel_contacto: "",
-				foto: "",
-				ficha_medica: "",
-			});
-			setImageUpload(null);
-			setPdfUpload(null);
+			//quiero limpiar el estado de jugador
+
 			setErrors({});
 			Swal.fire({
 				position: "center",
@@ -171,7 +166,7 @@ function FormAddPlayer() {
 			console.error("Error al guardar el post:", error);
 		}
 	};
-
+	
 	return (
 		<DivBackground>
 			<Header />
@@ -185,36 +180,35 @@ function FormAddPlayer() {
 					<ContactInput
 						type="text"
 						name="apellido"
+                        value={post.apellido}
 						onChange={(e) => handleChange(e)}
 					/>
 					<ContactLabel htmlFor="">Nombre</ContactLabel>
 					<ContactInput
 						type="text"
 						name="nombre"
-						onChange={(e) => handleChange(e)}
-					/>
-					<ContactLabel htmlFor="">DNI</ContactLabel>
-					<ContactInput
-						type="number"
-						name="dni"
+                        value={post.nombre}
 						onChange={(e) => handleChange(e)}
 					/>
 					<ContactLabel htmlFor="">Fecha de nacimiento</ContactLabel>
 					<ContactInput
 						type="date"
 						name="fecha_nacimiento"
+                        value={post.fecha_nacimiento}
 						onChange={(e) => handleChange(e)}
 					/>
 					<ContactLabel htmlFor="">Tel. personal</ContactLabel>
 					<ContactInput
 						type="number"
 						name="tel"
+                        value={post.tel}
 						onChange={(e) => handleChange(e)}
 					/>
 					<ContactLabel htmlFor="">Tel. de contacto</ContactLabel>
 					<ContactInput
 						type="number"
 						name="tel_contacto"
+                        value={post.tel_contacto}
 						onChange={(e) => handleChange(e)}
 					/>
 					<ContactLabel htmlFor="">Foto</ContactLabel>
@@ -223,14 +217,14 @@ function FormAddPlayer() {
 						name="foto"
 						onChange={(evento) => {
 							setImageUpload(evento.target.files[0]);
-							setPost((foto = imageUpload));
+							setPost(foto = imageUpload);
 						}}
 					/>
 					<ContactLabel htmlFor="">Ficha médica</ContactLabel>
 					<ContactInput
 						type="file"
 						name="ficha_medica"
-						onChange={(e) => {
+						onChange={(e) =>{
 							setPdfUpload(e.target.files[0]);
 							post.ficha_medica = pdfUpload;
 						}}
@@ -240,9 +234,10 @@ function FormAddPlayer() {
 					errors.dni === "" &&
 					errors.fecha_nacimiento === "" &&
 					errors.tel === "" &&
-					errors.tel_contacto === "" ? (
-						// errors.foto != "Debe ingresar una foto" &&
-						// errors.ficha_medica != "Debe ingresar una ficha medica"
+					errors.tel_contacto === "" 
+					// errors.foto != "Debe ingresar una foto" &&
+					// errors.ficha_medica != "Debe ingresar una ficha medica" 
+						? (
 						<ContactButton
 							type="submit"
 							id="button"
@@ -262,18 +257,16 @@ function FormAddPlayer() {
 							{errors.tel_contacto && (
 								<ContactError>{errors.tel_contacto}</ContactError>
 							)}
-							{errors.foto && <ContactError>{errors.foto}</ContactError>}
+							{/* {errors.foto && <ContactError>{errors.foto}</ContactError>}
 							{errors.ficha_medica && (
 								<ContactError>{errors.ficha_medica}</ContactError>
-							)}
+							)} */}
 						</div>
 					)}
 				</form>
 			</ContactWrapper>
 			<DivMsg>
-				Luego de apretar el boton enviar, ten pasiencia, puede tardar unos
-				segundos en cargar y automaticamente seras redirigido a la pagina de
-				usuario
+				El DNI no puede ser modificado, si se cargo mal debe eliminar el jugador y volver a cargarlo.
 			</DivMsg>
 			<Footer />
 		</DivBackground>
