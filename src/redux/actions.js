@@ -463,7 +463,7 @@ export function updateJugador(email, league, id){
   const db = getFirestore();
   return async function (dispatch) {
     try {
-      const q = query(collection(db, "Equipos", league, league,  email, email, email, "jugadores"));
+      const q = query(collection(db, "Equipos", league, league, email, email, email, "jugadores"));
       const querySnapshot = await getDocs(q);
       const jugadores = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id}));
       const jugador = jugadores.find(jugador => jugador.id === id);

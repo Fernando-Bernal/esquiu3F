@@ -80,7 +80,7 @@ const Container = styled.div`
 
 	@media (min-width: 768px) {
 		width: 100%;
-		height: 110%;
+		height: 100%;
 	}
 `
 
@@ -102,6 +102,7 @@ const Form = styled.form`
 
     @media (min-width: 768px) {
         width: 20%;
+        height: 45%;
     }
     
   h2 {

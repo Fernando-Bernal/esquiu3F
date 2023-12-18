@@ -66,7 +66,7 @@ function Users() {
 				const downloadURL = await getDownloadURL(storageRef);
 
 				// Actualiza la propiedad "foto" del equipo en Firestore
-				const equipoRef = doc(db, "Equipos", equipo.league, equipo.email, equipo.email);
+				const equipoRef = doc(db, "Equipos", equipo.league, equipo.league, equipo.email, equipo.email, equipo.email);
 				await updateDoc(equipoRef, { foto: downloadURL }); // Actualiza la propiedad "foto"
 
 				console.log("Foto subida y documento actualizado con éxito.");
@@ -80,13 +80,14 @@ function Users() {
 	};
 
 	const handleUpdatePlayer = async (email, league, id) => {
+		
 		dispatch(updateJugador(email, league, id)).then(() => {
 			navigate("/usuario/equipo/editar-jugador");
 		});
 	}
 
 	const handleDeletePlayer = async (email, league, id) => {
-		const jugadorRef = doc(db, "Equipos", league, email, email, "jugadores", id);
+		const jugadorRef = doc(db, "Equipos", league, league, email, email, email, "jugadores", id);
 		await deleteDoc(jugadorRef);
 		dispatch(getJugadores(email, league));
 	}
@@ -108,7 +109,7 @@ function Users() {
 				<Contenedor>
 					<Img src={equipo.escudo ? equipo.escudo : logoDef} alt="" />
 					<Btn onClick={() => escudoFileInputRef.current.click()}>
-						EDITA ESCUDO
+						FOTO ESCUDO
 					</Btn>
 					<input
 						type="file"
@@ -121,7 +122,7 @@ function Users() {
 				</Contenedor>
 				<Contenedor>
 					<Img src={equipo.foto ? equipo.foto : teamDef} alt="" />
-					<Btn onClick={() => fotoFileInputRef.current.click()}>EDITA FOTO</Btn>
+					<Btn onClick={() => fotoFileInputRef.current.click()}>FOTO EQUIPO</Btn>
 					<input
 						type="file"
 						name="fotoFileInput"

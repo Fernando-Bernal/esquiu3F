@@ -143,7 +143,7 @@ function FormAddPlayer() {
 		// Guardar el nuevo post en Firestore
 		const postsCollection = collection(
 			db,
-			`Equipos/${user.league}/${user.email}/${user.email}/jugadores/`
+			`Equipos/${user.league}/${user.league}/${user.email}/${user.email}/${user.email}/jugadores/`
 		);
     const documentRef = doc(postsCollection, post.dni);
 		try {

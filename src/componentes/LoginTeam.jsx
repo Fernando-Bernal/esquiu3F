@@ -32,6 +32,7 @@ function LoginTeam() {
 			dispatch(getJugadores(userAccount.email, userAccount.league));
 			await signIn(userAccount.email, userAccount.password);
 			navigate("/");
+			alert("Ya puedes entrar a Usuario");
 		} catch (error) {
 			alert("Datos incorrectos");
 		}
