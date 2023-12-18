@@ -25,15 +25,10 @@ import NovedadesDetalle from './componentes/NovedadesDetalle';
 import Protected from './componentes/Protected';
 import QuienesSomos from './componentes/QuienesSomos';
 import Reglamento from './componentes/Reglamento';
-import Sinteticas from './componentes/Sinteticas';
 import Sansiones from './componentes/Sansiones';
 import Users from './componentes/Users';
 import FormUpdatePlayer from './componentes/FormUpdatePlayer';
-import ViewLibres from './componentes/ViewLibres';
-import View30 from './componentes/View30';
-import View36 from './componentes/View36';
-import View40 from './componentes/View40';
-import ViewMaxi from './componentes/ViewMaxi';
+
 
 function App() {
 

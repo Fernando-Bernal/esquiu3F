@@ -144,6 +144,7 @@ function AdminImportTorneo() {
 				<Divbtn>
 					<A href="admin-goles">Goleadores</A>
 					<A href="admin-noticias">Noticias</A>
+					<A href="admin-jugadores">Jugadores</A>
 				</Divbtn>
 			</DivTitle>
 			<DivButtons>

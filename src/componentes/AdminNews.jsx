@@ -116,6 +116,7 @@ function AdminNews() {
 				<Divbtn>
 					<A href="admin-goles">Goleadores</A>
 					<A href="admin-torneo"> Torneo</A>
+					<A href="admin-jugadores">Jugadores</A>
 				</Divbtn>
 			</DivTitle>
 			<div>

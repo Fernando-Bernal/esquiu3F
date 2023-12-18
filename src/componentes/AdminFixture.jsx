@@ -112,6 +112,7 @@ function AdminFixture() {
 				<Divbtn>
 					<A href="admin-torneo"> Torneo</A>
 					<A href="admin-noticias"> Noticias</A>
+					<A href="admin-jugadores">Jugadores</A>
 				</Divbtn>
 			</DivTitle>
 			<DivButtons>
