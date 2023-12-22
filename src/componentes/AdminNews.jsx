@@ -7,6 +7,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Header from "./Header";
 import Footer from "./Footer";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 function validate(post) {
@@ -109,14 +110,14 @@ function AdminNews() {
 			<Header />
 			<DivTitle>
 				<Divbtn>
-					<B href="admin-resultados">Resultados</B>
-					<B href="admin-fixture">Fixture</B>
+					<B><Link to="/admin-resultados"> Resultados</Link></B>
+					<B><Link to="/admin-fixture"> Fixture</Link></B>
 				</Divbtn>
 				<h1>CREAR NOTICIA PARA BLOG</h1>
 				<Divbtn>
-					<A href="admin-goles">Goleadores</A>
-					<A href="admin-torneo"> Torneo</A>
-					<A href="admin-jugadores">Jugadores</A>
+					<A><Link to="/admin-torneo"> Torneo</Link></A>
+					<A><Link to="/admin-torneo"> Torneo</Link></A>
+					<A><Link to="/admin-jugadores">Jugadores</Link></A>
 				</Divbtn>
 			</DivTitle>
 			<div>
@@ -211,6 +212,11 @@ const A = styled.a`
 	right: 10px;
 	margin-left: 10px;
 
+	a{
+		text-decoration: none;
+		color: #fff;
+	}
+
 	&:hover {
 		transform: scale(1.1);
 		transition: all 0.3s ease-in-out;
@@ -229,6 +235,11 @@ const B = styled.a`
 	left: 20px;
 	margin-right: 10px;
 	transition: all 0.3s ease-in-out;
+
+	a{
+		text-decoration: none;
+		color: #fff;
+	}
 
 	&:hover {
 		transform: scale(1.1);

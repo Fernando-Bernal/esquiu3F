@@ -11,6 +11,7 @@ import {
 import Swal from "sweetalert2";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 function AdminResults() {
 	const db = getFirestore();
@@ -103,14 +104,14 @@ function AdminResults() {
 			<Header />
 			<DivTitle>
 				<Divbtn>
-					<B href="admin-goles">Goleadores</B>
-					<B href="admin-fixture">Fixture</B>
+					<B><Link to="/admin-goles"> Goleadores</Link></B>
+					<B><Link to="/admin-fixture"> Fixture</Link></B>
 				</Divbtn>
 				<h1>IMPORTAR TABLA RESULTADOS</h1>
 				<Divbtn>
-					<A href="admin-torneo"> Torneo</A>
-					<A href="admin-noticias"> Noticias</A>
-					<A href="admin-jugadores">Jugadores</A>
+					<A><Link to="/admin-torneo"> Torneo</Link></A>
+					<A><Link to="/admin-noticias"> Noticias</Link></A>
+					<A><Link to="/admin-jugadores">Jugadores</Link></A>
 				</Divbtn>
 			</DivTitle>
 			<DivButtons>
@@ -263,6 +264,11 @@ const A = styled.a`
 	margin-left: 10px;
 	transition: all 0.3s ease-in-out;
 
+	a{
+		text-decoration: none;
+		color: #fff;
+	}
+
 	&:hover {
 		transform: scale(1.1);
 		transition: all 0.3s ease-in-out;
@@ -281,6 +287,11 @@ const B = styled.a`
 	left: 20px;
 	margin-right: 10px;
 	transition: all 0.3s ease-in-out;
+
+	a{
+		text-decoration: none;
+		color: #fff;
+	}
 
 	&:hover {
 		transform: scale(1.1);

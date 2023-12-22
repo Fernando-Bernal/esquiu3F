@@ -29,7 +29,7 @@ function Login() {
           e.preventDefault();
           dispatch(login(userAccount.email));
           await signIn(userAccount.email, userAccount.password);
-          navigate("/admin-jugadores");
+          navigate("/admin-fixture");
         } catch (error) {
           alert('Datos incorrectos');
         }
