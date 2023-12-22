@@ -22,6 +22,7 @@ function Users() {
 	const fotoFileInputRef = useRef(null);
 	const equipo = useSelector((state) => state.reducerUsuario.user);
 	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
+	console.log("🚀 ~ file: Users.jsx:25 ~ Users ~ jugadores:", jugadores.length)
 
 
 	const handleEscudoFileChange = async (e) => {
@@ -134,7 +135,8 @@ function Users() {
 				</Contenedor>
 			</EscudoFoto>
 			<DivBtn>
-				<BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer>
+				{jugadores.length <= 3 ? <BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer> : <MsgMax>Maximo 26 jugadores</MsgMax>}
+					
 				<BtnNewPlayer onClick={() => handleLogOut()}>
 					Cerrar sesión
 				</BtnNewPlayer>
@@ -328,3 +330,9 @@ const ContactInput = styled.input`
 	margin-top: 5px;
 	background-color: blue;
 `;
+
+const MsgMax = styled.h5`
+	color: red;
+	text-align: center;
+	margin: 20px;
+`
