@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/img/logotipo-sq3-torneo.png";
-import Header from "./Header";
-import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 import { getFirestore, collection, getDocs, query } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import back from "../assets/img/back_arrow.png";
+
 function AdminPlayers() {
+	const navigate = useNavigate();
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
 	const [equipos, setEquipos] = useState([]);
@@ -91,34 +93,34 @@ function AdminPlayers() {
 		<div>
 			<DivFilters>
 				<div>
-					<label>Categoría:</label>
-					<select
+					<Label>Categoría:</Label>
+					<Select
 						value={categoriaSeleccionada}
 						onChange={handleCategoriaChange}
 					>
-						<option value="">Seleccionar Categoría</option>
+						<option value=""> Seleccionar</option>
 						{categorias.map((categoria, index) => (
 							<option key={index} value={categoria}>
 								{categoria}
 							</option>
 						))}
-					</select>
-					<button onClick={obtenerEquipos}>Buscar</button>
+					</Select>
+					<Button onClick={obtenerEquipos}>Buscar</Button>
 				</div>
 				<div>
-					<label>Equipo:</label>
-					<select onChange={handleEquipoChange}>
-						<option value="">Seleccionar Equipo</option>
+					<Label>Equipo:</Label>
+					<Select onChange={handleEquipoChange}>
+						<option value="">Seleccionar</option>
 						{equipos.map((equipo, index) => (
 							<option key={index} value={equipo}>
 								{equipo}
 							</option>
 						))}
-					</select>
-					<button onClick={obtenerDatos}>Buscar</button>
+					</Select>
+					<Button onClick={obtenerDatos}>Buscar</Button>
 				</div>
-				<button onClick={handleImprimirClick}>Imprimir</button>
-        <ImgLogo src={logo} alt="" />
+				<Button onClick={handleImprimirClick}>Imprimir</Button>
+        		<ImgLogo src={logo} alt="" onClick={() => navigate("/admin-torneo")} />
 			</DivFilters>
 			<DivTable>
 				<table className="table table-striped">
@@ -175,7 +177,43 @@ const ImgLogo = styled.img`
   }
 `;
 
+const Label = styled.label`
+	margin-right: 5px;
+`;
 
+const Select = styled.select`
+	background-color: #dc940e;
+	color: #fff;
+	height: 30px;
+	border-radius: 5px;	
+	border: none;
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	cursor: pointer;
+	margin-right: 10px;
+	@media (min-width: 768px) {
+		font-size: 1rem;
+	}
+	&:hover {
+		background-color: #c48001;
+	}
+`;
+
+const Button = styled.button`
+	background-color: #dc940e;
+	color: #fff;
+	height: 45px;
+	width: 80px;
+	font-weight: 500;
+	border: none;
+	border-radius: 20px;
+	padding: 5px;
+	cursor: pointer;
+	&:hover {
+		background-color: #c48001;
+	}
+`;
 const DivTable = styled.div`
 	width: 95%;
 	height: auto;

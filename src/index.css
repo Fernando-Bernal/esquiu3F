@@ -56,10 +56,11 @@ body {
   text-align: left;
   white-space: nowrap;
   background-color: #d08c1e;
+  text-align: center;
   
   @media(min-width: 768px) {
     padding: 0.25rem 0rem;
-    background-color: rgb(242, 214, 8) !important;
+    background-color: #d08c1e !important;
   }
 }
 
