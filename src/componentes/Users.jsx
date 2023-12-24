@@ -8,9 +8,11 @@ import { getFirestore, collection, updateDoc, doc, deleteDoc} from "firebase/fir
 import Header from "./Header";
 import Footer from "./Footer";
 import teamDef from "../assets/img/team_photo.png";
-import logoDef from "../assets/img/ph_team5.png";
+import lapiz from "../assets/img/lapiz.png";
+import borrar from "../assets/img/borrar.png";
 import { getJugadores, logout, updateJugador } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+
 
 
 function Users() {
@@ -104,26 +106,12 @@ function Users() {
 		<Container>
 			<Header />
 			<DivContainer>
-				<H4>EDITA INFORMACIÓN DE {equipo.nombre.toUpperCase()}</H4>
+				<H4>{equipo.nombre.toUpperCase()}</H4>
 			</DivContainer>
 			<EscudoFoto>
-				<Contenedor>
-					<Img src={equipo.escudo ? equipo.escudo : logoDef} alt="" />
-					<Btn onClick={() => escudoFileInputRef.current.click()}>
-						FOTO ESCUDO
-					</Btn>
-					<input
-						type="file"
-						name="escudoFileInputRef"
-						accept="image/*"
-						style={{ display: "none" }}
-						onChange={handleEscudoFileChange}
-						ref={escudoFileInputRef} // Ref para acceder al input desde la función
-					/>
-				</Contenedor>
-				<Contenedor>
-					<Img src={equipo.foto ? equipo.foto : teamDef} alt="" />
-					<Btn onClick={() => fotoFileInputRef.current.click()}>FOTO EQUIPO</Btn>
+				<ContenedorEquipo>
+					<ImgEquipo src={equipo.foto ? equipo.foto : teamDef} alt="" />
+					<BtnEquipo onClick={() => fotoFileInputRef.current.click()}><img src={lapiz} /></BtnEquipo>
 					<input
 						type="file"
 						name="fotoFileInput"
@@ -132,7 +120,21 @@ function Users() {
 						onChange={handleFotoFileChange}
 						ref={fotoFileInputRef}
 					/>
-				</Contenedor>
+				</ContenedorEquipo>
+				<ContenedorLogo>
+					<ImgLogo src={equipo.escudo ? equipo.escudo : logoDef} alt="" />
+					<BtnLogo onClick={() => escudoFileInputRef.current.click()}>
+						<img src={lapiz} />
+					</BtnLogo>
+					<input
+						type="file"
+						name="escudoFileInputRef"
+						accept="image/*"
+						style={{ display: "none" }}
+						onChange={handleEscudoFileChange}
+						ref={escudoFileInputRef} // Ref para acceder al input desde la función
+					/>
+				</ContenedorLogo>
 			</EscudoFoto>
 			<DivBtn>
 				{jugadores.length <= 3 ? <BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer> : <MsgMax>Maximo 26 jugadores</MsgMax>}
@@ -142,8 +144,8 @@ function Users() {
 				</BtnNewPlayer>
 			</DivBtn>
 			<DivTable>
-				<table className="table table-striped">
-					<thead>
+				<table className="table table-striped" id="tableUsuario">
+					<thead >
 						<tr>
 							<th id="th">Foto</th>
 							<th id="th">Nombre</th>
@@ -164,8 +166,8 @@ function Users() {
 									<Td>{jugador.dni}</Td>
 									<Td>
 										<ColumnBtn>
-											<button onClick={() => handleUpdatePlayer(equipo.email, equipo.league, jugador.dni)}>E</button>
-											<button onClick={() => handleDeletePlayer(equipo.email, equipo.league, jugador.dni)}>B</button>
+											<ButtonTable onClick={() => handleUpdatePlayer(equipo.email, equipo.league, jugador.dni)}><img src={lapiz} /></ButtonTable>
+											<ButtonTable onClick={() => handleDeletePlayer(equipo.email, equipo.league, jugador.dni)}><img src={borrar} /></ButtonTable>
 										</ColumnBtn>
 									</Td>
 								</tr>
@@ -182,8 +184,8 @@ function Users() {
 export default Users;
 
 const Container = styled.div`
-	width: 100%;
-	height: 100vh;
+	max-width: 100vw;
+	min-height: 100vh;
 	overflow-y: auto;
 	position: absolute;
 	z-index: -5;
@@ -191,26 +193,24 @@ const Container = styled.div`
 	@media (min-width: 768px) {
 		display: flex;
 		flex-direction: column;
+		min-width: 100vw;
 	}
 `;
 
 const DivContainer = styled.div`
-	top: 20px;
+	margin: 20px auto;
 	position: relative;
 	z-index: -3;
 	background-color: #0d390b;
 	border-top: 5px solid #174f14;
 	border-bottom: 5px solid #285a26;
-	/* background-color: #d08c1e;
-	border-top: 5px solid #ffbc5076;
-	border-bottom: 5px solid #a16709; */
 	width: 100%;
 	height: 45px;
+	border-radius: 10px;
 
 	@media (min-width: 768px) {
 		width: 60%;
-		margin: 0 auto;
-		font-size: 1rem;
+		margin: 20px auto;
 	}
 `;
 
@@ -222,48 +222,108 @@ const H4 = styled.h4`
 	margin: 6px;
 	color: beige;
 `;
+
 const EscudoFoto = styled.div`
-	display: flex;
-	justify-content: space-around;
-	margin: 40px 0;
+	margin: 20px auto;
 	position: relative;
 	z-index: -3;
-`;
-
-const Contenedor = styled.div`
-	border-radius: 5px;
-	height: 120px;
-	width: 120px;
-	display: flex;
-	flex-direction: column;
-	scale: 0.9;
+	width: 100%;
+	height: 200px;
 
 	@media (min-width: 768px) {
-		height: 150px;
-		width: 150px;
-		scale: 1;
+		width: 60%;
+		margin: 20px auto;
+		height: 300px;
+																
 	}
 `;
 
-const Img = styled.img`
+const ContenedorEquipo = styled.div`
+	border-radius: 5px;
+	height: 80%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	scale: 1;
+	margin-bottom: 20px;
+	@media (min-width: 768px) {
+		height: 90%;
+		width: 100%;
+		margin-bottom: 0;
+		
+	}
+`;
+
+const BtnEquipo = styled.button`
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;						
+	border: none;
+	scale: 0.6;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	box-shadow: rgb(100, 100, 100) 0px 0px 10px;
+`;
+
+const ImgEquipo = styled.img`
 	min-height: 100px;
 	width: inherit;
 	border-radius: 5px;
 	scale: 1;
 
 	@media (min-width: 768px) {
-		height: 120px;
-		width: inherit;
+		object-fit: cover;
+	}
+`;
+
+const ContenedorLogo = styled.div`
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	scale: 1;
+	background-color: #fdfdfd;
+	box-shadow: rgb(100, 100, 100) 0px 0px 10px;
+
+	@media (min-width: 768px) {
+		height: 130px;
+		width: 130px;
+		scale: 1;
+		bottom: -20px;
+	}
+`;
+
+
+const ImgLogo = styled.img`
+	height: 80px;
+	width: 80px;
+	position: absolute;	
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	
+
+	@media (min-width: 768px) {
+		height: 110px;
+		width: 110px;
 		scale: 1;
 	}
 `;
 
-const Btn = styled.button`
-	margin-top: 5px;
-	border: 1px solid green;
-	background-color: #0d390b;
-	color: beige;
-	font-weight: 400;
+const BtnLogo = styled.button`
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;						
+	border: none;
+	scale: 0.6;
+	position: absolute;
+	right: -10px;
+	bottom: 0;
+	box-shadow: rgb(100, 100, 100) 0px 0px 10px;
 `;
 
 const DivBtn = styled.div`
@@ -280,6 +340,8 @@ const BtnNewPlayer = styled.button`
 	color: whitesmoke;
 	margin: 20px;
 	scale: 0.8;
+	border: none;
+	border-radius: 10px;
 
 	@media (min-width: 768px) {
 		width: auto;
@@ -288,25 +350,30 @@ const BtnNewPlayer = styled.button`
 `;
 
 const DivTable = styled.div`
-	width: 95%;
+	
 	height: auto;
 	position: relative;
 	z-index: -3;
-	margin: 0 auto;
 	border-radius: 10px;
-	background-color: rgb(248, 249, 250);
 	box-shadow: rgb(204, 179, 103) 0px 0px 10px;
-	margin-bottom: 20px;
-	font-size: 0.8rem;
+	scale: 0.95;
+	font-size: 0.7rem;
+	
 	@media (min-width: 768px) {
 		width: 60%;
-		font-size: 2rem;
+		margin: 20px auto;
+		font-size: 1rem;
 	}
 `;
 
 const Imagen = styled.img`
 	height: 30px;
 	width: 30px;
+
+	@media (min-width: 768px) {
+		height: 50px;
+		width: 50px;
+	}
 `;
 
 const Td = styled.td`
@@ -317,18 +384,31 @@ const Td = styled.td`
 	}
 `;
 
-const ColumnBtn = styled.div`
-	display: flex;
-	justify-content: space-around;
+const ButtonTable = styled.button`
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: none;
+	background-color: #f0c683;
+	color: whitesmoke;
+	box-shadow: rgb(100, 100, 100) 0px 0px 10px;
+	scale: 0.4;
+
+	@media (min-width: 768px) {
+		scale: 0.8;
+	}
 `;
 
-const ContactInput = styled.input`
-	width: 100%;
-	border-radius: 10px;
-	height: 45px;
-	border: none;
-	margin-top: 5px;
-	background-color: blue;
+const ColumnBtn = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (min-width: 768px) {
+		justify-content: space-around;
+	}
+
+	
 `;
 
 const MsgMax = styled.h5`

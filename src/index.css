@@ -103,4 +103,13 @@ body {
 #th{
   background-color: #ffba4b;
   font-size: 0.7rem;
+
+  @media(min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+#tableUsuario{
+  scale: 0.99;
+  margin-left: 0px;
 }
