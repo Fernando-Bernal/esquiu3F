@@ -13,10 +13,6 @@ function AdminPlayers() {
 	const [categorias, setCategorias] = useState([]);
 	const [equipos, setEquipos] = useState([]);
 	const [jugadores, setJugadores] = useState([]);
-	console.log(
-		"🚀 ~ file: AdminPlayers.jsx:14 ~ AdminPlayers ~ jugadores:",
-		jugadores
-	);
 	const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
 	const [equipoSeleccionado, setEquipoSeleccionado] = useState("");
 

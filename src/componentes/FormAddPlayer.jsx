@@ -28,9 +28,9 @@ function validate(post, imageUpload, pdfUpload) {
 	if (post.tel === "") {
 		errors.tel = "Debe ingresar un tel";
 	} else errors.tel = "";
-	if (post.tel_contacto === "") {
-		errors.tel_contacto = "Debe ingresar un tel de contacto";
-	} else errors.tel_contacto = "";
+	// if (post.tel_contacto === "") {
+	// 	errors.tel_contacto = "Debe ingresar un tel de contacto";
+	// } else errors.tel_contacto = "";
 	if (post.foto === null) {
 		errors.foto = "Debe ingresar una foto";
 	} else errors.foto = "";
@@ -56,7 +56,7 @@ function FormAddPlayer() {
 		dni: "",
 		fecha_nacimiento: "",
 		tel: "",
-		tel_contacto: "",
+		//tel_contacto: "",
 		foto: "",
 		ficha_medica: null,
 	});
@@ -151,7 +151,7 @@ function FormAddPlayer() {
 				dni: "",
 				fecha_nacimiento: "",
 				tel: "",
-				tel_contacto: "",
+				//tel_contacto: "",
 				foto: "",
 				ficha_medica: "",
 			});
@@ -211,12 +211,12 @@ function FormAddPlayer() {
 						name="tel"
 						onChange={(e) => handleChange(e)}
 					/>
-					<ContactLabel htmlFor="">Tel. de contacto</ContactLabel>
+					{/* <ContactLabel htmlFor="">Tel. de contacto</ContactLabel>
 					<ContactInput
 						type="number"
 						name="tel_contacto"
 						onChange={(e) => handleChange(e)}
-					/>
+					/> */}
 					<ContactLabel htmlFor="">Foto</ContactLabel>
 					<ContactInput
 						type="file"
@@ -239,8 +239,9 @@ function FormAddPlayer() {
 					errors.nombre === "" &&
 					errors.dni === "" &&
 					errors.fecha_nacimiento === "" &&
-					errors.tel === "" &&
-					errors.tel_contacto === "" ? (
+					errors.tel === "" 
+					//errors.tel_contacto === "" 
+					? (
 						// errors.foto != "Debe ingresar una foto" &&
 						// errors.ficha_medica != "Debe ingresar una ficha medica"
 						<ContactButton
@@ -259,9 +260,9 @@ function FormAddPlayer() {
 								<ContactError>{errors.fecha_nacimiento}</ContactError>
 							)}
 							{errors.tel && <ContactError>{errors.tel}</ContactError>}
-							{errors.tel_contacto && (
+							{/* {errors.tel_contacto && (
 								<ContactError>{errors.tel_contacto}</ContactError>
-							)}
+							)} */}
 							{errors.foto && <ContactError>{errors.foto}</ContactError>}
 							{errors.ficha_medica && (
 								<ContactError>{errors.ficha_medica}</ContactError>

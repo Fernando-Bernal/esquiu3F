@@ -204,7 +204,7 @@ const DivContainer = styled.div`
 	background-color: #0d390b;
 	border-top: 5px solid #174f14;
 	border-bottom: 5px solid #285a26;
-	width: 100%;
+	width: 95%;
 	height: 45px;
 	border-radius: 10px;
 

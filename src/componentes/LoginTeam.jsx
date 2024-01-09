@@ -172,7 +172,7 @@ const DivCampos = styled.div`
 `;
 
 const DivSelect = styled.select`
-	width: 100%;
+	width: 60%;
 	height: 30px;
 	border-radius: 10px;
 	border: none;
