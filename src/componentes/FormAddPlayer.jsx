@@ -130,7 +130,7 @@ function FormAddPlayer() {
 			dni: post.dni,
 			fecha_nacimiento: post.fecha_nacimiento,
 			tel: post.tel,
-			tel_contacto: post.tel_contacto,
+			//tel_contacto: post.tel_contacto,
 			foto: imageUrl,
 			ficha_medica: pdfUrl,
 		};

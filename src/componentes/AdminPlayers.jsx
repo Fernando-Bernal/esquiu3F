@@ -12,7 +12,8 @@ function AdminPlayers() {
 	const db = getFirestore();
 	const [categorias, setCategorias] = useState([]);
 	const [equipos, setEquipos] = useState([]);
-	const [jugadores, setJugadores] = useState([]);
+	const [jugadoresIzq, setJugadoresIzq] = useState([]);
+	const [jugadoresDerecha, setJugadoresDerecha] = useState([]);
 	const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
 	const [equipoSeleccionado, setEquipoSeleccionado] = useState("");
 
@@ -65,7 +66,13 @@ function AdminPlayers() {
 					...doc.data(),
 					id: doc.id,
 				}));
-				setJugadores(datosJugadores);
+				// Dividir los datos en dos conjuntos
+				const mitad = Math.ceil(datosJugadores.length / 2);
+				const jugadoresIzquierda = datosJugadores.slice(0, mitad);
+				const jugadoresDerecha = datosJugadores.slice(mitad);
+		  
+				setJugadoresDerecha(jugadoresDerecha);
+				setJugadoresIzq(jugadoresIzquierda);
 			}
 		} catch (error) {
 			console.error("Error al obtener datos:", error);
@@ -131,7 +138,33 @@ function AdminPlayers() {
 						</tr>
 					</thead>
 					<tbody>
-						{jugadores.map((jugador, index) => (
+						{jugadoresIzq.map((jugador, index) => (
+							<tr key={index}>
+								<Td>
+									<Imagen src={jugador.foto} alt="" />
+								</Td>
+								<Td>{jugador.nombre}</Td>
+								<Td>{jugador.apellido}</Td>
+								<Td>{jugador.dni}</Td>
+								<Td></Td>
+								<Td></Td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+				<table className="table table-striped">
+					<thead>
+						<tr>
+							<th id="th">Foto</th>
+							<th id="th">Nombre</th>
+							<th id="th">Apellido</th>
+							<th id="th">DNI</th>
+							<th id="th">Numero</th>
+							<Th id="th">Firma</Th>
+						</tr>
+					</thead>
+					<tbody>
+						{jugadoresDerecha.map((jugador, index) => (
 							<tr key={index}>
 								<Td>
 									<Imagen src={jugador.foto} alt="" />
@@ -221,6 +254,9 @@ const DivTable = styled.div`
 	box-shadow: rgb(204, 179, 103) 0px 0px 10px;
 	margin-bottom: 20px;
 	font-size: 0.8rem;
+	display: flex;
+	gap: 10px;
+	
 	@media (min-width: 768px) {
 		width: 80%;
 		font-size: 2rem;

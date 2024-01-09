@@ -88,7 +88,7 @@ const Container = styled.div`
 
 	h2 {
 		text-align: center;
-		margin-top: 20px;
+		margin-top: 15px;
 		position: relative;
 		z-index: -4;
 		font-weight: bold;
@@ -114,7 +114,7 @@ const Form = styled.form`
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 	position: relative;
 	z-index: -4;
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 	top: 15%;
 
 	@media (min-width: 768px) {
@@ -131,6 +131,7 @@ const Form = styled.form`
 	}
 
 	button {
+		margin-top: 10px;
 		background-color: #f2d608;
 		color: #ffffff;
 		height: 40px;
@@ -155,7 +156,7 @@ const DivCampos = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	margin: 15px auto;
+	margin: 5px auto;
 	align-items: center;
 	position: relative;
 	z-index: -4;

@@ -24,8 +24,7 @@ function Users() {
 	const fotoFileInputRef = useRef(null);
 	const equipo = useSelector((state) => state.reducerUsuario.user);
 	const jugadores = useSelector((state) => state.reducerUsuario.jugadores);
-	console.log("🚀 ~ file: Users.jsx:25 ~ Users ~ jugadores:", jugadores.length)
-
+	
 
 	const handleEscudoFileChange = async (e) => {
 		// Aquí puedes manejar el cambio de archivo
@@ -137,7 +136,7 @@ function Users() {
 				</ContenedorLogo>
 			</EscudoFoto>
 			<DivBtn>
-				{jugadores.length <= 3 ? <BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer> : <MsgMax>Maximo 26 jugadores</MsgMax>}
+				{jugadores.length <= 26 ? <BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer> : <MsgMax>Maximo 26 jugadores</MsgMax>}
 					
 				<BtnNewPlayer onClick={() => handleLogOut()}>
 					Cerrar sesión
@@ -147,6 +146,7 @@ function Users() {
 				<table className="table table-striped" id="tableUsuario">
 					<thead >
 						<tr>
+							<th id="th">Cantidad</th>
 							<th id="th">Foto</th>
 							<th id="th">Nombre</th>
 							<th id="th">Apellido</th>
@@ -155,9 +155,10 @@ function Users() {
 						</tr>
 					</thead>
 					<tbody>
-						{jugadores.map((jugador) => {
+						{jugadores.map((jugador, index) => {
 							return (
 								<tr>
+									<Td>{index + 1}</Td>
 									<Td>
 										<Imagen src={jugador.foto} alt="" />
 									</Td>
