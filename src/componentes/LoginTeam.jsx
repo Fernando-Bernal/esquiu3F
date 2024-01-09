@@ -132,13 +132,13 @@ const Form = styled.form`
 
 	button {
 		margin-top: 10px;
-		background-color: #f2d608;
+		background-color: #c7b107;
 		color: #ffffff;
 		height: 40px;
 		width: 130px;
 		border-radius: 20px;
 		border: none;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		font-weight: bold;
 		cursor: pointer;
 		box-shadow: 2px 2px 4px #000000;
@@ -178,7 +178,7 @@ const DivSelect = styled.select`
 	border-radius: 10px;
 	border: none;
 	margin-top: 5px;
-	background-color: #f2d608;
+	background-color: #c7b107;
 	color: #ffffff;
 	font-weight: bold;
 	cursor: pointer;
