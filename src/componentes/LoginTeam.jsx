@@ -108,7 +108,7 @@ const Form = styled.form`
 	justify-content: center;
 	margin: 20px auto;
 	width: 80%;
-	height: 45%;
+	height: 50%;
 	background-color: #fff;
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
