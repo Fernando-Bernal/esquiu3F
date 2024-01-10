@@ -115,7 +115,7 @@ const Form = styled.form`
 	position: relative;
 	z-index: -4;
 	padding-bottom: 30px;
-	top: 15%;
+	top: 10%;
 
 	@media (min-width: 768px) {
 		width: 20%;
