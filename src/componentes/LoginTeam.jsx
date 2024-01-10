@@ -132,7 +132,7 @@ const Form = styled.form`
 
 	button {
 		margin-top: 10px;
-		background-color: #c7b107;
+		background-color: #e57d15;
 		color: #ffffff;
 		height: 40px;
 		width: 130px;
@@ -178,7 +178,7 @@ const DivSelect = styled.select`
 	border-radius: 10px;
 	border: none;
 	margin-top: 5px;
-	background-color: #c7b107;
+	background-color: #e57d15;
 	color: #ffffff;
 	font-weight: bold;
 	cursor: pointer;
