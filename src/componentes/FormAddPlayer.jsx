@@ -34,9 +34,9 @@ function validate(post, imageUpload, pdfUpload) {
 	if (post.foto === null) {
 		errors.foto = "Debe ingresar una foto";
 	} else errors.foto = "";
-	if (post.ficha_medica === null) {
-		errors.ficha_medica = "Debe ingresar una ficha medica";
-	} else errors.ficha_medica = "";
+	if (post.foto_dni === null) {
+		errors.foto_dni = "Debe ingresar una ficha medica";
+	} else errors.foto_dni = "";
 	return errors;
 }
 
@@ -58,7 +58,7 @@ function FormAddPlayer() {
 		tel: "",
 		//tel_contacto: "",
 		foto: "",
-		ficha_medica: null,
+		foto_dni: null,
 	});
 
 	function handleChange(e) {
@@ -132,7 +132,7 @@ function FormAddPlayer() {
 			tel: post.tel,
 			//tel_contacto: post.tel_contacto,
 			foto: imageUrl,
-			ficha_medica: pdfUrl,
+			foto_dni: pdfUrl,
 		};
 
 		// Guardar el nuevo post en Firestore
@@ -153,7 +153,7 @@ function FormAddPlayer() {
 				tel: "",
 				//tel_contacto: "",
 				foto: "",
-				ficha_medica: "",
+				foto_dni: "",
 			});
 			setImageUpload(null);
 			setPdfUpload(null);
@@ -217,7 +217,7 @@ function FormAddPlayer() {
 						name="tel_contacto"
 						onChange={(e) => handleChange(e)}
 					/> */}
-					<ContactLabel htmlFor="">Foto</ContactLabel>
+					<ContactLabel htmlFor="">Foto del jugador</ContactLabel>
 					<ContactInput
 						type="file"
 						name="foto"
@@ -226,13 +226,13 @@ function FormAddPlayer() {
 							setPost((foto = imageUpload));
 						}}
 					/>
-					<ContactLabel htmlFor="">Ficha médica</ContactLabel>
+					<ContactLabel htmlFor="">Foto frente DNI</ContactLabel>
 					<ContactInput
 						type="file"
-						name="ficha_medica"
+						name="foto_dni"
 						onChange={(e) => {
 							setPdfUpload(e.target.files[0]);
-							post.ficha_medica = pdfUpload;
+							post.foto_dni = pdfUpload;
 						}}
 					/>
 					{errors.apellido === "" &&
@@ -243,7 +243,7 @@ function FormAddPlayer() {
 					//errors.tel_contacto === "" 
 					? (
 						// errors.foto != "Debe ingresar una foto" &&
-						// errors.ficha_medica != "Debe ingresar una ficha medica"
+						// errors.foto_dni != "Debe ingresar una ficha medica"
 						<ContactButton
 							type="submit"
 							id="button"
@@ -264,8 +264,8 @@ function FormAddPlayer() {
 								<ContactError>{errors.tel_contacto}</ContactError>
 							)} */}
 							{errors.foto && <ContactError>{errors.foto}</ContactError>}
-							{errors.ficha_medica && (
-								<ContactError>{errors.ficha_medica}</ContactError>
+							{errors.foto_dni && (
+								<ContactError>{errors.foto_dni}</ContactError>
 							)}
 						</div>
 					)}

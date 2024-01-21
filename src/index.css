@@ -113,3 +113,20 @@ body {
   scale: 0.99;
   margin-left: 0px;
 }
+
+/*!  tablas admin jugadores */
+#tableEquipe th:nth-child(1),
+#tableEquipe td:nth-child(1),
+#tableEquipe th:nth-child(2),
+#tableEquipe td:nth-child(2),
+#tableEquipe th:nth-child(3),
+#tableEquipe td:nth-child(3),
+#tableEquipe th:nth-child(4),
+#tableEquipe td:nth-child(4),
+#tableEquipe th:nth-child(5),
+#tableEquipe td:nth-child(5),
+#tableEquipe th:nth-child(6),
+#tableEquipe td:nth-child(6){
+  max-width: 90px;
+  table-layout: fixed;
+}

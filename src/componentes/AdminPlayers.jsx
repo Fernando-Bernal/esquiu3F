@@ -126,13 +126,14 @@ function AdminPlayers() {
         		<ImgLogo src={logo} alt="" onClick={() => navigate("/admin-torneo")} />
 			</DivFilters>
 			<DivTable>
-				<table className="table table-striped">
+				<table id="tableEquipe" className="table table-striped">
 					<thead>
 						<tr>
 							<th id="th">Foto</th>
 							<th id="th">Nombre</th>
 							<th id="th">Apellido</th>
 							<th id="th">DNI</th>
+							<th id="th">Excepción</th>
 							<th id="th">Numero</th>
 							<Th id="th">Firma</Th>
 						</tr>
@@ -146,19 +147,21 @@ function AdminPlayers() {
 								<Td>{jugador.nombre}</Td>
 								<Td>{jugador.apellido}</Td>
 								<Td>{jugador.dni}</Td>
+								<Td>{jugador.excepcion = false? "X" : "√"}</Td>
 								<Td></Td>
 								<Td></Td>
 							</tr>
 						))}
 					</tbody>
 				</table>
-				<table className="table table-striped">
+				<table id="tableEquipe" className="table table-striped">
 					<thead>
 						<tr>
 							<th id="th">Foto</th>
 							<th id="th">Nombre</th>
 							<th id="th">Apellido</th>
 							<th id="th">DNI</th>
+							<th id="th">Excepción</th>
 							<th id="th">Numero</th>
 							<Th id="th">Firma</Th>
 						</tr>
@@ -172,6 +175,7 @@ function AdminPlayers() {
 								<Td>{jugador.nombre}</Td>
 								<Td>{jugador.apellido}</Td>
 								<Td>{jugador.dni}</Td>
+								<Td>{jugador.excepcion = false? "X" : "√"}</Td>
 								<Td></Td>
 								<Td></Td>
 							</tr>
@@ -245,6 +249,7 @@ const Button = styled.button`
 `;
 const DivTable = styled.div`
 	width: 95%;
+	max-width: 100%;
 	height: auto;
 	position: relative;
 	z-index: -3;
@@ -258,8 +263,8 @@ const DivTable = styled.div`
 	gap: 10px;
 	
 	@media (min-width: 768px) {
-		width: 80%;
-		font-size: 2rem;
+		width: 95%;
+		font-size: 1.7rem;
 	}
 `;
 
@@ -272,10 +277,11 @@ const Td = styled.td`
 	text-align: center;
 	vertical-align: middle;
 	@media (min-width: 768px) {
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 `;
 
+
 const Th = styled.th`
-  width: 150px;
+  width: 200px !important;
 `;

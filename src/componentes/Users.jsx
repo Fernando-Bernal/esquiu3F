@@ -136,7 +136,7 @@ function Users() {
 				</ContenedorLogo>
 			</EscudoFoto>
 			<DivBtn>
-				{jugadores.length <= 26 ? <BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer> : <MsgMax>Maximo 26 jugadores</MsgMax>}
+				{jugadores.length <= 25 ? <BtnNewPlayer onClick={()=> navigate('/usuario/equipo')}> Añade jugador </BtnNewPlayer> : <MsgMax>Maximo 26 jugadores</MsgMax>}
 					
 				<BtnNewPlayer onClick={() => handleLogOut()}>
 					Cerrar sesión
